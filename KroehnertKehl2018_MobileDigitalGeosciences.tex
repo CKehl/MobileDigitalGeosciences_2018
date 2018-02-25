@@ -1,0 +1,209 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno}
+\modulolinenumbers[5]
+
+\usepackage[UKenglish]{babel}
+\usepackage[reqno,fleqn]{amsmath}	% erweiteter Formelsatz und zusätzliche Mathe-Symbole
+\usepackage{breqn}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[mathcal]{euscript} % For caligraphy fonts
+\usepackage{dsfont}
+\usepackage{makeidx}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage{graphicx}
+%\usepackage[pdftex]{graphicx}
+% declare the path(s) where your graphic files are
+%\graphicspath{{.},{./publishImages/}}
+\graphicspath{{.},{./images/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.tif,.jpg}
+\usepackage[center,tight,footnotesize]{subfigure}
+
+%\usepackage{lipsum}
+%\usepackage{xcolor,colortbl,moreverb}
+%\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+%\usepackage{shortvrb}
+%\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+%\usepackage[hidelinks,bookmarks=true]{hyperref}
+%\usepackage{bookmark}
+
+%\usepackage[pdftex,
+%			backref,         % List citing occurences in the References
+%			colorlinks,      % Colored links
+%			citecolor=black,  % Color of cite links
+%			linkcolor=black,  % Color of links
+%			urlcolor=blue   % Color of urls
+%			]{hyperref}
+
+%\usepackage{ctable}
+%\usepackage{gensymb}
+%\usepackage{textcomp}
+\usepackage{pdfpages}
+%\usepackage{cite}
+\usepackage{footnote}
+
+\usepackage{lscape} % or {pdflscape}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{color, colortbl}
+
+%\definecolor{LinkColor}{rgb}{0,0,0.5}
+%\definecolor{orange}{rgb}{1.0,0.5,0}
+%\definecolor{ORANGE}{RGB}{255,165,0}
+%\definecolor{green}{rgb}{0,0.61,0.33}
+%\definecolor{blue}{rgb}{0,0.3,0.65}
+%\definecolor{red}{RGB}{255,99,71}
+
+%\usepackage{xargs}
+%\newcommandx{\chris}[1]{{\color{blue} \textit{(C)} #1}}
+%\newcommandx{\sophie}[1]{{\color{purple} \textit{(J)} #1}}
+%\newcommandx{\change}[1]{{\color{orange} #1}}
+%\newcommandx{\strike}[1]{\change{\sout{#1}}}
+
+%\newcommandx{\chris}[1]{#1}
+%\newcommandx{\sophie}[1]{#1}
+%\newcommandx{\change}[1]{#1}
+%\newcommandx{\strike}[1]{}
+
+%\hyphenpenalty=0
+\usepackage[acronyms,shortcuts]{glossaries}
+\renewcommand*{\acronymfont}[1]{\mbox{#1}}
+\hyphenpenalty=1
+\tolerance=1000
+%\let\oldnewacronym\newacronym
+%\renewcommand\newacronym[3]{\hyphenation{#2}\oldnewacronym{#1}{#2}{#3}}
+
+\hyphenation{Li-dar Map-ping and In-ter-pre-ta-tion En-vi-ron-ment}
+\hyphenation{Dis-crete}
+\hyphenation{In-ter-po-la-tion}
+\hyphenation{di-gi-tal}
+\hyphenation{ele-va-tion}
+\hyphenation{mo-del}
+\input{acronyms}
+
+\journal{Computers \& Geosciences}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+%\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}\setlength\emergencystretch{1.5em}
+
+\begin{frontmatter}
+
+%\title{Elsevier \LaTeX\ template\tnoteref{mytitlenote}}
+\title{Digital Geosciences on Mobile Devices - Concepts, Challenges and Applications}
+%\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+
+%% Group authors per affiliation:
+%\author{Elsevier\fnref{myfootnote}}
+%\address{Radarweg 29, Amsterdam}
+%\fntext[myfootnote]{Since 1880.}
+%\ead[url]{www.elsevier.com}
+
+%% or include affiliations in footnotes:
+%\author[anonymous]{Anonymous\corref{correspondence}}
+%\cortext[correspondence]{Corresponding author}
+%\ead{anonymous}
+
+\author[tudresden]{Melanie Kr\"{o}hnert\corref{correspondence}}
+\cortext[correspondence]{Corresponding author}
+\ead{melanie.kroehnert@tu-dresden.de}
+
+\author[cerege,dtu]{Christian Kehl}
+\ead{chke@dtu.dk}
+
+
+\author[cerege]{Sophie Viseur}
+\ead{viseur@cerege.fr}
+
+\author[uniresearch,uib]{Simon J. Buckley}
+\ead{Simon.Buckley@uni.no}
+
+%\address[anonymous]{anonymous}
+\address[tudresden]{Institute for Photogrammetry \& Remote Sensing, TU Dresden, Helmholtzstr. 10, 01069 Dresden, Germany}
+\address[cerege]{Aix Marseille Universit\'{e}, CNRS, IRD, CEREGE UM 34, Dept. Sedimentary and Reservoir Systems, 13001 Marseille, France}
+\address[uniresearch]{Uni Research AS -- CIPR, Nyg{\aa}rdsgaten 112, 5008 Bergen, Norway}
+\address[uib]{Department of Earth Science, University of Bergen, All\'{e}gaten 41, 5007 Bergen, Norway}
+\address[dtu]{}
+
+
+\begin{abstract}
+
+\end{abstract}
+
+\textbf{Highlights} \\
+\begin{itemize}
+\item point 1
+\item point 2
+\item point 3
+\item point 4
+\item point 5
+\end{itemize}
+
+\begin{keyword}
+discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surface parameterization\sep digital outcrops
+\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+\section{Introduction}
+\label{sec:introduction}
+
+\section{Algorithms}
+\label{sec:algorithms}
+
+\section{Technology}
+\label{sec:technology}
+
+\section{Applications and Requirements}
+\label{sec:applications}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\section*{References}
+
+\bibliography{KroehnertKehl2018_MobileDigitalGeosciences}
+
+\end{document}

@@ -1,0 +1,93 @@
+[1] T. Akenine-Moller, E. Haines, N. Hoffman, Real-Time Rendering, Third
+Edition, CRC Press, 2016. URL: https://books.google.fr/books?id=Xcb1CwAAQBAJ.
+[2] J. J. Royer, P. Mejia, G. Caumon, P. Collon, 3D and 4D Geomodelling Applied to Mineral Resources Exploration – An Introduction, Springer International Publishing, Cham, 2015, pp. 73–89. URL: http://dx.doi.org/10.1007/978-3-319-17428-0_4. doi:10.1007/978-3-319-17428-0_4.
+[3] H. D. Enge, S. J. Buckley, A. Rotevatn, J. A. Howell, From outcrop to reservoir simulation model: Workflow and procedures, Geosphere 3 (2007) 469–490.
+[4] A. Braathen, K. Baelum, H. H. Christiansen, T. Dahl, O. Eiken, H. Elvebakk, F. Hansen, T. H. Hanssen, M. Jochmann, T. A. Johansen, et al., The Longyearbyen CO, Norwegian Journal of Geology (2012).
+[5] B. Issautier, S. Viseur, P. Audigane, Y.-M. le Nindre, Impacts of fluvial reservoir heterogeneity on connectivity: Implications in estimating geological storage capacity for CO2, International Journal of Greenhouse Gas Control 20 (2014) 333 – 349.
+[6] B. B. Nyberg, C. H. Eide, S. J. Buckley, J. A. Howell, Advances in the automated geometric extraction and analysis of geological bodies from virtual outcrops, in: S. J. Buckley, N. Naumann, T. H. Kurz, C. H. Eide (Eds.), Proc. 2nd Virtual Geoscience Conference (VGC), Bergen, Norway,
+2016, pp. 67–68.
+[7] T. H. Kurz, S. J. Buckley, J. A. Howell, D. Schneider, Integration of panoramic hyperspectral imaging with terrestrial lidar data, The Photogrammetric Record 26 (2011) 212–228.
+[8] A. A. Sima, S. J. Buckley, T. H. Kurz, D. Schneider, Semi-automated registration of close-range hyperspectral scans using oriented digital camera imagery and a 3d model, The Photogrammetric Record 29 (2014) 10–29.
+[9] J. Boissonnat, S. Oudot, Provably good sampling and meshing of surfaces, Graphical Models 67 (2005) 405–451.
+[10] H. Edelsbrunner, E. P. Mucke, Three-dimensional alpha shapes, in: Proceedings of the 1992 workshop on Volume visualization, VVS ’92, ACM, New York, NY, USA, 1992, pp. 75–82. URL: http: //doi.acm.org/10.1145/147130.147153. doi:http://doi.acm.org/10. 1145/147130.147153.
+[11] M. Alexa, J. Behr, D. Cohen-Or, S. Fleishman, D. Levin, C. T. Silva, Point set surfaces, in: Proceedings of the conference on Visualization ’01, VIS ’01, IEEE Computer Society, Washington, DC, USA, 2001, pp. 21–28. URL: http://dl.acm.org/citation.cfm?id=601671.601673.
+[12] N. Snavely, S. M. Seitz, R. Szeliski, Photo tourism: exploring photo collections in 3d, ACM transactions on graphics (TOG) 25 (2006) 835–846.
+[13] D. Hodgetts, N. Drinkwater, J. Hodgson, J. Kavanagh, S. Flint, K. Keogh, J. Howell, Three-dimensional geological models from outcrop data using digital data collection techniques: an example from the tanqua karoo depocentre, south africa, Geological Society, London, Special Publications 239 (2004) 57–75.
+[14] I. Trinks, P. Clegg, K. McCaffrey, R. Jones, R. Hobbs, B. Holdsworth, N. Holliman, J. Imber, S. Waggott, R. Wilson, Mapping and analysing virtual outcrops, Visual Geosciences 10 (2005) 13–19.
+[15] P. Wilson, D. Hodgetts, F. Rarity, R. L. Gawthorpe, I. R. Sharp, Structural geology and 4D evolution of a half-graben: New digital outcrop modelling techniques applied to the Nukhul half-graben, Suez Rift, Egypt, Journal of Structural Geology 31 (2009) 328–345.
+[16] F. Rarity, X. Van Lanen, D. Hodgetts, R. Gawthorpe, P. Wilson, I. Fabuel-Perez, J. Redfern, Lidar-based digital outcrops for sedimentological analysis: workflows and techniques, Geological Society, London, Special Publications 387 (2014) 153–183.
+[17] J. Mallet, GOCAD: a computer aided design program for geological applications, in: Three-dimensional modeling with geoscientific information systems, Springer, 1992, pp. 123–141.
+[18] S. Viseur, R. Richet, J. Borgomano, E. Adams, Semi-automated detections of geological features from dom–the gresse-en-vercors cliff, in: 69th EAGE Conference and Exhibition incorporating SPE EUROPEC 2007, 2007.
+[19] G. Caumon, P. Collon-Drouaillet, C. LeCarlier de Veslud, S. Viseur, J. Sausse, Surface-Based 3D Modeling of Geological Structures, Mathematical Geosciences 41 (2009) 927–945.
+[20] R. Richet, J. Borgomano, E. W. Adams, J.-P. Masse, S. Viseur, Numerical outcrop geology applied to stratigraphical modeling of ancient carbonate platforms: the lower cretaceous vercors carbonate platform (se france), Outcrops revitalized, Tools, Techniques and Applications. OJ Martinsen, A. Pulham, P. Haughton and M. Sullivan (Eds)., SEPM Spec. Publ 10 (2011) 195–210.
+[21] X. Xu, C. L. Aiken, K. C. Nielsen, Real time and the virtual outcrop improve geological field mapping, Eos, Transactions American Geophysical Union 80 (1999) 317–324.
+[22] D. Garcia-Selles, O. Falivene, P. Arbues, O. Gratacos, S. Tavani, J. Munoz, Supervised identification and reconstruction of near-planar geological surfaces from terrestrial laser scanning, Computers & Geosciences 37 (2011) 1584 – 1594.
+[23] S. Rusinkiewicz, M. Levoy, Qsplat: a multiresolution point rendering system for large meshes, in: Proceedings of the 27th annual conference on Computer graphics and interactive techniques, SIGGRAPH ’00, ACM Press/Addison-Wesley Publishing Co., New York, NY, USA, 2000, pp. 343–352. URL: http://dx.doi.org/10.1145/344779.344940. doi:10.1145/344779.344940.
+[24] B. Saini-Eidukat, D. P. Schwert, B. M. Slator, Geology explorer: virtual geologic mapping and interpretation, Computers & Geosciences 28 (2002) 1167 – 1176. Shareware and freeware in the Geosciences II. A special issue in honour of John Butler.
+[25] K. Verwer, J. A. Kenter, B. Maathuis, G. Della Porta, Stratal patterns and lithofacies of an intact seismic-scale carboniferous carbonate platform (asturias, northwestern spain): a virtual outcrop model, Geological Society, London, Special Publications 239 (2004) 29–41.
+[26] K. Verwer, D. Adams, J. Kenter, Digital outcrop models: technology and applications, First break 25 (2007) 57–63.
+[27] R. R. Jones, K. J. W. McCaffrey, R. W. Wilson, R. E. Holdsworth, Digital field data acquisition: towards increased quantification of uncertainty during geological mapping, Geological Society, London, Special Publications
+239 (2004) 43–56.
+[28] R. Marshall, R. Wilson, W. Carlson, Procedure models for generating three-dimensional terrain, in: ACM SIGGRAPH Computer Graphics, volume 14, ACM, 1980, pp. 154–162.
+[29] B. Fishman, B. Schachter, Computer display of height fields, Computers & Graphics 5 (1980) 53–60.
+[30] S. J. Buckley, J. A. Howell, H. D. Enge, T. H. Kurz, Terrestrial laser scanning in geology: data acquisition, processing and accuracy considerations, Journal of the Geological Society 165 (2008) 625–638.
+[31] C. H. Eide, J. Howell, S. Buckley, Distribution of discontinuous mudstone beds within wave-dominated shallow-marine deposits: Star point sandstone and blackhawk formation, eastern utah, AAPG Bulletin 98 (2014) 1401–1429.
+[32] A. Rittersbacher, J. A. Howell, S. J. Buckley, Analysis of fluvial architecture in the blackhawk formation, wasatch plateau, utah, u.s.a., using large 3d photorealistic models, Journal of Sedimentary Research 84 (2014) 72–87.
+[33] M. Olariu, C. Aiken, J. Bhattacharya, X. Xu, Interpretation of channelized architecture using three-dimensional photo real models, pennsylvanian deep-water deposits at big rock quarry, arkansas, Marine and Petroleum Geology 28 (2011) 1157–1170.
+[34] D. Minisini, M. Wang, S. C. Bergman, C. Aiken, Geological data extraction from lidar 3-d photorealistic models: A case study in an organic-rich mudstone, eagle ford formation, texas, Geosphere 10 (2014) 610–626.
+[35] R. Hartshorne, Algebraic Geometry, Graduate Texts in Mathematics, Springer New York, 2013. URL: https://books.google.fr/books?id=7z4mBQAAQBAJ.
+[36] A. Gueziec, G. Taubin, F. Lazarus, B. Hom, Cutting and stitching: converting sets of polygons to manifold surfaces, IEEE Transactions on Visualization and Computer Graphics 7 (2001) 136–151.
+[37] J.-L. Mallet, Discrete smooth interpolation, ACM Trans. Graph. 8 (1989) 121–144.
+[38] J.-L. Mallet, Discrete smooth interpolation in geometric modelling, Computer-Aided Design 24 (1992) 178 – 191.
+[39] G. Caumon, F. Lepage, C. H. Sword, J.-L. Mallet, Building and editing a sealed geological model, Mathematical Geology 36 (2004) 405–424.
+[40] G. Caumon, B. Levy, L. Castani ́e, J.-C. Paul, Visualization of grids conforming to geological structures: a topological approach, Computers & Geosciences 31 (2005) 671–680.
+[41] J. Pellerin, B. L ́evy, G. Caumon, A voronoi-based hybrid meshing method, in: International Meshing Roundtable (Research Note), 2012.
+[42] G. Caumon, G. Gray, C. Antoine, M. O. Titeux, Three-Dimensional Implicit Stratigraphic Model Building From Remote Sensing Data on Tetrahedral Meshes: Theory and Application to a Regional Model of La Popa Basin, NE Mexico, IEEE Transactions on Geoscience and Remote Sensing 51 (2013) 1613–1621.
+[43] J. Mallet, Geomodeling, Applied Geostatistics, Oxford University Press, 2002. URL: https://books.google.no/books?id=haihCir0vVcC.
+[44] B. Delaunay, Sur la sphere vide, Izv. Akad. Nauk SSSR, Otdelenie Matematicheskii i Estestvennyka Nauk 7 (1934) 1–2.
+[45] D. Boltcheva, M. Yvinec, J.-D. Boissonnat, Feature preserving Delaunay mesh generation from 3D multi-material images, Computer Graphics Forum 28 (2009).
+[46] J. C. Anderson, C. Garth, M. A. Duchaineau, K. I. Joy, Smooth, volume-accurate material interface reconstruction, IEEE Transactions on Visualization and Computer Graphics 16 (2010) 802–814.
+[47] T. Dey, F. Janoos, J. Levine, Meshing interfaces of multi-label data with delaunay refinement, Engineering with Computers n/a (2011) 1–12. 10.1007/s00366-011-0217-y.
+[48] M. Bern, D. Eppstein, J. Gilbert, Provably good mesh generation, J. Comput. Syst. Sci 48 (1990) 231–241.
+[49] N. Amenta, M. Bern, Surface reconstruction by voronoi filtering, in: Proceedings of the fourteenth annual symposium on Computational geometry, SCG ’98, ACM, New York, NY, USA, 1998, pp. 39–48. URL: http://doi.acm.org/10.1145/276884.276889. doi:http://doi.acm.org/10.1145/276884.276889.
+[50] M. Gopi, S. Krishnan, A fast and efficient projection-based approach for surface reconstruction, in: High Performance Computer Graphics, Multimedia and Visualization, 2002, pp. 1–12.
+[51] M. Meyer, R. Kirby, R. Whitaker, Topology, accuracy, and quality of isosurface meshes using dynamic particles, Visualization and Computer Graphics, IEEE Transactions on 13 (2007) 1704 –1711.
+[52] B. Levy, J.-L. Mallet, Non-distorted texture mapping for sheared triangulated meshes, in: Proceedings of the 25th annual conference on Computer graphics and interactive techniques, ACM, 1998, pp. 343–352.
+[53] R. R. Jones, J. K. Pringle, K. J. McCaffrey, J. Imber, R. Wightman, J. Guo, J. J. Long, Extending digital outcrop geology into the subsurface, Outcrops Revitalized: Tools, Techniques and Applications: SEPM Society for
+Sedimentary Geology 10 (2010) 31–50.
+[54] R. R. Jones, T. F. Wawrzyniec, N. S. Holliman, K. J. McCaffrey, J. Imber, R. E. Holdsworth, Describing the dimensionality of geospatial data in the earth sciences recommendations for nomenclature, Geosphere 4 (2008) 354–359.
+[55] J. o’Rourke, Computational geometry in C, Cambridge university press, 1998.
+[56] M. d. Berg, O. Cheong, M. v. Kreveld, M. Overmars, Computational Geometry: Algorithms and Applications, 3rd ed. ed., Springer-Verlag TELOS, Santa Clara, CA, USA, 2008.
+[57] H. Xu, J. Barbiˇc, Signed distance fields for polygon soup meshes, in: Proceedings of Graphics Interface 2014, GI ’14, Canadian Information Processing Society, Toronto, Ont., Canada, Canada, 2014, pp. 35–41. URL: http://dl.acm.org/citation.cfm?id=2619648.2619655.
+[58] S. Buckley, E. Schwarz, V. Terlaky, J. Howell, R. Arnott, Terrestrial laser scanning combined with photogrammetry for digital outcrop modelling, Laser scanning (2009) 75–80.
+[59] U. Adamy, J. Giesen, M. John, Surface reconstruction using umbrella filters, Comput. Geom. Theory Appl. 21 (2002) 63–86.
+[60] Y. J. Kil, N. Amenta, Gpu-assisted surface reconstruction on locally-uniform samples, in: Meshing roundtable, 2008, pp. 369–385.
+[61] P. Cignoni, M. Callieri, M. Corsini, M. Dellepiane, F. Ganovelli, G. Ranzuglia, MeshLab: an Open-Source Mesh Processing Tool, in: V. Scarano, R. D. Chiara, U. Erra (Eds.), Eurographics Italian Chapter Conference,
+The Eurographics Association, 2008. doi:10.2312/LocalChapterEvents/ ItalChap/ItalianChapConf2008/129-136.
+[62] M. Kazhdan, M. Bolitho, H. Hoppe, Poisson surface reconstruction, in: Proceedings of the fourth Eurographics symposium on Geometry processing, SGP ’06, Eurographics Association, Aire-la-Ville, Switzerland, Switzerland, 2006, pp. 61–70. URL: http://dl.acm.org/citation.cfm?id=1281957.1281965.
+[63] A. Kaehler, G. Bradski, Learning OpenCV 3: Computer Vision in C++ with the OpenCV Library, O’Reilly Media, 2016. URL: https://books.google.fr/books?id=SKy3DQAAQBAJ.
+[64] B. Levy, Constrained texture mapping for polygonal meshes, in: Proceedings of the 28th Annual Conference on Computer Graphics and Interactive Techniques, SIGGRAPH ’01, ACM, New York, NY, USA, 2001, pp. 417–424. URL: http://doi.acm.org/10.1145/383259.383308. doi:10.1145/383259.383308.
+[65] T. K. Dey, J. A. Levine, Delaunay meshing of piecewise smooth complexes without expensive predicates, Algorithms 2 (2009) 1327–1349.
+[66] J. R. Shewchuk, Triangle: Engineering a 2D Quality Mesh Generator and Delaunay Triangulator, in: M. C. Lin, D. Manocha (Eds.), Applied Computational Geometry: Towards Geometric Engineering, volume 1148 of Lecture Notes in Computer Science, Springer-Verlag, 1996, pp. 203–222. From the First ACM Workshop on Applied Computational Geometry.
+[67] M. Desbrun, M. Meyer, P. Alliez, Intrinsic parameterizations of surface meshes, in: Computer Graphics Forum, volume 21, Wiley Online Library, 2002, pp. 209–218.
+[68] M. S. Floater, K. Hormann, Surface parameterization: a tutorial and survey, in: Advances in multiresolution for geometric modelling, Springer, 2005, pp. 157–186.
+[69] B. Levy, S. Petitjean, N. Ray, J. Maillot, Least squares conformal maps for automatic texture atlas generation, in: ACM Transactions on Graphics (TOG), volume 21, ACM, 2002, pp. 362–371.
+[70] A. Sheffer, E. de Sturler, Smoothing an Overlay Grid to Minimize Linear Distortion in Texture Mapping, ACM Trans. Graph. 21 (2002) 874–890.
+[71] A. Sheffer, B. Levy, M. Mogilnitsky, A. Bogomyakov, ABF++: Fast and Robust Angle Based Flattening, ACM Trans. Graph. 24 (2005) 311–330.
+[72] N. Pietroni, M. Tarini, P. Cignoni, Almost isometric mesh parameterization through abstract domains, IEEE Transactions on Visualization and Computer Graphics 16 (2010) 621–635.
+[73] A. A. Sima, X. Bonaventura, M. Feixas, M. Sbert, J. A. Howell, I. Viola, S. J. Buckley, Computer-aided image geometry analysis and subset selection for optimizing texture quality in photorealistic models, Computers & Geosciences 52 (2013) 281 – 291.
+[74] G. Ranzuglia, M. Callieri, M. Dellepiane, P. Cignoni, R. Scopigno, Meshlab as a complete tool for the integration of photos and color with high resolution 3d geometry data, in: CAA 2012 Conference Proceedings, Pallas Publications - Amsterdam University Press (AUP), 2013, pp. 406–416. URL: http://vcg.isti.cnr.it/Publications/2013/RCDCS13.
+[75] D. Girardeau-Montaut, CloudCompare-open source project, Open Source Project (2011).
+[76] M. Attene, M. Campen, L. Kobbelt, Polygon mesh repairing: An application perspective, ACM Computing Surveys (CSUR) 45 (2013) 15.
+[77] P. Liepa, Filling holes in meshes, in: Proceedings of the 2003 Eurographics/ACM SIGGRAPH symposium on Geometry processing, Eurographics Association, 2003, pp. 200–205.
+[78] M. Botsch, L. Kobbelt, M. Pauly, P. Alliez, B. Levy, Polygon mesh processing, CRC press, 2010.
+[79] J. R. Shewchuk, H. Si, Higher-Quality Tetrahedral Mesh Generation for Domains with Small Angles by Constrained Delaunay Refinement, in: Proceedings of the Thirtieth Annual Symposium on Computational Geometry, SOCG’14, ACM, New York, NY, USA, 2014, pp. 290:290–290:299. URL: http://doi.acm.org/10.1145/2582112.2582138. doi:10.1145/2582112.2582138.
+[80] M. Meyer, R. Whitaker, R. M. Kirby, C. Ledergerber, H. Pfister, Particle-based sampling and meshing of surfaces in multimaterial volumes, IEEE Transactions on Visualization and Computer Graphics 14 (2008) 1539-1546.
+[81] C. Kehl, D. F. Malan, E. Eisemann, Conformal multi-material mesh generation from labelled medical volumes, in: 3D-NordOst – Application-oriented Workshop about the Acquisition, Modelling, Processing and Analysis of 3D data, volume 15, GFaI, 2012, pp. 47–56. ISBN 978-3-942709-13-2.
+[82] H. Andra, N. Combaret, J. Dvorkin, E. Glatt, J. Han, M. Kabel, Y. Keehm, F. Krzikalla, M. Lee, C. Madonna, M. Marsh, T. Mukerji, E. H. Saenger, R. Sain, N. Saxena, S. Ricker, A. Wiegmann, X. Zhan, Digital rock physics benchmarks – part II: Computing effective properties, Computers & Geosciences 50 (2013) 33 – 43. Benchmark problems, datasets and methodologies for the computational geosciences.
+[83] N. Amenta, M. Bern, D. Eppstein, The crust and the β-skeleton: combinatorial curve reconstruction, Graph. Models Image Process. 60 (1998) 125–135.
+[84] J. R. Shewchuk, General-dimensional constrained Delaunay and constrained regular triangulations, I: Combinatorial properties, Discrete & Computational Geometry 39 (2008) 580–637.
+[85] P. George, F. Hecht, E. Saltel, Automatic mesh generator with specified boundary, Computer Methods in Applied Mechanics and Engineering 92 (1991) 269 – 288.
+[86] A. Sharf, T. Lewiner, A. Shamir, L. Kobbelt, D. Cohen-Or, Competing fronts for coarsetofine surface reconstruction, Computer Graphics Forum 25 (2006) 389–398.
+[87] A. Djuricic, E. Puttonen, M. Harzhauser, O. Mandic, B. Szekely, N. Pfeifer, 3d central line extraction of fossil oyster shells, ISPRS Annals of Photo- grammetry, Remote Sensing and Spatial Information Sciences III-5 (2016) 121–128.
+[88] T. Lochbuhler, G. Pirot, J. Straubhaar, N. Linde, Conditioning of multiple-point statistics facies simulations to tomographic images, Mathematical Geosciences 46 (2014) 625–645.
