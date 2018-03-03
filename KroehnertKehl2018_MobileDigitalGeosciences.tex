@@ -126,7 +126,7 @@
 \begin{frontmatter}
 
 %\title{Elsevier \LaTeX\ template\tnoteref{mytitlenote}}
-\title{Digital Geosciences on Mobile Devices - Concepts, Challenges and Applications}
+\title{Digital 3D Geosciences on Mobile Devices - Concepts, Challenges and Applications}
 %\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
 
 %% Group authors per affiliation:
@@ -211,7 +211,23 @@ discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surfa
 \end{itemize}
 
 \begin{itemize}
-\item Challenges
+\item Even considering the fast technological development, some challenges around mobile device development exists that are rooted in the technology itself
+\item several techniques and methods - such as \gls{SfM}, \gls{VR} or \gls{AR} - have been demonstrated to work on small-scale lab studies in computer science itself
+\item translation and adaptation of these techniques to specific geoscience case studies and domain-specific issues is prohibited by scale and reliability
+\item Other challenges influencing mobile digital geosciences are short-comings in geo-localization accuracy, object matching- and registration accuracy, geometric- and photometric data processing, data volumes and the availability of off-the-shelf program codes to common problems in computing
+\item these problems are already familiar to disciplines such as software engineering, photogrammetry and data science for established computing platforms (e.g. PCs, workstations, laptops)
+\item there are also problems specific or exclusive to mobile device processes, which are discussed in detail in this article
+\item they contain issues such as device variability, power consumption and computing efficiency (i.e. fast calculations with drastically limited computing capabilities)
+\end{itemize}
+
+\begin{itemize}
+\item For the next sections, the article adheres to following structure:
+\item First, use cases are presented as opening statements to introduce task that are exclusively addressed by mobile devices in the digital geosciences
+\item Secondly, the basics for 3D digital processing for our cases are presented. The overview is limited to the applied concepts to mobile devices and the extensions necessary to make the mapping to such devices.
+\item Then, algorithms that are key to the digital geosciences outdoors are presented. The overview is also meant to highlight that alternative methods are available to achieve the target tasks
+\item Fourth, the algorithms are mapped to the specific mobile technologies and components. The technologies and major parameters that impact geoscience problem applicability are highlighted.
+\item Finally, we showcase and discuss how available mobile systems are used in application scenarios from hydrology and petroleum geology to improve analysis processes, help disseminating acquired knowledge and integrate outdoor measurements in digital workflows
+\item Then, the article is finalized with some concluding remarks and a discussion for future developments in this research trajectory
 \end{itemize}
 
 \section{Target case studies}
@@ -219,6 +235,8 @@ discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surfa
 
 \section{Representation basis -- Geometry and Radiometry}
 \label{sec:representations}
+
+
 
 \section{Algorithms}
 \label{sec:algorithms}
