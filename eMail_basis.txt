@@ -1,0 +1,38 @@
+Journal: Photogrammetric Record or Computers & Geosciences [je nach deinem Belieben, aber die beiden fallen mir da sofort ein]
+Authors: Melanie, Christian, (Studenten?), (Annette, falls sie zu den Anwendungen beitragen wuerde), (Simon, wenn er bei den Anwendungen mithilft), (Sophie, da sie bereits angekuendigt hat gerne einen Absatz zu Virtual Fieldtrips beizusteuern), (H.-G. Maas, wenn er das denn auch gerne mal wuenscht - bei dem grossen Artikel waere das sicher von Vorteil)
+Titel: Digital Geosciences on Mobile Devices - Concepts, Challenges and Applications (fast wie 3D-NO, ist ja auch darauf aufbauend, aber etwas weiter als nur die Registrierung)
+Gliederung:
+
+Motivation:
+- Warum mobile Endgeraete ? - Verbreitung, technischer Fortschritt, Anwendungsszenarien und Industrieinteresse vorhanden
+- Mehrwert fuer die Geowissenschaften ? - Datenverfuegbarkeit on-the-spot, feldbasiertes Arbeiten, crowdsourced Data und voluntary geo-info (VGI)
+- Herausforderung: technischer Fortschritt fuer Teilaspekte in technischer Grundlagenforschung oftmals bewiesen, aber mapping auf Anwendungsgebiet schwierig; Herausforderungen im Bereich geo-referenzierung, geometrische und photometrische Datenaufbereitung, Datenvolumen, Registrierungsgenauigkeit, Code-Verfuegbarkeit; Dazu speziell bei mobilen Endgeraeten: Geraetevarianz, Energieverbrauch, Berechnungsgeschwindigkeit mit geringer Rechenverfuegbarkeit
+
+- Struktur: eingehen auf 3 Teilaspekte: algorithmische Teilprobleme, technische Teilprobleme, Anwendungen und deren Anforderungen; dabei je Kategorie Uebersicht bestehender Literatur, spezielle Herausforderungen die es zu addressieren gilt, eigene Contributions bezueglich Konzept, Implementation oder Experiment, und weiterhin bestehende Probleme
+
+Algorithmik:
+- Geometrie und Textur (oder Radiometrie, oder je nachdem wie man die Farbgebung in der Photogrammetrie nennt) [Teil Mel - Punktebasiert, Teil Chris: Dreiecksgeometrie und Textur)
+(- Photogrammetrie / SfM) [wird eher auf eine Uebersicht momentan vorhandener Loesungen hinauslaufen, bzw. auch wie wir das auf dem Desktop mit mobilen Bildaten nutzen]
+- Image-to-Geometry [Chris und Mel - groesstenteils Referenz und uebernahme des laengeren Originaltextes aus 3D-NO]
+- grafische Darstellung / Rendering [Chris nur kurz, da bekannt; Mel - hier kannst du mal bitte deinen Renderalgorithmus fuer Punktewolken erklaeren]
+- Interpretation, Annotation und Interaktion [Teil Chris, Teil Mel]
+
+Technik:
+- Sensorik (Stichpunkt: Sensorverfuegbarkeit und Sensorgenauigkeit) [Mel]
+- Grafik [Chris]
+- Unterschiede technischer Komponenten [70% Mel, 30% Chris]
+- Energieverbrauch [50:50 Mel:Chris]
+
+Anwendungen (mit Hinblick auf: Aufgabe/Was soll gemacht werden?; Hauptanforderungen an sensor- und geometrischer Genauigkeit; spezifische Herausforderungen wie Datenverfuegbarkeit, Lichteinfluesse, Netzwerkverfuegbarkeit, abzudeckende Breite an Geraeten):
+- Wasserlinienverlauf und Flood Mitigation [Mel]
+- (vlt. ein Abschnitt zu der Anwenungen von Annette, wenn sie auch gerne im low-cost Photogrammetrie Mobiles nutzt)
+- Field Geology (Absatz von Simon oder Chris)
+- Virtual Fieldtrips (Absatz von Sophie)
+- Field Measurements and Digital Fieldbook (Absatz von Simon oder Chri)
+
+Zusammenfassung und Ausblick:
+- Zusammenfassung: welche Probleme sind bereits geloest ? Welche Herausforderungen bleiben bestehen (und wurden bereits angesprochen) [waer schoen wenn du (Mel) die Zusammenfassung machen koenntest - die Teile stehen ja bereits in den anderen Absaetzen]
+- Portierung existierender Desktop-Algorithmen auf mobile Engeraete [schreibt Chris gerne schnell und kurz]
+- Behandlung von Vegetation in Scans [Mel]
+- (Vor-)behandlung von Geodaten fuer mobile Nutzung [Mel, Chris]
+(- industrielle Zusammenarbeit) (da koennen wir gerne auch mal in skype drueber sprechen; Stichpunkte: Abdeckung einer breiten Geraeteauswahl; strukturiertes Testen; tentative user interfaces)
