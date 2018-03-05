@@ -1,0 +1,34 @@
+\begin{thebibliography}{2}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Siedschlag(2015)}]{Siedschlag2015}
+\bibinfo{author}{S.~Siedschlag},
+\newblock \bibinfo{title}{Wasserstände und durchflüsse – messen, speichern
+  und übertragen im digitalen zeitalter},
+\newblock in: \bibinfo{booktitle}{Dresdner Wasserbauliche Mitteilungen},
+  volume~\bibinfo{volume}{53} of \textit{\bibinfo{series}{Dresdner
+  Wasserbauliche Mitteilungen}}, \bibinfo{organization}{Technische Universität
+  Dresden, Institut für Wasserbau und technische Hydromechanik},
+  \bibinfo{year}{2015}. \URLprefix
+  \url{https://henry.baw.de/handle/20.500.11970/103357}.
+%Type = Misc
+\bibitem[{Saxon State Office~for Environment and Geology(2018)}]{Saxon2018}
+\bibinfo{author}{A.~Saxon State Office~for Environment},
+  \bibinfo{author}{S.~F.~C. Geology}, \bibinfo{title}{Water levels \& flow
+  rates},
+  \bibinfo{howpublished}{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht
+  (05.03.2018)}, \bibinfo{year}{2018}. \URLprefix
+  \url{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht}.
+
+\end{thebibliography}
