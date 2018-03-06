@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{14}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -22,12 +22,28 @@
   Universit\"at Dresden, Institut f\"ur Wasserbau und technische
   Hydromechanik}, \bibinfo{year}{2015}. \URLprefix
   \url{https://henry.baw.de/handle/20.500.11970/103357}.
+%Type = Article
+\bibitem[{Horner et~al.(2018)Horner, Renard, Coz, Branger, McMillan, and
+  Pierrefeu}]{Horner2018}
+\bibinfo{author}{I.~Horner}, \bibinfo{author}{B.~Renard},
+  \bibinfo{author}{J.~L. Coz}, \bibinfo{author}{F.~Branger},
+  \bibinfo{author}{H.~McMillan}, \bibinfo{author}{G.~Pierrefeu},
+\newblock \bibinfo{title}{Impact of stage measurement errors on streamflow
+  uncertainty},
+\newblock \bibinfo{journal}{Water Resources Research}  (\bibinfo{year}{2018}).
 %Type = Misc
 \bibitem[{{Saxon Flood Centre}(2018)}]{Saxon2018}
 \bibinfo{author}{{Saxon Flood Centre}}, \bibinfo{title}{Water levels \& flow
   rates}, \bibinfo{year}{2018}. \URLprefix
   \url{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht},
   \bibinfo{note}{accessed: 2018-03-05}.
+%Type = Article
+\bibitem[{B\"uttner and Wolf(2015)}]{Buettner2015}
+\bibinfo{author}{U.~B\"uttner}, \bibinfo{author}{E.~Wolf},
+\newblock \bibinfo{title}{Konzeption des gew\"asserkundlichen pegelnetzes in
+  sachsen},
+\newblock \bibinfo{journal}{38. Dresdner Wasserbaukolloquium 2015 „Messen und
+  \"Uberwachen im Wasserbau und am Gew\"asser“}  (\bibinfo{year}{2015}).
 %Type = Misc
 \bibitem[{Etter and Strobl(2018)}]{CrowdWaterApp2017a}
 \bibinfo{author}{S.~Etter}, \bibinfo{author}{B.~Strobl},
@@ -55,5 +71,61 @@
 \newblock \bibinfo{journal}{ISPRS Annals of the Photogrammetry, Remote Sensing
   and Spatial Information Sciences} \bibinfo{volume}{IV-2/W4}
   (\bibinfo{year}{2017}) \bibinfo{pages}{1--8}.
+%Type = Inproceedings
+\bibitem[{Blum et~al.(2013)Blum, Greencorn, and Cooperstock}]{Blum2013}
+\bibinfo{author}{J.~R. Blum}, \bibinfo{author}{D.~G. Greencorn},
+  \bibinfo{author}{J.~R. Cooperstock},
+\newblock \bibinfo{title}{Smartphone sensor reliability for augmented reality
+  applications},
+\newblock in: \bibinfo{editor}{K.~Zheng}, \bibinfo{editor}{M.~Li},
+  \bibinfo{editor}{H.~Jiang} (Eds.), \bibinfo{booktitle}{Mobile and Ubiquitous
+  Systems: Computing, Networking, and Services}, \bibinfo{publisher}{Springer
+  Berlin Heidelberg}, \bibinfo{address}{Berlin, Heidelberg},
+  \bibinfo{year}{2013}, pp. \bibinfo{pages}{233 -- 248}.
+%Type = Inproceedings
+\bibitem[{Boerner and Kr\"ohnert(2016)}]{Boerner2016}
+\bibinfo{author}{R.~Boerner}, \bibinfo{author}{M.~Kr\"ohnert},
+\newblock \bibinfo{title}{Brute force matching between camera shots and
+  synthetic images from point clouds},
+\newblock volume \bibinfo{volume}{XLI-B5}, \bibinfo{year}{2016}, pp.
+  \bibinfo{pages}{771--777}.
+  \DOIprefix\doi{doi:10.5194/isprs-archives-XLI-B5-771-2016}.
+%Type = Inproceedings
+\bibitem[{Bauer(2013)}]{Bauer2013}
+\bibinfo{author}{C.~Bauer},
+\newblock \bibinfo{title}{On the (in-)accuracy of gps measures of smartphones:
+  A study of running tracking applications},
+\newblock in: \bibinfo{booktitle}{Proceedings of International Conference on
+  Advances in Mobile Computing \&\#38; Multimedia}, MoMM '13,
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{year}{2013}, pp. \bibinfo{pages}{335:335--335:341}. \URLprefix
+  \url{http://doi.acm.org/10.1145/2536853.2536893}.
+  \DOIprefix\doi{10.1145/2536853.2536893}.
+%Type = Article
+\bibitem[{Zandbergen and Barbeau(2011)}]{Zandbergen2011}
+\bibinfo{author}{P.~A. Zandbergen}, \bibinfo{author}{S.~J. Barbeau},
+\newblock \bibinfo{title}{Positional accuracy of assisted {GPS} data from
+  high-sensitivity {GPS}-enabled mobile phones},
+\newblock \bibinfo{journal}{Journal of Navigation} \bibinfo{volume}{64}
+  (\bibinfo{year}{2011}) \bibinfo{pages}{381--399}.
+%Type = Article
+\bibitem[{Moore(2017)}]{Moore2017}
+\bibinfo{author}{S.~K. Moore},
+\newblock \bibinfo{title}{Superaccurate gps coming to smartphones in 2018},
+\newblock \bibinfo{journal}{IEEE Spectrum}  (\bibinfo{year}{2017}).
+  \bibinfo{note}{Accessed: 2018-03-06}.
+%Type = Inproceedings
+\bibitem[{Liu et~al.(2014)Liu, Hossain, Iwai, Ito, Tobe, Sezaki, and
+  Matekenya}]{Liu2014}
+\bibinfo{author}{G.~Liu}, \bibinfo{author}{K.~M.~A. Hossain},
+  \bibinfo{author}{M.~Iwai}, \bibinfo{author}{M.~Ito},
+  \bibinfo{author}{Y.~Tobe}, \bibinfo{author}{K.~Sezaki},
+  \bibinfo{author}{D.~Matekenya},
+\newblock \bibinfo{title}{Beyond horizontal location context: measuring
+  elevation using smartphone's barometer},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 2014 {ACM} International
+  Joint Conference on Pervasive and Ubiquitous Computing Adjunct Publication},
+  \bibinfo{publisher}{{ACM} Press}, \bibinfo{year}{2014}.
+  \DOIprefix\doi{10.1145/2638728.2641670}.
 
 \end{thebibliography}

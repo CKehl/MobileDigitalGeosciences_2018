@@ -274,30 +274,45 @@ Due to the increasing usability of mobile devices for in the field annotations, 
 
 \subsection{Derivation of hydrological parameters: Water level gauging}
 \label{sec:water_level_gauging_intro}
-The last decade is characterized by a continued increase of globally devastating flash floods after heavy rainfalls. Even smallest creeks turned into hazardous streams causing flooding and landslides. Conventional gauging stations provide precise information about water levels measured over a short time period. For official gauges in Germany, standard derivation of one centimetre is required \cite{Siedschlag2015} [need more references]. But they are rather cost expensive in purchase and maintenance and thus just sparsely installed. Exemplary, the overall distribution of gauging stations in Saxony, Germany amounts to 154 compared to 259 creeks and rivers with small, medium and large catchments \citep{Saxon2018}. Thus, around a third can not be monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to enable crowd-sourcing based water level data acquisition \cite{CrowdWaterApp2017a, Kisters2014}. But all of them have one thing in common: the water level is entered manually by engaged citizen scientists finding and photographing tide gauges close to rivers which makes them not only a potential danger to themselves (f.e. by sudden landslides) but also it is still limited to open and visible gauges.
+The last decade is characterized by a continued increase of globally devastating flash floods after heavy rainfalls. Even smallest creeks turned into hazardous streams causing flooding and landslides. Conventional gauging stations provide precise information about water levels measured over a short time period. State of the art techniques for administrative observation comprise water pressure sensors, floating gauges and conventional tide gauges. They are characterised by long-term stability and outdoor robustness providing accuries of several millimeters up to one centimeter \cite{Siedschlag2015}. Averaged over defined time intervals, it is advisable to remain caution regarding these accuracies may be too optimistic \cite{Horner2018} . 
+ 
+Because of high costs in purchase and maintenance, gauging stations with complex sensing devices must be sparsely installed. A prime example here is the hydrological network in Saxony, Germany. Here, 184 gauging stations are installed for permanent observation on 154 of 259 rivers rising from small, medium and large catchments \cite{Saxon2018, Buettner2015}. Thus, around a third is not monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to enable crowd-sourcing based water level estimation for, among other things, such cases \cite{CrowdWaterApp2017a, Kisters2014}. But all of them have one thing in common: the water level is entered manually by engaged citizen scientists finding and photographing tide gauges close to rivers that makes - on the one hand a potential danger to themselves (f.e. by sudden landslides), and still limits on the other the approaches to open and visible gauges.
 
-Improvements in this sense can be achieved through image-2-geometry intersection and 3D annotation for automatic water level determination without reference gauges for almost every situation regarding running waters. 
+Improvements in this sense can be achieved through \textit{image-2-geometry intersection} and 3D annotation for automatic water level determination without reference gauges for almost every situation regarding running waters. 
 for this, the smartphone application \textit{Open Water Level} that bases on the freely available open source camera framework \textit{Open Camera} \cite{Harman2017}. Open Water Level allows for free stationing water line detection using short hand held time-lapse image sequences (for details please refer to \cite{Kroehnert2017}). To interpret these, image measurements must be transformed into object space. Thus, exterior information needs to be provided by smartphone sensors for orientation and positioning.
 
 \subsubsection{Requirements applying to the sensors}
-\label{sec:water_level_gauging_requirements}
-To solve the task of autonomous water level determination on running rivers f.e. emergency cases using image-2-geometry intersection, citizen scientists position and orientation must be know. As figured out in \ref{sec:technology}, smartphone sensors accuracies for orientation and location are highly dependent on user's environment. Especially the strong correlation of heading and disturbing magnetic sources may be a issue must be solved specifically related to running rivers where metal railings usually exists. Similar effects can also be noted using high-end IMU systems for instance autonomous car navigation. But the magnetic influences inside cars are almost stable and can be calibrated during the drive (advanced navigation manual). For smartphone orientation, the magnetic strengths attaching the phone may change substantially in short time. A typical scenario would be: a citizen scientist walks along street, taking his phone inside the baggage close to metallic keys. While walking he passes several street lamps, signs, etc. Finally, he arrives at a bridge over a urban river, takes out the phone, looks down to the river and records the time lapse image sequence a few centimetres above a metallic railing. Meanwhile, several cars passing the same bridge. In this simple use case, the magnetic field around the smartphone changes countless times due to several unpredictable disturbances. 
+\label{sec:water_level_gauging_requirements_sensors}
+To solve the task of autonomous water level determination on running rivers f.e. emergency cases using \textit{image-2-geometry intersection}, citizen scientists position and orientation must be know. As figured out in \ref{sec:technology}, smartphone sensors accuracies for orientation and location are highly dependent on user's environment. Especially the strong correlation of heading and disturbing magnetic sources may be a issue must be solved specifically related to running rivers where metal railings usually exists. Similar effects can also be noted using high-end IMU systems for instance autonomous car navigation. But the magnetic influences inside cars are almost stable and can be calibrated during the drive (advanced navigation manual). For smartphone orientation, the magnetic strengths attaching the phone may change substantially in short time. A typical scenario would be: a citizen scientist walks along street, taking his phone inside the baggage close to metallic keys. While walking he passes several street lamps, signs, etc. Finally, he arrives at a bridge over a urban river, takes out the phone, looks down to the river and records the time lapse image sequence a few centimetres above a metallic railing. Meanwhile, several cars passing the same bridge. In this simple use case, the magnetic field around the smartphone changes countless times due to several unpredictable disturbances \textcolor{red}{(table_mag_disturb)} \cite{Blum2013}.
+\\The heading angle has the highest influence compared to pitch and roll regarding 2D image and 3D object data registration. For this, a so-called synthetic image is rendered from colored 3D reference point clouds using scientist's location and orientation to define a situation-dependent bounding box of points to be projected onto image plane with respect to depth and indentations (see \cite{Boerner2016}). Thereby the heading defines the rotation of the depth direction, as a false angle gives a false viewing direction resulting in a synthetic image that has no similarity or only a little with the time lapse sequence. However, in case of no similarity and thus no possible solution for \textit{image-2-geometry intersection}, simply no water level can be calculated. But in case of slight overlapping, there might be image matches but with very bad distribution that impedes a correct positioning \textcolor{red}{(fig_heading_test)} and may lead to even worse results of false water levels.
+\\It is obvious that a second source for destructive results exists: the absolute geo-positioning using smartphones currently installed GNSS receivers. In urban scenes with several shadow effects due to high-rise buildings, errors of several meters in latitude and up to more than 30 meters in height are highly possible where even the weather has impact \cite{Bauer2013, Blum2013, Zandbergen2011}. It is likely that, in the near future, smartphone's GNSS modules will be improved solving lateral accuracies of 50 centimetres \cite{Moore2017}.\\
+For now, possible relief might come including other sources for positioning like digital elevation models for simple height correction or invoke map services that allows the user for position refinement. For this, some APIs are already provided by Google \textcolor{red}{(quellen)} but they are rather cost-expensive by extensive accessing. Another upcoming option is including barometers in sensor fusion, altitude can be measured within three meters \cite{Liu2014} but for now, they are not a standard.
+
 
 \begin{itemize}
-\item(FIGURE WITH OBSERVED HEADING WHILE STANDING AT RIVER $\rightarrow$ check magnetic strengthens and there changes over short times)
-\item (FIGURE WITH HEADING TEST  $\rightarrow$ CHANGED HEADING WHAT DOES IT MAKE FOR)
+\item(table, observation heading during water line detection outside $\rightarrow$ check magnetic strengthens and there changes over short times)
+\item (figure/table, sensitivity analysis  $\rightarrow$ heading changed in terms of 10 degrees, what does it make for)
+\end{itemize}
+
+
+\subsubsection{Requirements applying to the scenario}
+\label{sec:water_level_gauging_requirements_situation}
+
+
+
+\begin{itemize}
+\item \textit{online processing and position refinement: need online connection}
+\item \textit{image quality for water line detection: influence of image resolution, lightning, ...)}
 \end{itemize}
 
 
 
 
 
-
-
 \begin{itemize}
-\item recap: task to be solved
-\item main requirements for (location- and orientation) sensor accuracy and geometric accuracy
-\item specific requirements to this use case: data availability; illumination; device range to cover
+%\item recap: task to be solved
+%\item main requirements for (location- and orientation) sensor accuracy and geometric accuracy
+%\item specific requirements to this use case: data availability; illumination; device range to cover
 \item available approach to address the task
 \end{itemize}
 
