@@ -1,4 +1,4 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{6}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -14,21 +14,46 @@
 %Type = Inproceedings
 \bibitem[{Siedschlag(2015)}]{Siedschlag2015}
 \bibinfo{author}{S.~Siedschlag},
-\newblock \bibinfo{title}{Wasserstände und durchflüsse – messen, speichern
-  und übertragen im digitalen zeitalter},
+\newblock \bibinfo{title}{{Wasserst\"ande und Durchfl\"usse} {-} messen,
+  speichern und \"ubertragen im digitalen {Zeitalter}},
 \newblock in: \bibinfo{booktitle}{Dresdner Wasserbauliche Mitteilungen},
   volume~\bibinfo{volume}{53} of \textit{\bibinfo{series}{Dresdner
-  Wasserbauliche Mitteilungen}}, \bibinfo{organization}{Technische Universität
-  Dresden, Institut für Wasserbau und technische Hydromechanik},
-  \bibinfo{year}{2015}. \URLprefix
+  Wasserbauliche Mitteilungen}}, \bibinfo{organization}{Technische
+  Universit\"at Dresden, Institut f\"ur Wasserbau und technische
+  Hydromechanik}, \bibinfo{year}{2015}. \URLprefix
   \url{https://henry.baw.de/handle/20.500.11970/103357}.
 %Type = Misc
-\bibitem[{Saxon State Office~for Environment and Geology(2018)}]{Saxon2018}
-\bibinfo{author}{A.~Saxon State Office~for Environment},
-  \bibinfo{author}{S.~F.~C. Geology}, \bibinfo{title}{Water levels \& flow
-  rates},
-  \bibinfo{howpublished}{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht
-  (05.03.2018)}, \bibinfo{year}{2018}. \URLprefix
-  \url{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht}.
+\bibitem[{{Saxon Flood Centre}(2018)}]{Saxon2018}
+\bibinfo{author}{{Saxon Flood Centre}}, \bibinfo{title}{Water levels \& flow
+  rates}, \bibinfo{year}{2018}. \URLprefix
+  \url{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht},
+  \bibinfo{note}{accessed: 2018-03-05}.
+%Type = Misc
+\bibitem[{Etter and Strobl(2018)}]{CrowdWaterApp2017a}
+\bibinfo{author}{S.~Etter}, \bibinfo{author}{B.~Strobl},
+  \bibinfo{title}{Crowdwater}, \bibinfo{year}{2018}. \URLprefix
+  \url{http://www.crowdwater.ch/de/home/}, \bibinfo{note}{accessed:
+  2018-03-06}.
+%Type = Misc
+\bibitem[{Kisters(2014)}]{Kisters2014}
+\bibinfo{author}{Kisters}, \bibinfo{title}{Einfach smart: App f\"ur
+  {Pegelmessung} auf {Knopfdruck}}, \bibinfo{year}{2014}. \URLprefix
+  \url{https://www.kisters.de/fileadmin/user_upload/Wasser/Produkte/WISKI/Produktblaetter/MobileWaterTracker_de_mail.pdf},
+  \bibinfo{note}{accessed: 2018-03-06}.
+%Type = Misc
+\bibitem[{Harman(2017)}]{Harman2017}
+\bibinfo{author}{M.~Harman}, \bibinfo{title}{{Open Camera - Camera app for
+  Android}}, \bibinfo{year}{2017}. \URLprefix
+  \url{https://sourceforge.net/projects/opencamera/}, \bibinfo{note}{version
+  1.38}.
+%Type = Article
+\bibitem[{Kr\"ohnert and Meichsner(2017)}]{Kroehnert2017}
+\bibinfo{author}{M.~Kr\"ohnert}, \bibinfo{author}{R.~Meichsner},
+\newblock \bibinfo{title}{Segmentation of environmental time lapse image
+  sequences for the determination of shore lines captured by hand-held
+  smartphone cameras},
+\newblock \bibinfo{journal}{ISPRS Annals of the Photogrammetry, Remote Sensing
+  and Spatial Information Sciences} \bibinfo{volume}{IV-2/W4}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{1--8}.
 
 \end{thebibliography}
