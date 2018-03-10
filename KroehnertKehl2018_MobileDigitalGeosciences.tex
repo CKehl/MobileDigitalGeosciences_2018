@@ -145,7 +145,7 @@
 \cortext[correspondence]{Corresponding author}
 \ead{melanie.kroehnert@tu-dresden.de}
 
-\author[cerege,dtu]{Christian Kehl}
+\author[dtu]{Christian Kehl}
 \ead{chke@dtu.dk}
 
 
@@ -160,21 +160,14 @@
 \address[cerege]{Aix Marseille Universit\'{e}, CNRS, IRD, CEREGE UM 34, Dept. Sedimentary and Reservoir Systems, 13001 Marseille, France}
 \address[uniresearch]{Uni Research AS -- CIPR, Nyg{\aa}rdsgaten 112, 5008 Bergen, Norway}
 \address[uib]{Department of Earth Science, University of Bergen, All\'{e}gaten 41, 5007 Bergen, Norway}
-\address[dtu]{}
+\address[dtu]{Danmarks Tekniske Universitet, DTU Compute, Richard Petersens Plads, Building 321/208, 2800 Kongens Lyngby, Denmark}
 
 
 \begin{abstract}
 
 \end{abstract}
 
-\textbf{Highlights} \\
-\begin{itemize}
-\item point 1
-\item point 2
-\item point 3
-\item point 4
-\item point 5
-\end{itemize}
+
 
 \begin{keyword}
 discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surface parameterization\sep digital outcrops
@@ -258,21 +251,21 @@ The form of model representation chosen significantly impacts the algorithms and
 
 This section demonstrates novel- as well as existing algorithms and methods on mobile devices that are used for solving analysis tasks in the geoscience use cases laid out in section \ref{}. As mentioned before, the effectiveness of each algorithm depends on the applied model representation.
 
-\subsection{Structure-from-Motion (SfM) and  Visual Simultaneous Localization and Mapping (Visual SLAM)}
+%\subsection{Structure-from-Motion (SfM) and  Visual Simultaneous Localization and Mapping (Visual SLAM)}
+%
+%\begin{itemize}
+%\item \sout{short description what it does}
+%\item \sout{how is it generally employed}
+%\item \sout{relation to mobile devices}
+%\item \sout{approaches and implementation known on mobile devices}
+%\item integration to the above-mentioned use cases
+%\end{itemize}
 
-\begin{itemize}
-\item \sout{short description what it does}
-\item \sout{how is it generally employed}
-\item \sout{relation to mobile devices}
-\item \sout{approaches and implementation known on mobile devices}
-\item integration to the above-mentioned use cases
-\end{itemize}
+%\gls{SfM} and visual \gls{SLAM} aim at automatically reconstructing a 3D environment from a stream of images \cite{•}. The output of these 3D reconstruction methods are colored point sets (i.e. point clouds). The technique is employed in the geosciences to acquire and measure 3D surfaces and terrain either via a manually collected photo set, or by using drones \cite{•}. The large potential for these algorithms on mobile devices being used directly in the field is that no other equipment was needed the generation of the digital 3D data used for analysis. A powerful mobile devices, such as the Project Tango\footnote{•} or NVIDIA Shield\footnote{•}, is capable of 3D terrain data collection in realtime directly in the field.
 
-\gls{SfM} and visual \gls{SLAM} aim at automatically reconstructing a 3D environment from a stream of images \cite{•}. The output of these 3D reconstruction methods are colored point sets (i.e. point clouds). The technique is employed in the geosciences to acquire and measure 3D surfaces and terrain either via a manually collected photo set, or by using drones \cite{•}. The large potential for these algorithms on mobile devices being used directly in the field is that no other equipment was needed the generation of the digital 3D data used for analysis. A powerful mobile devices, such as the Project Tango\footnote{•} or NVIDIA Shield\footnote{•}, is capable of 3D terrain data collection in realtime directly in the field.
+%Because of the large potential to all branches in the geosciences to deliver on-spot data acquisition, several research groups have conducted research into that topic. \textbf{FILL IN PARTS FROM THE THESIS HERE!}
 
-Because of the large potential to all branches in the geosciences to deliver on-spot data acquisition, several research groups have conducted research into that topic. \textbf{FILL IN PARTS FROM THE THESIS HERE!}
-
-A problem with the listed approaches is their lack of maintenance. There is no readily-available software to this date in the mobile app stores that allows real-time SLAM or SfM. Reasons for the disappearance on previous prototypes can vary, but a major problem is the speed of development for mobile devices. As new operation system versions are published on a half-year to yearly basis, it means that software gets deprecated very rapidly. If no industrial partner cares to maintain and market a given research prototype, then that is vanishing from the mobile software market quickly.
+%A problem with the listed approaches is their lack of maintenance. There is no readily-available software to this date in the mobile app stores that allows real-time SLAM or SfM. Reasons for the disappearance on previous prototypes can vary, but a major problem is the speed of development for mobile devices. As new operation system versions are published on a half-year to yearly basis, it means that software gets deprecated very rapidly. If no industrial partner cares to maintain and market a given research prototype, then that is vanishing from the mobile software market quickly.
 
 \subsection{Image-to-geometry registration}
 
@@ -363,7 +356,7 @@ Using this coordinate system transformation on combination with a known interior
 
 \subsection{A novel approach to mobile point-based rendering}
 
-TO BE FILLED BY MELANIE
+\textbf{TO BE FILLED BY MELANIE}
 
 \subsection{Interpretation and annotation}
 
@@ -572,20 +565,38 @@ For now, possible relief might come including other sources for positioning like
 \section{Conclusions}
 \label{sec:conclusions}
 
-which problems are sufficiently solved ? 
-which challenges remain that have already been discussed
+This article assessed the possibility of interactive interpretation and annotation of 3D outcrops on mobile devices in multiple geoscientific domains. Due to the research effort in recent years, novel mobile applications such as OpenWaterLevels for surface hydrology and \gls{GRIT} for field geology were introduced to the community to bridge the gap between lab assessment and outdoor field work for data interpretation. This article also showed further application areas that build upon mobile device technology and the interactive annotation of 3D surface data for geoscientific problem solving.
+
+McCaffery et al. proposed the use of mobile devices for field interpretation in geology in 2005 \cite{McCaffrey2005}. The technological specifics of mobile device app development hampered the progress on this goal for years. Only recent advancements in efficient treatment of 3D data \cite{Kroehnert2017}, algorithmic proposals for image-to-geometry registration (see \citep{Gauglitz2014,Kehl2017_VGC}) and on-device 3D rendering (as presented in \cite{Agus2017} and in this article for point-based surface) specifically designed for mobile devices make the actual use for geoscientific applications in the field possible. The utilisation of crowdsourced \gls{VGI} and introduction of mobile devices as low-cost measuring devices for real-world problems \cite{EltnerXYZ} contribute to the acceptance of this mobile device technological development within the geoscientific community. Computer Vision challenges such as image registration under changing illumination conditions and with reduced image resolution can be viewed as ''sufficiently solved'' to make photogrammetric- and vision-based algorithms applicable to real-world outdoor settings, while still leaving space for improvement and quality and performance.
+
+The measurements found in this article as well as its related studies suggest that localisation and orientation of mobile device sensors with respect to the application-specific accuracy requirements is a persisting challenge. The sensors employed by low-cost devices have accuracy limitations. Sensor filtering- and fusion techniques are required to even moderately consider the use of such sensor data. Environmental effects such as device-internal heating processes and the system-internal handling of sensor initialisation further complicate the calibration of such sensors without user involvement.
+
+Furthermore, this study gives a representative overview about the energy consumption of mobile apps employing 3D surfaces, computer vision and computer graphics procedures. It was shown that the distinction between 2D- and 3D data used by mobile apps significantly drives the power consumption, and therefore the operation time of the mobile field apps during a study. Means of reducing the power consumption in the future have, next to extended periods of app use by domain experts, beneficial secondary effects: power-reduced main functions of the mobile app allow energy-expensive \gls{SLAM} techniques to be used for sensor data augmentation. %While bringing the visual data acquired by \gls{SfM}, drones, \gls{LiDAR} and satellites to the field allows direct data interpretation and eliminates the need for subsequent, tedious digitalisation, it requires a degree of planning from the expert user to avoid unnecessary power drainage. For crowdsourced hydrological waterlines, 
+
+Lastly, the treatment of vegetation within scanned- and photographed data during mobile field studies remains a challenge in the context of interactive interpretation. 3D reference data are obtained less frequent than they are used in a given outdoor setting. Vegetation itself is visually dynamic content that complicates image registration to existing 3D data, which complicates interpretations in common outdoor settings. While current procedures of data processing try to segment- and remove vegetation data from scans \cite{}, it leaves the mobile device app less information to work with when registering photos. Therefore, proposing means of 3D topographic data processing that homogenizes vegetation in 3D scans and photos without removing the related data will have an impact on accurate outdoor photo registration on 3D base data.
+
+%which problems are sufficiently solved ? 
+%which challenges remain that have already been discussed
 
 \section{Discussion}
 \label{sec:discussion}
 
 \begin{itemize}
 \item porting existing desktop algorithms on mobile devices [quick and fast]
-\item vegetation in scans
 \item pre-processing of geodata for mobile use
 \end{itemize}
 
 \section*{References}
 
 \bibliography{KroehnertKehl2018_MobileDigitalGeosciences}
+
+\textbf{Highlights} \\
+\begin{itemize}
+\item point 1
+\item point 2
+\item point 3
+\item point 4
+\item point 5
+\end{itemize}
 
 \end{document}
