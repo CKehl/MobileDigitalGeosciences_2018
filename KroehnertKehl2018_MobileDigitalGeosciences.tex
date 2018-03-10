@@ -278,8 +278,18 @@ The last decade is characterized by a continued increase of globally devastating
  
 Because of high costs in purchase and maintenance, gauging stations with complex sensing devices must be sparsely installed. A prime example here is the hydrological network in Saxony, Germany. Here, 184 gauging stations are installed for permanent observation on 154 of 259 rivers rising from small, medium and large catchments \cite{Saxon2018, Buettner2015}. Thus, around a third is not monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to enable crowd-sourcing based water level estimation for, among other things, such cases \cite{CrowdWaterApp2017a, Kisters2014}. But all of them have one thing in common: the water level is entered manually by engaged citizen scientists finding and photographing tide gauges close to rivers that makes - on the one hand a potential danger to themselves (f.e. by sudden landslides), and still limits on the other the approaches to open and visible gauges.
 
+\subsection{Development of a versatile mobile water level application}
+\label{sec:water_level_gauging_approach}
 Improvements in this sense can be achieved through \textit{image-2-geometry intersection} and 3D annotation for automatic water level determination without reference gauges for almost every situation regarding running waters. 
-for this, the smartphone application \textit{Open Water Level} that bases on the freely available open source camera framework \textit{Open Camera} \cite{Harman2017}. Open Water Level allows for free stationing water line detection using short hand held time-lapse image sequences (for details please refer to \cite{Kroehnert2017}). To interpret these, image measurements must be transformed into object space. Thus, exterior information needs to be provided by smartphone sensors for orientation and positioning.
+
+Thus, the smartphone application \textit{Open Water Level} that bases on the freely available open source camera framework \textit{Open Camera} \cite{Harman2017}. Open Water Level allows for free stationing water line detection using short hand held time-lapse image sequences (for details please refer to \cite{Kroehnert2017}). 
+
+To interpret these, image measurements must be transformed into object space whereby initial exterior information needs to be provided by smartphone sensors for orientation and positioning. In addition to this, initial intrinsic camera parameters are abstracted by manufacturer specified focal length with fixed pixel skew and image-centred principle point. Distortion is assumed to be zero. In case of successfully determined water line, the user is asked for permission to open a secured FTP connection to access web server. If permission is given, a small file archive is generated and transmitted containing the master image frame from the time lapse sequence, the binarised water line and a XML file that contains additional meta data, which gives information e.g. a unique universal identification number (UUID), users position and orientation, camera specifications or date and time.
+
+Once this package has arrived on the server, first of all the meta data is analysed for user's position, image acquisition date and time to pick a tile of coloured 3D point cloud data captured independently close to river lines for further registration (see section \ref{sec:water_level_gauging_requirements_situation} for more information about gaining reference data). Obviously, the key parameters contain users position in a common global reference frame to choose the right point set. In case of more than one potential match, the acquisition date is included as well to handle possible conflicts in \textit{image-2-geometry intersection} due to seasonal changed appearance of vegetation in near-shore environment or illumination effects due to different daytimes of image and geometry acquisition.
+
+....TBC.... 
+
 
 \subsubsection{Requirements applying to the sensors}
 \label{sec:water_level_gauging_requirements_sensors}
@@ -288,33 +298,26 @@ To solve the task of autonomous water level determination on running rivers f.e.
 \\It is obvious that a second source for destructive results exists: the absolute geo-positioning using smartphones currently installed GNSS receivers. In urban scenes with several shadow effects due to high-rise buildings, errors of several meters in latitude and up to more than 30 meters in height are highly possible where even the weather has impact \cite{Bauer2013, Blum2013, Zandbergen2011}. It is likely that, in the near future, smartphone's GNSS modules will be improved solving lateral accuracies of 50 centimetres \cite{Moore2017}.\\
 For now, possible relief might come including other sources for positioning like digital elevation models for simple height correction or invoke map services that allows the user for position refinement. For this, some APIs are already provided by Google \textcolor{red}{(quellen)} but they are rather cost-expensive by extensive accessing. Another upcoming option is including barometers in sensor fusion, altitude can be measured within three meters \cite{Liu2014} but for now, they are not a standard.
 
-
 \begin{itemize}
 \item(table, observation heading during water line detection outside $\rightarrow$ check magnetic strengthens and there changes over short times)
 \item (figure/table, sensitivity analysis  $\rightarrow$ heading changed in terms of 10 degrees, what does it make for)
 \end{itemize}
 
-
 \subsubsection{Requirements applying to the scenario}
 \label{sec:water_level_gauging_requirements_situation}
-
-
 
 \begin{itemize}
 \item \textit{online processing and position refinement: need online connection}
 \item \textit{image quality for water line detection: influence of image resolution, lightning, ...)}
+\item needed reference data! link to extruso project
 \end{itemize}
 
-
-
-
-
-\begin{itemize}
+%\begin{itemize}
 %\item recap: task to be solved
 %\item main requirements for (location- and orientation) sensor accuracy and geometric accuracy
 %\item specific requirements to this use case: data availability; illumination; device range to cover
-\item available approach to address the task
-\end{itemize}
+%\item available approach to address the task
+%\end{itemize}
 
 \subsection{Field Geology}
 
