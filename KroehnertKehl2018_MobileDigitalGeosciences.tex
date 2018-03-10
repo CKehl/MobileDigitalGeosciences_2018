@@ -32,6 +32,7 @@
 \usepackage{booktabs}
 %\usepackage[hidelinks,bookmarks=true]{hyperref}
 %\usepackage{bookmark}
+\usepackage[normalem]{ulem}
 
 %\usepackage[pdftex,
 %			backref,         % List citing occurences in the References
@@ -211,25 +212,168 @@ discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surfa
 \end{itemize}
 
 \begin{itemize}
-\item Challenges
+\item Even considering the fast technological development, some challenges around mobile device development exists that are rooted in the technology itself
+\item several techniques and methods - such as \gls{SfM}, \gls{VR} or \gls{AR} - have been demonstrated to work on small-scale lab studies in computer science itself
+\item translation and adaptation of these techniques to specific geoscience case studies and domain-specific issues is prohibited by scale and reliability
+\item Other challenges influencing mobile digital geosciences are short-comings in geo-localization accuracy, object matching- and registration accuracy, geometric- and photometric data processing, data volumes and the availability of off-the-shelf program codes to common problems in computing
+\item these problems are already familiar to disciplines such as software engineering, photogrammetry and data science for established computing platforms (e.g. PCs, workstations, laptops)
+\item there are also problems specific or exclusive to mobile device processes, which are discussed in detail in this article
+\item they contain issues such as device variability, power consumption and computing efficiency (i.e. fast calculations with drastically limited computing capabilities)
+\end{itemize}
+
+\begin{itemize}
+\item For the next sections, the article adheres to following structure:
+\item First, use cases are presented as opening statements to introduce task that are exclusively addressed by mobile devices in the digital geosciences
+\item Secondly, the basics for 3D digital processing for our cases are presented. The overview is limited to the applied concepts to mobile devices and the extensions necessary to make the mapping to such devices.
+\item Then, algorithms that are key to the digital geosciences outdoors are presented. The overview is also meant to highlight that alternative methods are available to achieve the target tasks
+\item Fourth, the algorithms are mapped to the specific mobile technologies and components. The technologies and major parameters that impact geoscience problem applicability are highlighted.
+\item Finally, we showcase and discuss how available mobile systems are used in application scenarios from hydrology and petroleum geology to improve analysis processes, help disseminating acquired knowledge and integrate outdoor measurements in digital workflows
+\item Then, the article is finalized with some concluding remarks and a discussion for future developments in this research trajectory
 \end{itemize}
 
 \section{Target case studies}
 \label{sec:case_studies}
 
+TO-BE-FILLED
+
 \section{Representation basis -- Geometry and Radiometry}
 \label{sec:representations}
+
+Various representation forms for 3D terrain data are available. While early digital systems used \glspl{DEM} for their simplicity and compact storage \cite{Trinks2004,McCaffrey2005,MANYMORE}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis. Examples can be seen at ... for glaciology, where the authors use ... for the terrain representation. The same application of ... can be observed for climate studies, as in ... . In this context, it is important to distinguish geometrically valid \glspl{TIN} from polygon soup surfaces. While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature stages of the analysis. This is because some automated analysis (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
+
+In geoscience domains such as petroleum geology, texture- and color information are vital for interpretation- and analysis tasks. In these cases, as demonstrated by Buckley et. al \cite{Buckley2008} and Caumon et. al, the \gls{TIN} is supplemented with photographic information that is projected on the surface as textures. As it is also possible to project textures from outside the visible spectrum as supplementary information on the surface \cite{Kurz2011}, we generalize for the remainder of the article that the model in question consists of its geometric and radiometric information.
+
+[EXAMPLE PHOTO FROM LIME]
+
+\sout{In other geoscience domains, such as hydrology and free surface flow management, colored point data streams are used as models, which are provided by drones and \gls{SfM}. In general, applications that rely on data throughput and large-scale analysis more commonly employ colored ''point cloud`` models because of their rapid procvessing and the skip of surface triangulation. Presentation techniques (i.e. rendering) are in these cases adapted versions of \gls{PBR} \cite{Kobbelt2003, Risunkiwicz2006}. Examples of point-based surface analysis in hydrology can be found in Leskens et. al \cite{Leskens2015}, whereas \gls{VRGS} is an example software for petroleum geology that employs similar techniques (see Rarity et. al \cite{Rarity2014}).} HERE MELANIE'S PASSAGE
+
+
+
+The stated base concepts of geometric and radiometric model information and their representations are also valid for mobile device software. Because of the limited processing speed of mobile chipsets, a tendency for employing point cloud models on mobile devices (as Pintus et. al \cite{•} and Garcia et. al \cite{•}) can be observed. A drawback of point cloud models is their sparse nature, which prohibits continuous analysis of field data. Therefore, \glspl{DEM} have seen a revival in the mobile computing domain because they provide dense, closed geometric models that can be rendered and processed very effectively. Furthermore, with the inferior memory capacity of mobile devices in comparison to laptops and workstations, it is advantageous to be able to aggressively compress the data for mobile use, which is facilitated both by point clouds and \glspl{DEM}. Base mapping applications such as Open Street Maps \footnote{asdas} and Google Maps \footnote{asdas} use ... as their main 3D data representation. Other systems within the geosciences processing 3D data on mobile devices, such as ''Outcrop`` and \gls{GRIT}, employ genuine textured triangulated \gls{DSM}.
+
+The form of model representation chosen significantly impacts the algorithms and analytical capabilities employed on the mobile device. Although all algorithms presented in this article work on either form of representation, some of the algorithms favor the treatment of triangulated surfaces (e.g. image-to-geometry registration, guided interpretation), while others clearly favor point-based representations (e.g. \gls{SfM} and rendering).
 
 \section{Algorithms}
 \label{sec:algorithms}
 
-\subsection{Structure-from-Motion model generation}
+This section demonstrates novel- as well as existing algorithms and methods on mobile devices that are used for solving analysis tasks in the geoscience use cases laid out in section \ref{}. As mentioned before, the effectiveness of each algorithm depends on the applied model representation.
 
-\subsection{Image-to-geometry}
+\subsection{Structure-from-Motion (SfM) and  Visual Simultaneous Localization and Mapping (Visual SLAM)}
 
-\subsection{Data representation and rendering}
+\begin{itemize}
+\item \sout{short description what it does}
+\item \sout{how is it generally employed}
+\item \sout{relation to mobile devices}
+\item \sout{approaches and implementation known on mobile devices}
+\item integration to the above-mentioned use cases
+\end{itemize}
+
+\gls{SfM} and visual \gls{SLAM} aim at automatically reconstructing a 3D environment from a stream of images \cite{•}. The output of these 3D reconstruction methods are colored point sets (i.e. point clouds). The technique is employed in the geosciences to acquire and measure 3D surfaces and terrain either via a manually collected photo set, or by using drones \cite{•}. The large potential for these algorithms on mobile devices being used directly in the field is that no other equipment was needed the generation of the digital 3D data used for analysis. A powerful mobile devices, such as the Project Tango\footnote{•} or NVIDIA Shield\footnote{•}, is capable of 3D terrain data collection in realtime directly in the field.
+
+Because of the large potential to all branches in the geosciences to deliver on-spot data acquisition, several research groups have conducted research into that topic. \textbf{FILL IN PARTS FROM THE THESIS HERE!}
+
+A problem with the listed approaches is their lack of maintenance. There is no readily-available software to this date in the mobile app stores that allows real-time SLAM or SfM. Reasons for the disappearance on previous prototypes can vary, but a major problem is the speed of development for mobile devices. As new operation system versions are published on a half-year to yearly basis, it means that software gets deprecated very rapidly. If no industrial partner cares to maintain and market a given research prototype, then that is vanishing from the mobile software market quickly.
+
+\subsection{Image-to-geometry registration}
+
+\begin{itemize}
+\item \sout{short description what it does}
+\item \sout{how is it generally employed}
+\item \sout{relation to mobile devices}
+\item \sout{approaches and implementation known on mobile devices}
+\item integration to the above-mentioned use cases
+\end{itemize}
+
+Image-to-geometry algorithms aim at registering a 2D image to a given 3D surface, providing a transformation from 2D coordinate system to 3D coordinate system as follows:
+
+\begin{eqnarray}
+P' &= \begin{pmatrix}
+u \\ v \\ w
+\end{pmatrix} &= [ R_{3,3} | T_{1,3} ] \cdot P \\
+P &= \begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix} & \\
+P' &\in \mathds{R}^2 &= \frac{P'}{w}
+\end{eqnarray}
+
+Using this coordinate system transformation on combination with a known interior camera orientation, it is possible to projectively map entire images on the surface just as surface texturing does. It is also possible to map specific objects on the image, such as image-based interpretations, on the surface. In the geosciences, these algorithms are employed to create a direct correlation between 3D model and the screen- or image space on which annotations and interpretations are based on \cite{Kehl2016}. The technique is also employed to provide texture mappings for multi-layer images, such as hyperspectral data or domain-specific thematic maps.
+
+\begin{itemize}
+\item feature-based registration: detect prominent points or edges in the input 2D images and a rendered representation of the 3D model
+\item different concept for registration: 
+\begin{itemize}
+\item for mesh models, 2D feature locations are raycasted using camera projection and the 3D model in background; 3D feature location determined upon ray-plane intersection
+\item for point-based models, raycasting doesn't directly work as point cannot be intersected; prominent solution is employing a smart rendering technique that expands the point into an area, and generate a depth map; after depth map generation, the 3D coordinate of a 2D feature map can be read directly from the depth map; drawback of the method / offset for speed: accuracy limitation of depth maps; high-resolution depthmaps (above $512^2$) cost a lot of performance
+\end{itemize}
+\item registration then has source- and target 2D-3D point pairs (in a normalized manner) that are put into a least-squares optimization system (give math here)
+\item optimization system usually non-linear, usually employing Levenberg-Marquardt optimization schemes \cite{Kehl2016_3DNO}
+\item largest challenges for feature-based registration: (a) reliable feature correlation and (b) optimization stability; useful constraints can employed in both cases -- such as horizon information, building edges, object outlines -- to increase the registration reliability and accuracy
+\item employing constraints is highly application-dependent
+\end{itemize}
+
+\begin{itemize}
+\item feature-based registration techniques most prevalent on mobile devices due to execution speed, implementation ease and so forth
+\item examples of mobile implementation: \cite{Gauglitz2014,Sweeny2015,Kehl2017_PHOR,KroehnertXYZ}
+\item drawback of feature-based methods: reliability and instability to imaging variances (discussed later in this article)
+\item a contrasting technique commonly achieving more accurate results: mutual information
+\item idea: pixel-wise comparison between 2D input image and 2D rendering of 3D scene; if both images match (meaning: $argmin \delta(I_{2D}, I_{3D}')$), then registration is completed
+\item mutual information \cite{Viola1999} use notion of self-information and entropy to measure $\delta(I_{2D}, I_{3D}')$
+\item challenge: optimization of 7 degree-of-freedom system over such overdetermined system (i.e. each image pixel results in 2 equations for the optimization scheme) unstable and prone to local minima
+\item only optimization known to provide stable results is NEWUOA (i.e. Powell's method) \cite{Corsini2013}; 
+\item has recently been employed in an earth science case for \gls{LiDAR} registration \cite{Guislain2016}
+\item not available for mobile devices until now
+\end{itemize}
+
+\begin{itemize}
+\item in terms of usability on mobile devices (why should we want to have that on mobile devices), projection of image-based information is vital on mobile devices
+\item because of interaction difficulty, image-based interpretations on 3D surface data is preferable
+\item it is potentially advantageous, in terms of power consumption, to implement data interaction in 2D rather than 3D; a hypothesis proven by experiment in this article
+\item as it directly relates to the interactive component of the geoscience app, it has to be executed in real-time on the device instead of an offline process
+\end{itemize}
+
+\subsection{Data presentation and rendering}
+
+\begin{itemize}
+\item \sout{short description what it does}
+\item \sout{how is it generally employed}
+\item \sout{relation to mobile devices}
+\item \sout{approaches and implementation known on mobile devices}
+\item integration to the above-mentioned use cases
+\end{itemize}
+
+\begin{itemize}
+\item rendering the 3D model in this context refers to generation of image generation of 3D model by projective rasterization of model data to 2D imaging plane of a virtual camera
+\item rendering is performed to view the 3D model on the mobile device
+\item also employed to generate a reference image used in the image-to-geometry registration and the annotation and interpretation of the data
+\item major concepts: mesh-based rendering and \gls{PBR}
+\item technical details on how this is done covered in the technology section \ref{}
+\end{itemize}
+
+\subsubsection{Mesh-based rendering}
+
+\begin{itemize}
+\item well-known concept
+\item mesh is transferred as vertex set and primitive set (i.e. triangles or polygons, depending on employing \gls{TIN} or polygonal soup geometry) to graphics processor
+\item virtual camera is set up as projective view matrix
+\item primitives are positions in 3D scene via model transformation matrix
+\item rasterizer projects information to camera plane and transforms continuous data into discrete pixel-based representation
+\item in-time decompression can be optionally employed (see \cite{BorgeatXYZ})
+\item texturing is employed to map image information on the surface; correlation between surface patches and texture images established explicitly beforehand or implicitly defined by geographic coordinate systems (e.g. WGS84 or UTM) for georeferenced surface
+\end{itemize}
+
+\subsection{A novel approach to mobile point-based rendering}
+
+TO BE FILLED BY MELANIE
 
 \subsection{Interpretation and annotation}
+
+\begin{itemize}
+\item short description what it does
+\item how is it generally employed
+\item relation to mobile devices
+\item approaches and implementation known on mobile devices
+\item integration to the above-mentioned use cases
+\end{itemize}
 
 
 
