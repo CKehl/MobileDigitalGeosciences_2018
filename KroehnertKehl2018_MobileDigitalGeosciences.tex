@@ -400,11 +400,47 @@ TO BE FILLED BY MELANIE
 \subsection{Graphics}
 
 \begin{itemize}
+\item as explained above, rendering 3D data is a key part for conducting annotations on 3D data, either based on 3D geometry itself or correlated images in camera space
+\item for mobile devices, this can technologically be realized two-fold, depending on the usage constraints
 %\item software- vs hardware renderer
-
-\item web-rendering
-\item rendering-on-device
-\item hardware differences: speed, capability, CUDA
+\item generally, rendering stages (image-place projection, rasterization, tesselation \& lighting, see \cite{REDBOOK}) can be realised by means of software or by handware support
+%\item in a software environment, the rendering stages are computed on the CPU
+\item here, compute operations (gaussian smooting, derivative computations, vertex projection) are implemented on the mobile device CPU by available operations and libraries using the Android SDK (Java) and Android NDK (C++) on Google's Android system and Swift and Objective-C on Apple's iOS platform
+\item software-based rendering is more flexible in how operations are carried out as they do not need to account for hardware-specific processing pipelines; in the realm of mobile devices, non-standard software-based rendering operations are supported by a wider range of devices
+\item drawback of software-based rendering is performance as it makes suboptimal use newer computing capabilities and graphics-specific chipset operations
+\item example is the novel rendering approach for point-based rendering introduced in section \ref{}, which requires implementation flexibility
+\item most 3D rendering is done, even on mobile devices, with hardware-based rendering to varying degrees
+\item even when implementing specific rasterization algorithms (see section \ref{}), operations such as vertex projections and tesselation \& lighting are performed on the GPU
+\item hardware-based rendering on mobile devices is facilitated by Khronos' \gls{GLES} \cite{} on specialised mobile device graphics chips (e.g. Qualcomm Adreno, ARM Mali, NVIDIA Tegra)
+\item in comparison to software-based rendering, hardware acceleration provides improved performance
+\item drawbacks of hardware implementations are considerably longer development cycles, because the programming principles of GPUs differ considerably from common ''App programming´´, and reduced flexibility on what can be realised
+\item for geoscientists and domain experts in the field, the distinction is good to be aware of as accelerated graphical apps for solving domain-specific tasks are usually offered as paid services to offset the increased development costs
+%\item web-rendering
+\item external circumstances and project constraints may govern implementation details for graphical systems
+\item major constraint imposed in this context is internet availability
+\item applications that are expected to operate in an urban setting or in well-developed infrastructure environments can make use of internet access
+\item this allows the externalisation of rendering tasks for 3D models and data to a network-oriented client-server architecture as in Ponchio et al. \cite{Ponchio2016}
+\item field experts that use apps and require 3D-rendered information can submit rendering requests to a remote server that takes over the image generation of the 3D data
+\item technically, the app then only transmits metadata about storage location of the 3D data and receives the final, rasterised image, which allow energy-efficient operability 
+\item furthermore, the process is agnostic to the specific mobile device generating the request, so this way of implementation works in the exact same manner for all mobile device regardless of the system manufacturer (e.g. Google, Apple, Microsoft)
+\item the reduced process load by externalising the rendering tasks allows using advanced algorithms for sensor tracking \cite{} for improved localisation and orientation or augmented reality \cite{} for information overlays and multimedia content
+%\item rendering-on-device
+\item in other geoscientific settings, such as field geology \cite{} and environmental monitoring \cite{} of remote areas, internet access is either restricted or expensive to establish
+\item subscription to satellite network with the required data rate costs around 70 euro per month \$ (see \url{www.skydsl.eu}, skyDSL2+ flatrate with 30 MBit/s download); data rate needed as high-resolution images with real-time rendering rates (uncompressed 1920x1080 pixels resolution at 30 frames/s amounts to 1.39 GBit/s) requires highest data rates even when employing advanced compression techniques
+\item thus, for geoscience applications that operate in remote areas, web-based rendering is not an option
+\item in these cases, rendering needs to be done on the device
+\item for on-device rendering, the 3D data need to reside in the device memory and image generation needs to be done with performance-restricted hardware
+\item as is shown in section \ref{}, on-device rendering has considerable impact on the energy consumption
+\item on-device rendering that processes realistic field data requires considerable implementation efforts, as demonstrated by apps such as OpenWaterLevel \cite{}, GRIT \cite{} and Outcrop \cite{}
+\item principle scientific advances in mobile device rendering have demonstrated considerable progress over the years \cite{Garcia2015,Kehl2015a,Agus2017}
+\item scaling up smaller laboratory results with mobile graphics to realistics geoscience data, in terms of image quality and resolution as well as 3D base data, is a persisting challenge
+\item although technical development continuously provides more powerful devices, mobile devices need to sacrifice capabilities such as sensor availability as well as physical size and weight in order to provide larger memory space and higher-performance processors; examples for this trade-off manufacturing can be seen in special-purpose and high-performance tablets such as NVIDIA Shield \ref{}, Project Tango \ref{} and Google Pixel C \ref{}
+%\item hardware differences: speed, capability, CUDA
+\item an specific problem for geoscientists and domain experts in on-device rendering settings: trade-off between app response time, image quality, hardware utilization and cross-device operability
+\item in interviews amongst field geologists at the department of earth science at university of Bergen, a major demand from the target user base of such mobile app is interoperability between Android, Microsoft and Apple devices; demand originates from platform-agnostic working of common geoscience software on desktop computers for Apple and Windows
+\item on the other hand, app responsiveness and high image quality are amongst the next common priorities behind interoperability; user base asks for improved quality when operating advanced equipment (e.g. special-pirpose tablets, novel- and high-performance tablets)
+\item both demands are conflicting, as making use of specialised hardware (e.g. 64-bit, \gls{SSE} and vectorisation, parallel processing and GPU Computing such as CUDA \ref{} for image processing \cite{Heymann2007,Hudelist2014}, texture compression \cite{}) in turn means reducing the range of devices being able to operate the software
+\item these technologies are key as they provide technical solutions available right now to achieve the required responsiveness and image quality
 \end{itemize}
 
 %\subsection{Component differences between devices}
@@ -415,6 +451,9 @@ TO BE FILLED BY MELANIE
 
 \subsection{Power consumption}
 
+\begin{itemize}
+
+\end{itemize}
 
 
 \section{Applications and Requirements}
@@ -427,18 +466,8 @@ The last decade is characterized by a continued increase of globally devastating
  
 Because of high costs in purchase and maintenance, gauging stations with complex sensing devices must be sparsely installed. A prime example here is the hydrological network in Saxony, Germany. Here, 184 gauging stations are installed for permanent observation on 154 of 259 rivers rising from small, medium and large catchments \cite{Saxon2018, Buettner2015}. Thus, around a third is not monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to enable crowd-sourcing based water level estimation for, among other things, such cases \cite{CrowdWaterApp2017a, Kisters2014}. But all of them have one thing in common: the water level is entered manually by engaged citizen scientists finding and photographing tide gauges close to rivers that makes - on the one hand a potential danger to themselves (f.e. by sudden landslides), and still limits on the other the approaches to open and visible gauges.
 
-\subsection{Development of a versatile mobile water level application}
-\label{sec:water_level_gauging_approach}
 Improvements in this sense can be achieved through \textit{image-2-geometry intersection} and 3D annotation for automatic water level determination without reference gauges for almost every situation regarding running waters. 
-
-Thus, the smartphone application \textit{Open Water Level} that bases on the freely available open source camera framework \textit{Open Camera} \cite{Harman2017}. Open Water Level allows for free stationing water line detection using short hand held time-lapse image sequences (for details please refer to \cite{Kroehnert2017}). 
-
-To interpret these, image measurements must be transformed into object space whereby initial exterior information needs to be provided by smartphone sensors for orientation and positioning. In addition to this, initial intrinsic camera parameters are abstracted by manufacturer specified focal length with fixed pixel skew and image-centred principle point. Distortion is assumed to be zero. In case of successfully determined water line, the user is asked for permission to open a secured FTP connection to access web server. If permission is given, a small file archive is generated and transmitted containing the master image frame from the time lapse sequence, the binarised water line and a XML file that contains additional meta data, which gives information e.g. a unique universal identification number (UUID), users position and orientation, camera specifications or date and time.
-
-Once this package has arrived on the server, first of all the meta data is analysed for user's position, image acquisition date and time to pick a tile of coloured 3D point cloud data captured independently close to river lines for further registration (see section \ref{sec:water_level_gauging_requirements_situation} for more information about gaining reference data). Obviously, the key parameters contain users position in a common global reference frame to choose the right point set. In case of more than one potential match, the acquisition date is included as well to handle possible conflicts in \textit{image-2-geometry intersection} due to seasonal changed appearance of vegetation in near-shore environment or illumination effects due to different daytimes of image and geometry acquisition.
-
-....TBC.... 
-
+for this, the smartphone application \textit{Open Water Level} that bases on the freely available open source camera framework \textit{Open Camera} \cite{Harman2017}. Open Water Level allows for free stationing water line detection using short hand held time-lapse image sequences (for details please refer to \cite{Kroehnert2017}). To interpret these, image measurements must be transformed into object space. Thus, exterior information needs to be provided by smartphone sensors for orientation and positioning.
 
 \subsubsection{Requirements applying to the sensors}
 \label{sec:water_level_gauging_requirements_sensors}
@@ -447,26 +476,33 @@ To solve the task of autonomous water level determination on running rivers f.e.
 \\It is obvious that a second source for destructive results exists: the absolute geo-positioning using smartphones currently installed GNSS receivers. In urban scenes with several shadow effects due to high-rise buildings, errors of several meters in latitude and up to more than 30 meters in height are highly possible where even the weather has impact \cite{Bauer2013, Blum2013, Zandbergen2011}. It is likely that, in the near future, smartphone's GNSS modules will be improved solving lateral accuracies of 50 centimetres \cite{Moore2017}.\\
 For now, possible relief might come including other sources for positioning like digital elevation models for simple height correction or invoke map services that allows the user for position refinement. For this, some APIs are already provided by Google \textcolor{red}{(quellen)} but they are rather cost-expensive by extensive accessing. Another upcoming option is including barometers in sensor fusion, altitude can be measured within three meters \cite{Liu2014} but for now, they are not a standard.
 
+
 \begin{itemize}
 \item(table, observation heading during water line detection outside $\rightarrow$ check magnetic strengthens and there changes over short times)
 \item (figure/table, sensitivity analysis  $\rightarrow$ heading changed in terms of 10 degrees, what does it make for)
 \end{itemize}
 
+
 \subsubsection{Requirements applying to the scenario}
 \label{sec:water_level_gauging_requirements_situation}
+
+
 
 \begin{itemize}
 \item \textit{online processing and position refinement: need online connection}
 \item \textit{image quality for water line detection: influence of image resolution, lightning, ...)}
-\item needed reference data! link to extruso project
 \end{itemize}
 
-%\begin{itemize}
+
+
+
+
+\begin{itemize}
 %\item recap: task to be solved
 %\item main requirements for (location- and orientation) sensor accuracy and geometric accuracy
 %\item specific requirements to this use case: data availability; illumination; device range to cover
-%\item available approach to address the task
-%\end{itemize}
+\item available approach to address the task
+\end{itemize}
 
 \subsection{Field Geology}
 
