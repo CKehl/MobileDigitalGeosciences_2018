@@ -452,9 +452,46 @@ TO BE FILLED BY MELANIE
 \subsection{Power consumption}
 
 \begin{itemize}
-
+\item power consumption is a metric of major importance for mobile field applications
+\item metric governs the operation time of an app outdoors for specific studies; in application domains such as field geology, the target operation time is in the range of four to eight hours without recharging at an electricity plug
+\item for the use cases of waterline detection and field interpretation, we measured the energy consumption of the apps ''OpenWaterLevel'' and ''GRIT'' and its relation to technical indicators, such as \gls{CPU}- and \gls{GPU} utilisation, memory consumption and environment measures that influence chip operations, namely the processor temperature
+\item the following measures for both apps were obtained on a Google Nexus 5 smartphone with 4-core ARM Cortex \gls{CPU} and Qualcomm Adreno \gls{GPU}; furthermore, OpenWaterLevels and its \gls{CPU}-related measures were validated on a Samsung S8 smartphone with an 8-core ARM Cortex \gls{CPU} of newer generation
+\item currently, the only app available on Android that allows measuring metrics on an app-specific level (i.e. logging the power consumption related to just one specific external app) is the Trepn Profiler \footnote{Trepn Profiler - \url{}}
+\item while this profiling app runs on all Android devices, the metrics that can be recorded (e.g. \gls{GPU} load, processor temperature) vary between devices, so that \gls{GPU} load measurements are not available for the Samsung S8 smartphone
+\item also the reason why measurements have been carried out on Google smartphones instead of other tablets; general insight on processor-power consumption behaviour are possible to be extrapolated to other devices
 \end{itemize}
 
+\begin{itemize}
+\item in the first test, we compare the power consumption in relation to \gls{CPU}- and \gls{GPU} utilisation
+\item our initial expectation is the a higher \gls{GPU} load results in an increased power consumption compared to \gls{CPU}-dominated operations, because mobile \glspl{GPU} draw more power than \glspl{CPU} to realise the increased graphics performance
+\item the results are shown for GRIT during 6.5 minutes of operations in fig. ~\ref{} (split in \gls{GPU} and \gls{CPU} contribution} and for OpenWaterLevel during 3.5 minutes of operations in fig. \ref{}
+\end{itemize}
+
+\begin{itemize}
+\item observable in both apps: a clear dependency with \gls{CPU} load and power consumption; shows that apps enter a state of conservative energy consumption if being inactive
+\item furthermore, when comparing \gls{CPU}-dependent and \gls{GPU}-dependent energy graphs, we observe that peak energy consumption strongly relates to \gls{GPU} activity
+\item for measurements in ''\gls{GRIT}'', we also have to distinguish between two operation modes
+\item actions such as image-to-geometry registration \cite{} and 3D outcrop viewing employ 3D data processing and \gls{GPU} computations in a major scale, while the image-based interpretation of an outcrop uses 2D image operations within Android-optimized data structures
+\item fig. \ref{} and \ref{} depict the 2D use case, whereas fig. \ref{} and \ref{} show the energy consumption in 3D operations
+\end{itemize}
+
+\begin{itemize}
+\item as clearly observable in fig. \ref{} in comparison to fig. \ref{}, the 3D operations result in a drastic energy cost, raising the average power consumption by XYZ mA
+\item in contrast to novice expectation, the \gls{CPU} load also increases in a 3D data processing setting
+\item that is because the \gls{CPU} of the mobile processor needs to deliver the geometric- and texture data to the \gls{GPU}; also, the \gls{CPU} needs to decompress the texture image files, resulting in a higher processing load
+\end{itemize}
+
+\begin{itemize}
+\item conclusions from the measurements are manifold
+\item on the level of assessing the profiled apps ''OpenWaterLevel'' for hydrological studies and ''\gls{GRIT}'' for field geology studies, we obtained benchmark measures for their power consumption
+\item for OpenWaterLevels, the app can be operated with an average of XYZ mA per minute (XYZ mA/h), allowing a theoretical operability on a Google Nexus 5 smartphone of XYZ hours
+\item for \gls{GRIT}, we distinguish between 2D- and 3D operability
+\item in 2D operation mode, only conducting image-based interpretations, \gls{GRIT} consumes XYZ mA per minute (XYZ) per hours, allow XYZ hours of operation
+\item on the other hand, if being operated consistently in 3D-mode, the same app consumes XYZ mA per minute (XYZ) per hours, allow only 0.something hours of operation
+\item more generally speaking, the study shows that it is important for geoscience users to be aware of the which data they are working with on the mobile device
+\item even though 3D may be readily available for a given study, it is not advisable to access them on the mobile device over stretched periods, as the drastically increased power consumption results in an operation time of XYZ hours with two external power packs in the field bag
+\item considering the \gls{CPU} load behaviour in 3D-mode, we can also hypothesize about the positive impact of utilising hardware-specific operations such as \gls{GPU} texture decompression on energy consumption: while using the \gls{GPU} requires generally more power, it is also more efficient in operations such as texture decompression, therefore potentially having a positive affect on the overall power consumption of mobile field apps
+\end{itemize}
 
 \section{Applications and Requirements}
 \label{sec:applications}
