@@ -538,7 +538,7 @@
   Url                      = {https://www.kisters.de/fileadmin/user_upload/Wasser/Produkte/WISKI/Produktblaetter/MobileWaterTracker_de_mail.pdf}
 }
 
-@InProceedings{Kroehnert2017b,
+@InProceedings{Kroehnert2017,
   Title                    = {Image-to-Geometry Registration on Mobile Devices - Concepts, Challenges and Applications},
   Author                   = {Kr\"{o}hnert, Melanie and Kehl, Christian and Litschke, Herbert and Buckley, Simon J.},
   Booktitle                = {{3D-NordOst}},
@@ -554,9 +554,9 @@
   Timestamp                = {2017.12.25}
 }
 
-@Article{Kroehnert2017a,
+@Article{Kroehnert2017,
   Title                    = {Segmentation of environmental time lapse image sequences for the determination of shore lines captured by hand-held smartphone cameras},
-  Author                   = {Kr\"{o}hnert, Melanie and Meichsner, Robert},
+  Author                   = {Kr\"ohnert, Melanie and Meichsner, Robert},
   Journal                  = {ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences},
   Year                     = {2017},
   Pages                    = {1--8},

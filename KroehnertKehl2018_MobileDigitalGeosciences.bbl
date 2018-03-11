@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{46}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,6 +11,230 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Trinks et~al.(2005)Trinks, Clegg, McCaffrey, Jones, Hobbs,
+  Holdsworth, Holliman, Imber, Waggott, and Wilson}]{Trinks2005}
+\bibinfo{author}{I.~Trinks}, \bibinfo{author}{P.~Clegg},
+  \bibinfo{author}{K.~McCaffrey}, \bibinfo{author}{R.~Jones},
+  \bibinfo{author}{R.~Hobbs}, \bibinfo{author}{B.~Holdsworth},
+  \bibinfo{author}{N.~Holliman}, \bibinfo{author}{J.~Imber},
+  \bibinfo{author}{S.~Waggott}, \bibinfo{author}{R.~Wilson},
+\newblock \bibinfo{title}{Mapping and analysing virtual outcrops},
+\newblock \bibinfo{journal}{Visual Geosciences} \bibinfo{volume}{10}
+  (\bibinfo{year}{2005}) \bibinfo{pages}{13--19}.
+%Type = Article
+\bibitem[{McCaffrey et~al.(2005)McCaffrey, Jones, Holdsworth, Wilson, Clegg,
+  Imber, Holliman, and Trinks}]{McCaffrey2005}
+\bibinfo{author}{K.~McCaffrey}, \bibinfo{author}{R.~Jones},
+  \bibinfo{author}{R.~Holdsworth}, \bibinfo{author}{R.~Wilson},
+  \bibinfo{author}{P.~Clegg}, \bibinfo{author}{J.~Imber},
+  \bibinfo{author}{N.~Holliman}, \bibinfo{author}{I.~Trinks},
+\newblock \bibinfo{title}{Unlocking the spatial dimension: digital technologies
+  and the future of geoscience fieldwork},
+\newblock \bibinfo{journal}{Journal of the Geological Society}
+  \bibinfo{volume}{162} (\bibinfo{year}{2005}) \bibinfo{pages}{927--938}.
+%Type = Article
+\bibitem[{Buckley et~al.(2008)Buckley, Howell, Enge, and Kurz}]{Buckley2008a}
+\bibinfo{author}{S.~J. Buckley}, \bibinfo{author}{J.~A. Howell},
+  \bibinfo{author}{H.~D. Enge}, \bibinfo{author}{T.~H. Kurz},
+\newblock \bibinfo{title}{Terrestrial laser scanning in geology: data
+  acquisition, processing and accuracy considerations},
+\newblock \bibinfo{journal}{Journal of the Geological Society}
+  \bibinfo{volume}{165} (\bibinfo{year}{2008}) \bibinfo{pages}{625--638}.
+%Type = Article
+\bibitem[{Caumon et~al.(2013)Caumon, Gray, Antoine, and Titeux}]{Caumon2013}
+\bibinfo{author}{G.~Caumon}, \bibinfo{author}{G.~Gray},
+  \bibinfo{author}{C.~Antoine}, \bibinfo{author}{M.~O. Titeux},
+\newblock \bibinfo{title}{Three-dimensional implicit stratigraphic model
+  building from remote sensing data on tetrahedral meshes: Theory and
+  application to a regional model of la popa basin, ne mexico},
+\newblock \bibinfo{journal}{IEEE Transactions on Geoscience and Remote Sensing}
+  \bibinfo{volume}{51} (\bibinfo{year}{2013}) \bibinfo{pages}{1613--1621}.
+%Type = Inproceedings
+\bibitem[{Rusinkiewicz and Levoy(2000)}]{Rusinkiewicz2000}
+\bibinfo{author}{S.~Rusinkiewicz}, \bibinfo{author}{M.~Levoy},
+\newblock \bibinfo{title}{Qsplat: a multiresolution point rendering system for
+  large meshes},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 27th annual conference on
+  Computer graphics and interactive techniques}, SIGGRAPH '00,
+  \bibinfo{publisher}{ACM Press/Addison-Wesley Publishing Co.},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{year}{2000}, pp.
+  \bibinfo{pages}{343--352}. \URLprefix
+  \url{http://dx.doi.org/10.1145/344779.344940}.
+  \DOIprefix\doi{10.1145/344779.344940}.
+%Type = Article
+\bibitem[{Leskens et~al.(2015)Leskens, Kehl, Tutenel, Kol, de~Haan, Stelling,
+  and Eisemann}]{Leskens2015}
+\bibinfo{author}{J.~G. Leskens}, \bibinfo{author}{C.~Kehl},
+  \bibinfo{author}{T.~Tutenel}, \bibinfo{author}{T.~Kol},
+  \bibinfo{author}{G.~de~Haan}, \bibinfo{author}{G.~Stelling},
+  \bibinfo{author}{E.~Eisemann},
+\newblock \bibinfo{title}{An interactive simulation and visualization tool for
+  flood analysis usable for practitioners},
+\newblock \bibinfo{journal}{Mitigation and Adaptation Strategies for Global
+  Change}  (\bibinfo{year}{2015}) \bibinfo{pages}{1--18}.
+%Type = Article
+\bibitem[{Rarity et~al.(2014)Rarity, Van~Lanen, Hodgetts, Gawthorpe, Wilson,
+  Fabuel-Perez, and Redfern}]{Rarity2014}
+\bibinfo{author}{F.~Rarity}, \bibinfo{author}{X.~Van~Lanen},
+  \bibinfo{author}{D.~Hodgetts}, \bibinfo{author}{R.~Gawthorpe},
+  \bibinfo{author}{P.~Wilson}, \bibinfo{author}{I.~Fabuel-Perez},
+  \bibinfo{author}{J.~Redfern},
+\newblock \bibinfo{title}{Lidar-based digital outcrops for sedimentological
+  analysis: workflows and techniques},
+\newblock \bibinfo{journal}{Geological Society, London, Special Publications}
+  \bibinfo{volume}{387} (\bibinfo{year}{2014}) \bibinfo{pages}{153--183}.
+%Type = Inproceedings
+\bibitem[{Garc\'{i}a et~al.(2015)Garc\'{i}a, Pag\'{e}s, Berj\'{o}n, and
+  Mor\'{a}n}]{Garcia2015}
+\bibinfo{author}{S.~Garc\'{i}a}, \bibinfo{author}{R.~Pag\'{e}s},
+  \bibinfo{author}{D.~Berj\'{o}n}, \bibinfo{author}{F.~Mor\'{a}n},
+\newblock \bibinfo{title}{Textured splat-based point clouds for rendering in
+  handheld devices},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 20th International
+  Conference on 3D Web Technology}, Web3D '15, \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{year}{2015}, pp.
+  \bibinfo{pages}{227--230}. \URLprefix
+  \url{http://doi.acm.org/10.1145/2775292.2782779}.
+%Type = Article
+\bibitem[{Kehl et~al.(2016)Kehl, Buckley, Gawthorpe, Viola, and
+  Howell}]{Kehl2016_ISPRS}
+\bibinfo{author}{C.~Kehl}, \bibinfo{author}{S.~Buckley},
+  \bibinfo{author}{R.~Gawthorpe}, \bibinfo{author}{I.~Viola},
+  \bibinfo{author}{J.~Howell},
+\newblock \bibinfo{title}{{DIRECT IMAGE-TO-GEOMETRY REGISTRATION USING MOBILE
+  SENSOR DATA}},
+\newblock \bibinfo{journal}{{ISPRS Annals of Photogrammetry, Remote Sensing \&
+  Spatial Information Sciences}} \bibinfo{volume}{3} (\bibinfo{year}{2016})
+  \bibinfo{pages}{121--128}.
+%Type = Inproceedings
+\bibitem[{Kehl et~al.(2015)Kehl, Buckley, and Howell}]{Kehl2015c}
+\bibinfo{author}{C.~Kehl}, \bibinfo{author}{S.~J. Buckley},
+  \bibinfo{author}{J.~A. Howell},
+\newblock \bibinfo{title}{{Image-to-Geometry Registration on Mobile Devices -
+  An Algorithmic Assessment}},
+\newblock in: \bibinfo{booktitle}{{Proceedings of the 3D-NordOst workshop}},
+  volume~\bibinfo{volume}{18}, \bibinfo{organization}{GFaI},
+  \bibinfo{year}{2015}, pp. \bibinfo{pages}{17--26}. \bibinfo{note}{{ISBN
+  978-3-942709-14-9}}.
+%Type = Article
+\bibitem[{Gauglitz et~al.(2014)Gauglitz, Sweeney, Ventura, Turk, and
+  Hollerer}]{Gauglitz2014}
+\bibinfo{author}{S.~Gauglitz}, \bibinfo{author}{C.~Sweeney},
+  \bibinfo{author}{J.~Ventura}, \bibinfo{author}{M.~Turk},
+  \bibinfo{author}{T.~Hollerer},
+\newblock \bibinfo{title}{Model estimation and selection towards unconstrained
+  real-time tracking and mapping},
+\newblock \bibinfo{journal}{Visualization and Computer Graphics, IEEE
+  Transactions on} \bibinfo{volume}{20} (\bibinfo{year}{2014})
+  \bibinfo{pages}{825--838}.
+%Type = Article
+\bibitem[{Kehl et~al.(2017)Kehl, Buckley, Viseur, Gawthorpe, and
+  Howell}]{Kehl2017_PHOR}
+\bibinfo{author}{C.~Kehl}, \bibinfo{author}{S.~J. Buckley},
+  \bibinfo{author}{S.~Viseur}, \bibinfo{author}{R.~L. Gawthorpe},
+  \bibinfo{author}{J.~A. Howell},
+\newblock \bibinfo{title}{Automatic illumination-invariant image-to-geometry
+  registration in outdoor environments},
+\newblock \bibinfo{journal}{The Photogrammetric Record} \bibinfo{volume}{32}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{93--118}.
+%Type = Article
+\bibitem[{Viola and Wells(1997)}]{Viola1997}
+\bibinfo{author}{P.~Viola}, \bibinfo{author}{W.~M. Wells},
+\newblock \bibinfo{title}{Alignment by maximization of mutual information},
+\newblock \bibinfo{journal}{International journal of computer vision}
+  \bibinfo{volume}{24} (\bibinfo{year}{1997}) \bibinfo{pages}{137--154}.
+%Type = Article
+\bibitem[{Corsini et~al.(2013)Corsini, Dellepiane, Ganovelli, Gherardi,
+  Fusiello, and Scopigno}]{Corsini2013}
+\bibinfo{author}{M.~Corsini}, \bibinfo{author}{M.~Dellepiane},
+  \bibinfo{author}{F.~Ganovelli}, \bibinfo{author}{R.~Gherardi},
+  \bibinfo{author}{A.~Fusiello}, \bibinfo{author}{R.~Scopigno},
+\newblock \bibinfo{title}{{Fully Automatic Registration of Image Sets on
+  Approximate Geometry}},
+\newblock \bibinfo{journal}{International journal of computer vision}
+  \bibinfo{volume}{102} (\bibinfo{year}{2013}) \bibinfo{pages}{91--111}.
+%Type = Article
+\bibitem[{Ponchio and Dellepiane(2016)}]{Ponchio2016}
+\bibinfo{author}{F.~Ponchio}, \bibinfo{author}{M.~Dellepiane},
+\newblock \bibinfo{title}{Multiresolution and fast decompression for optimal
+  web-based rendering},
+\newblock \bibinfo{journal}{Graphical Models} \bibinfo{volume}{88}
+  (\bibinfo{year}{2016}) \bibinfo{pages}{1 -- 11}.
+%Type = Book
+\bibitem[{Kessenich et~al.(2016)Kessenich, Sellers, and
+  Shreiner}]{Kessenich2016}
+\bibinfo{author}{J.~Kessenich}, \bibinfo{author}{G.~Sellers},
+  \bibinfo{author}{D.~Shreiner}, \bibinfo{title}{OpenGL Programming Guide: The
+  Official Guide to Learning OpenGL, Version 4.5 with SPIR-V}, OpenGL,
+  \bibinfo{publisher}{Pearson Education}, \bibinfo{year}{2016}. \URLprefix
+  \url{https://books.google.fr/books?id=vUK1DAAAQBAJ}.
+%Type = Book
+\bibitem[{Mehta(2013)}]{Mehta2013}
+\bibinfo{author}{P.~Mehta}, \bibinfo{title}{Learn OpenGL ES: For Mobile Game
+  and Graphics Development}, \bibinfo{publisher}{Apress}, \bibinfo{year}{2013}.
+  \URLprefix \url{https://books.google.dk/books?id=RaO9AAAAQBAJ}.
+%Type = Inproceedings
+\bibitem[{Kehl et~al.(2016)Kehl, Mullins, Buckley, Gawthorpe, Howell, Viola,
+  and Viseur}]{Kehl2016_VGCabstract}
+\bibinfo{author}{C.~Kehl}, \bibinfo{author}{J.~R. Mullins},
+  \bibinfo{author}{S.~J. Buckley}, \bibinfo{author}{R.~L. Gawthorpe},
+  \bibinfo{author}{J.~A. Howell}, \bibinfo{author}{I.~Viola},
+  \bibinfo{author}{S.~Viseur},
+\newblock \bibinfo{title}{{Geological Registration and Interpretation Toolbox
+  (GRIT): A Visual and Interactive Approach for Geological Interpretation in
+  the Field}},
+\newblock in: \bibinfo{booktitle}{Proceedings of 2nd Virtual Geoscience
+  Conference}, \bibinfo{year}{2016}, pp. \bibinfo{pages}{59--60}.
+%Type = Inproceedings
+\bibitem[{Viseur et~al.(2014)Viseur, Roudaut, Bertozzi, Castelli, and
+  Mari}]{Viseur2014_VGCabstract}
+\bibinfo{author}{S.~Viseur}, \bibinfo{author}{R.~Roudaut},
+  \bibinfo{author}{R.~Bertozzi}, \bibinfo{author}{M.~Castelli},
+  \bibinfo{author}{J.-L. Mari},
+\newblock \bibinfo{title}{3d interactive geological interpretations on digital
+  outcrops using a touch pad},
+\newblock in: \bibinfo{booktitle}{Vertical Geology Conference (VGC)},
+  \bibinfo{year}{2014}.
+%Type = Inproceedings
+\bibitem[{Agus et~al.(2017)Agus, Gobbetti, Marton, Pintore, and
+  V\'{a}zquez}]{Agus2017}
+\bibinfo{author}{M.~Agus}, \bibinfo{author}{E.~Gobbetti},
+  \bibinfo{author}{F.~Marton}, \bibinfo{author}{G.~Pintore},
+  \bibinfo{author}{P.-P. V\'{a}zquez},
+\newblock \bibinfo{title}{{Mobile Graphics}},
+\newblock in: \bibinfo{editor}{A.~Bousseau}, \bibinfo{editor}{D.~Gutierrez}
+  (Eds.), \bibinfo{booktitle}{EuroGraphics 2017 - Tutorials},
+  \bibinfo{publisher}{The Eurographics Association}, \bibinfo{year}{2017}.
+  \DOIprefix\doi{10.2312/egt.20171032}.
+%Type = Article
+\bibitem[{Heymann et~al.(2007)Heymann, M{\"u}ller, Smolic, Froehlich, and
+  Wiegand}]{Heymann2007}
+\bibinfo{author}{S.~Heymann}, \bibinfo{author}{K.~M{\"u}ller},
+  \bibinfo{author}{A.~Smolic}, \bibinfo{author}{B.~Froehlich},
+  \bibinfo{author}{T.~Wiegand},
+\newblock \bibinfo{title}{Sift implementation and optimization for
+  general-purpose gpu},
+\newblock \bibinfo{journal}{Winter School of Computer Graphics (WSCG)}
+  (\bibinfo{year}{2007}).
+%Type = Inproceedings
+\bibitem[{Hudelist et~al.(2014)Hudelist, Cob\^{a}rzan, and
+  Schoeffmann}]{Hudelist2014}
+\bibinfo{author}{M.~A. Hudelist}, \bibinfo{author}{C.~Cob\^{a}rzan},
+  \bibinfo{author}{K.~Schoeffmann},
+\newblock \bibinfo{title}{Opencv performance measurements on mobile devices},
+\newblock in: \bibinfo{booktitle}{Proceedings of International Conference on
+  Multimedia Retrieval}, ICMR '14, \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{year}{2014}, pp.
+  \bibinfo{pages}{479:479--479:482}. \URLprefix
+  \url{http://doi.acm.org/10.1145/2578726.2578798}.
+  \DOIprefix\doi{10.1145/2578726.2578798}.
+%Type = Techreport
+\bibitem[{Chait(2015)}]{Chait2015}
+\bibinfo{author}{D.~Chait}, \bibinfo{title}{Using ASTC Texture Compression for
+  Game Assets}, \bibinfo{type}{whitepaper}, NVIDIA Corporation,
+  \bibinfo{year}{2015}. \URLprefix
+  \url{https://developer.nvidia.com/astc-texture-compression-for-game-assets}.
 %Type = Inproceedings
 \bibitem[{Siedschlag(2015)}]{Siedschlag2015}
 \bibinfo{author}{S.~Siedschlag},
@@ -62,15 +286,6 @@
   Android}}, \bibinfo{year}{2017}. \URLprefix
   \url{https://sourceforge.net/projects/opencamera/}, \bibinfo{note}{version
   1.38}.
-%Type = Article
-\bibitem[{Kr\"ohnert and Meichsner(2017)}]{Kroehnert2017}
-\bibinfo{author}{M.~Kr\"ohnert}, \bibinfo{author}{R.~Meichsner},
-\newblock \bibinfo{title}{Segmentation of environmental time lapse image
-  sequences for the determination of shore lines captured by hand-held
-  smartphone cameras},
-\newblock \bibinfo{journal}{ISPRS Annals of the Photogrammetry, Remote Sensing
-  and Spatial Information Sciences} \bibinfo{volume}{IV-2/W4}
-  (\bibinfo{year}{2017}) \bibinfo{pages}{1--8}.
 %Type = Inproceedings
 \bibitem[{Blum et~al.(2013)Blum, Greencorn, and Cooperstock}]{Blum2013}
 \bibinfo{author}{J.~R. Blum}, \bibinfo{author}{D.~G. Greencorn},
@@ -127,5 +342,98 @@
   Joint Conference on Pervasive and Ubiquitous Computing Adjunct Publication},
   \bibinfo{publisher}{{ACM} Press}, \bibinfo{year}{2014}.
   \DOIprefix\doi{10.1145/2638728.2641670}.
+%Type = Article
+\bibitem[{Buckley et~al.(2010)Buckley, Schwarz, Terlaky, Howell, and
+  Arnott}]{Buckley2010}
+\bibinfo{author}{S.~J. Buckley}, \bibinfo{author}{E.~Schwarz},
+  \bibinfo{author}{V.~Terlaky}, \bibinfo{author}{J.~A. Howell},
+  \bibinfo{author}{R.~Arnott},
+\newblock \bibinfo{title}{{Combining Aerial Photogrammetry and Terrestrial
+  Lidar for Reservoir Analog Modeling}},
+\newblock \bibinfo{journal}{Photogrammetric Engineering \& Remote Sensing}
+  \bibinfo{volume}{76} (\bibinfo{year}{2010}) \bibinfo{pages}{953--963}.
+%Type = Inproceedings
+\bibitem[{Dewez et~al.(2015)Dewez, Leroux, and Morelli}]{Dewez2015}
+\bibinfo{author}{T.~J. Dewez}, \bibinfo{author}{J.~Leroux},
+  \bibinfo{author}{S.~Morelli},
+\newblock \bibinfo{title}{Uav sensing of coastal cliff topography for rock fall
+  hazard applications},
+\newblock in: \bibinfo{booktitle}{Journ{\'e}es Al{\'e}as Gravitaires JAG 2015},
+  \bibinfo{year}{2015}.
+%Type = Inbook
+\bibitem[{Chandler and Buckley(2016)}]{Chandler2016}
+\bibinfo{author}{J.~Chandler}, \bibinfo{author}{S.~Buckley},
+  \bibinfo{title}{Structure from motion (SFM) photogrammetry vs terrestrial
+  laser scanning}, \bibinfo{publisher}{American Geosciences Institute (AGS)},
+  \bibinfo{year}{2016}.
+%Type = Article
+\bibitem[{Kehl et~al.(tion)Kehl, Mullins, Buckley, Howell, and
+  Gawthorpe}]{Kehl2018_AGU}
+\bibinfo{author}{C.~Kehl}, \bibinfo{author}{J.~R. Mullins},
+  \bibinfo{author}{S.~J. Buckley}, \bibinfo{author}{J.~A. Howell},
+  \bibinfo{author}{R.~L. Gawthorpe},
+\newblock \bibinfo{title}{Interpretation and mapping of geological features
+  using mobile devices in outcrop geology - a case study of the saltwick
+  formation, north yorkshire, uk},
+\newblock \bibinfo{journal}{AGU Books - Special Issue}  (\bibinfo{year}{2018
+  (accepted for publication)}).
+%Type = Article
+\bibitem[{Kehl et~al.(2017)Kehl, Buckley, Viseur, Gawthorpe, Mullins, and
+  Howell}]{Kehl2017_VGC}
+\bibinfo{author}{C.~Kehl}, \bibinfo{author}{S.~J. Buckley},
+  \bibinfo{author}{S.~Viseur}, \bibinfo{author}{R.~L. Gawthorpe},
+  \bibinfo{author}{J.~R. Mullins}, \bibinfo{author}{J.~A. Howell},
+\newblock \bibinfo{title}{Mapping field photos to textured surface meshes
+  directly on mobile devices},
+\newblock \bibinfo{journal}{The Photogrammetric Record} \bibinfo{volume}{32}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{398--423}.
+%Type = Inproceedings
+\bibitem[{Dreyer et~al.(1993)Dreyer, F{\"a}lt, H{\o}y, Knarud, Cuevas
+  et~al.}]{Dreyer1993}
+\bibinfo{author}{T.~Dreyer}, \bibinfo{author}{L.-M. F{\"a}lt},
+  \bibinfo{author}{T.~H{\o}y}, \bibinfo{author}{R.~Knarud},
+  \bibinfo{author}{J.-L. Cuevas}, et~al.,
+\newblock \bibinfo{title}{Sedimentary architecture of field analogues for
+  reservoir information ({SAFARI}): a case study of the fluvial escanilla
+  formation, spanish pyrenees},
+\newblock in: \bibinfo{booktitle}{{The Geological Modeling of Hydrocarbon
+  Reservoirs and Outcrop Analogs}}, volume~\bibinfo{volume}{15},
+  \bibinfo{organization}{International Association of Sedimentologists --
+  Special Publications}, \bibinfo{publisher}{Wiley Online Library},
+  \bibinfo{year}{1993}, pp. \bibinfo{pages}{57--80}.
+%Type = Article
+\bibitem[{Colombera et~al.(2012)Colombera, Felletti, Mountney, and
+  McCaffrey}]{Colombera2012a}
+\bibinfo{author}{L.~Colombera}, \bibinfo{author}{F.~Felletti},
+  \bibinfo{author}{N.~P. Mountney}, \bibinfo{author}{W.~D. McCaffrey},
+\newblock \bibinfo{title}{A database approach for constraining stochastic
+  simulations of the sedimentary heterogeneity of fluvial reservoirs},
+\newblock \bibinfo{journal}{AAPG bulletin} \bibinfo{volume}{96}
+  (\bibinfo{year}{2012}) \bibinfo{pages}{2143--2166}.
+%Type = Inproceedings
+\bibitem[{Cawood and Bond(2018)}]{Cawood2018}
+\bibinfo{author}{A.~J. Cawood}, \bibinfo{author}{C.~E. Bond},
+\newblock \bibinfo{title}{erock: an online, open-access repository of virtual
+  outcrops and geological samples in 3d},
+\newblock in: \bibinfo{booktitle}{EGU Geophysical Research Abstracts},
+  volume~\bibinfo{volume}{20}, \bibinfo{year}{2018}, p. \bibinfo{pages}{18248}.
+%Type = Inproceedings
+\bibitem[{Hama et~al.(2013)Hama, Ruddle, and Paton}]{Hama2013}
+\bibinfo{author}{L.~Hama}, \bibinfo{author}{R.~A. Ruddle},
+  \bibinfo{author}{D.~Paton},
+\newblock \bibinfo{title}{3d mobile visualization techniques in field geology
+  interpretation: Evaluation of modern tablet applications},
+\newblock in: \bibinfo{booktitle}{AAPG Hedberg Research Conference: 3D
+  Structural Geologic Interpretation: Earth, Mind and Machine},
+  \bibinfo{year}{2013}.
+%Type = Inproceedings
+\bibitem[{Eltner et~al.(2017)Eltner, Sardemann, Kr{\"o}hnert, and
+  Schwalbe}]{Eltner2017}
+\bibinfo{author}{A.~Eltner}, \bibinfo{author}{H.~Sardemann},
+  \bibinfo{author}{M.~Kr{\"o}hnert}, \bibinfo{author}{E.~Schwalbe},
+\newblock \bibinfo{title}{Camera based low-cost system to monitor hydrological
+  parameters in small catchments},
+\newblock in: \bibinfo{booktitle}{EGU General Assembly Conference Abstracts},
+  volume~\bibinfo{volume}{19}, \bibinfo{year}{2017}, p. \bibinfo{pages}{6698}.
 
 \end{thebibliography}
