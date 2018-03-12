@@ -181,48 +181,59 @@ discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surfa
 \section{Introduction}
 \label{sec:introduction}
 
-\begin{itemize}
-\item computing equipment continuously elevates the analytical capabilities for solving geoscientific problems
-\item large drawback on computing equipment: the more powerful it is, the more stationary it is
-\item geoscience disciplines such as hydrology, geology or glaciology are driven by outdoor experiments that prohibit bulky equipment
-\item the advent of mobile computing equipment, such as smartphones and tablets, provides a possible solution to the equipment problem
-\item form factor of mobile devices is small enough to allow every field-related geoscientist to carry one in the field
-\item as seen is popular articles, the range of available devices increases, which allows to find a devices fit-for-purpose to each situation
-\item range of devices also comes with a range of capabilities that influence their usability for specific field tasks
-\end{itemize}
+A considerable number of domains within the geosciences rely on digitised natural observations and their interpretation to steer and constrain numerical models. Published (semi-)automatic interpretation methods emerged within the past decade that support the digital documentation of observations and interpretations. These advanced interpretation techniques require increasingly complex computing that is restricted to office-based work environments, which poses a problem for field-based studies. Domains such as hydrology, geology or glaciology hence established multi-stage procedures where observations are taken manually in the field and later digitised in the office. This is disadvantageous and within the referred domains, there is an increasing desire to facilitate digital interpretations in the field at the study location. Mobile computing equipment (e.g. smartphones and tablets) are one technological option to facilitate such digital field-based workflows. These devices are nowadays ubiquitous and can easily be equipped in field-based research. Also, as seen in technical magazines and the general media, the range of available devices continuously increases, which allows to find a ''fit-for-purpose`` device to each specific situation. New application cases, which are demonstrated and discussed in this article, and commitment within geoscience- and computer technology industry lead to an increasing interest in this cross-disciplinary domain between mobile computing and geoscientific interpretation.
 
-\begin{itemize}
-\item availability of small form factor devices is only on part contribution to making digital geosciences more ''mobile``
-\item availability and easy access to geoscience data (e.g. domain-specific maps, \glspl{DEM}, surface models in 3D) is equally important to perform combined digital- and field analysis
-\item while basemap access on mobile devices is trivial, surface-scanned data in form of point clouds and (textured) triangulated meshes is becoming increasingly available with novice-operable \gls{SfM} software and drones
-\item crowdsourced data and \gls{VGI} provides numerous data for domain-specific analysis, which is facilitated by easier data capture from amateur scientists using mobile devices
-\end{itemize}
+%\begin{itemize}
+%\item Many geosciences domains rely on natural observations and digitised interpretations thereof to steer and constrain numerical models
+%\item many semi-automatic interpretation methods have emerged over the years that support digital documentation of observations and interpretations
+%\item drawback of existing methods: reliance on computing equipment; the more powerful it is, the more stationary it is
+%\item observations within hydrology, geology or glaciology are done outdoor experiments, which prohibit the use of bulky equipment
+%\item the advent of mobile computing equipment, such as smartphones and tablets, enable digital interpretations being carried out in the field
+%\item smart mobile devices are ubiquitous and easy to equip in field-based research
+%\item as seen in technical magazines and the media, the range of available devices increases, which allows to find a device fit-for-purpose to each situation
+%\end{itemize}
 
-\begin{itemize}
-\item In order to connect data and devices in the field, domain-specific mobile software is required
-\item the difficulties in mobile software development stem from the specific demands and challenges for mobile software, such as energy efficiency, multi-manufacturer support, smart sensor utilisation [add and expand]
-\item with the emergence of new application cases, which are demonstrated and discussed in this article, and an increasing interest from geoscience- and computer technology industry, a significant rise in the mobile software availability for geoscience problem solving is expected for the near-term future
-\end{itemize}
+Next to easily available, pocket-format computing devices, the required three-dimensional base data for modern applications also need to be available and being processed in a ''mobile-ready`` manner. The availability of topographic 3D surface data is steadily increasing due to easy-to-use software and instrumentation for surface generation (e.g. drones, \gls{SfM} \cite{•} and multi-view geometry \cite{•}, satellite \glspl{DEM}). Furthermore, crowdsourced data and \gls{VGI} contribute to the geoscience data inventory, which is acquired by amateur scientists and domain enthusiasts.
 
-\begin{itemize}
-\item Even considering the fast technological development, some challenges around mobile device development exists that are rooted in the technology itself
-\item several techniques and methods - such as \gls{SfM}, \gls{VR} or \gls{AR} - have been demonstrated to work on small-scale lab studies in computer science itself
-\item translation and adaptation of these techniques to specific geoscience case studies and domain-specific issues is prohibited by scale and reliability
-\item Other challenges influencing mobile digital geosciences are short-comings in geo-localization accuracy, object matching- and registration accuracy, geometric- and photometric data processing, data volumes and the availability of off-the-shelf program codes to common problems in computing
-\item these problems are already familiar to disciplines such as software engineering, photogrammetry and data science for established computing platforms (e.g. PCs, workstations, laptops)
-\item there are also problems specific or exclusive to mobile device processes, which are discussed in detail in this article
-\item they contain issues such as device variability, power consumption and computing efficiency (i.e. fast calculations with drastically limited computing capabilities)
-\end{itemize}
+%\begin{itemize}
+%\item availability of small form factor devices is only on part contribution to making digital geosciences more ''mobile``
+%\item appropriate 3D data needs to be available on these mobile devices to perform interpretations
+%\item availability of 3D surface models increases, due to easy-to-use software and instrumentation (e.g. drones, \gls{SfM}, satellite \glspl{DEM})
+%\item crowdsourced data and \gls{VGI} constitute to the geoscience data arsenal, being acquired from amateur scientists and novices interested in a particular domain
+%\end{itemize}
 
-\begin{itemize}
-\item For the next sections, the article adheres to following structure:
-\item First, use cases are presented as opening statements to introduce task that are exclusively addressed by mobile devices in the digital geosciences
-\item Secondly, the basics for 3D digital processing for our cases are presented. The overview is limited to the applied concepts to mobile devices and the extensions necessary to make the mapping to such devices.
-\item Then, algorithms that are key to the digital geosciences outdoors are presented. The overview is also meant to highlight that alternative methods are available to achieve the target tasks
-\item Fourth, the algorithms are mapped to the specific mobile technologies and components. The technologies and major parameters that impact geoscience problem applicability are highlighted.
-\item Finally, we showcase and discuss how available mobile systems are used in application scenarios from hydrology and petroleum geology to improve analysis processes, help disseminating acquired knowledge and integrate outdoor measurements in digital workflows
-\item Then, the article is finalized with some concluding remarks and a discussion for future developments in this research trajectory
-\end{itemize}
+Domain-specific mobile software is required in order allow for data interaction on the available mobile devices. Specific challenges such as power consumption, multi-manufacturer support, smart sensor utilisation and device intercommunication distinguish mobile software from common desktop software. This leads to a very different design electronics design of tablets and smartphones in comparison to desktop PCs and laptops, which in turn means that existing approaches for digital data processing and interpretation are not transferable as--is to this new computing domain. Even when considering the fast technological development, there are some challenges within mobile device software development that are rooted in the technology itself: user interfaces need to be specifically designed for mobile devices so to utilise touch screen interfaces, natural language interfaces and gesture interaction (e.g. ''swipe`` and ''optical lens`` motions). \gls{GNSS}-based geo-localisation accuracy, as delivered by the integrated-circuit sensor of mobile, is inferior to common user expectations and requirements in geoscientific studies. The modalities of sensor data delivery (be it hardware sensor or software emulation), photo capturing and processing, and the computational capabilities of mobile devices differ significantly between each vendors. Short-comings such as inappropriate data structuring, visual object correlation and registration, increasing data volumes and the unavailability of off-the-shelf program codes further complicate the technological development. Addressing the demonstrated challenges distinguishes the mobile application development and common desktop software development for geoscience purposes.
+
+%\begin{itemize}
+%\item In order to connect data and devices in the field, domain-specific mobile software is required
+%\item specific demands and challenges, such as energy efficiency, multi-manufacturer support, smart sensor utilisation and device communication, distinguish mobile software from common desktop software
+%\item existing approaches for data interpretation are not transferable as--is to mobile devices
+%\item new application cases, which are demonstrated and discussed in this article, and an increasing interest from geoscience- and computer technology industry lead to an increasing interest in this cross-disciplinary domain between mobile computing and geoscientific interpretation
+%\item Even considering the fast technological development, some challenges around mobile device development exists that are rooted in the technology itself
+%\item user interfaces need to be specifically designed for mobile devices, utilising touch interfaces, natural language interfaces and gestures (e.g. ''swipe´´ motions)
+%\item short-comings in geo-localization accuracy, object matching- and registration accuracy, geometric- and photometric data processing, data volumes and the availability of off-the-shelf program codes further complicate mobile device development
+%\item technical details such as device variability, power consumption and computing efficiency (i.e. fast calculations with drastically limited computing capabilities) also need to be address during software development
+%\item addressing the demonstrated challenges distinguish the complications domain-specific mobile application development pose in comparison to common desktop software
+%\end{itemize}
+
+This article demonstrates how the above-listed challenges can be addressed to provide, in the end, the desired added value for field-based research. This demonstration addresses the 3D data annotation and interpretation for two use cases within the domains of surface hydrology and (petroleum) geology. The content covered in the article is a detail-driven extension of earlier published research \cite{Kroehnert2017b}, focussing on extensive measurements to verify the reasoning and statements of previous studies.
+
+%\begin{itemize}
+%\item this article demonstrates how the above-listed challenges can be address on two use cases within the domains of hydrology and geology, adding the desired value to digital field-based observation and interpretation
+%\item the content covered in the article is an detail-driven extension of earlier published research \cite{Kroehnert2017b}, focussing on extensive measurements to verify previous studies on a more general level
+%\end{itemize}
+
+The sections within this article adhere to the following structure: First, the use cases are presented as opening statements to introduce field-related tasks that are to be addressed with mobile device technology. Secondly, different 3D surface data representations are introduced that employed within this technical research. Thirdly, algorithmic baseline concepts that are key for interpreting 3D data on mobile devices are introduced, summarising project-internal development by the authors as well as referencing key literature on the subject. Fourth, the algorithms are mapped to the specific mobile technologies and components. The technologies and major parameters that impact the target use case application are highlighted. Finally, we showcase and discuss how available mobile systems are used in application scenarios from hydrology and petroleum geology to improve data analysis and integrate outdoor measurements in digital workflows. Then, the article is finalized with some concluding remarks and a discussion for future developments in this research trajectory.
+
+%\begin{itemize}
+%\item For the following sections, the article adheres to following structure:
+%\item First, use cases are presented as opening statements to introduce task that are exclusively addressed by mobile devices in the digital geosciences
+%\item Secondly, the different forms of 3D surface data representations are introduced that are in use within the digital processing presented in this article
+%\item Thirdly, algorithmic baseline concepts that are key for interpreting 3D data on mobile devices are introduced, summarising project-internal development by the authors as well as referencing key literature on the subject
+%\item Fourth, the algorithms are mapped to the specific mobile technologies and components. The technologies and major parameters that impact the target use case application are highlighted.
+%\item Finally, we showcase and discuss how available mobile systems are used in application scenarios from hydrology and petroleum geology to improve data analysis and integrate outdoor measurements in digital workflows
+%\item Then, the article is finalized with some concluding remarks and a discussion for future developments in this research trajectory
+%\end{itemize}
 
 \section{Target case studies}
 \label{sec:case_studies}
