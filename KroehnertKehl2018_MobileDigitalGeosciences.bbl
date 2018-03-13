@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{51}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,6 +11,18 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Kr\"{o}hnert et~al.(2017)Kr\"{o}hnert, Kehl, Litschke, and
+  Buckley}]{Kroehnert2017b}
+\bibinfo{author}{M.~Kr\"{o}hnert}, \bibinfo{author}{C.~Kehl},
+  \bibinfo{author}{H.~Litschke}, \bibinfo{author}{S.~J. Buckley},
+\newblock \bibinfo{title}{Image-to-geometry registration on mobile devices -
+  concepts, challenges and applications},
+\newblock in: \bibinfo{editor}{L.~Paul}, \bibinfo{editor}{G.~Stanke},
+  \bibinfo{editor}{M.~Pochanke} (Eds.), \bibinfo{booktitle}{{3D-NordOst}},
+  volume~\bibinfo{volume}{20}, \bibinfo{organization}{Gesellschaft zur
+  F\"{o}rderung angewandter Informatik}, \bibinfo{year}{2017}, pp.
+  \bibinfo{pages}{99--108}.
 %Type = Article
 \bibitem[{Trinks et~al.(2005)Trinks, Clegg, McCaffrey, Jones, Hobbs,
   Holdsworth, Holliman, Imber, Waggott, and Wilson}]{Trinks2005}
@@ -34,6 +46,13 @@
 \newblock \bibinfo{journal}{Journal of the Geological Society}
   \bibinfo{volume}{162} (\bibinfo{year}{2005}) \bibinfo{pages}{927--938}.
 %Type = Article
+\bibitem[{Schwalbe and Maas(2017)}]{Schwalbe2017b}
+\bibinfo{author}{E.~Schwalbe}, \bibinfo{author}{H.-G. Maas},
+\newblock \bibinfo{title}{The determination of high-resolution spatio-temporal
+  glacier motion fields from time-lapse sequences},
+\newblock \bibinfo{journal}{Earth Surface Dynamics} \bibinfo{volume}{5}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{861--879}.
+%Type = Article
 \bibitem[{Buckley et~al.(2008)Buckley, Howell, Enge, and Kurz}]{Buckley2008a}
 \bibinfo{author}{S.~J. Buckley}, \bibinfo{author}{J.~A. Howell},
   \bibinfo{author}{H.~D. Enge}, \bibinfo{author}{T.~H. Kurz},
@@ -50,18 +69,45 @@
   application to a regional model of la popa basin, ne mexico},
 \newblock \bibinfo{journal}{IEEE Transactions on Geoscience and Remote Sensing}
   \bibinfo{volume}{51} (\bibinfo{year}{2013}) \bibinfo{pages}{1613--1621}.
-%Type = Inproceedings
-\bibitem[{Rusinkiewicz and Levoy(2000)}]{Rusinkiewicz2000}
-\bibinfo{author}{S.~Rusinkiewicz}, \bibinfo{author}{M.~Levoy},
-\newblock \bibinfo{title}{Qsplat: a multiresolution point rendering system for
-  large meshes},
-\newblock in: \bibinfo{booktitle}{Proceedings of the 27th annual conference on
-  Computer graphics and interactive techniques}, SIGGRAPH '00,
-  \bibinfo{publisher}{ACM Press/Addison-Wesley Publishing Co.},
-  \bibinfo{address}{New York, NY, USA}, \bibinfo{year}{2000}, pp.
-  \bibinfo{pages}{343--352}. \URLprefix
-  \url{http://dx.doi.org/10.1145/344779.344940}.
-  \DOIprefix\doi{10.1145/344779.344940}.
+%Type = Article
+\bibitem[{Letortu et~al.(2017)Letortu, Jaud, Grandjean, Ammann, Costa,
+  Maquaire, Davidson, Dantec, and Delacourt}]{Letortu2017}
+\bibinfo{author}{P.~Letortu}, \bibinfo{author}{M.~Jaud},
+  \bibinfo{author}{P.~Grandjean}, \bibinfo{author}{J.~Ammann},
+  \bibinfo{author}{S.~Costa}, \bibinfo{author}{O.~Maquaire},
+  \bibinfo{author}{R.~Davidson}, \bibinfo{author}{N.~L. Dantec},
+  \bibinfo{author}{C.~Delacourt},
+\newblock \bibinfo{title}{Examining high-resolution survey methods for
+  monitoring cliff erosion at an operational scale},
+\newblock \bibinfo{journal}{{GIScience} {\&} Remote Sensing}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{1--20}.
+%Type = Article
+\bibitem[{Medjkane et~al.(2018)Medjkane, Maquaire, Costa, Roulland, Letortu,
+  Fauchard, Antoine, and Davidson}]{Medjkane2018}
+\bibinfo{author}{M.~Medjkane}, \bibinfo{author}{O.~Maquaire},
+  \bibinfo{author}{S.~Costa}, \bibinfo{author}{T.~Roulland},
+  \bibinfo{author}{P.~Letortu}, \bibinfo{author}{C.~Fauchard},
+  \bibinfo{author}{R.~Antoine}, \bibinfo{author}{R.~Davidson},
+\newblock \bibinfo{title}{High-resolution monitoring of complex coastal
+  morphology changes: cross-efficiency of {SfM} and {TLS}-based survey
+  (vaches-noires cliffs, normandy, france)},
+\newblock \bibinfo{journal}{Landslides}  (\bibinfo{year}{2018}).
+%Type = Article
+\bibitem[{Watanabe and Kawahara(2016)}]{Watanabe2016}
+\bibinfo{author}{Y.~Watanabe}, \bibinfo{author}{Y.~Kawahara},
+\newblock \bibinfo{title}{{UAV} photogrammetry for monitoring changes in river
+  topography and vegetation},
+\newblock \bibinfo{journal}{Procedia Engineering} \bibinfo{volume}{154}
+  (\bibinfo{year}{2016}) \bibinfo{pages}{317--325}.
+%Type = Article
+\bibitem[{Kr\"{o}hnert and Meichsner(2017)}]{Kroehnert2017a}
+\bibinfo{author}{M.~Kr\"{o}hnert}, \bibinfo{author}{R.~Meichsner},
+\newblock \bibinfo{title}{Segmentation of environmental time lapse image
+  sequences for the determination of shore lines captured by hand-held
+  smartphone cameras},
+\newblock \bibinfo{journal}{ISPRS Annals of the Photogrammetry, Remote Sensing
+  and Spatial Information Sciences} \bibinfo{volume}{IV-2/W4}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{1--8}.
 %Type = Article
 \bibitem[{Leskens et~al.(2015)Leskens, Kehl, Tutenel, Kol, de~Haan, Stelling,
   and Eisemann}]{Leskens2015}
@@ -74,16 +120,13 @@
 \newblock \bibinfo{journal}{Mitigation and Adaptation Strategies for Global
   Change}  (\bibinfo{year}{2015}) \bibinfo{pages}{1--18}.
 %Type = Article
-\bibitem[{Rarity et~al.(2014)Rarity, Van~Lanen, Hodgetts, Gawthorpe, Wilson,
-  Fabuel-Perez, and Redfern}]{Rarity2014}
-\bibinfo{author}{F.~Rarity}, \bibinfo{author}{X.~Van~Lanen},
-  \bibinfo{author}{D.~Hodgetts}, \bibinfo{author}{R.~Gawthorpe},
-  \bibinfo{author}{P.~Wilson}, \bibinfo{author}{I.~Fabuel-Perez},
-  \bibinfo{author}{J.~Redfern},
-\newblock \bibinfo{title}{Lidar-based digital outcrops for sedimentological
-  analysis: workflows and techniques},
-\newblock \bibinfo{journal}{Geological Society, London, Special Publications}
-  \bibinfo{volume}{387} (\bibinfo{year}{2014}) \bibinfo{pages}{153--183}.
+\bibitem[{Mueller and Pfister(2011)}]{Mueller2011}
+\bibinfo{author}{E.~N. Mueller}, \bibinfo{author}{A.~Pfister},
+\newblock \bibinfo{title}{Increasing occurrence of high-intensity rainstorm
+  events relevant for the generation of soil erosion in a temperate lowland
+  region in central europe},
+\newblock \bibinfo{journal}{Journal of Hydrology} \bibinfo{volume}{411}
+  (\bibinfo{year}{2011}) \bibinfo{pages}{266 -- 278}.
 %Type = Inproceedings
 \bibitem[{Garc\'{i}a et~al.(2015)Garc\'{i}a, Pag\'{e}s, Berj\'{o}n, and
   Mor\'{a}n}]{Garcia2015}
