@@ -373,6 +373,83 @@ Using this coordinate system transformation on combination with a known interior
 \end{itemize}
 
 \subsection{A novel approach to mobile point-based rendering}
+In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction (e.g. blobs due to critic point normals). Up to this we enhanced the approach, described by Meierhold, et al. (2010), to project georeferenced object points onto image plane using central projection \cite{Meierhold2010}. For deeper information of the following content and formulas, see Szeliski (2010) \cite{Szeliski}.
+Using
+
+\begin{equation}
+\begin{pmatrix}
+{u}\\
+{v}\\
+c_c
+\end{pmatrix}
+=
+\vec{X}_c = {R_{xyz}} \left( \vec{X}_W - \vec{X}_0 \right) 
+\label{eq:projection_simple}
+\end{equation} 
+
+
+we can describe three-dimensional object points  $\vec{X}_W$ in camera reference frame $\vec{X}_c $ after global rotation applying $R_{xyz}$ rotation matrix and translation by camera's projection center $\vec{X}_0$ in homogeneous camera coordinates $\vec{X}_c = (u,v,c_c)^T$ with $(u,v)$ for camera coordinates and focal lengths $f_x$ and $f_y$ leading to camera constant in camera's sensor coordinate system $c_c$. For simplicity, we assume quadratic pixels and define
+\begin{center} 
+$c_c [mm] = f_x [px] \cdot pixel\_pitch_x =f_y [px] \cdot pixel\_pitch_y$ 
+\end{center}
+In order to transform the prevailing homogeneous coordinates to two-dimensional inhomogeneous image coordinates, we have to homogenize image coordinates by camera constant $c_c$ and projection center-to-object distance $z_c$. [GRAFIK EINF\"UGEN!]
+
+\begin{equation}\notag
+\begin{pmatrix}
+{u} / c_c \\
+{v} / c_c \\
+1
+\end{pmatrix}
+= \begin{pmatrix}
+x_c /z_c \\
+y_c / z_c \\
+1
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+{u} \\
+{v}
+\end{pmatrix}
+= \begin{pmatrix}
+\frac{x_c}{z_c} \cdot c_c \\
+\frac{y_c}{z_c}\cdot c_c
+\end{pmatrix}
+\label{eq:ut_vt}
+\end{equation}
+
+Finally we have to define the image coordinate system with its origin in the upper left corner (${u}_0,{v}_0$) and adjust metrics. At this point, ($u,v$) are still in units of the world reference frame. In our case, we must transform UTM metrics [m] in pixel space. Thus, for alignment of world and image units we introduce scaling factor $p_s$, defined with meter per pixel in distance of one meter from projection center with $(c,r)$ for image columns and rows.
+
+\begin{equation}
+\begin{pmatrix}
+u\\
+v\end{pmatrix}
+= \begin{pmatrix}
+\frac{x_c}{z_c} \cdot c_c  - {u}_0 \\
+\frac{y_c}{z_c}\cdot c_c  - {v}_0 
+\end{pmatrix}
+\label{eq:2}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+ c\\
+ r
+\end{pmatrix} = \frac{1}{p_s}
+\begin{pmatrix}
+ u \\
+ v 
+\end{pmatrix}
+\label{eq:proj_cr}
+\end{equation}
+ 
+ 
+
+
+
+
+
 
 \textbf{TO BE FILLED BY MELANIE}
 
