@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.9)  15 MAR 2018 20:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.9)  15 MAR 2018 22:11
 entering extended mode
 **./KroehnertKehl2018_MobileDigitalGeosciences.tex
 (KroehnertKehl2018_MobileDigitalGeosciences.tex
@@ -1261,9 +1261,6 @@ ut' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 746.
  ) 
 Here is how much of TeX's memory you used:
@@ -1273,7 +1270,7 @@ Here is how much of TeX's memory you used:
  29174 multiletter control sequences out of 15000+200000
  539876 words of font info for 62 fonts, out of 3000000 for 9000
  1151 hyphenation exceptions out of 8191
- 46i,13n,37p,10415b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,13n,37p,10415b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{glo:SLAM} has been referenced but does not exist,
  replaced by a fixed one
 
@@ -1343,10 +1340,10 @@ ts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
 i8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/
 Mela/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/doublestroke/dsrom10.pfb>
-Output written on KroehnertKehl2018_MobileDigitalGeosciences.pdf (38 pages, 774
-661 bytes).
+Output written on KroehnertKehl2018_MobileDigitalGeosciences.pdf (38 pages, 775
+180 bytes).
 PDF statistics:
- 714 PDF objects out of 1000 (max. 8388607)
+ 715 PDF objects out of 1000 (max. 8388607)
  157 named destinations out of 1000 (max. 500000)
  237 words of extra memory for PDF output out of 10000 (max. 10000000)
 
