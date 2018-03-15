@@ -430,11 +430,43 @@ v\\
 \frac{x_c}{z_c} \cdot c_c  - {u}_0 \\
 \frac{y_c}{z_c}\cdot c_c  - {v}_0 
 \end{pmatrix}
-\label{eq:2}
+\label{eq:final_ps}
 \end{equation}
 
 \subsubsection{Calculation of 3D bounding box of interest and image plane}
-Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view. Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Because of uncertainties regarding exterior information (\ref{?}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. 
+Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view (figure \ref{fig:4_3_bounding_box}). Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (\ref{?}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{graphics/4_3_Bounding_Box}
+\caption{Bounding box definition.}
+\label{fig:4_3_bounding_box}
+\end{figure}
+The box is widened by the horizontal $H$ and vertical $V$ opening angles with a fixed depth $d$. In order to generate reference data for image-2-geometry intersection to annotate 3D data by mobile imagery, the lateral accuracy given by mobile positioning system as well as the prevalent camera characteristics solve for the mentioned parameters. For camera based gauging, we set $d = 200 [m]$. Regarding 3D point projection, each potential point will be checked laying in the box. Therefore, additional tiling of the 3D data set is advisable.
+Using the defined frustum of a pyramid as region of interest with local reference system, the image plane for 3D point rendering can be defined by perspective projection of the remote $xz$ plane (\ref{fig:4_3_bounding_box}) with 
+\begin{equation}
+\vec{X}_b = \begin{pmatrix}
+-r - d \tan H \\
+d \\
+dh + d \tan V
+\end{pmatrix}
+\notag
+\end{equation} 
+for bounding box' background plane upper left and 
+\begin{equation}
+\vec{X}_b =\begin{pmatrix}
+r + d \tan H\\
+d\\
+-dh - d \tan V
+\end{pmatrix}
+\notag
+\end{equation} 
+lower right corner. Its height equals the height component in world reference frame $z_w$. Because of pyramid frustum, we finally must eliminate outer points between the smaller front and larger rear plane considering the eight extremes. \textcolor{red}{workflow for outer point removal necessary?}
+
+\subsubsection{Pyramid approach for depth filtering}
+Because of a limited range of pixels with defined size inside a image plane it seems to be obvious that in most cases more than one 3D object points corresponds to the same image pixel. Due to inhomogeneous coordinates it is not possible to figure out afterwards which points are in foreground compared to the camera distances and which ones are behind and so not visible. This problem can easily be solved during point cloud projection described above by a simple camera-to-object distance check. However, one problem still remains in case of e.g. glass fronts with lacking information (in \gls{TLS} due to deflected lidar or \gls{SfM} when having homogeneous surfaces) or small archs. (FIGURE!) Then, points might be visible pointing away from camera projection center. On the one hand, point normals may solve the problem but due to data acquisition technique and model's complexity, they are more or less easy to derive \textcolor{red}{(Sattler zitieren)}. 
+Remedying image pyramids are a nice alternative approach used in this case. Therefore, multiple synthetic images are generated with step-by-step adjustment of $p_x$ (see eq. \ref{eq:final_ps}). Usually, we used four steps... 
+
+\subsubsection{Filling gaps due to missing points}
 
 
 \textbf{TO BE FILLED BY MELANIE}
@@ -680,6 +712,9 @@ Lastly, the treatment of vegetation within scanned- and photographed data during
 \item porting existing desktop algorithms on mobile devices [quick and fast]
 \item pre-processing of geodata for mobile use
 \end{itemize}
+
+\section*{Acknowledgements}
+Thank ESF, Richard Boerner for bounding box determination and image filtering
 
 \section*{References}
 
