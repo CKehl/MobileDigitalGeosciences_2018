@@ -73,7 +73,8 @@
 %\newcommandx{\strike}[1]{}
 
 %\hyphenpenalty=0
-\usepackage[acronyms,shortcuts,automake]{glossaries}
+%\usepackage[acronyms,shortcuts,automake]{glossaries}
+\usepackage{glossaries}
 \renewcommand*{\acronymfont}[1]{\mbox{#1}}
 \hyphenpenalty=1
 \tolerance=1000
@@ -345,35 +346,41 @@ Using this coordinate system transformation on combination with a known interior
 \item as it directly relates to the interactive component of the geoscience app, it has to be executed in real-time on the device instead of an offline process
 \end{itemize}
 
-\subsection{Data presentation and rendering}
+%\subsection{Data presentation and rendering}
 
-\begin{itemize}
-\item \sout{short description what it does}
-\item \sout{how is it generally employed}
-\item \sout{relation to mobile devices}
-\item \sout{approaches and implementation known on mobile devices}
-\item integration to the above-mentioned use cases
-\end{itemize}
+%\begin{itemize}
+%\item \sout{short description what it does}
+%\item \sout{how is it generally employed}
+%\item \sout{relation to mobile devices}
+%\item \sout{approaches and implementation known on mobile devices}
+%\item integration to the above-mentioned use cases
+%\end{itemize}
 
-\begin{itemize}
-\item rendering the 3D model in this context refers to generation of image generation of 3D model by projective rasterization of model data to 2D imaging plane of a virtual camera
-\item rendering is performed to view the 3D model on the mobile device
-\item also employed to generate a reference image used in the image-to-geometry registration and the annotation and interpretation of the data
-\item major concepts: mesh-based rendering and \gls{PBR}
-\item technical details on how this is done covered in the technology section \ref{}
-\end{itemize}
+%\begin{itemize}
+%\item rendering the 3D model in this context refers to generation of image generation of 3D model by projective rasterization of model data to 2D imaging plane of a virtual camera
+%\item rendering is performed to view the 3D model on the mobile device
+%\item also employed to generate a reference image used in the image-to-geometry registration and the annotation and interpretation of the data
+%\item major concepts: mesh-based rendering and \gls{PBR}
+%\item technical details on how this is done covered in the technology section \ref{}
+%\end{itemize}
 
-\subsubsection{Mesh-based rendering}
+%Rendering a surface model in this context refers to the image generation of the 3D data by projective rasterization to the 2D image plane of a virtual camera. This process is performed on mobile devices for the purpose of model presentation as well as for the generation of a synthetic reference image for image-to-geometry registration. Furthermore, it can be used to synthesize an image from available 3D data for interpretation and annotation in 2D. A common distinction relative to the geometry representation is done between mesh-based rendering and \gls{PBR}. The presented algorithms are also closely linked to the details of the technological implementation of 3D graphics on mobile devices via the \gls{GLES}, referred in more detail in section \ref{}.
 
-\begin{itemize}
-\item well-known concept
-\item mesh is transferred as vertex set and primitive set (i.e. triangles or polygons, depending on employing \gls{TIN} or polygonal soup geometry) to graphics processor
-\item virtual camera is set up as projective view matrix
-\item primitives are positions in 3D scene via model transformation matrix
-\item rasterizer projects information to camera plane and transforms continuous data into discrete pixel-based representation
-\item in-time decompression can be optionally employed (see \cite{Ponchio2016})
-\item texturing is employed to map image information on the surface; correlation between surface patches and texture images established explicitly beforehand or implicitly defined by geographic coordinate systems (e.g. WGS84 or UTM) for georeferenced surface
-\end{itemize}
+\subsection{Mesh-based rendering}
+
+Rendering a surface model in this context refers to the image generation of the 3D data by projective rasterization to the 2D image plane of a virtual camera. This process is performed on mobile devices for the purpose of model presentation as well as for the generation of a synthetic reference image for image-to-geometry registration. Furthermore, it can be used to synthesize an image from available 3D data for interpretation and annotation in 2D.
+
+Algorithms for rendering textured triangulated surfaces are well-known amongst technology-affine personnel. In the common rendering pipeline, the textured mesh is transferred as a set of (attributed) vertices and primitive sets (e.g. triangles, polygons) to the \gls{GPU}. The virtual camera is set up using the pre-defined view projection matrix while the graphics primitives are repositioned using the model-related transformation matrix. The rasterizer projects the available 3D information into the camera plane and performs hidden-surface removal. The result is a discrete-space pixel representation. Modern programmable shaders allow in-time vertex decompression (see \cite{Ponchio2016}) as well as texture decompression (see section \ref{}). Available textures are mapped as images on the surface using the texture coordinate vertex attributes. The mesh-based rendering algorithms employed on desktop computers are analogous to mobile devices, whereas the technological details are posing the actual challenges.
+
+%\begin{itemize}
+%\item well-known concept
+%\item mesh is transferred as vertex set and primitive set (i.e. triangles or polygons, depending on employing \gls{TIN} or polygonal soup geometry) to graphics processor
+%\item virtual camera is set up as projective view matrix
+%\item primitives are positions in 3D scene via model transformation matrix
+%\item rasterizer projects information to camera plane and transforms continuous data into discrete pixel-based representation
+%\item in-time decompression can be optionally employed (see \cite{Ponchio2016})
+%\item texturing is employed to map image information on the surface; correlation between surface patches and texture images established explicitly beforehand or implicitly defined by geographic coordinate systems (e.g. WGS84 or UTM) for georeferenced surface
+%\end{itemize}
 
 \subsection{A novel approach to mobile point-based rendering}
 In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction (e.g. blobs due to critic point normals). Thus, we simply project object points onto image plane using perspetive projection with assumption of distortion-free ideal camera with centred principle point. Thus, the camera matrix $\bf K$ equals identity matrix $\bf I$ and can be neglected in the following equations that generally base on notations given by Szeliski(2010). 
@@ -440,7 +447,7 @@ v\\
 Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view (figure \ref{fig:4_3_bounding_box}). Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (\ref{?}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm]{graphics/4_3_bounding_box}
+\includegraphics[width=8cm]{graphics/4_3_Bounding_Box}
 \caption{Bounding box definition.}
 \label{fig:4_3_bounding_box}
 \end{figure}
@@ -703,7 +710,7 @@ The goal of geological fieldtrips is to gather insight in the rock record and th
 
 The geological aspect is introduced by interpreting the outcrop models. In this case, interpretations refer to (i) line marks for separating stratigraphic layers, (ii) surface-projected polygons to highlight structural- and sedimentary facies or specific architectural elements and (iii) minor ticks (e.g. lines, points, patterns) to indicate depositional attributes such as deposition orientation or grain geometry. The interpretations was until recently performed in a two-step process: sketches are drawn by hand in the field to document the field geologist's observation of the architecture. After the fieldtrip, the observations are digitalised in the office by transferring the sketched architecture on the available digital outcrop. From there on, further study goals (e.g. geomodelling) are pursued. As recently published, this workflow is currently being transformed into an integrated digital workflow in the field using mobile devices (see \cite{Kehl2018_AGU} for further details).
 
-Geological interpretations can be documented on various scales, but from observations of the author most interpretations are conducted on medium-range. This results in an average observation distance for architectural interpretations of between $100m to 500m$ to document individual depositional elements and further distances of around $400m to 1400m$ to document the overall stratigraphic framework of an outcrop. Therefore, as a result of perspective observations, the required lateral localisation accuracy is in the range of $\leq 2.5m$ for the individual element setting and $\leq 8m$ for the wide-angle stratigraphic setting. While achieving the former resolution can still be challenging with mobile sensors (see section \ref{}), the latter resolution is almost guaranteed for GPS localisation. The more important problem is in the vertical resolution: the vertical observation position has, especially in close-distance observations, a drastic impact on the view perspective. Even more important, a vertical localisation error of  $\geq 1.5m$ may result in positioning the mobile device ''under ground'', making any image-based registration impossible. It is this vertical accuracy that is crucial for mobile device interpretation systems to work. Several improvements, such as \glspl{DEM} and barometric altitude \cite{Kehl2017_VGC}, have been proposed to reduce the vertical positioning error while there is still room for novel research proposals to provide more accurate vertical positioning or ground-based constraints on the altitude estimation.
+Geological interpretations can be documented on various scales, but from observations of the author most interpretations are conducted on medium-range. This results in an average observation distance for architectural interpretations of between $100m$ to $500m$ to document individual depositional elements and further distances of around $400m$ to $1400m$ to document the overall stratigraphic framework of an outcrop. Therefore, as a result of perspective observations, the required lateral localisation accuracy is in the range of $\leq 2.5m$ for the individual element setting and $\leq 8m$ for the wide-angle stratigraphic setting. While achieving the former resolution can still be challenging with mobile sensors (see section \ref{}), the latter resolution is almost guaranteed for GPS localisation. The more important problem is in the vertical resolution: the vertical observation position has, especially in close-distance observations, a drastic impact on the view perspective. Even more important, a vertical localisation error of  $\geq 1.5m$ may result in positioning the mobile device ''under ground'', making any image-based registration impossible. It is this vertical accuracy that is crucial for mobile device interpretation systems to work. Several improvements, such as \glspl{DEM} and barometric altitude \cite{Kehl2017_VGC}, have been proposed to reduce the vertical positioning error while there is still room for novel research proposals to provide more accurate vertical positioning or ground-based constraints on the altitude estimation.
 
 One of the dominant challenges for digital field geology is the free availability of 3D surface models. Currently, research groups in the domain (e.g. from the University of Manchester, Durham University, University of Aberdeen, University of Bergen and UniResearch CIPR) are building their own digital outcrop databases. Due to the strong industry involvement, these and other databases (see SAFARI \cite{Dreyer1993} and FAKTS \cite{Colombera2012a}) are excluded from public access. Recent developments aim at providing digital outcrops in an open-access manner \cite{Cawood2018} to resolve the issue. Furthermore, due to the vertical positioning problem above, easy access to high- and medium resolution \glspl{DEM} is important. As demonstrated by recent measurement, the usage of \glspl{DEM} has a significant influence on the projection accuracy of image-based interpretation on mobile device towards 3D surface models \cite{Kehl2017_VGC}.
 
