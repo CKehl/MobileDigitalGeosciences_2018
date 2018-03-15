@@ -6,19 +6,22 @@
 \BOOKMARK [2][-]{subsection.4.2}{Data presentation and rendering}{section.4}% 6
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Mesh-based rendering}{subsection.4.2}% 7
 \BOOKMARK [2][-]{subsection.4.3}{A novel approach to mobile point-based rendering}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.4}{Interpretation and annotation}{section.4}% 9
-\BOOKMARK [1][-]{section.5}{Technology}{}% 10
-\BOOKMARK [2][-]{subsection.5.1}{Sensors}{section.5}% 11
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Localization}{subsection.5.1}% 12
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Orientation}{subsection.5.1}% 13
-\BOOKMARK [3][-]{subsubsection.5.1.3}{Parameter sensitivity}{subsection.5.1}% 14
-\BOOKMARK [2][-]{subsection.5.2}{Graphics}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.3}{Power consumption}{section.5}% 16
-\BOOKMARK [1][-]{section.6}{Applications and Requirements}{}% 17
-\BOOKMARK [2][-]{subsection.6.1}{Derivation of hydrological parameters: Water level gauging}{section.6}% 18
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Requirements applying to the sensors}{subsection.6.1}% 19
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Requirements applying to the scenario}{subsection.6.1}% 20
-\BOOKMARK [2][-]{subsection.6.2}{Field Geology}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.3}{Virtual Field Trips}{section.6}% 22
-\BOOKMARK [1][-]{section.7}{Conclusions}{}% 23
-\BOOKMARK [1][-]{section.8}{Discussion}{}% 24
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Calculation of 3D bounding box of interest and image plane}{subsection.4.3}% 9
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Pyramid approach for depth filtering}{subsection.4.3}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Filling gaps due to missing points}{subsection.4.3}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Interpretation and annotation}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Technology}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Sensors}{section.5}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Localization}{subsection.5.1}% 15
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Orientation}{subsection.5.1}% 16
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Parameter sensitivity}{subsection.5.1}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Graphics}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Power consumption}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Applications and Requirements}{}% 20
+\BOOKMARK [2][-]{subsection.6.1}{Derivation of hydrological parameters: Water level gauging}{section.6}% 21
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Requirements applying to the sensors}{subsection.6.1}% 22
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Requirements applying to the scenario}{subsection.6.1}% 23
+\BOOKMARK [2][-]{subsection.6.2}{Field Geology}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.3}{Virtual Field Trips}{section.6}% 25
+\BOOKMARK [1][-]{section.7}{Conclusions}{}% 26
+\BOOKMARK [1][-]{section.8}{Discussion}{}% 27

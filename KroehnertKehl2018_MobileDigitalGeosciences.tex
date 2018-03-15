@@ -73,7 +73,7 @@
 %\newcommandx{\strike}[1]{}
 
 %\hyphenpenalty=0
-\usepackage[acronyms,shortcuts]{glossaries}
+\usepackage[acronyms,shortcuts,automake]{glossaries}
 \renewcommand*{\acronymfont}[1]{\mbox{#1}}
 \hyphenpenalty=1
 \tolerance=1000
@@ -193,7 +193,7 @@ A considerable number of domains within the geosciences rely on digitised natura
 %\item as seen in technical magazines and the media, the range of available devices increases, which allows to find a device fit-for-purpose to each situation
 %\end{itemize}
 
-Next to easily available, pocket-format computing devices, the required three-dimensional base data for modern applications also need to be available and being processed in a ''mobile-ready`` manner. The availability of topographic 3D surface data is steadily increasing due to easy-to-use software and instrumentation for surface generation (e.g. drones, \gls{SfM} \cite{•} and multi-view geometry \cite{•}, satellite \glspl{DEM}). Furthermore, crowdsourced data and \gls{VGI} contribute to the geoscience data inventory, which is acquired by amateur scientists and domain enthusiasts.
+Next to easily available, pocket-format computing devices, the required three-dimensional base data for modern applications also need to be available and being processed in a ''mobile-ready`` manner. The availability of topographic 3D surface data is steadily increasing due to easy-to-use software and instrumentation for surface generation (e.g. drones, \gls{SfM} \cite{•} and multi-view geometry \cite{•}, satellite \glspl{DEM}). Furthermore, crowdsourced data and \gls{VGI} contribute to the geoscience data inventory, which is acquired by citizen scientists. %amateur scientists and domain enthusiasts.
 
 %\begin{itemize}
 %\item availability of small form factor devices is only on part contribution to making digital geosciences more ''mobile``
@@ -202,7 +202,7 @@ Next to easily available, pocket-format computing devices, the required three-di
 %\item crowdsourced data and \gls{VGI} constitute to the geoscience data arsenal, being acquired from amateur scientists and novices interested in a particular domain
 %\end{itemize}
 
-Domain-specific mobile software is required in order allow for data interaction on the available mobile devices. Specific challenges such as power consumption, multi-manufacturer support, smart sensor utilisation and device intercommunication distinguish mobile software from common desktop software. This leads to a very different design electronics design of tablets and smartphones in comparison to desktop PCs and laptops, which in turn means that existing approaches for digital data processing and interpretation are not transferable as--is to this new computing domain. Even when considering the fast technological development, there are some challenges within mobile device software development that are rooted in the technology itself: user interfaces need to be specifically designed for mobile devices so to utilise touch screen interfaces, natural language interfaces and gesture interaction (e.g. ''swipe`` and ''optical lens`` motions). \gls{GNSS}-based geo-localisation accuracy, as delivered by the integrated-circuit sensor of mobile, is inferior to common user expectations and requirements in geoscientific studies. The modalities of sensor data delivery (be it hardware sensor or software emulation), photo capturing and processing, and the computational capabilities of mobile devices differ significantly between each vendors. Short-comings such as inappropriate data structuring, visual object correlation and registration, increasing data volumes and the unavailability of off-the-shelf program codes further complicate the technological development. Addressing the demonstrated challenges distinguishes the mobile application development and common desktop software development for geoscience purposes.
+Domain-specific mobile software is required in order allow for data interaction on the available mobile devices. Specific challenges such as power consumption, multi-manufacturer support, smart sensor utilisation and device intercommunication distinguish mobile software from common desktop software. This leads to a very different design electronics design of tablets and smartphones in comparison to desktop PCs and laptops, which in turn means that existing approaches for digital data processing and interpretation are not transferable as--is to this new computing domain. Even when considering the fast technological development, there are some challenges within mobile device software development that are rooted in the technology itself: user interfaces need to be specifically designed for mobile devices so to utilise touch screen interfaces, natural language interfaces and gesture interaction (e.g. ''swipe`` and ''optical lens`` motions). \gls{GNSS}-based geo-localisation accuracy, as delivered by the integrated-circuit sensor of mobile, is inferior to common user expectations and requirements in geoscientific studies. The modalities of sensor data delivery (be it hardware sensor or software emulation), photo capturing and processing, and the computational capabilities of mobile devices differ significantly between each vendors. Short-comings such as inappropriate data structuring, visual object correlation and registration, increasing data volumes and the unavailability of off-the-shelf program codes further complicate the technological development. Addressing the demonstrated challenges distinguishes the mobile application development and common desktop software development for geoscience purposes. \textcolor{red}{the same as in line 34?}
 
 %\begin{itemize}
 %\item In order to connect data and devices in the field, domain-specific mobile software is required
@@ -243,13 +243,23 @@ TO-BE-FILLED
 \section{Representation basis -- Geometry and Radiometry}
 \label{sec:representations}
 
-Various representation forms for 3D terrain data are available. While early digital systems used gridded \glspl{DEM} for their simplicity and compact storage \cite{Trinks2005,McCaffrey2005}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis \cite{Buckley2008a,Caumon2013}. Examples can be seen computing the impact of solar shade on glacial mass loss \cite{Marsh2012}, where the authors use high-quality Delaunay-\glspl{TIN} \cite{Shewchuk1996} as terrain representation. In this context, it is important to distinguish geometrically valid \glspl{TIN} from polygon soup surfaces. While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature stages of the analysis. This is because some automated analysis (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
+<<<<<<< HEAD
+Various representation forms for 3D terrain data are available. While early digital systems used gridded \glspl{DEM} for their simplicity and compact storage \cite{Trinks2005,McCaffrey2005}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis \cite{Buckley2008a,Caumon2013}. A useful example can be seen in \textcolor{red}{ \cite{Schwalbe2017b} for glaciology, where the authors use a  triangulated digital surface model to represent a Patagonian glacier front.}
+%Examples can be seen computing the impact of solar shade on glacial mass loss \cite{Marsh2012}, where the authors use high-quality Delaunay-\glspl{TIN} \cite{Shewchuk1996} as terrain representation. 
+For triangular surfaces, it is important to distinguish geometrically valid \glspl{TIN} from polygon soup surfaces. While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature stages of the analysis. This is because some automated analysis (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
 
 In geoscience domains such as petroleum geology, texture- and color information are vital for interpretation- and analysis tasks. In these cases, as demonstrated by Buckley et. al \cite{Buckley2008a} and Caumon et. al \cite{Caumon2013}, the \gls{TIN} is supplemented with photographic information that is projected on the surface as textures.% As it is also possible to project textures from outside the visible spectrum as supplementary information on the surface \cite{Kurz2011}, we generalize for the remainder of the article that the model in question consists of its geometric and radiometric information.
 
 [ASK SIMON FOR USAGE OF IMAGES FROM VOG - use own reconstruction of Whitby cliffs for nice TINs]
 
-\sout{In other geoscience domains, such as hydrology and free surface flow management, colored point data streams are used as models, which are provided by drones and \gls{SfM}. In general, applications that rely on data throughput and large-scale analysis more commonly employ colored ''point cloud`` models because of their rapid procvessing and the skip of surface triangulation. Presentation techniques (i.e. rendering) are in these cases adapted versions of \gls{PBR} \cite{Rusinkiewicz2000}. Examples of point-based surface analysis in hydrology can be found in Leskens et. al \cite{Leskens2015}, whereas \gls{VRGS} is an example software for petroleum geology that employs similar techniques (see Rarity et. al \cite{Rarity2014}).} \textbf{HERE MELANIE'S PASSAGE}
+In other geoscience domains, such as hydrology and free surface flow management, on the one hand georeferenced laser scanner point clouds, and on the other one colored point data streams provided by terrestrial photogrammetry for small- or \gls{UAV} for large-scale use cases, both processed by application of \gls{SfM}, are used for several tasks like coastal monitoring \cite{Letortu2017, Medjkane2018}, soil erosion and rain-induced landslide observation or even monitoring river's topography \cite{Watanabe2016}. Nevertheless, new approaches for low-cost and on-the-fly river monitoring \cite{Kroehnert2017a} and simulation \cite{Leskens2015} arise due to globally increasing flash flood events after heavy rainfalls \cite{Mueller2011} that are further addressed in section{•}.
+Since \gls{SfM} became state of the art in geosciences, the acquisition of (true-)colored ''point cloud`` models is not that difficult and commonly employed because of their rapid processing (compared to conventional approaches like \gls{TLS}). Regarding 3D annotation, nearest neighbour analysis provide an opportunity whereby surface triangulation can be avoided.
+
+
+
+
+
+%%\sout{... colored point data streams are used as models, which are provided by \gls{UAV} and \gls{SfM} Presentation techniques (i.e. rendering) are in these cases adapted versions of \gls{PBR} \cite{Rusinkiewicz2000}. Examples of point-based surface analysis in hydrology can be found in Leskens et. al \cite{Leskens2015}, whereas \gls{VRGS} is an example software for petroleum geology that employs similar techniques (see Rarity et. al \cite{Rarity2014}).} \textbf{HERE MELANIE'S PASSAGE}
 
 
 
@@ -366,6 +376,115 @@ Using this coordinate system transformation on combination with a known interior
 \end{itemize}
 
 \subsection{A novel approach to mobile point-based rendering}
+In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction (e.g. blobs due to critic point normals). Thus, we simply project object points onto image plane using perspetive projection with assumption of distortion-free ideal camera with centred principle point. Thus, the camera matrix $\bf K$ equals identity matrix $\bf I$ and can be neglected in the following equations that generally base on notations given by Szeliski(2010). 
+First, applying a six-parameter transformation transfers three-dimensional object points from world reference frame $\vec{X}_W$ into a 3D camera system $\vec{X}_c $ using
+\begin{equation}
+\vec{X}_c = {\bf R} \left( \vec{X}_W - \vec{X}_0 \right) 
+\label{eq:projection_simple}
+\end{equation} 
+where $\bf R$ is a $3x3$ orthonormal rotation matrix and $\vec{X}_0 $ the translation vector to camera's projection center. For simplicity, the usage of the planar Cartesian UTM system with $x$ pointing to the east and $y$ pointing to the north with respect to the prevalent zone number. For $z$ component, the height over the Earth Gravitational Model 1996 (EGM96) is advisable to use. 
+Counting for homogeneous coordinates, we can describe the relation between camera $\vec{X}_c$ and image coordinates $\tilde{x}$ involving their depth components. 
+\begin{equation}
+\begin{pmatrix}
+\tilde{u} \\
+\tilde{v} \\
+c_c
+\end{pmatrix} =
+\begin{pmatrix}
+x_c \\
+y_c \\
+z_c
+\end{pmatrix}
+\end{equation}
+For image plane we introduce camera constant $c_c$ that defines the distance between camera's sensor and projection center in $[mm]$ and is also known as focal length $f$. To separate camera sensor system and image system, we use the term $c_c$ when talking about sensor $[mm]$ and $f$ for digital image coordinates $[px]$. For conversion, $c_c$ must be divided by sensor's pixel pitch.
+For 3D to 2D projection, homogeneous coordinates must be divided by their depth components resulting in inhomogeneous coordinates. 
+\begin{equation}
+\vec{X}_{Cam} =
+\begin{pmatrix}
+\frac{\tilde{u}}{c_c} \\
+\frac{\tilde{v}}{c_c} \\
+1
+\end{pmatrix} = \begin{pmatrix}
+\frac{x_c}{z_c} \\
+\frac{y_c}{z_c} \\
+1
+\end{pmatrix}
+\end{equation}
+Thus, two-dimensional coordinates can be described with
+\begin{equation}
+\begin{pmatrix}
+\tilde{u}\\
+\tilde{v}\\
+\end{pmatrix}
+= \begin{pmatrix}
+\frac{x_c}{z_c} \cdot c_c \\
+\frac{y_c}{z_c}\cdot c_c
+\end{pmatrix}
+\label{eq:ut_vt}
+\end{equation}
+For a final transformation of 2D sensor coordinates into image pixels, we must shift the origin to left upper corner and scale the coordinates that are still in global units by pixel's relation in meters per pixel $p_s$. Finally, we derive image coordinates $(u,v)$ for an ideal camera using
+\begin{equation}
+\begin{pmatrix}
+u\\
+v\\
+\end{pmatrix}
+= \frac{1}{p_s}
+\begin{pmatrix}
+\frac{x_c}{z_c} \cdot c_c  - {u}_0 \\
+\frac{y_c}{z_c}\cdot c_c  - {v}_0 
+\end{pmatrix}
+\label{eq:final_ps}
+\end{equation}
+
+\subsubsection{Calculation of 3D bounding box of interest and image plane}
+Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view (figure \ref{fig:4_3_bounding_box}). Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (\ref{?}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{graphics/4_3_bounding_box}
+\caption{Bounding box definition.}
+\label{fig:4_3_bounding_box}
+\end{figure}
+The box is widened by the horizontal $H$ and vertical $V$ opening angles with a fixed depth $d$. In order to generate reference data for image-2-geometry intersection to annotate 3D data by mobile imagery, the lateral accuracy given by mobile positioning system as well as the prevalent camera characteristics solve for the mentioned parameters. For camera based gauging, we set $d = 200 [m]$. Regarding 3D point projection, each potential point will be checked laying in the box. Therefore, additional tiling of the 3D data set is advisable.
+Using the defined frustum of a pyramid as region of interest with local reference system, the image plane for 3D point rendering can be defined by perspective projection of the remote $xz$ plane (\ref{fig:4_3_bounding_box}) with 
+\begin{equation}
+\vec{X}_b = \begin{pmatrix}
+-r - d \tan H \\
+d \\
+dh + d \tan V
+\end{pmatrix}
+\notag
+\end{equation} 
+for bounding box' background plane upper left and 
+\begin{equation}
+\vec{X}_b =\begin{pmatrix}
+r + d \tan H\\
+d\\
+-dh - d \tan V
+\end{pmatrix}
+\notag
+\end{equation} 
+lower right corner. Its height equals the height component in world reference frame $z_w$. Because of pyramid frustum, we finally must eliminate outer points between the smaller front and larger rear plane considering the eight extremes. \textcolor{red}{workflow for outer point removal necessary?}
+
+\subsubsection{Pyramid approach for depth filtering}
+Because of a limited range of pixels with defined size inside a image plane it seems to be obvious that in most cases more than one 3D object points corresponds to the same image pixel. Due to inhomogeneous coordinates it is not possible to figure out afterwards which points are in foreground compared to the camera distances and which ones are behind and so not visible. This problem can easily be solved during point cloud projection described above by a simple camera-to-object distance check. However, one problem still remains in case of e.g. glass fronts with lacking information (in \gls{TLS} due to deflected lidar or \gls{SfM} when having homogeneous surfaces) or small archs (see figure \ref{4_3_dist_images}) Then, points might be visible pointing away from camera projection center. On the one hand, point normals may solve the problem but due to data acquisition technique and model's complexity, they are more or less easy to derive \textcolor{red}{(Sattler zitieren)}. 
+Remedying image pyramids are a nice alternative approach used in this case. Therefore, multiple synthetic images are generated with step-by-step adjustment of $p_s$ (see eq. \ref{eq:final_ps}), commonly by doubling which resulting in halve numbers of image rows and columns per layer. Than, the algorithm verifies if two pixels corresponds in two subsequent layers, preserving edges (figure \ref{fig:4_3_dist_images}, \ref{fig:4_3_point_filtering}).
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{graphics/4_3_point_filtering}
+\caption{Visualisation of hierarchical depth filtering to handle point occlusions.}
+\label{fig:4_3_point_filtering}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm]{graphics/4_3_dist_image_orig}%
+\includegraphics[width=5cm]{graphics/4_3_dist_image_filt}%
+\caption{Left, actually obscured visible 3D points close to archs and windows. Right, edge preserving result after filtering.}
+\label{fig:4_3_dist_images}
+\end{figure}
+
+
+\subsubsection{Filling gaps due to missing points}
+
 
 \textbf{TO BE FILLED BY MELANIE}
 
@@ -643,6 +762,9 @@ Lastly, the treatment of vegetation within scanned- and photographed data during
 \item porting existing desktop algorithms on mobile devices [quick and fast]
 \item pre-processing of geodata for mobile use
 \end{itemize}
+
+\section*{Acknowledgements}
+Thank ESF, Richard Boerner for bounding box determination and image filtering
 
 \section*{References}
 
