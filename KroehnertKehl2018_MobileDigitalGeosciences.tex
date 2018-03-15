@@ -373,44 +373,45 @@ Using this coordinate system transformation on combination with a known interior
 \end{itemize}
 
 \subsection{A novel approach to mobile point-based rendering}
-In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction (e.g. blobs due to critic point normals). Up to this we enhanced the approach, described by Meierhold, et al. (2010), to project georeferenced object points onto image plane using central projection \cite{Meierhold2010}. For deeper information of the following content and formulas, see Szeliski (2010) \cite{Szeliski}.
-Using
-
+In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction (e.g. blobs due to critic point normals). Thus, we simply project object points onto image plane using perspetive projection with assumption of distortion-free ideal camera with centred principle point. Thus, the camera matrix $\bf K$ equals identity matrix $\bf I$ and can be neglected in the following equations that generally base on notations given by Szeliski(2010). 
+First, applying a six-parameter transformation transfers three-dimensional object points from world reference frame $\vec{X}_W$ into a 3D camera system $\vec{X}_c $ using
 \begin{equation}
-\begin{pmatrix}
-{u}\\
-{v}\\
-c_c
-\end{pmatrix}
-=
-\vec{X}_c = {R_{xyz}} \left( \vec{X}_W - \vec{X}_0 \right) 
+\vec{X}_c = {\bf R} \left( \vec{X}_W - \vec{X}_0 \right) 
 \label{eq:projection_simple}
 \end{equation} 
-
-
-we can describe three-dimensional object points  $\vec{X}_W$ in camera reference frame $\vec{X}_c $ after global rotation applying $R_{xyz}$ rotation matrix and translation by camera's projection center $\vec{X}_0$ in homogeneous camera coordinates $\vec{X}_c = (u,v,c_c)^T$ with $(u,v)$ for camera coordinates and focal lengths $f_x$ and $f_y$ leading to camera constant in camera's sensor coordinate system $c_c$. For simplicity, we assume quadratic pixels and define
-\begin{center} 
-$c_c [mm] = f_x [px] \cdot pixel\_pitch_x =f_y [px] \cdot pixel\_pitch_y$ 
-\end{center}
-In order to transform the prevailing homogeneous coordinates to two-dimensional inhomogeneous image coordinates, we have to homogenize image coordinates by camera constant $c_c$ and projection center-to-object distance $z_c$. [GRAFIK EINF\"UGEN!]
-
-\begin{equation}\notag
+where $\bf R$ is a $3x3$ orthonormal rotation matrix and $\vec{X}_0 $ the translation vector to camera's projection center. For simplicity, the usage of the planar Cartesian UTM system with $x$ pointing to the east and $y$ pointing to the north with respect to the prevalent zone number. For $z$ component, the height over the Earth Gravitational Model 1996 (EGM96) is advisable to use. 
+Counting for homogeneous coordinates, we can describe the relation between camera $\vec{X}_c$ and image coordinates $\tilde{x}$ involving their depth components. 
+\begin{equation}
 \begin{pmatrix}
-{u} / c_c \\
-{v} / c_c \\
-1
+\tilde{u} \\
+\tilde{v} \\
+c_c
+\end{pmatrix} =
+\begin{pmatrix}
+x_c \\
+y_c \\
+z_c
 \end{pmatrix}
-= \begin{pmatrix}
-x_c /z_c \\
-y_c / z_c \\
+\end{equation}
+For image plane we introduce camera constant $c_c$ that defines the distance between camera's sensor and projection center in $[mm]$ and is also known as focal length $f$. To separate camera sensor system and image system, we use the term $c_c$ when talking about sensor $[mm]$ and $f$ for digital image coordinates $[px]$. For conversion, $c_c$ must be divided by sensor's pixel pitch.
+For 3D to 2D projection, homogeneous coordinates must be divided by their depth components resulting in inhomogeneous coordinates. 
+\begin{equation}
+\vec{X}_{Cam} =
+\begin{pmatrix}
+\frac{\tilde{u}}{c_c} \\
+\frac{\tilde{v}}{c_c} \\
+1
+\end{pmatrix} = \begin{pmatrix}
+\frac{x_c}{z_c} \\
+\frac{y_c}{z_c} \\
 1
 \end{pmatrix}
 \end{equation}
-
+Thus, two-dimensional coordinates can be described with
 \begin{equation}
 \begin{pmatrix}
-{u} \\
-{v}
+\tilde{u}\\
+\tilde{v}\\
 \end{pmatrix}
 = \begin{pmatrix}
 \frac{x_c}{z_c} \cdot c_c \\
@@ -418,37 +419,22 @@ y_c / z_c \\
 \end{pmatrix}
 \label{eq:ut_vt}
 \end{equation}
-
-Finally we have to define the image coordinate system with its origin in the upper left corner (${u}_0,{v}_0$) and adjust metrics. At this point, ($u,v$) are still in units of the world reference frame. In our case, we must transform UTM metrics [m] in pixel space. Thus, for alignment of world and image units we introduce scaling factor $p_s$, defined with meter per pixel in distance of one meter from projection center with $(c,r)$ for image columns and rows.
-
+For a final transformation of 2D sensor coordinates into image pixels, we must shift the origin to left upper corner and scale the coordinates that are still in global units by pixel's relation in meters per pixel $p_s$. Finally, we derive image coordinates $(u,v)$ for an ideal camera using
 \begin{equation}
 \begin{pmatrix}
 u\\
-v\end{pmatrix}
-= \begin{pmatrix}
+v\\
+\end{pmatrix}
+= \frac{1}{p_s}
+\begin{pmatrix}
 \frac{x_c}{z_c} \cdot c_c  - {u}_0 \\
 \frac{y_c}{z_c}\cdot c_c  - {v}_0 
 \end{pmatrix}
 \label{eq:2}
 \end{equation}
 
-\begin{equation}
-\begin{pmatrix}
- c\\
- r
-\end{pmatrix} = \frac{1}{p_s}
-\begin{pmatrix}
- u \\
- v 
-\end{pmatrix}
-\label{eq:proj_cr}
-\end{equation}
- 
- 
-
-
-
-
+\subsubsection{Calculation of 3D bounding box of interest and image plane}
+Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view. Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Because of uncertainties regarding exterior information (\ref{?}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. 
 
 
 \textbf{TO BE FILLED BY MELANIE}
