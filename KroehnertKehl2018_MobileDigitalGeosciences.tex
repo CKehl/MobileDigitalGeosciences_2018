@@ -243,19 +243,19 @@ TO-BE-FILLED
 \section{Representation basis -- Geometry and Radiometry}
 \label{sec:representations}
 
-Various representation forms for 3D terrain data are available. While early digital systems used \glspl{DEM} for their simplicity and compact storage \cite{Trinks2005,McCaffrey2005}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis. Examples can be seen at ... for glaciology, where the authors use ... for the terrain representation. The same application of ... can be observed for climate studies, as in ... . In this context, it is important to distinguish geometrically valid \glspl{TIN} from polygon soup surfaces. While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature stages of the analysis. This is because some automated analysis (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
+Various representation forms for 3D terrain data are available. While early digital systems used gridded \glspl{DEM} for their simplicity and compact storage \cite{Trinks2005,McCaffrey2005}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis \cite{Buckley2008a,Caumon2013}. Examples can be seen computing the impact of solar shade on glacial mass loss \cite{Marsh2012}, where the authors use high-quality Delaunay-\glspl{TIN} \cite{Shewchuk1996} as terrain representation. In this context, it is important to distinguish geometrically valid \glspl{TIN} from polygon soup surfaces. While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature stages of the analysis. This is because some automated analysis (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
 
-In geoscience domains such as petroleum geology, texture- and color information are vital for interpretation- and analysis tasks. In these cases, as demonstrated by Buckley et. al \cite{Buckley2008a} and Caumon et. al \cite{Caumon2013}, the \gls{TIN} is supplemented with photographic information that is projected on the surface as textures. As it is also possible to project textures from outside the visible spectrum as supplementary information on the surface \cite{Kurz2011}, we generalize for the remainder of the article that the model in question consists of its geometric and radiometric information.
+In geoscience domains such as petroleum geology, texture- and color information are vital for interpretation- and analysis tasks. In these cases, as demonstrated by Buckley et. al \cite{Buckley2008a} and Caumon et. al \cite{Caumon2013}, the \gls{TIN} is supplemented with photographic information that is projected on the surface as textures.% As it is also possible to project textures from outside the visible spectrum as supplementary information on the surface \cite{Kurz2011}, we generalize for the remainder of the article that the model in question consists of its geometric and radiometric information.
 
-[EXAMPLE PHOTO FROM LIME]
+[ASK SIMON FOR USAGE OF IMAGES FROM VOG - use own reconstruction of Whitby cliffs for nice TINs]
 
 \sout{In other geoscience domains, such as hydrology and free surface flow management, colored point data streams are used as models, which are provided by drones and \gls{SfM}. In general, applications that rely on data throughput and large-scale analysis more commonly employ colored ''point cloud`` models because of their rapid procvessing and the skip of surface triangulation. Presentation techniques (i.e. rendering) are in these cases adapted versions of \gls{PBR} \cite{Rusinkiewicz2000}. Examples of point-based surface analysis in hydrology can be found in Leskens et. al \cite{Leskens2015}, whereas \gls{VRGS} is an example software for petroleum geology that employs similar techniques (see Rarity et. al \cite{Rarity2014}).} \textbf{HERE MELANIE'S PASSAGE}
 
 
 
-The stated base concepts of geometric and radiometric model information and their representations are also valid for mobile device software. Because of the limited processing speed of mobile chipsets, a tendency for employing point cloud models on mobile devices (e.g. Garcia et. al \cite{Garcia2015}) can be observed. A drawback of point cloud models is their sparse nature, which prohibits continuous analysis of field data. Therefore, \glspl{DEM} have seen a revival in the mobile computing domain because they provide dense, closed geometric models that can be rendered and processed very effectively. Furthermore, with the inferior memory capacity of mobile devices in comparison to laptops and workstations, it is advantageous to be able to aggressively compress the data for mobile use, which is facilitated both by point clouds and \glspl{DEM}. Base mapping applications such as Open Street Maps and Google Maps use ... as their main 3D data representation. Other systems within the geosciences processing 3D data on mobile devices, such as ''Outcrop`` and \gls{GRIT}, employ genuine textured triangulated \gls{DSM}.
+The stated base concepts of geometric representation and radiometric texture information are also valid for mobile device software. Because of the limited processing speed of mobile chipsets, the usage of point cloud appears most common within the graphics literature (e.g. Garcia et. al \cite{Garcia2015}). Because the sparse vertex distribution in point clouds causes problems in the data analysis, \glspl{DEM} have seen a revival in the mobile computing domain. \Glspl{DEM} provide dense, closed geometric models that can be rendered and processed very efficiently. Furthermore, with the inferior memory capacity of mobile devices in comparison to laptops and workstations, the possible compression options for point clouds and \glspl{DEM} are advantageous. Base mapping applications such as Google Maps use \glspl{DEM}, derived from \gls{LiDAR} or satellite data \cite{Farr2007}, as their main topographic data representation. Other systems within the geosciences processing 3D data on mobile devices, such as ''Outcrop`` and \gls{GRIT}, employ genuine textured triangulated \gls{DSM} from \gls{LiDAR}, drone or \gls{SfM} sources.
 
-The form of model representation chosen significantly impacts the algorithms and analytical capabilities employed on the mobile device. Although all algorithms presented in this article work on either form of representation, some of the algorithms favor the treatment of triangulated surfaces (e.g. image-to-geometry registration, guided interpretation), while others clearly favour point-based representations (e.g. \gls{SfM} and rendering).
+The chosen form of model representation significantly impacts the algorithms and analytical capabilities employed on the mobile device. Although all algorithms presented in this article work on either form of representation, some of the algorithms favour the treatment of triangulated surfaces (e.g. image-to-geometry registration, guided interpretation), while others clearly favour point-based representations (e.g. rendering).
 
 \section{Algorithms}
 \label{sec:algorithms}
@@ -300,7 +300,7 @@ x \\ y \\ z
 P' &\in \mathds{R}^2 &= \frac{P'}{w}
 \end{eqnarray}
 
-Using this coordinate system transformation on combination with a known interior camera orientation, it is possible to projectively map entire images on the surface just as surface texturing does. It is also possible to map specific objects on the image, such as image-based interpretations, on the surface. In the geosciences, these algorithms are employed to create a direct correlation between 3D model and the screen- or image space on which annotations and interpretations are based on \cite{Kehl2016_ISPRS}. The technique is also employed to provide texture mappings for multi-layer images, such as hyperspectral data or domain-specific thematic maps.
+Using this coordinate system transformation on combination with a known interior camera orientation, it is possible to projectively map entire images on the surface just as surface texturing does. It is also possible to map specific objects on the image, such as image-based interpretations, on the surface. In the geosciences, these algorithms are employed to create a direct correlation between 3D model and the screen- or image space on which annotations and interpretations are based on \cite{Kehl2016_ISPRS}.
 
 \begin{itemize}
 \item feature-based registration: detect prominent points or edges in the input 2D images and a rendered representation of the 3D model
@@ -317,7 +317,7 @@ Using this coordinate system transformation on combination with a known interior
 
 \begin{itemize}
 \item feature-based registration techniques most prevalent on mobile devices due to execution speed, implementation ease and so forth
-\item examples of mobile implementation: \cite{Gauglitz2014,Sweeny2015,Kehl2017_PHOR,KroehnertXYZ}
+\item examples of mobile implementation: \cite{Gauglitz2014,Sweeny2015,Kehl2017_PHOR,KroehnertXYZ}; utilize open source library \textit{OpenCV4Android}\footnote{OpenCV4Android - \url{https://opencv.org/platforms/android/}}, also employed in this work\footnote{OpenCV4Android extensions at \url{https://github.com/CKehl/opencv4Android_extension} and \url{}}
 \item drawback of feature-based methods: reliability and instability to imaging variances (discussed later in this article)
 \item a contrasting technique commonly achieving more accurate results: mutual information
 \item idea: pixel-wise comparison between 2D input image and 2D rendering of 3D scene; if both images match (meaning: $argmin \delta(I_{2D}, I_{3D}')$), then registration is completed
@@ -372,14 +372,45 @@ Using this coordinate system transformation on combination with a known interior
 \subsection{Interpretation and annotation}
 
 \begin{itemize}
-\item short description what it does
-\item how is it generally employed
-\item relation to mobile devices
-\item approaches and implementation known on mobile devices
-\item integration to the above-mentioned use cases
+\item \sout{short description what it does}
+\item \sout{how is it generally employed}
+\item \sout{relation to mobile devices}
+\item \sout{approaches and implementation known on mobile devices}
+\item \sout{integration to the above-mentioned use cases}
 \end{itemize}
 
+\begin{itemize}
+\item Interpretation and annotation techniques (in this context used synonymously) aim to map geometries (e.g. lines, polygons) of domain-specific information to the 3D base surface
+\item the mapped geometries are used to delineate interest boundaries or segment the surface into semantically meaningful units
+\end{itemize}
 
+%this should be moved somewhere else POSSIBLY
+\begin{itemize}
+\item in hydrological cases, line interpretations are commonly used to mark current water levels as well as high-tide or high-surge water levels
+\item for health monitoring of dykes and levees, line interpretations can also be used to mark cracks
+\item in geological cases, a mixture of line- and polygon geometries is used
+\item line interpretations are more commonly related to structural rock features (e.g. cracks, fractures, fault zone boundaries, stratigraphic boundaries), while polygonal area segmentation are more common in sedimentology (e.g. depositional elements, sedimentary objects, sediment facies); application of the geometries is flexible, as in the case of fault facies for structural features
+\end{itemize}
+%end of to-be-moved
+
+\begin{itemize}
+\item delineation and mapping can be performed in various ways, depending on the geometric representation of the 3D surface geometry
+\item point clouds and 3D \glspl{TIN} can be annotated in 3D directly; area markings can be directly embedded as vertex attributes, whereas closest-vertex searches (for point clouds) or view-surface intersections (for \glspl{TIN}) provide the corners for line interpretations
+\item largest problem with such approach on mobile devices: data size and neighbourhood searches; nearest neighbour search has computational complexity $O(nd)$ for $d=3$ (in case of 3D surfaces) and $n$ being the number of vertices in the dataset; non-interactive on mobile devices with real-world datasets ($n \geq 10^7$)
+\item other issues: sparse and non-closed, non-convex geometry (particular problem for \glspl{TIN}), occlusions and curved objects; challenge specific to mobile devices: interaction, and the intuitive switch between 3D space motion and point selection
+\end{itemize}
+
+\begin{itemize}
+\item using image-to-geometry registration, problems of 3D geometry and 3D space interaction can be circumvented
+\item image interpretation more computationally efficient due to raster arrangement (i.e. raster image) and easier to use for novice practitioners on mobile devices
+\item interpretation geometries rendered as 2D vector graphics elements and subsequently reprojected on 3D surface using the pre-determined external camera orientation (or pose)
+\item distinction between one-time interpretation and editing
+\begin{itemize}
+\item fixed interpretation markings can be trivially generated
+\item often approach is to delete the last marking (or manage an interaction history for further removals) and redraw incorrect interpretations
+\item for \gls{GRIT}, more than 1,000 interpretation vertices need to be managed and edit requests are made by geologists; to facilitate a rapid edit and responsive interaction, a kD-Tree is maintained in the background to speed up interpretation vertex selection; kD-Tree is recalculated on significant point movements
+\end{itemize}
+\end{itemize}
 
 \section{Technology}
 \label{sec:technology}
@@ -402,6 +433,8 @@ Using this coordinate system transformation on combination with a known interior
 \subsubsection{Parameter sensitivity}
 
 \subsection{Graphics}
+
+PUT SOMEWHERE HERE A REFERENCE TO osgAndroid AS EMPLOYED RENDERING LIBRARY
 
 \begin{itemize}
 \item as explained above, rendering 3D data is a key part for conducting annotations on 3D data, either based on 3D geometry itself or correlated images in camera space
@@ -437,7 +470,7 @@ Using this coordinate system transformation on combination with a known interior
 \item as is shown in section \ref{}, on-device rendering has considerable impact on the energy consumption
 \item on-device rendering that processes realistic field data requires considerable implementation efforts, as demonstrated by apps such as OpenWaterLevel \cite{}, GRIT \cite{Kehl2016_VGCabstract} and Outcrop \cite{Viseur2014_VGCabstract}
 \item principle scientific advances in mobile device rendering have demonstrated considerable progress over the years \cite{Garcia2015,Kehl2015c,Agus2017}
-\item scaling up smaller laboratory results with mobile graphics to realistics geoscience data, in terms of image quality and resolution as well as 3D base data, is a persisting challenge
+\item scaling up smaller laboratory results with mobile graphics to realistic geoscience data, in terms of image quality and resolution as well as 3D base data, is a persisting challenge
 \item although technical development continuously provides more powerful devices, mobile devices need to sacrifice capabilities such as sensor availability as well as physical size and weight in order to provide larger memory space and higher-performance processors; examples for this trade-off manufacturing can be seen in special-purpose and high-performance tablets such as NVIDIA Shield\footnote{NVIDIA Shield - \url{https://developer.nvidia.com/develop4shield}}, Project Tango resp. ARCore\footnote{Google Augmented Reality - \url{https://developers.google.com/ar/}} and Google Pixel C\footnote{Google Pixel C- \url{https://www.android.com/tablets/pixel-c/}}
 %\item hardware differences: speed, capability, CUDA
 \item an specific problem for geoscientists and domain experts in on-device rendering settings: trade-off between app response time, image quality, hardware utilization and cross-device operability
