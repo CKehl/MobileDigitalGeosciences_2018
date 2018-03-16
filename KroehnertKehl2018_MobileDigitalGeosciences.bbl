@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{52}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -46,13 +46,6 @@
 \newblock \bibinfo{journal}{Journal of the Geological Society}
   \bibinfo{volume}{162} (\bibinfo{year}{2005}) \bibinfo{pages}{927--938}.
 %Type = Article
-\bibitem[{Schwalbe and Maas(2017)}]{Schwalbe2017b}
-\bibinfo{author}{E.~Schwalbe}, \bibinfo{author}{H.-G. Maas},
-\newblock \bibinfo{title}{The determination of high-resolution spatio-temporal
-  glacier motion fields from time-lapse sequences},
-\newblock \bibinfo{journal}{Earth Surface Dynamics} \bibinfo{volume}{5}
-  (\bibinfo{year}{2017}) \bibinfo{pages}{861--879}.
-%Type = Article
 \bibitem[{Buckley et~al.(2008)Buckley, Howell, Enge, and Kurz}]{Buckley2008a}
 \bibinfo{author}{S.~J. Buckley}, \bibinfo{author}{J.~A. Howell},
   \bibinfo{author}{H.~D. Enge}, \bibinfo{author}{T.~H. Kurz},
@@ -69,6 +62,13 @@
   application to a regional model of la popa basin, ne mexico},
 \newblock \bibinfo{journal}{IEEE Transactions on Geoscience and Remote Sensing}
   \bibinfo{volume}{51} (\bibinfo{year}{2013}) \bibinfo{pages}{1613--1621}.
+%Type = Article
+\bibitem[{Schwalbe and Maas(2017)}]{Schwalbe2017b}
+\bibinfo{author}{E.~Schwalbe}, \bibinfo{author}{H.-G. Maas},
+\newblock \bibinfo{title}{The determination of high-resolution spatio-temporal
+  glacier motion fields from time-lapse sequences},
+\newblock \bibinfo{journal}{Earth Surface Dynamics} \bibinfo{volume}{5}
+  (\bibinfo{year}{2017}) \bibinfo{pages}{861--879}.
 %Type = Article
 \bibitem[{Letortu et~al.(2017)Letortu, Jaud, Grandjean, Ammann, Costa,
   Maquaire, Davidson, Dantec, and Delacourt}]{Letortu2017}
@@ -139,6 +139,17 @@
   \bibinfo{address}{New York, NY, USA}, \bibinfo{year}{2015}, pp.
   \bibinfo{pages}{227--230}. \URLprefix
   \url{http://doi.acm.org/10.1145/2775292.2782779}.
+%Type = Article
+\bibitem[{Farr et~al.(2007)Farr, Rosen, Caro, Crippen, Duren, Hensley, Kobrick,
+  Paller, Rodriguez, Roth et~al.}]{Farr2007}
+\bibinfo{author}{T.~G. Farr}, \bibinfo{author}{P.~A. Rosen},
+  \bibinfo{author}{E.~Caro}, \bibinfo{author}{R.~Crippen},
+  \bibinfo{author}{R.~Duren}, \bibinfo{author}{S.~Hensley},
+  \bibinfo{author}{M.~Kobrick}, \bibinfo{author}{M.~Paller},
+  \bibinfo{author}{E.~Rodriguez}, \bibinfo{author}{L.~Roth}, et~al.,
+\newblock \bibinfo{title}{The shuttle radar topography mission},
+\newblock \bibinfo{journal}{Reviews of geophysics} \bibinfo{volume}{45}
+  (\bibinfo{year}{2007}).
 %Type = Article
 \bibitem[{Kehl et~al.(2016)Kehl, Buckley, Gawthorpe, Viola, and
   Howell}]{Kehl2016_ISPRS}
