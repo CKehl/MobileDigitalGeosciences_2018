@@ -444,7 +444,7 @@ v\\
 \end{equation}
 
 \subsubsection{Calculation of 3D bounding box of interest and image plane}
-Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view (figure \ref{fig:4_3_bounding_box}). Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (\ref{?}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
+Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro}), we need to define a region of interest regarding 3D point projection to render only user's field of view (figure \ref{fig:4_3_bounding_box}). Thus, bounding box defining points to be projected must be calculated using camera position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (\ref{•}), bounding box must be expanded to cover more object space than described by sensors as well as cameras field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=8cm]{graphics/4_3_Bounding_Box}
@@ -473,8 +473,8 @@ d\\
 lower right corner. Its height equals the height component in world reference frame $z_w$. Because of pyramid frustum, we finally must eliminate outer points between the smaller front and larger rear plane considering the eight extremes. \textcolor{red}{workflow for outer point removal necessary?}
 
 \subsubsection{Pyramid approach for depth filtering}
-Because of a limited range of pixels with defined size inside a image plane it seems to be obvious that in most cases more than one 3D object points corresponds to the same image pixel. Due to inhomogeneous coordinates it is not possible to figure out afterwards which points are in foreground compared to the camera distances and which ones are behind and so not visible. This problem can easily be solved during point cloud projection described above by a simple camera-to-object distance check. However, one problem still remains in case of e.g. glass fronts with lacking information (in \gls{TLS} due to deflected lidar or \gls{SfM} when having homogeneous surfaces) or small archs (see figure \ref{4_3_dist_images}) Then, points might be visible pointing away from camera projection center. On the one hand, point normals may solve the problem but due to data acquisition technique and model's complexity, they are more or less easy to derive \textcolor{red}{(Sattler zitieren)}. 
-Remedying image pyramids are a nice alternative approach used in this case. Therefore, multiple synthetic images are generated with step-by-step adjustment of $p_s$ (see eq. \ref{eq:final_ps}), commonly by doubling which resulting in halve numbers of image rows and columns per layer. Than, the algorithm verifies if two pixels corresponds in two subsequent layers, preserving edges (figure \ref{fig:4_3_dist_images}, \ref{fig:4_3_point_filtering}).
+Because of a limited range of pixels with defined size inside a image plane it seems to be obvious that in most cases more than one 3D object points corresponds to the same image pixel. Due to inhomogeneous coordinates it is not possible to figure out afterwards which points are in foreground compared to the camera distances and which ones are behind and so not visible. This problem can easily be solved during point cloud projection described above by a simple camera-to-object distance check. However, one problem still remains in case of e.g. glass fronts with lacking information (in \gls{TLS} due to deflected lidar or \gls{SfM} when having homogeneous surfaces) or small archs (see figure \ref{fig:4_3_dist_images}) Then, points might be visible pointing away from camera projection center. On the one hand, point normals may solve the problem but due to data acquisition technique and model's complexity, they are more or less easy to derive \textcolor{red}{(Sattler zitieren)}. 
+Remedying image pyramids are a nice alternative approach used in this case. Therefore, multiple synthetic images are generated with step-by-step adjustment of $p_s$ (see eq. \ref{eq:final_ps}), commonly by doubling which resulting in halve numbers of image rows and columns per layer. Than, the algorithm verifies if two pixels corresponds in two subsequent layers, preserving edges (figure \ref{fig:4_3_point_filtering},\ref{fig:4_3_dist_images}).
 \begin{figure}[h]
 \centering
 \includegraphics[width=12cm]{graphics/4_3_point_filtering}
@@ -491,9 +491,14 @@ Remedying image pyramids are a nice alternative approach used in this case. Ther
 
 
 \subsubsection{Filling gaps due to missing points}
+Because of pixel size and image plane definition with a specific resolution (that depends in case of \ref{sec:water_level_gauging_requirements_situation} on smartphone camera's resolution) there will be still gaps inbetween projected points (see figure \ref{fig:4_3_dist_images}, right). To fill these gaps, we recommend to use a simple nearest neighbour approach using binary search \cite{Bentley1975} in 3D domain to fill these gaps applying weights to average 3D points color attributes depending on their euclidean distances. For this, thresholds for maximum distances between 3D points must be applied to avoid unreasonable gap-filling. Exemplary for use case \ref{sec:water_level_gauging_intro} results before and after gap filling are visualised in figure \
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{graphics/4_3_fill_images_before_after}
+\caption{Fill image gaps using nearest neighbour binary search in 3D domain.}
+\label{fig:4_3_fill_images_before_after}
+\end{figure}
 
-
-\textbf{TO BE FILLED BY MELANIE}
 
 \subsection{Interpretation and annotation}
 

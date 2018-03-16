@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: KroehnertKehl2018_MobileDigitalGeosciences.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: KroehnertKehl2018_MobileDigitalGeosciences.aux
 The style file: model1-num-names.bst
 Database file #1: KroehnertKehl2018_MobileDigitalGeosciences.bib
 Warning--I didn't find a database entry for "•"
@@ -9,7 +7,6 @@ Warning--I didn't find a database entry for "KroehnertXYZ"
 Warning--I didn't find a database entry for "Guislain2016"
 Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "Kroehnert2017"
-Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty pages in Viseur2014_VGCabstract
 Warning--empty pages in Agus2017
 Warning--empty pages in Siedschlag2015
@@ -19,45 +16,4 @@ Warning--empty pages in Dewez2015
 Warning--can't use both author and editor fields in Chandler2016
 Warning--empty pages in Chandler2016
 Warning--empty pages in Hama2013
-You've used 52 entries,
-            2910 wiz_defined-function locations,
-            1032 strings with 19148 characters,
-and the built_in function-call counts, 37251 in all, are:
-= -- 2665
-> -- 1813
-< -- 38
-+ -- 683
-- -- 623
-* -- 4553
-:= -- 5346
-add.period$ -- 70
-call.type$ -- 52
-change.case$ -- 471
-chr.to.int$ -- 52
-cite$ -- 61
-duplicate$ -- 2602
-empty$ -- 2452
-format.name$ -- 790
-if$ -- 6842
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 572
-newline$ -- 259
-num.names$ -- 214
-pop$ -- 839
-preamble$ -- 1
-purify$ -- 463
-quote$ -- 0
-skip$ -- 752
-stack$ -- 0
-substring$ -- 1454
-swap$ -- 2146
-text.length$ -- 18
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 459
-warning$ -- 9
-while$ -- 225
-width$ -- 0
-write$ -- 725
 (There were 15 warnings)
