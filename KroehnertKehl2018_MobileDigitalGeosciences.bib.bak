@@ -46,6 +46,21 @@
   Url                      = {http://doi.acm.org/10.1145/2536853.2536893}
 }
 
+@Article{Bentley1975,
+  Title                    = {Multidimensional binary search trees used for associative searching},
+  Author                   = {Jon Louis Bentley},
+  Journal                  = {Communications of the {ACM}},
+  Year                     = {1975},
+
+  Month                    = {sep},
+  Number                   = {9},
+  Pages                    = {509--517},
+  Volume                   = {18},
+
+  Doi                      = {10.1145/361002.361007},
+  Publisher                = {Association for Computing Machinery ({ACM})}
+}
+
 @InProceedings{Blum2013,
   Title                    = {Smartphone Sensor Reliability for Augmented Reality Applications},
   Author                   = {Blum, Jeffrey R. and Greencorn, Daniel G. and Cooperstock, Jeremy R.},
@@ -275,6 +290,19 @@
   Timestamp                = {2016.08.17}
 }
 
+@Article{Farr2007,
+  Title                    = {The shuttle radar topography mission},
+  Author                   = {Farr, Tom G and Rosen, Paul A and Caro, Edward and Crippen, Robert and Duren, Riley and Hensley, Scott and Kobrick, Michael and Paller, Mimi and Rodriguez, Ernesto and Roth, Ladislav and others},
+  Journal                  = {Reviews of geophysics},
+  Year                     = {2007},
+  Number                   = {2},
+  Volume                   = {45},
+
+  Owner                    = {christian},
+  Publisher                = {Wiley Online Library},
+  Timestamp                = {2018.03.14}
+}
+
 @InProceedings{Garcia2015,
   Title                    = {Textured Splat-based Point Clouds for Rendering in Handheld Devices},
   Author                   = {Garc\'{i}a, Sergio and Pag\'{e}s, Rafael and Berj\'{o}n, Daniel and Mor\'{a}n, Francisco},
@@ -321,6 +349,18 @@
   Owner                    = {christian},
   Timestamp                = {2018.03.11},
   Url                      = {https://books.google.dk/books?id=7qT0AgAAQBAJ}
+}
+
+@InProceedings{Goesele2007,
+  Title                    = {Multi-view stereo for community photo collections},
+  Author                   = {Goesele, Michael and Snavely, Noah and Curless, Brian and Hoppe, Hugues and Seitz, Steven M},
+  Booktitle                = {Computer Vision, 2007. ICCV 2007. IEEE 11th International Conference on},
+  Year                     = {2007},
+  Organization             = {IEEE},
+  Pages                    = {1--8},
+
+  Owner                    = {christian},
+  Timestamp                = {2018.03.17}
 }
 
 @InProceedings{Hama2013,
@@ -583,6 +623,19 @@
   Url                      = {http://link.springer.com/article/10.1007/s11027-015-9651-2}
 }
 
+@Article{Letortu2017,
+  Title                    = {Examining high-resolution survey methods for monitoring cliff erosion at an operational scale},
+  Author                   = {Pauline Letortu and Marion Jaud and Philippe Grandjean and J{\'{e}}r{\^{o}}me Ammann and St{\'{e}}phane Costa and Olivier Maquaire and Robert Davidson and Nicolas Le Dantec and Christophe Delacourt},
+  Journal                  = {{GIScience} {\&} Remote Sensing},
+  Year                     = {2017},
+
+  Month                    = {dec},
+  Pages                    = {1--20},
+
+  Doi                      = {10.1080/15481603.2017.1408931},
+  Publisher                = {Informa {UK} Limited}
+}
+
 @InProceedings{Liu2014,
   Title                    = {Beyond horizontal location context: measuring elevation using smartphone's barometer},
   Author                   = {Guangwen Liu and Khan Muhammad Asif Hossain and Masayuki Iwai and Masaki Ito and Yoshito Tobe and Kaoru Sezaki and Dunstan Matekenya},
@@ -625,6 +678,18 @@
   Timestamp                = {2018.03.11}
 }
 
+@Article{Medjkane2018,
+  Title                    = {High-resolution monitoring of complex coastal morphology changes: cross-efficiency of {SfM} and {TLS}-based survey (Vaches-Noires cliffs, Normandy, France)},
+  Author                   = {M. Medjkane and O. Maquaire and S. Costa and Th. Roulland and P. Letortu and C. Fauchard and R. Antoine and R. Davidson},
+  Journal                  = {Landslides},
+  Year                     = {2018},
+
+  Month                    = {jan},
+
+  Doi                      = {10.1007/s10346-017-0942-4},
+  Publisher                = {Springer Nature}
+}
+
 @Book{Mehta2013,
   Title                    = {Learn OpenGL ES: For Mobile Game and Graphics Development},
   Author                   = {Mehta, P.},
@@ -647,6 +712,21 @@
   Note                     = {Accessed: 2018-03-06},
 
   Url                      = {https://spectrum.ieee.org/semiconductors/design/superaccurate-gps-coming-to-smartphones-in-2018}
+}
+
+@Article{Mueller2011,
+  Title                    = {Increasing occurrence of high-intensity rainstorm events relevant for the generation of soil erosion in a temperate lowland region in Central Europe},
+  Author                   = {Eva Nora Mueller and Angela Pfister},
+  Journal                  = {Journal of Hydrology},
+  Year                     = {2011},
+  Number                   = {3},
+  Pages                    = {266 - 278},
+  Volume                   = {411},
+
+  Doi                      = {https://doi.org/10.1016/j.jhydrol.2011.10.005},
+  ISSN                     = {0022-1694},
+  Keywords                 = {Rainstorms, High-intensity, Soil erosion, Mann Kendall test, Climate change, Lowlands},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0022169411006986}
 }
 
 @TechReport{Nebiker2017,
@@ -695,6 +775,18 @@
   Owner                    = {christian},
   Timestamp                = {2016.11.14},
   Url                      = {http://www.sciencedirect.com/science/article/pii/S1524070316300285}
+}
+
+@InCollection{Powell2006,
+  Title                    = {The NEWUOA software for unconstrained optimization without derivatives},
+  Author                   = {Powell, Michael JD},
+  Booktitle                = {Large-scale nonlinear optimization},
+  Publisher                = {Springer},
+  Year                     = {2006},
+  Pages                    = {255--297},
+
+  Owner                    = {christian},
+  Timestamp                = {2015.11.07}
 }
 
 @Article{Rarity2014,
@@ -793,6 +885,21 @@
   Url                      = {https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht}
 }
 
+@Article{Schwalbe2017b,
+  Title                    = {The determination of high-resolution spatio-temporal glacier motion fields from time-lapse sequences},
+  Author                   = {Ellen Schwalbe and Hans-Gerd Maas},
+  Journal                  = {Earth Surface Dynamics},
+  Year                     = {2017},
+
+  Month                    = {dec},
+  Number                   = {4},
+  Pages                    = {861--879},
+  Volume                   = {5},
+
+  Doi                      = {10.5194/esurf-5-861-2017},
+  Publisher                = {Copernicus {GmbH}}
+}
+
 @InCollection{Shewchuk1996,
   Title                    = {Triangle: {E}ngineering a {2D} {Q}uality {M}esh {G}enerator and {D}elaunay {T}riangulator},
   Author                   = {Jonathan Richard Shewchuk},
@@ -864,6 +971,20 @@
 
   Owner                    = {christian},
   Publisher                = {Springer},
+  Timestamp                = {2018.03.17}
+}
+
+@Article{Viola1997,
+  Title                    = {Alignment by maximization of mutual information},
+  Author                   = {Viola, Paul and Wells, William M.},
+  Journal                  = {International journal of computer vision},
+  Year                     = {1997},
+  Number                   = {2},
+  Pages                    = {137--154},
+  Volume                   = {24},
+
+  Owner                    = {christian},
+  Publisher                = {Springer},
   Timestamp                = {2018.03.11}
 }
 
@@ -875,6 +996,33 @@
 
   Owner                    = {christian},
   Timestamp                = {2016.06.19}
+}
+
+@Article{Watanabe2016,
+  Title                    = {{UAV} Photogrammetry for Monitoring Changes in River Topography and Vegetation},
+  Author                   = {Yutaka Watanabe and Yoshihisa Kawahara},
+  Journal                  = {Procedia Engineering},
+  Year                     = {2016},
+  Pages                    = {317--325},
+  Volume                   = {154},
+
+  Doi                      = {10.1016/j.proeng.2016.07.482},
+  Publisher                = {Elsevier {BV}}
+}
+
+@InProceedings{Wu2013,
+  Title                    = {Towards Linear-Time Incremental Structure from Motion},
+  Author                   = {C. Wu},
+  Booktitle                = {2013 International Conference on 3D Vision - 3DV 2013},
+  Year                     = {2013},
+  Month                    = {June},
+  Pages                    = {127-134},
+
+  Doi                      = {10.1109/3DV.2013.25},
+  ISSN                     = {1550-6185},
+  Keywords                 = {computational complexity;conjugate gradient methods;image matching;image motion analysis;image sequences;video signal processing;BA strategy;PCG;VisualSFM;algorithm analysis;bundle adjustment strategy;feature matching;large photo collections;large-scale reconstructions;linear-time incremental SfM;linear-time incremental structure from motion;long video sequences;preconditioned conjugate gradient;regular retriangulation;state of the art performance;time complexity;Barium;Cameras;Image reconstruction;Linear systems;Optimization;Three-dimensional displays;Time complexity;Structure from Motion;VisualSFM},
+  Owner                    = {christian},
+  Timestamp                = {2018.03.17}
 }
 
 @Article{Zandbergen2011,

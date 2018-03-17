@@ -1,2 +1,9 @@
-
-*.pdf
+*.*~
+*.log
+*.bbl
+*.bak
+*.blg
+*.glo
+*.ist
+*.gz
+*.out

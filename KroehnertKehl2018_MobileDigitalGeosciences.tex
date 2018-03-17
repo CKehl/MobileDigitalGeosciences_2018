@@ -194,7 +194,7 @@ A considerable number of domains within the geosciences rely on digitised natura
 %\item as seen in technical magazines and the media, the range of available devices increases, which allows to find a device fit-for-purpose to each situation
 %\end{itemize}
 
-Next to easily available, pocket-format computing devices, the required three-dimensional base data for modern applications also need to be available and being processed in a ''mobile-ready`` manner. The availability of topographic 3D surface data is steadily increasing due to easy-to-use software and instrumentation for surface generation (e.g. drones, \gls{SfM} \cite{•} and multi-view geometry \cite{•}, satellite \glspl{DEM}). Furthermore, crowdsourced data and \gls{VGI} contribute to the geoscience data inventory, which is acquired by citizen scientists. %amateur scientists and domain enthusiasts.
+Next to easily available, pocket-format computing devices, the required three-dimensional base data for modern applications also need to be available and being processed in a ''mobile-ready`` manner. The availability of topographic 3D surface data is steadily increasing due to easy-to-use software and instrumentation for surface generation (e.g. drones, \gls{SfM} \cite{Wu2013} and multi-view geometry \cite{Goesele2007}, satellite \glspl{DEM}). Furthermore, crowdsourced data and \gls{VGI} contribute to the geoscience data inventory, which is acquired by citizen scientists. %amateur scientists and domain enthusiasts.
 
 %\begin{itemize}
 %\item availability of small form factor devices is only on part contribution to making digital geosciences more ''mobile``
@@ -244,7 +244,6 @@ TO-BE-FILLED
 \section{Representation basis -- Geometry and Radiometry}
 \label{sec:representations}
 
-<<<<<<< HEAD
 Various representation forms for 3D terrain data are available. While early digital systems used gridded \glspl{DEM} for their simplicity and compact storage \cite{Trinks2005,McCaffrey2005}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis \cite{Buckley2008a,Caumon2013}. A useful example can be seen in \textcolor{red}{ \cite{Schwalbe2017b} for glaciology, where the authors use a  triangulated digital surface model to represent a Patagonian glacier front.}
 %Examples can be seen computing the impact of solar shade on glacial mass loss \cite{Marsh2012}, where the authors use high-quality Delaunay-\glspl{TIN} \cite{Shewchuk1996} as terrain representation. 
 For triangular surfaces, it is important to distinguish geometrically valid \glspl{TIN} from polygon soup surfaces. While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature stages of the analysis. This is because some automated analysis (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
@@ -299,7 +298,7 @@ This section demonstrates novel- as well as existing algorithms and methods on m
 \item integration to the above-mentioned use cases
 \end{itemize}
 
-Image-to-geometry algorithms aim at registering a 2D image to a given 3D surface, providing a transformation from 2D coordinate system to 3D coordinate system as follows:
+Image-to-geometry algorithms aim register 2D images to a given 3D surface, providing a transformation from 2D coordinate system to 3D coordinate system as follows:
 
 \begin{eqnarray}
 P' &= \begin{pmatrix}
@@ -311,40 +310,53 @@ x \\ y \\ z
 P' &\in \mathds{R}^2 &= \frac{P'}{w}
 \end{eqnarray}
 
-Using this coordinate system transformation on combination with a known interior camera orientation, it is possible to projectively map entire images on the surface just as surface texturing does. It is also possible to map specific objects on the image, such as image-based interpretations, on the surface. In the geosciences, these algorithms are employed to create a direct correlation between 3D model and the screen- or image space on which annotations and interpretations are based on \cite{Kehl2016_ISPRS}.
+Using this coordinate system transformation in combination with a known interior camera orientation, it is possible to project each image on the surface. Specific objects outlined in the image, such as image-based interpretations, can also be mapped on the surface. In the geosciences, these algorithms are employed to create a direct correlation between 3D model and the screen- or image space on which annotations and interpretations are based on \cite{Kehl2016_ISPRS}.
 
-\begin{itemize}
-\item feature-based registration: detect prominent points or edges in the input 2D images and a rendered representation of the 3D model
-\item different concept for registration: 
-\begin{itemize}
-\item for mesh models, 2D feature locations are raycasted using camera projection and the 3D model in background; 3D feature location determined upon ray-plane intersection
-\item for point-based models, raycasting doesn't directly work as point cannot be intersected; prominent solution is employing a smart rendering technique that expands the point into an area, and generate a depth map; after depth map generation, the 3D coordinate of a 2D feature map can be read directly from the depth map; drawback of the method / offset for speed: accuracy limitation of depth maps; high-resolution depthmaps (above $512^2$) cost a lot of performance
-\end{itemize}
-\item registration then has source- and target 2D-3D point pairs (in a normalized manner) that are put into a least-squares optimization system (give math here)
-\item optimization system usually non-linear, usually employing Levenberg-Marquardt optimization schemes \cite{Kehl2015c}
-\item largest challenges for feature-based registration: (a) reliable feature correlation and (b) optimization stability; useful constraints can employed in both cases -- such as horizon information, building edges, object outlines -- to increase the registration reliability and accuracy
-\item employing constraints is highly application-dependent
-\end{itemize}
+% POSSIBILITY TO CUT HERE IF NEEDED
+Amongst the published literature, feature-based registration algorithms are most common. Here, salient points (e.g. SIFT, SURF, Harris corners) or edges within the photograph and rendered image of the target 3D model are used to establish an image-to-image correlation. 
 
-\begin{itemize}
-\item feature-based registration techniques most prevalent on mobile devices due to execution speed, implementation ease and so forth
-\item examples of mobile implementation: \cite{Gauglitz2014,Sweeny2015,Kehl2017_PHOR,KroehnertXYZ}; utilize open source library \textit{OpenCV4Android}\footnote{OpenCV4Android - \url{https://opencv.org/platforms/android/}}, also employed in this work\footnote{OpenCV4Android extensions at \url{https://github.com/CKehl/opencv4Android_extension} and \url{}}
-\item drawback of feature-based methods: reliability and instability to imaging variances (discussed later in this article)
-\item a contrasting technique commonly achieving more accurate results: mutual information
-\item idea: pixel-wise comparison between 2D input image and 2D rendering of 3D scene; if both images match (meaning: $argmin \delta(I_{2D}, I_{3D}')$), then registration is completed
-\item mutual information \cite{Viola1997} use notion of self-information and entropy to measure $\delta(I_{2D}, I_{3D}')$
-\item challenge: optimization of 7 degree-of-freedom system over such overdetermined system (i.e. each image pixel results in 2 equations for the optimization scheme) unstable and prone to local minima
-\item only optimization known to provide stable results is NEWUOA (i.e. Powell's method) \cite{Corsini2013}; 
-\item has recently been employed in an earth science case for \gls{LiDAR} registration \cite{Guislain2016}
-\item not available for mobile devices until now
-\end{itemize}
+In order to establish a 2D--3D correlation, there are two prevalent approaches available: for triangle mesh models, the 2D feature locations within the rendered image are raycasted using the virtual camera's vanishing point, the imaging plane and the 3D surface model (see fig. XYZ in \cite{Kehl2016_ISPRS}). The intersection between the ray and a triangle within the mesh result in the correlated 3D coordiante of the 2D feature. An alternative approach is needed for point-based models because the raycasting does not apply to point representations (i.e. points cannot be intersected directly due to their zero-extent). The alternative approach often applied (see \cite{X,Y,Z}) employs smart rendering techniques that virtually expand the point into an area feature (e.g. blob, disk or sphere), which is subsequently rendered into a depth map. Afterwards, the 3D coordinate of a 2D feature can be inferred directly from the depth map. Though cleverly utilising graphics technology, this approach is limited by an accuracy-to-speed trade-off: low-resolution and low-quantisation depth maps introduce artificial accuracy errors in the registration process, whereas high-resolution depth maps (above $512^2$ pixels) cost considerable performance in the image generation. This last point is particularly important when employing depth map algorithms on mobile devices.
 
-\begin{itemize}
-\item in terms of usability on mobile devices (why should we want to have that on mobile devices), projection of image-based information is vital on mobile devices
-\item because of interaction difficulty, image-based interpretations on 3D surface data is preferable
-\item it is potentially advantageous, in terms of power consumption, to implement data interaction in 2D rather than 3D; a hypothesis proven by experiment in this article
-\item as it directly relates to the interactive component of the geoscience app, it has to be executed in real-time on the device instead of an offline process
-\end{itemize}
+When 2D--3D point pairs are established, the coordinates are normalized and put into a least-squares optimization system, where the target is to determine the exterior camera parameters ($t_x,t_y,t_z,\psi,\varphi,\theta$) from the 2D--3D point-based equation system. Non-linear optimisation systems (e.g. Levenberg-Marquardt) are applied to estimate the desired parameter set. The whole process can easily be executed on mobile devices \cite{Kehl2016_ISPRS}. One of the prevalent practical challenges when employing feature-based image-to-geometry registration is to achieve a reliable feature correlation, which is often achieved by introducing application-specific constraints (e.g. horizon alignment, straight-edge enforcement or object outlines).
+% END OF CUTTING POSSIBILITY
+
+
+%\begin{itemize}
+%\item feature-based registration: detect prominent points or edges in the input 2D images and a rendered representation of the 3D model
+%\item different concept for registration: 
+%\begin{itemize}
+%\item for mesh models, 2D feature locations are raycasted using camera projection and the 3D model in background; 3D feature location determined upon ray-plane intersection
+%\item for point-based models, raycasting doesn't directly work as point cannot be intersected; prominent solution is employing a smart rendering technique that expands the point into an area, and generate a depth map; after depth map generation, the 3D coordinate of a 2D feature map can be read directly from the depth map; drawback of the method / offset for speed: accuracy limitation of depth maps; high-resolution depthmaps (above $512^2$) cost a lot of performance
+%\end{itemize}
+%\item registration then has source- and target 2D-3D point pairs (in a normalized manner) that are put into a least-squares optimization system (give math here)
+%\item optimization system usually non-linear, usually employing Levenberg-Marquardt optimization schemes \cite{Kehl2015c}
+%\item largest challenges for feature-based registration: (a) reliable feature correlation and (b) optimization stability; useful constraints can employed in both cases -- such as horizon information, building edges, object outlines -- to increase the registration reliability and accuracy
+%\item employing constraints is highly application-dependent
+%\end{itemize}
+
+Feature-based registration is the most common approach for establishing image-to-geometry correlation on mobile devices due to its implementation simplicity, its rapid execution speed, its option for application-specific constraints and the wealth of available code that can be used. Examples for the application of the technique are ample within the literature, ranging from augmented reality \cite{Gauglitz2014,Sweeney2015} over field geology \cite{Kehl2016_ISPRS,Kehl2017_VGC} to surface hydrology \cite{Kroehnert2017a,Boerner2016}. These mobile apps utilize the open-source library \textit{OpenCV4Android}\footnote{OpenCV4Android 2.4.10 - \url{https://opencv.org/platforms/android/}}, which is also employed in this work\footnote{OpenCV4Android extensions at \url{https://github.com/CKehl/opencv4Android_extension}}. Problems in real-world cases are posed to this technique from imaging variances, resulting in reduced reliability (i.e. failing to determine any camera parameters) and stability (i.e. determining different parameters for the same sets of images). An completely alternative technique to feature-based methods is \gls{MI} \cite{Viola1997,Corsini2013}. \Gls{MI} performs a pixel-wise comparison between the photo $I_{2D}$ and the 2D rendering of the 3D scene $I_{3D}'$ and aims at minimizing the image discrepancies (i.e. $argmin \delta(I_{2D}, I_{3D}')$). The technique uses information theory quantities such as self-information and entropy in order to compare the similarity of both image. In contrast to the challenge of feature correlation, \gls{MI} faces challenges in the optimization process: the optimization of a 7 degree-of-freedom equation system ($t_x,t_y,t_z,\psi,\varphi,\theta,f$, for $f$ being the focal length) is unstable and prone to rest in local function minima. Only few optimisation solvers are known that can solve such equation systems reliably and provide stable results - most notably NEWUOA (i.e. Powell's method\cite{Powell2006}) used in \cite{Corsini2013}. As these stable solvers are not available in modern and mobile-device programming languages, the use of \gls{MI} is currently prohibited for mobile platforms.
+
+%\begin{itemize}
+%\item feature-based registration techniques most prevalent on mobile devices due to execution speed, implementation ease and so forth
+%\item examples of mobile implementation: \cite{Gauglitz2014,Sweeney2015,Kehl2017_PHOR,KroehnertXYZ}; utilize open source library \textit{OpenCV4Android}\footnote{OpenCV4Android - \url{https://opencv.org/platforms/android/}}, also employed in this work\footnote{OpenCV4Android extensions at \url{https://github.com/CKehl/opencv4Android_extension} and \url{}}
+%\item drawback of feature-based methods: reliability and instability to imaging variances (discussed later in this article)
+%\item a contrasting technique commonly achieving more accurate results: mutual information
+%\item idea: pixel-wise comparison between 2D input image and 2D rendering of 3D scene; if both images match (meaning: $argmin \delta(I_{2D}, I_{3D}')$), then registration is completed
+%\item mutual information \cite{Viola1997} use notion of self-information and entropy to measure $\delta(I_{2D}, I_{3D}')$
+%\item challenge: optimization of 7 degree-of-freedom system over such overdetermined system (i.e. each image pixel results in 2 equations for the optimization scheme) unstable and prone to local minima
+%\item only optimization known to provide stable results is NEWUOA (i.e. Powell's method) \cite{Corsini2013}; 
+%\item has recently been employed in an earth science case for \gls{LiDAR} registration \cite{Guislain2016}
+%\item not available for mobile devices until now
+%\end{itemize}
+
+While the task of image-to-geometry registration can be offload to remote computers in the network, it is advantageous to perform the registration on the mobile device itself. This is because, in the overall target of model interpretation, the interaction and actual interpretation (as explained in section \ref{}) is more intuitive for the user when being performed on photos and images. If the registration of the images is done on the mobile device, it allows for direct feedback and ad-hoc visual quality checks of the interpretations on the underlying 3D surface model. Furthermore, as shown by measurements in section \ref{}, it can be argued that 2D interpretation more energy efficient than direct 3D interpretations. Lastly, in settings where network access and offline processing is prohibited, an on-device registration procedure is without alternatives.
+
+%\begin{itemize}
+%\item in terms of usability on mobile devices (why should we want to have that on mobile devices), projection of image-based information is vital on mobile devices
+%\item because of interaction difficulty, image-based interpretations on 3D surface data is preferable
+%\item it is potentially advantageous, in terms of power consumption, to implement data interaction in 2D rather than 3D; a hypothesis proven by experiment in this article
+%\item as it directly relates to the interactive component of the geoscience app, it has to be executed in real-time on the device instead of an offline process
+%\end{itemize}
 
 %\subsection{Data presentation and rendering}
 
@@ -502,46 +514,54 @@ Because of pixel size and image plane definition with a specific resolution (tha
 
 \subsection{Interpretation and annotation}
 
-\begin{itemize}
-\item \sout{short description what it does}
-\item \sout{how is it generally employed}
-\item \sout{relation to mobile devices}
-\item \sout{approaches and implementation known on mobile devices}
-\item \sout{integration to the above-mentioned use cases}
-\end{itemize}
+%\begin{itemize}
+%\item \sout{short description what it does}
+%\item \sout{how is it generally employed}
+%\item \sout{relation to mobile devices}
+%\item \sout{approaches and implementation known on mobile devices}
+%\item \sout{integration to the above-mentioned use cases}
+%\end{itemize}
 
-\begin{itemize}
-\item Interpretation and annotation techniques (in this context used synonymously) aim to map geometries (e.g. lines, polygons) of domain-specific information to the 3D base surface
-\item the mapped geometries are used to delineate interest boundaries or segment the surface into semantically meaningful units
-\end{itemize}
+Interpretation and annotation techniques aim to map geometries (e.g. lines, polygons) of domain-specific information to the 3D base surface. The mapped geometries are used to delineate interest boundaries or to segment the surface into semantically meaningful units.
+
+%\begin{itemize}
+%\item Interpretation and annotation techniques (in this context used synonymously) aim to map geometries (e.g. lines, polygons) of domain-specific information to the 3D base surface
+%\item the mapped geometries are used to delineate interest boundaries or segment the surface into semantically meaningful units
+%\end{itemize}
 
 %this should be moved somewhere else POSSIBLY
-\begin{itemize}
-\item in hydrological cases, line interpretations are commonly used to mark current water levels as well as high-tide or high-surge water levels
-\item for health monitoring of dykes and levees, line interpretations can also be used to mark cracks
-\item in geological cases, a mixture of line- and polygon geometries is used
-\item line interpretations are more commonly related to structural rock features (e.g. cracks, fractures, fault zone boundaries, stratigraphic boundaries), while polygonal area segmentation are more common in sedimentology (e.g. depositional elements, sedimentary objects, sediment facies); application of the geometries is flexible, as in the case of fault facies for structural features
-\end{itemize}
+In hydrological cases, line interpretations are commonly used to mark current water levels as well as high-tide or high-surge water levels. Health monitoring of dykes and levees can use line interpretations to mark cracks within surge defense structures. In geological cases, a mixture of line- and polygon geometries are used. Line interpretations are more commonly related to structural rock features (e.g. cracks, fractures, fault zone boundaries, stratigraphic boundaries), while polygonal area segmentation are more common in sedimentology (e.g. depositional elements, sedimentary objects, sediment facies). That being said, application of the geometries within geology is flexible, as observed in the case of fault facies that use area marks for for structural features.
+
+%\begin{itemize}
+%\item in hydrological cases, line interpretations are commonly used to mark current water levels as well as high-tide or high-surge water levels
+%\item for health monitoring of dykes and levees, line interpretations can also be used to mark cracks
+%\item in geological cases, a mixture of line- and polygon geometries is used
+%\item line interpretations are more commonly related to structural rock features (e.g. cracks, fractures, fault zone boundaries, stratigraphic boundaries), while polygonal area segmentation are more common in sedimentology (e.g. depositional elements, sedimentary objects, sediment facies); application of the geometries is flexible, as in the case of fault facies for structural features
+%\end{itemize}
 %end of to-be-moved
 
-\begin{itemize}
-\item delineation and mapping can be performed in various ways, depending on the geometric representation of the 3D surface geometry
-\item point clouds and 3D \glspl{TIN} can be annotated in 3D directly; area markings can be directly embedded as vertex attributes, whereas closest-vertex searches (for point clouds) or view-surface intersections (for \glspl{TIN}) provide the corners for line interpretations
-\item largest problem with such approach on mobile devices: data size and neighbourhood searches; nearest neighbour search has computational complexity $O(nd)$ for $d=3$ (in case of 3D surfaces) and $n$ being the number of vertices in the dataset; non-interactive on mobile devices with real-world datasets ($n \geq 10^7$)
-\item other issues: sparse and non-closed, non-convex geometry (particular problem for \glspl{TIN}), occlusions and curved objects; challenge specific to mobile devices: interaction, and the intuitive switch between 3D space motion and point selection
-\end{itemize}
+The delineation and mapping can be performed in various ways, depending on the geometric representation of the 3D base surface geometry. Point clouds and 3D \glspl{TIN} can be annotated in directly in 3D. In such application, area markings can be directly embedded as vertex attributes while closest-vertex searches (for point clouds) or view-surface intersections (for \glspl{TIN}) provide the corners for line interpretations. The largest problems with such direct-3D approach on mobile devices are the data size of the underlying surface and complexity of neighbourhood searches. Nearest neighbour search has a computational complexity of $O(nd)$, where $d=3$ for 3D surfaces and $n$ being the number of vertices in the dataset. This results in non-interactive execution times for 3D vertex marking on mobile devices with real-world datasets (with $n \geq 10^7$). Performing interpretations in 3D on mobile devices also require supportive interaction schemes, including intuitive and easy-access switches between 3D space orientation and actual point selection for the user. Other issues for general direct-3D surface interpretation include the a sparse vertex distribution and open, non-convex geometry (being a particular problem for \glspl{TIN}), surface occlusion and intricate problems related to curved surfaces, where the euclidean vertex distance and geodesic distance along the surface can differ significantly. 
 
-\begin{itemize}
-\item using image-to-geometry registration, problems of 3D geometry and 3D space interaction can be circumvented
-\item image interpretation more computationally efficient due to raster arrangement (i.e. raster image) and easier to use for novice practitioners on mobile devices
-\item interpretation geometries rendered as 2D vector graphics elements and subsequently reprojected on 3D surface using the pre-determined external camera orientation (or pose)
-\item distinction between one-time interpretation and editing
-\begin{itemize}
-\item fixed interpretation markings can be trivially generated
-\item often approach is to delete the last marking (or manage an interaction history for further removals) and redraw incorrect interpretations
-\item for \gls{GRIT}, more than 1,000 interpretation vertices need to be managed and edit requests are made by geologists; to facilitate a rapid edit and responsive interaction, a kD-Tree is maintained in the background to speed up interpretation vertex selection; kD-Tree is recalculated on significant point movements
-\end{itemize}
-\end{itemize}
+%\begin{itemize}
+%\item delineation and mapping can be performed in various ways, depending on the geometric representation of the 3D surface geometry
+%\item point clouds and 3D \glspl{TIN} can be annotated in 3D directly; area markings can be directly embedded as vertex attributes, whereas closest-vertex searches (for point clouds) or view-surface intersections (for \glspl{TIN}) provide the corners for line interpretations
+%\item largest problem with such approach on mobile devices: data size and neighbourhood searches; nearest neighbour search has computational complexity $O(nd)$ for $d=3$ (in case of 3D surfaces) and $n$ being the number of vertices in the dataset; non-interactive on mobile devices with real-world datasets ($n \geq 10^7$)
+%\item other issues: sparse and non-closed, non-convex geometry (particular problem for \glspl{TIN}), occlusions and curved objects; challenge specific to mobile devices: interaction, and the intuitive switch between 3D space motion and point selection
+%\end{itemize}
+
+Utilising the aforementioned image-to-geometry registration (section \ref{}), the given issues of direct-3D interpretation and 3D interaction can be circumvented. The raster image interpretation is computationally more efficient due to the gridded data arrangement and easier to use for novice practitioners on mobile devices. The interpretation geometries are generated as 2D vector graphics elements, which are projected on the 3D surface after the image registration using the estimated external camera orientation or pose. 
+
+%\begin{itemize}
+%\item using image-to-geometry registration, problems of 3D geometry and 3D space interaction can be circumvented
+%\item image interpretation more computationally efficient due to raster arrangement (i.e. raster image) and easier to use for novice practitioners on mobile devices
+%\item interpretation geometries rendered as 2D vector graphics elements and subsequently reprojected on 3D surface using the pre-determined external camera orientation (or pose)
+%\item distinction between one-time interpretation and editing
+%\begin{itemize}
+%\item fixed interpretation markings can be trivially generated
+%\item often approach is to delete the last marking (or manage an interaction history for further removals) and redraw incorrect interpretations
+%\item for \gls{GRIT}, more than 1,000 interpretation vertices need to be managed and edit requests are made by geologists; to facilitate a rapid edit and responsive interaction, a kD-Tree is maintained in the background to speed up interpretation vertex selection; kD-Tree is recalculated on significant point movements
+%\end{itemize}
+%\end{itemize}
 
 \section{Technology}
 \label{sec:technology}
