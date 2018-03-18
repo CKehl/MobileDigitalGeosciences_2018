@@ -92,6 +92,22 @@
   Peerreview               = {Nein}
 }
 
+@Article{Bonaventura2017,
+  Title                    = {Information measures for terrain visualization },
+  Author                   = {Xavier Bonaventura and Aleksandra A. Sima and Miquel Feixas and Simon J. Buckley and Mateu Sbert and John A. Howell},
+  Journal                  = {Computers \& Geosciences },
+  Year                     = {2017},
+  Pages                    = {9 - 18},
+  Volume                   = {99},
+
+  Doi                      = {http://dx.doi.org/10.1016/j.cageo.2016.10.007},
+  ISSN                     = {0098-3004},
+  Keywords                 = {Information measures},
+  Owner                    = {christian},
+  Timestamp                = {2017.03.01},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0098300416305660}
+}
+
 @Article{Buckley2008a,
   Title                    = {Terrestrial laser scanning in geology: data acquisition, processing and accuracy considerations},
   Author                   = {Buckley, Simon J and Howell, John A and Enge, H{\aa}vard D and Kurz, Tobias H},
@@ -471,6 +487,18 @@
   Timestamp                = {2016.01.14}
 }
 
+@PhdThesis{Kehl2017_PhDThesis,
+  Title                    = {Visual Techniques for Geological Fieldwork using Mobile Devices},
+  Author                   = {Kehl, Christian},
+  School                   = {University of Bergen},
+  Year                     = {2017},
+  Month                    = {October},
+  Type                     = {Ph.D. thesis},
+
+  Owner                    = {christian},
+  Timestamp                = {2018.03.18}
+}
+
 @Article{Kehl2016_ISPRS,
   Title                    = {{DIRECT IMAGE-TO-GEOMETRY REGISTRATION USING MOBILE SENSOR DATA}},
   Author                   = {Kehl, C and Buckley, SJ and Gawthorpe, RL and Viola, I and Howell, JA},
@@ -760,6 +788,21 @@
   Url                      = {http://www.sciencedirect.com/science/article/pii/S0191814117300524}
 }
 
+@Article{Nyberg2015,
+  Title                    = {Geometric attribute and shape characterization of modern depositional elements: A quantitative \{GIS\} method for empirical analysis },
+  Author                   = {Björn Nyberg and Simon J. Buckley and John A. Howell and Rachel A. Nanson},
+  Journal                  = {Computers \& Geosciences },
+  Year                     = {2015},
+  Pages                    = {191 - 204},
+  Volume                   = {82},
+
+  Doi                      = {http://dx.doi.org/10.1016/j.cageo.2015.06.003},
+  ISSN                     = {0098-3004},
+  Owner                    = {christian},
+  Timestamp                = {2017.02.22},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S009830041500134X}
+}
+
 @Article{Ponchio2016,
   Title                    = {Multiresolution and fast decompression for optimal web-based rendering },
   Author                   = {Federico Ponchio and Matteo Dellepiane},
@@ -944,6 +987,23 @@
   Timestamp                = {2016.02.08}
 }
 
+@Article{Torr2000,
+  Title                    = {MLESAC: A New Robust Estimator with Application to Estimating Image Geometry},
+  Author                   = {P.H.S. Torr and A. Zisserman},
+  Journal                  = {Computer Vision and Image Understanding},
+  Year                     = {2000},
+  Number                   = {1},
+  Pages                    = {138 - 156},
+  Volume                   = {78},
+
+  Abstract                 = {A new method is presented for robustly estimating multiple view relations from point correspondences. The method comprises two parts. The first is a new robust estimator MLESAC which is a generalization of the RANSAC estimator. It adopts the same sampling strategy as RANSAC to generate putative solutions, but chooses the solution that maximizes the likelihood rather than just the number of inliers. The second part of the algorithm is a general purpose method for automatically parameterizing these relations, using the output of MLESAC. A difficulty with multiview image relations is that there are often nonlinear constraints between the parameters, making optimization a difficult task. The parameterization method overcomes the difficulty of nonlinear constraints and conducts a constrained optimization. The method is general and its use is illustrated for the estimation of fundamental matrices, image–image homographies, and quadratic transformations. Results are given for both synthetic and real images. It is demonstrated that the method gives results equal or superior to those of previous approaches.},
+  Doi                      = {http://dx.doi.org/10.1006/cviu.1999.0832},
+  ISSN                     = {1077-3142},
+  Owner                    = {christian},
+  Timestamp                = {2016.12.16},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S1077314299908329}
+}
+
 @Article{Trinks2005,
   Title                    = {Mapping and analysing virtual outcrops},
   Author                   = {Trinks, Immo and Clegg, Phillip and McCaffrey, Ken and Jones, Richard and Hobbs, Richard and Holdsworth, Bob and Holliman, Nick and Imber, Jonny and Waggott, Steve and Wilson, Robert},
@@ -972,20 +1032,6 @@
   Owner                    = {christian},
   Publisher                = {Springer},
   Timestamp                = {2018.03.17}
-}
-
-@Article{Viola1997,
-  Title                    = {Alignment by maximization of mutual information},
-  Author                   = {Viola, Paul and Wells, William M.},
-  Journal                  = {International journal of computer vision},
-  Year                     = {1997},
-  Number                   = {2},
-  Pages                    = {137--154},
-  Volume                   = {24},
-
-  Owner                    = {christian},
-  Publisher                = {Springer},
-  Timestamp                = {2018.03.11}
 }
 
 @InProceedings{Viseur2014_VGCabstract,

@@ -1,4 +1,5 @@
 *.*~
+*.aux
 *.log
 *.bbl
 *.bak
@@ -7,3 +8,4 @@
 *.ist
 *.gz
 *.out
+*.pdf
