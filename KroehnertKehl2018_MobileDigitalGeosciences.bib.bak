@@ -28,7 +28,7 @@
 @InProceedings{Bauer2013,
   Title                    = {On the (In-)Accuracy of GPS Measures of Smartphones: A Study of Running Tracking Applications},
   Author                   = {Bauer, Christine},
-  Booktitle                = {Proceedings of International Conference on Advances in Mobile Computing \&\#38; Multimedia},
+  Booktitle                = {Proceedings of International Conference on Advances in Mobile Computing \& Multimedia},
   Year                     = {2013},
 
   Address                  = {New York, NY, USA},
@@ -209,7 +209,7 @@
 }
 
 @TechReport{Chait2015,
-  Title                    = {Using ASTC Texture Compression for Game Assets},
+  Title                    = {Using {ASTC} Texture Compression for Game Assets},
   Author                   = {David Chait},
   Institution              = {NVIDIA Corporation},
   Year                     = {2015},
@@ -261,7 +261,7 @@
 }
 
 @InProceedings{Dewez2015,
-  Title                    = {UAV sensing of coastal cliff topography for rock fall hazard applications},
+  Title                    = {{UAV} sensing of coastal cliff topography for rock fall hazard applications},
   Author                   = {Dewez, Thomas J.B. and Leroux, J{\'e}r{\^o}me and Morelli, S},
   Booktitle                = {Journ{\'e}es Al{\'e}as Gravitaires JAG 2015},
   Year                     = {2015},
@@ -308,7 +308,7 @@
 }
 
 @InProceedings{Evans2015,
-  Title                    = {Combined 2D and 3D web-based visualisation of on-set big media data},
+  Title                    = {Combined {2D} and {3D} web-based visualisation of on-set big media data},
   Author                   = {Evans, Alun and Agenjo, Javi and Blat, Josep},
   Booktitle                = {Image Processing (ICIP), 2015 IEEE International Conference on},
   Year                     = {2015},
@@ -320,7 +320,7 @@
 }
 
 @Article{Evans2014,
-  Title                    = {3D graphics on the web: A survey },
+  Title                    = {{3D} graphics on the web: A survey},
   Author                   = {Alun Evans and Marco Romeo and Arash Bahrehmand and Javi Agenjo and Josep Blat},
   Journal                  = {Computers \& Graphics },
   Year                     = {2014},
@@ -385,7 +385,7 @@
 }
 
 @Book{Ginsburg2014,
-  Title                    = {OpenGL ES 3.0 Programming Guide},
+  Title                    = {{OpenGL ES} 3.0 Programming Guide},
   Author                   = {Ginsburg, D. and Purnomo, B. and Shreiner, D. and Munshi, A.},
   Publisher                = {Pearson Education},
   Year                     = {2014},
@@ -410,7 +410,7 @@
 }
 
 @InProceedings{Hama2013,
-  Title                    = {3D Mobile Visualization Techniques in Field Geology Interpretation: Evaluation of Modern Tablet Applications},
+  Title                    = {{3D} Mobile Visualization Techniques in Field Geology Interpretation: Evaluation of Modern Tablet Applications},
   Author                   = {Hama, Layik and Ruddle, Roy A and Paton, Douglas},
   Booktitle                = {AAPG Hedberg Research Conference: 3D Structural Geologic Interpretation: Earth, Mind and Machine},
   Year                     = {2013},
@@ -431,7 +431,7 @@
 }
 
 @Article{Heymann2007,
-  Title                    = {SIFT implementation and optimization for general-purpose GPU},
+  Title                    = {{SIFT} implementation and optimization for general-purpose {GPU}},
   Author                   = {Heymann, S and M{\"u}ller, K and Smolic, A and Froehlich, B and Wiegand, T},
   Journal                  = {Winter School of Computer Graphics (WSCG)},
   Year                     = {2007},
@@ -442,7 +442,7 @@
 }
 
 @Article{Hodgetts2013,
-  Title                    = {Laser scanning and digital outcrop geology in the petroleum industry: A review },
+  Title                    = {Laser scanning and digital outcrop geology in the petroleum industry: A review},
   Author                   = {David Hodgetts},
   Journal                  = {Marine and Petroleum Geology },
   Year                     = {2013},
@@ -485,7 +485,7 @@
 }
 
 @InProceedings{Hudelist2014,
-  Title                    = {OpenCV Performance Measurements on Mobile Devices},
+  Title                    = {{OpenCV} Performance Measurements on Mobile Devices},
   Author                   = {Hudelist, Marco A. and Cob\^{a}rzan, Claudiu and Schoeffmann, Klaus},
   Booktitle                = {Proceedings of International Conference on Multimedia Retrieval},
   Year                     = {2014},
@@ -508,7 +508,7 @@
 }
 
 @Article{Jordan2009,
-  Title                    = {SIGMAmobile: the BGS digital field mapping system in action: in the United Arab Emirates},
+  Title                    = {{SIGMAmobile}: the {BGS} digital field mapping system in action: in the United Arab Emirates},
   Author                   = {Jordan, Colm},
   Year                     = {2009},
 
@@ -530,7 +530,7 @@
 }
 
 @Article{Kehl2016_ISPRS,
-  Title                    = {{DIRECT IMAGE-TO-GEOMETRY REGISTRATION USING MOBILE SENSOR DATA}},
+  Title                    = {Direct Image-to-Geometry Registration Using Mobile Sensor Data},
   Author                   = {Kehl, C and Buckley, SJ and Gawthorpe, RL and Viola, I and Howell, JA},
   Journal                  = {{ISPRS Annals of Photogrammetry, Remote Sensing \& Spatial Information Sciences}},
   Year                     = {2016},
@@ -612,7 +612,7 @@
 }
 
 @Book{Kessenich2016,
-  Title                    = {OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.5 with SPIR-V},
+  Title                    = {{OpenGL} Programming Guide: The Official Guide to Learning OpenGL, Version 4.5 with SPIR-V},
   Author                   = {Kessenich, J. and Sellers, G. and Shreiner, D.},
   Publisher                = {Pearson Education},
   Year                     = {2016},
@@ -626,7 +626,7 @@
 }
 
 @Misc{Kisters2014,
-  Title                    = {Einfach smart: App f\"ur {Pegelmessung} auf {Knopfdruck}},
+  Title                    = {Einfach smart: App f\"{u}r {Pegelmessung} auf {Knopfdruck}},
 
   Author                   = {Kisters},
   Month                    = nov,
@@ -749,7 +749,7 @@
 }
 
 @Book{Mehta2013,
-  Title                    = {Learn OpenGL ES: For Mobile Game and Graphics Development},
+  Title                    = {Learn {OpenGL ES}: For Mobile Game and Graphics Development},
   Author                   = {Mehta, P.},
   Publisher                = {Apress},
   Year                     = {2013},
@@ -761,9 +761,9 @@
 }
 
 @Article{Moore2017,
-  Title                    = {Superaccurate GPS Coming to Smartphones in 2018},
+  Title                    = {Superaccurate {GPS} Coming to Smartphones in 2018},
   Author                   = {Samuel K. Moore},
-  Journal                  = {IEEE Spectrum},
+  Journal                  = {{IEEE} Spectrum},
   Year                     = {2017},
 
   Month                    = oct,
@@ -788,7 +788,7 @@
 }
 
 @TechReport{Nebiker2017,
-  Title                    = {3D mobile mapping},
+  Title                    = {{3D} mobile mapping},
   Author                   = {Nebiker, Stephan},
   Institution              = {FHNW University of Applied Sciences and Arts Northwestern Switzerland},
   Year                     = {2017},
@@ -851,7 +851,7 @@
 }
 
 @InCollection{Powell2006,
-  Title                    = {The NEWUOA software for unconstrained optimization without derivatives},
+  Title                    = {The {NEWUOA} software for unconstrained optimization without derivatives},
   Author                   = {Powell, Michael JD},
   Booktitle                = {Large-scale nonlinear optimization},
   Publisher                = {Springer},
@@ -863,7 +863,7 @@
 }
 
 @Article{Rarity2014,
-  Title                    = {LiDAR-based digital outcrops for sedimentological analysis: workflows and techniques},
+  Title                    = {{LiDAR}-based digital outcrops for sedimentological analysis: workflows and techniques},
   Author                   = {Rarity, F and Van Lanen, XMT and Hodgetts, D and Gawthorpe, RL and Wilson, P and Fabuel-Perez, I and Redfern, J},
   Journal                  = {Geological Society, London, Special Publications},
   Year                     = {2014},
@@ -877,7 +877,7 @@
 }
 
 @Article{Richet2011,
-  Title                    = {Numerical outcrop geology applied to stratigraphical modeling of ancient carbonate platforms: the Lower Cretaceous Vercors carbonate platform (SE France)},
+  Title                    = {Numerical outcrop geology applied to stratigraphical modeling of ancient carbonate platforms: the Lower Cretaceous Vercors carbonate platform ({SE} France)},
   Author                   = {Richet, R and Borgomano, JEAN and Adams, ERWIN W and Masse, JEAN-PIERRE and Viseur, SOPHIE},
   Journal                  = {Outcrops revitalized, Tools, Techniques and Applications. OJ Martinsen, A. Pulham, P. Haughton and M. Sullivan (Eds)., SEPM Spec. Publ},
   Year                     = {2011},
@@ -911,26 +911,18 @@
   Url                      = {http://doi.acm.org/10.1145/2628588.2628593}
 }
 
-@InProceedings{Rodriguez2014,
-  Title                    = {{HuMoRS: Huge Models Mobile Rendering System}},
-  Author                   = {Rodr\'{i}guez, Marcos Balsa and Agus, Marco and Marton, Fabio and Gobbetti, Enrico},
-  Booktitle                = {Proceedings of the Nineteenth International ACM Conference on 3D Web Technologies},
-  Year                     = {2014},
+@InProceedings{Rodriguez2012,
+  Title                    = {Interactive exploration of gigantic point clouds on mobile devices},
+  Author                   = {Rodr\'{i}guez, Marcos Balsa and Enrico Gobbetti and Fabio Marton and Ruggero Pintus and Giovanni Pintore and Alex Tinti},
+  Booktitle                = {The 14th International Symposium on Virtual Reality, Archaeology and Cultural Heritage},
+  Year                     = {2012},
+  Month                    = {November},
+  Pages                    = {57--64},
 
-  Address                  = {New York, NY, USA},
-  Pages                    = {7--15},
-  Publisher                = {ACM},
-  Series                   = {Web3D '14},
-
-  Acmid                    = {2628593},
-  Doi                      = {10.1145/2628588.2628593},
-  ISBN                     = {978-1-4503-3015-2},
-  Keywords                 = {camera control, cultural heritage, massive models, mobile graphics},
-  Location                 = {Vancouver, British Columbia, Canada},
-  Numpages                 = {9},
+  Abstract                 = { New embedded CPUs that sport powerful graphics chipsets have the potential to make complex 3D applications feasible on mobile devices. In this paper, we present a scalable architecture and its implementation for mobile exploration of large point clouds, which are nowadays ubiquitous in the cultural heritage domain thanks to the increased performance and availability of 3D scanning techniques. The quality and performance of our approach is demonstrated on gigantic point clouds, interactively explored on Apple iPad and iPhone devices using in variety of network settings. Applications of the technology include on-site exploration during scanning campaigns and promotion of cultural heritage artifacts. },
   Owner                    = {christian},
-  Timestamp                = {2018.03.22},
-  Url                      = {http://doi.acm.org/10.1145/2628588.2628593}
+  Timestamp                = {2018.03.24},
+  Url                      = {http://vic.crs4.it/vic/cgi-bin/bib-page.cgi?id='Balsa:2012:IEG'}
 }
 
 @Article{Ruiu2015,
@@ -948,7 +940,7 @@
 }
 
 @InProceedings{Rusinkiewicz2000,
-  Title                    = {QSplat: a multiresolution point rendering system for large meshes},
+  Title                    = {{QSplat}: a multiresolution point rendering system for large meshes},
   Author                   = {Rusinkiewicz, Szymon and Levoy, Marc},
   Booktitle                = {Proceedings of the 27th annual conference on Computer graphics and interactive techniques},
   Year                     = {2000},
@@ -1040,7 +1032,7 @@
 }
 
 @Article{Torr2000,
-  Title                    = {MLESAC: A New Robust Estimator with Application to Estimating Image Geometry},
+  Title                    = {{MLESAC}: A New Robust Estimator with Application to Estimating Image Geometry},
   Author                   = {P.H.S. Torr and A. Zisserman},
   Journal                  = {Computer Vision and Image Understanding},
   Year                     = {2000},
@@ -1087,7 +1079,7 @@
 }
 
 @InProceedings{Viseur2014_VGCabstract,
-  Title                    = {3D interactive geological interpretations on digital outcrops using a touch pad},
+  Title                    = {{3D} interactive geological interpretations on digital outcrops using a touch pad},
   Author                   = {Viseur, Sophie and Roudaut, R. and Bertozzi, R. and Castelli, M. and Mari, Jean-Luc},
   Booktitle                = {Vertical Geology Conference (VGC)},
   Year                     = {2014},
