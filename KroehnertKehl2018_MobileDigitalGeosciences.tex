@@ -755,7 +755,7 @@ In interviews conducted amongst field geologists at the Dept. of Earth Science a
 
 Power consumption is an important metric for mobile field application, which is at the same time also distinct to the mobile device platform. This metric governs the operation time of an app in an outdoor field setting for specific studies. In application domains such as field geology, the target operation time is in the range of four hours to eight hours without device recharging. The original operation time can be extended with external battery packs, although there is a limit of how many battery packs can be taken into the field before their total weight renders the mobile device impractical as a field tool.
 
-We measured the energy consumption of \textit{Open Water Level} and \textit{\gls{GRIT}} in realistic settings for case studies in waterline detection and field interpretation. Measuring the power consumption on an app-specific level is not supported by default on mobile devices. Formerly, the power consumption has only be assessed on a hardware component level \cite{Carroll2010}. This study utilised the Trepn Profiler \footnote{Trepn Profiler - \url{https://developer.qualcomm.com/software/trepn-power-profiler}}, which is currently the only known app on Android devices that facilitate app-specific measurements. Trepn Profiler also allows for the simultaneous logging of technical indicators (e.g. \gls{GPU}- and \gls{CPU} load, memory consumption, \gls{CPU} temperature), which is used in this study to draw higher-level conclusions on the utilisation of the apps. The presented measurements were obtained on a Google Nexus 5 smartphone (4-core ARM \gls{CPU}, Qualcomm Adreno \gls{GPU}). Additional measurements have been obtained with a non-Qualcomm smartphone (Samsung S8), which can be located in the supplementary data of this article.
+We measured the energy consumption of \textit{Open Water Level} and \textit{\gls{GRIT}} in realistic settings for case studies in waterline detection and field interpretation. Measuring the power consumption on an app-specific level is not supported by default on mobile devices. Formerly, the power consumption has only be assessed on a hardware component level \cite{Carroll2010}. This study utilised the Trepn Profiler \footnote{Trepn Profiler - \url{https://developer.qualcomm.com/software/trepn-power-profiler}}, which is currently the only known app on Android devices that facilitate app-specific measurements. Trepn Profiler also allows for the simultaneous logging of technical indicators (e.g. \gls{GPU}- and \gls{CPU} load, memory consumption, \gls{CPU} temperature), which is used in this study to draw higher-level conclusions on the utilisation of the apps. The presented measurements were obtained on a Google Nexus 5 smartphone (4-core ARM \gls{CPU}, Qualcomm Adreno \gls{GPU}). Additional measurements have been obtained with Samsung S8 (8-core ARM \gls{CPU}, 20-core Mali \gls{GPU}) which can be located in the supplementary data of this article.
 
 %\begin{itemize}
 %\item power consumption is a metric of major importance for mobile field applications
@@ -833,6 +833,17 @@ In both apps, a clear dependency with \gls{CPU} load and power consumption is ob
 \end{figure}
 %[IMAGES power vs CPU \& power vs GPU in 3D]
 
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/OWL_Nexus5/Power_GPU_CPU_run2}}
+	\caption{Integrated diagram of power consumption, CPU- \& GPU load of Open Water Levels in 2D mode.}
+\end{center}
+\label{fig:power:Power_CPU_GPU_OWL:2D}
+\end{figure}
+%[IMAGES power vs CPU vs GPU in 2D for OWL]
+
+
 \begin{figure}[htbp!]
 \begin{center}
 	 	\begin{minipage}{\columnwidth}
@@ -860,6 +871,8 @@ In both apps, a clear dependency with \gls{CPU} load and power consumption is ob
 %\end{itemize}
 
 As clearly observable in fig. \ref{fig:power:Power_CPU_GPU:2D} in comparison to fig. \ref{fig:power:Power_CPU_GPU:3D}, the 3D operations result in a drastic energy cost, raising the average power consumption by around 1220.21 mW. In contrast to novice expectation, the \gls{CPU} load also increases in a 3D data processing setting because the main processors deliver the geometric- and texture data to the \gls{GPU}. Additionally, for the Google Nexus 5 smartphone, the \gls{CPU} needs to decompress the texture image files, resulting in a higher processing load.
+
+Figure \ref{fig:power:Power_CPU_GPU_OWL:2D} visualises the relationship of power consumption, \gls{CPU}, as well as \gls{GPU} for 2D data processing in Open Water Levels. For water line detection, a spatio-temporal texture must be calculated using time lapse images. Thus, the CPU load locally exceeds and falls significantly for each single frame processing (here 15 peaks for 15 images). Unlike \gls{CPU} behaviour, \gls{GPU} load is steadily increasing while storing each co-registered image. After image processing, both \gls{CPU} as well as \gls{GPU} load are released whereas app modifications via user interface leads, as expected, once more to higher loads.
 
 %\begin{itemize}
 %\item as clearly observable in fig. \ref{} in comparison to fig. \ref{}, the 3D operations result in a drastic energy cost, raising the average power consumption by XYZ mW
