@@ -149,6 +149,19 @@
   Timestamp                = {2018.03.11}
 }
 
+@InProceedings{Carroll2010,
+  Title                    = {An Analysis of Power Consumption in a Smartphone.},
+  Author                   = {Carroll, Aaron and Heiser, Gernot and others},
+  Booktitle                = {USENIX annual technical conference},
+  Year                     = {2010},
+  Organization             = {Boston, MA},
+  Pages                    = {21--21},
+  Volume                   = {14},
+
+  Owner                    = {christian},
+  Timestamp                = {2018.03.21}
+}
+
 @Article{Caumon2013,
   Title                    = {Three-Dimensional Implicit Stratigraphic Model Building From Remote Sensing Data on Tetrahedral Meshes: Theory and Application to a Regional Model of La Popa Basin, NE Mexico},
   Author                   = {G. Caumon and G. Gray and C. Antoine and M. O. Titeux},
@@ -304,6 +317,23 @@
 
   Owner                    = {christian},
   Timestamp                = {2016.08.17}
+}
+
+@Article{Evans2014,
+  Title                    = {3D graphics on the web: A survey },
+  Author                   = {Alun Evans and Marco Romeo and Arash Bahrehmand and Javi Agenjo and Josep Blat},
+  Journal                  = {Computers \& Graphics },
+  Year                     = {2014},
+  Pages                    = {43 - 61},
+  Volume                   = {41},
+
+  Abstract                 = {Abstract In recent years, 3D graphics has become an increasingly important part of the multimedia web experience. Following on from the advent of the \{X3D\} standard and the definition of a declarative approach to presenting 3D graphics on the web, the rise of WebGL has allowed lower level access to graphics hardware of ever increasing power. In parallel, remote rendering techniques permit streaming of high-quality 3D graphics onto a wide range of devices, and recent years have also seen much research on methods of content delivery for web-based 3D applications. All this development is reflected in the increasing number of application fields for the 3D web. In this paper, we reflect this activity by presenting the first survey of the state of the art in the field. We review every major approach to produce real-time 3D graphics rendering in the browser, briefly summarise the approaches for remote rendering of 3D graphics, before surveying complementary research on data compression methods, and notable application fields. We conclude by assessing the impact and popularity of the 3D web, reviewing the past and looking to the future. },
+  Doi                      = {https://doi.org/10.1016/j.cag.2014.02.002},
+  ISSN                     = {0097-8493},
+  Keywords                 = {3D},
+  Owner                    = {christian},
+  Timestamp                = {2017.05.05},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0097849314000260}
 }
 
 @Article{Farr2007,
@@ -878,6 +908,28 @@
   Numpages                 = {9},
   Owner                    = {christian},
   Timestamp                = {2017.03.06},
+  Url                      = {http://doi.acm.org/10.1145/2628588.2628593}
+}
+
+@InProceedings{Rodriguez2014,
+  Title                    = {{HuMoRS: Huge Models Mobile Rendering System}},
+  Author                   = {Rodr\'{i}guez, Marcos Balsa and Agus, Marco and Marton, Fabio and Gobbetti, Enrico},
+  Booktitle                = {Proceedings of the Nineteenth International ACM Conference on 3D Web Technologies},
+  Year                     = {2014},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {7--15},
+  Publisher                = {ACM},
+  Series                   = {Web3D '14},
+
+  Acmid                    = {2628593},
+  Doi                      = {10.1145/2628588.2628593},
+  ISBN                     = {978-1-4503-3015-2},
+  Keywords                 = {camera control, cultural heritage, massive models, mobile graphics},
+  Location                 = {Vancouver, British Columbia, Canada},
+  Numpages                 = {9},
+  Owner                    = {christian},
+  Timestamp                = {2018.03.22},
   Url                      = {http://doi.acm.org/10.1145/2628588.2628593}
 }
 
