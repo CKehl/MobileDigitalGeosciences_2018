@@ -660,8 +660,6 @@ Utilising the aforementioned image-to-geometry registration (section \ref{sec:al
 
 \begin{itemize}
 \item add table with sensor specs for s8 and nexus 5 and advanced navi IMU
-\item observation 2 devices 3 observation periods with 6 measurements: static, no magnetic disturbance, static with, static einlaufen, static einlauf disturb, dynamic no dist, dynamic dist
-\item norm diagramms for run of 3 minutes, put values for runs in same table per device - show differences
 \end{itemize}
 
 \subsubsection{Localization}
@@ -678,7 +676,7 @@ Nothing to say that low-cost sensor systems for orientation determination, as th
 
 To give some basis, a smartphone orientation unit never depends on only one single sensor. It commonly consists of several components like accelerometers, magnetometers, gravity sensors or gyroscopes that measure in all three axes of the device. Due to single characteristics, sensors may complement each others, e.g. both, gyroscopes and accelerometers, measure the rotation of the smartphones in device-specific coordinate systems where gyroscopes are quite precise but suffer from drift effects. On the contrary, accelerometers are less sensitive for drifts but have poor signal-to-noise ratios. Applying sensor fusion helps to compensate for these negative characteristics in an ideal way. 
 Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why using Kalman-filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
-Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman-filtered ``Rotation Vector'', \textcolor{red}{insert foot note} where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation, version 7. Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. 
+Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman-filtered ``Rotation Vector'', \textcolor{red}{insert foot note} where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation, version 7. Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. All observations are independently from each other, measured over time periods of more or less 2min 30sec. 
 
 For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}).
 
@@ -754,22 +752,76 @@ Results, for the indoor measurements using Samsung Galaxy S8 and Google Nexus 5,
 			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_nexus5}\label{fig:sensor_sensi:imu_mean_s8_nex5:nex5}}
 	 	\end{minipage}
 		
-		\caption{Mean differences between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors. }
+		\caption{Mean deviations between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors Android rotation vector, Improved Orientation Sensor 1 and 2. }
 	\label{fig:sensor_sensi:imu_mean_s8_nex5}
 \end{center}
 \end{figure}
 
 
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_s8_tab}\label{fig:sensor_sensi:imu_mean_s8_nex5_tab:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_nex5_tab}\label{fig:sensor_sensi:imu_mean_s8_nex5_tab:nex5}}
+	 	\end{minipage}
+		
+		\caption{Tabular mean deviations between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors Android rotation vector, Improved Orientation Sensor 1 and 2. }
+	\label{fig:sensor_sensi:imu_mean_s8_nex5_tab}
+\end{center}
+\end{figure}
 
 
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_correlation_s8_imu}\label{fig:sensor_sensi:imu_correlation_s8_nex5:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_correlation_nex5_imu}\label{fig:sensor_sensi:imu_correlation_s8_nex5:nex5}}
+	 	\end{minipage}
+		
+		\caption{Correlation between the orientation angles obtained by the smartphones Samsung Galaxy S8, Google Nexus 5 and Advanced Navigation Spatial \gls{IMU} with respect to the mentioned virtual sensors. }
+	\label{fig:sensor_sensi:imu_correlation_s8_nex5}
+\end{center}
+\end{figure}
+
+\subsubsection{orientation assessment}
  
+Surprisingly, the results of all three virtual sensors of both smartphones show independently from each other almost the same behaviour as visualised in the figures \ref{fig:sensor_sensi:samsung_1st_a and fig:sensor_sensi:samsung_1st_a}. Especially \textit{Improved Orientation Sensor 1} and \textit{Android Rotation Vector} are very similar whereas \textit{Improved Orientation Sensor 2} seems to be slightly more stable as expected.
+Beside this, it is easy to note that pitch and especially roll angles of both smartphones are close to the orientation of the reference \gls{IMU} even if the correlations in figure \ref{fig:sensor_sensi:imu_correlation_s8_nex5} show not much similarity caused by slight synchronisation errors visible in the graphs of figure \ref{fig:sensor_sensi:samsung_1st_b} which may be caused by averaging sensor values to establish comparability between both smartphones and \gls{IMU} respectively. 
+However, large differences are visible for heading angle with errors up to 120 degrees even if there is no magnetic disturbance (Google Nexus 5, fixed IMU with running in).
 
-\begin{itemize}
-\item tabelle zeigen mit specs für sensoren
-\item fehler zwischen imu und device zeigen
-\item stability IMU (see 3D-NO)
-\item precision IMU
-\end{itemize}
+Focussing on the rigid measurements fixed and fixed with added magnetic perturbations, sensor stability can be assessed by comparing their standard deviations summarised over full observation period of 2min 30sec (see figure \ref{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}). Except heading angle, both devices show very stable measurements for all virtual sensors with standard deviations less than 0.1 degrees. Surprisingly, angles belonging to sensor \textit{Improved Orientation Sensor 2} show higher discrepancies although they should be less accurate but more stable. As expected, heading is most affected by non-rigidity especially when having magnetic sources close to the measuring devices, not only concerning smartphones. Also our professional \gls{IMU} shows issues due to heading stability mainly caused by drifting (see figure \ref{fig:sensor_sensi:samsung_1st_a}
+
+ \begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Standard derivation for Samsung Galaxy S8, 1st run with fixed device (left) and fixed device with magnetic disturbances (right)]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_stability_s8}\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Standard derivation for Google Nexus 5, 1st run with fixed device (left) and fixed device with magnetic disturbances (right)]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_stability_nex5}\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5:nex5}}
+	 	\end{minipage}
+		
+		\caption{Assessment of sensor stability.}
+	\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}
+\end{center}
+\end{figure}
+
+
 
 \subsubsection{Parameter sensitivity}
 \label{sec:technology:sensors:sensitivity}
@@ -777,8 +829,7 @@ When we talk about the registration of 3D objects and 2D image data, it becomes 
 
 We observe the behaviour of image-to-geometry intersection by the example of camera-based water gauging using the application Open Water Levels on Samsung Galaxy S8. Thus, we compare the results of a manually selected image point of the water line that is transferred into object space using a \gls{DSM} of the scene captured at lower water (see figure \ref{fig:sensor_sensi}). For this, we changed the true angles of heading, pitch and roll (marked with red line) independently from each other in increments of five degrees turning clock- and counter-clockwise.
 As shown in figure \ref{fig:sensor_sensi:heading} and \ref{fig:sensor_sensi:pitch}, changing the heading and pitch angle is correlated with the number of matching feature points essential for camera estimation. Surprisingly, the result for the determined water level seems to be almost unaffected if only $10\%$ of inliers, compared to the total amount of features being found inside the measurements series, remain due to changing view direction. Thus, the most critic angle (refer to \ref{•}) can vary in range of $[-40,40]$ degrees. A similar picture emerges when assessing the angles for pitch which can change in range of $[-25;25]$. If these limits are exceeded, the camera only sees the sky or the ground (for pitch) or looks in a completely wrong (compass) direction (regarding heading). Compared to these two angles, the roll angle show a different behaviour. For image matching we chose the rotation-invariant \gls{SIFT} descriptor \cite{Lowe2004} and thus, changing the roll angle does not have major influence on the outcome as shown in \ref{fig:sensor_sensi:roll}.
-Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientation}, the results give a comfortable feeling using smartphone sensor fusion for the determination of approximate orientation where pitch and roll shows errors up to xx degree. Even for heading, there could still be massive problems ahead showing errors in section  \ref{sec:technology:sensors:orientation} up to xx degrees.
-
+Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientation}, the results give a comfortable feeling using smartphone sensor fusion for the determination of approximate orientation where pitch and roll show maximum errors up to 7.4 and 5.3 degrees. However, for heading there could be massive problems ahead showing errors in section \ref{sec:technology:sensors:orientation} up to 120.6 degrees.
 
 \begin{figure}[htbp!]
 \begin{center}
