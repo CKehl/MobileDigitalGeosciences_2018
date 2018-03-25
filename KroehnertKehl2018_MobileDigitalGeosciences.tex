@@ -677,6 +677,38 @@ Utilising the aforementioned image-to-geometry registration (section \ref{sec:al
 \label{sec:technology:sensors:sensitivity}
 When we talk about the registration of 3D objects and 2D image data, it becomes obvious that similarities between virtual representations and corresponding true captured photographies are a must have. Key drivers for this are matching extrinsics due to the projection provisions. As shown above, positioning and orientation using smart phones may be a serious problem caused by incorrect exterior orientation leading to different image contents. 
 
+We observe the behaviour of image-to-geometry intersection by the example of camera-based water gauging using the application Open Water Levels on Samsung Galaxy S8. Thus, we compare the results of a manually selected image point of the water line that is transferred into object space using a \gls{DSM} of the scene captured at lower water (see figure \ref{fig:sensor_sensi}). For this, we changed the true angles of heading, pitch and roll (marked with red line) independently from each other in increments of five degrees turning clock- and counter-clockwise.
+As shown in figure \ref{fig:sensor_sensi:heading} and \ref{fig:sensor_sensi:pitch}, changing the heading and pitch angle is correlated with the number of matching feature points essential for camera estimation. Surprisingly, the result for the determined water level seems to be almost unaffected if only $10\%$ of inliers, compared to the total amount of features being found inside the measurements series, remain due to changing view direction. Thus, the most critic angle (refer to \ref{•}) can vary in range of $[-40,40]$ degrees. A similar picture emerges when assessing the angles for pitch which can change in range of $[-25;25]$. If these limits are exceeded, the camera only sees the sky or the ground (for pitch) or looks in a completely wrong (compass) direction (regarding heading). Compared to these two angles, the roll angle show a different behaviour. For image matching we chose the rotation-invariant \gls{SIFT} descriptor \cite{Lowe2004} and thus, changing the roll angle does not have major influence on the outcome as shown in \ref{fig:sensor_sensi:roll}.
+Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientation}, the results give a comfortable feeling using smartphone sensor fusion for the determination of approximate orientation where pitch and roll shows errors up to xx degree. Even for heading, there could still be massive problems ahead showing errors in section  \ref{sec:technology:sensors:orientation} up to xx degrees.
+
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Heading observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Sensitivity/heading}\label{fig:sensor_sensi:heading}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Pitch observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Sensitivity/pitch}\label{fig:sensor_sensi:pitch}}
+	 	\end{minipage}
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Roll observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]	{graphics/Sensor_Sensitivity/roll}\label{fig:sensor_sensi:roll}}
+	 	\end{minipage}
+	
+	\caption{Behaviour of image-2-geometry intersection depending on orientation changes. Tuning the angles heading, pitch and roll independently from each other where the others remained unchanged. ${\Delta}$wl.. absolute error for water level in meters, total inliers.. number of image features in feature-based matching displayed in percent depending on most occurrence, red/yellow/green area.. range of accuracy.}
+	\label{fig:sensor_sensi}
+\end{center}
+\end{figure}
+%[IMAGES sensor sensitivity]
+
+
+
+
 
 \subsection{Graphics}
 \label{sec:technology:graphics}
