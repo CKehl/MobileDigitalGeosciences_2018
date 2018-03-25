@@ -108,6 +108,30 @@
   Url                      = {http://www.sciencedirect.com/science/article/pii/S0098300416305660}
 }
 
+@Article{Borgeat2005,
+  Title                    = {GoLD: Interactive Display of Huge Colored and Textured Models},
+  Author                   = {Borgeat, Louis and Godin, Guy and Blais, Fran\c{c}ois and Massicotte, Philippe and Lahanier, Christian},
+  Journal                  = {ACM Trans. Graph.},
+  Year                     = {2005},
+
+  Month                    = jul,
+  Number                   = {3},
+  Pages                    = {869--877},
+  Volume                   = {24},
+
+  Acmid                    = {1073276},
+  Address                  = {New York, NY, USA},
+  Doi                      = {10.1145/1073204.1073276},
+  ISSN                     = {0730-0301},
+  Issue_date               = {July 2005},
+  Keywords                 = {geomorphing, level-of-detail, multi-resolution geometric modeling, out-of-core rendering, texture mapping, view-dependent rendering, visualization},
+  Numpages                 = {9},
+  Owner                    = {christian},
+  Publisher                = {ACM},
+  Timestamp                = {2018.03.25},
+  Url                      = {http://doi.acm.org/10.1145/1073204.1073276}
+}
+
 @Article{Buckley2008a,
   Title                    = {Terrestrial laser scanning in geology: data acquisition, processing and accuracy considerations},
   Author                   = {Buckley, Simon J and Howell, John A and Enge, H{\aa}vard D and Kurz, Tobias H},
@@ -960,6 +984,17 @@
   Url                      = {http://dx.doi.org/10.1145/344779.344940}
 }
 
+@InProceedings{Sattler2011,
+  Title                    = {Fast image-based localization using direct 2D-to-3D matching},
+  Author                   = {Torsten Sattler and Bastian Leibe and Leif Kobbelt},
+  Booktitle                = {2011 International Conference on Computer Vision},
+  Year                     = {2011},
+  Month                    = {nov},
+  Publisher                = {{IEEE}},
+
+  Doi                      = {10.1109/iccv.2011.6126302}
+}
+
 @Misc{Saxon2018,
   Title                    = {Water Levels \& Flow Rates},
 
@@ -1003,6 +1038,15 @@
   Keywords                 = {Triangle, Local Delaunay Triangulation},
   Owner                    = {christian},
   Timestamp                = {2018.03.14}
+}
+
+@InProceedings{Sibbing2013,
+  Title                    = {SIFT-Realistic Rendering},
+  Author                   = {D. Sibbing and T. Sattler and B. Leibe and L. Kobbelt},
+  Booktitle                = {2013 International Conference on 3D Vision - 3DV 2013},
+  Year                     = {2013},
+  Month                    = {June},
+  Pages                    = {56-63}
 }
 
 @Conference{Siedschlag2015,
