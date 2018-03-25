@@ -658,6 +658,12 @@ Utilising the aforementioned image-to-geometry registration (section \ref{sec:al
 \subsection{Sensors}
 \label{sec:technology:sensors}
 
+\begin{itemize}
+\item add table with sensor specs for s8 and nexus 5 and advanced navi IMU
+\item observation 2 devices 3 observation periods with 6 measurements: static, no magnetic disturbance, static with, static einlaufen, static einlauf disturb, dynamic no dist, dynamic dist
+\item norm diagramms for run of 3 minutes, put values for runs in same table per device - show differences
+\end{itemize}
+
 \subsubsection{Localization}
 \label{sec:technology:sensors:localization}
 
@@ -668,7 +674,99 @@ Utilising the aforementioned image-to-geometry registration (section \ref{sec:al
 \subsubsection{Orientation}
 \label{sec:technology:sensors:orientation}
 
+Nothing to say that low-cost sensor systems for orientation determination, as they are integrated in smartphones, may not have precision and stability compared to professional \glspl{IMU}. Thus, we put forward the hypotheses that noise in smartphone sensor stability as well as their accuracies may not be in range compared to navigation systems suitable for autonomous navigation.
+
+To give some basis, a smartphone orientation unit never depends on only one single sensor. It commonly consists of several components like accelerometers, magnetometers, gravity sensors or gyroscopes that measure in all three axes of the device. Due to single characteristics, sensors may complement each others, e.g. both, gyroscopes and accelerometers, measure the rotation of the smartphones in device-specific coordinate systems where gyroscopes are quite precise but suffer from drift effects. On the contrary, accelerometers are less sensitive for drifts but have poor signal-to-noise ratios. Applying sensor fusion helps to compensate for these negative characteristics in an ideal way. 
+Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why using Kalman-filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
+Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman-filtered ``Rotation Vector'', \textcolor{red}{insert foot note} where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation, version 7. Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. 
+
+For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}).
+
+
+\begin{figure}[htbp!]
+\begin{center}
+	\centering
+	\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_construction}
+	\label{fig:technology:sensor:construction}
+	\caption{Measurement setup to observe smartphone sensors accuracies and precisions. Heading (green circle).. rotation around positive/ negative z-axis referring to \gls{IMU}'s/ smartphone's native coordinate systems pointing away from sky. Pitch (red circle).. rotation around positive/ negative x-axis in \gls{IMU}'s/ smartphone's reference frame pointing out of smartphone's display to the left. Roll (blue circle).. rotation around positive x-axes for both \gls{IMU} and smartphone pointing to (true) north when smartphone is lying on a flat desk. Distance between devices on wooden stick is 1.0m.}
+\end{center}
+\end{figure}
+%[IMAGES sensor construction woodstick]
+
+In the following figures \ref{fig:sensor_sensi:samsung_1st_b}, orientation tracking for Samsung Galaxy S8 in comparison with \gls{INS} (1st run) is documented whereas the others can be find in supplement. 
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_1}\label{fig:sensor_sensi:samsung_1st:1}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_2}\label{fig:sensor_sensi:samsung_1st:2}}
+	 	\end{minipage}
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_3}\label{fig:sensor_sensi:samsung_1st:3}}
+	 	\end{minipage}
+	\label{fig:sensor_sensi:samsung_1st_a}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp!]
+\begin{center}
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_4}\label{fig:sensor_sensi:samsung_1st:4}}
+	 	\end{minipage}
+	 			\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_5}\label{fig:sensor_sensi:samsung_1st:5}}
+	 	\end{minipage}
+	 			\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_6}\label{fig:sensor_sensi:samsung_1st:6}}
+	 	\end{minipage}
+	\caption{Comparison between Samsung Galaxy S8 and Advanced Navigation Spatial v/ \gls{IMU}. For smartphone angles, three types of virtual sensors are invoked: Android's kalman-filtered rotation vector, Improved Orientation Sensor 1 and 2 developed by \cite{Pacha2015}. From top to ground: fixed construction, fixed construction with magnetic interferences, fixed construction after run in, fixed construction after run in with magnetic interferences, construction in motion without and with magnetic disturbances. Orientation angles [in degrees] are taken with 20 Hz frequency but averaged to get values with precisions to the tenth of seconds.}
+	\label{fig:sensor_sensi:samsung_1st_b}
+\end{center}
+\end{figure}
+%[IMAGES sensor test samsung 1]
+
+Results, for the indoor measurements using Samsung Galaxy S8 and Google Nexus 5, show very good agreement as can be seen in the following statistics \ref{fig:sensor_sensi:imu_mean_s8_nex} for both first runs respectively.
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_s8}\label{fig:sensor_sensi:imu_mean_s8_nex5:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_nexus5}\label{fig:sensor_sensi:imu_mean_s8_nex5:nex5}}
+	 	\end{minipage}
+		
+		\caption{Mean differences between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors. }
+	\label{fig:sensor_sensi:imu_mean_s8_nex5}
+\end{center}
+\end{figure}
+
+
+
+
+ 
+
 \begin{itemize}
+\item tabelle zeigen mit specs für sensoren
+\item fehler zwischen imu und device zeigen
 \item stability IMU (see 3D-NO)
 \item precision IMU
 \end{itemize}
