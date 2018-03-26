@@ -22,6 +22,7 @@
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.tif,.jpg}
 \usepackage[center,tight,footnotesize]{subfigure}
 
+
 %\usepackage{lipsum}
 %\usepackage{xcolor,colortbl,moreverb}
 %\usepackage{color}
@@ -231,7 +232,7 @@ Next to easily available, pocket-format computing devices, the required three-di
 %\item crowdsourced data and \gls{VGI} constitute to the geoscience data arsenal, being acquired from amateur scientists and novices interested in a particular domain
 %\end{itemize}
 
-Domain-specific mobile software is required in order allow for data interaction on the available mobile devices. Specific challenges such as power consumption, multi-manufacturer support, smart sensor utilisation and device intercommunication distinguish mobile software from common desktop software. This leads to a very different electronics design of tablets and smartphones compared to desktop PCs and laptops. In return, this means that existing approaches for digital data processing and interpretation are not transferable as--is to this new computing domain. Even when considering the fast technological development, there are some challenges within mobile device software development that are rooted in the technology itself: user interfaces need to be designed specifically for touch screen interfaces, natural language interfaces and gesture interaction (e.g. ''swipe`` and ''optical lens`` motions). \Gls{GNSS}-based localisation accuracy, as delivered by the integrated-circuit sensor of mobile devices, is inferior to common user expectations and requirements in geoscientific studies. The modalities of sensor data delivery (be it hardware sensor or software emulation), photo capturing and processing, and the computational capabilities of mobile devices differ significantly between each vendors. Short-comings, such as inappropriate data structuring, visual object correlation and registration, increasing data volumes and the unavailability of off-the-shelf program codes, further complicate the technological development. Addressing the demonstrated challenges distinguishes the mobile application development and common desktop software development for geoscience purposes. \textcolor{red}{[...] You agree? Mel: got it! yes, totally agree and very good point!}
+Domain-specific mobile software is required in order allow for data interaction on the available mobile devices. Specific challenges such as power consumption, multi-manufacturer support, smart sensor utilisation and device intercommunication distinguish mobile software from common desktop software. This leads to a very different electronics design of tablets and smartphones compared to desktop PCs and laptops. In return, this means that existing approaches for digital data processing and interpretation are not transferable as--is to this new computing domain. Even when considering the fast technological development, there are some challenges within mobile device software development that are rooted in the technology itself: user interfaces need to be designed specifically for touch screen interfaces, natural language interfaces and gesture interaction (e.g. ''swipe`` and ''optical lens`` motions). \Gls{GNSS}-based localisation accuracy, as delivered by the integrated-circuit sensor of mobile devices, is inferior to common user expectations and requirements in geoscientific studies. The modalities of sensor data delivery (be it hardware sensor or software emulation), photo capturing and processing, and the computational capabilities of mobile devices differ significantly between each vendors. Short-comings, such as inappropriate data structuring, visual object correlation and registration, increasing data volumes and the unavailability of off-the-shelf program codes, further complicate the technological development. Addressing the demonstrated challenges distinguishes the mobile application development and common desktop software development for geoscience purposes.
 
 %\begin{itemize}
 %\item In order to connect data and devices in the field, domain-specific mobile software is required
@@ -460,7 +461,7 @@ Algorithms for rendering textured triangulated surfaces are well-known amongst t
 
 \subsection{A novel approach to mobile point-based rendering}
 \label{sec:algorithms:pbr}
-In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction (e.g. blobs due to critic point normals) \textcolor{blue}{Chris: what do you refer to as ''critic point normals`` ?}. Thus, we simply project object points onto an image plane using perspetive projection, assuming a distortion-free ideal camera with centred principle point. Thus, the camera matrix $\bf K$ equals identity matrix $\bf I$ and can be neglected in the following equations (based on Szeliski(2010) \textcolor{blue}{please insert proper reference here to avoid confusion}). 
+In comparison to mesh-based rendering, simple point projection seems to be a nice alternative saving computational resources and efforts for post-processing concerning outlier removal due to falsely surface reconstruction like blobs. Thus, we simply project object points onto an image plane using perspective projection, assuming a distortion-free ideal camera with centred principle point. Thus, the camera matrix $\bf K$ equals identity matrix $\bf I$ and can be neglected.
 
 First, applying a six-parameter transformation transfers three-dimensional object points from world reference frame $\vec{X}_W$ into a 3D camera system $\vec{X}_c $ using
 \begin{equation}
@@ -484,11 +485,7 @@ z_c
 \end{pmatrix}
 \end{equation}
 
-For camera's imaging plane, we introduce the constant $c_c$ that defines the distance between camera's sensor and projection center in $[mm]$, which equals focal length $f$. To separate camera sensor system and image system, we use the term $c_c$ when talking about sensor $[mm]$, and $f$ for digital image coordinates $[px]$. For conversion, $c_c$ must be divided by the sensor's pixel pitch. \textcolor{blue}{Chris: The normalization of the projected points to homogeneous coordinates is key in the further processing. This is analogous to the image-to-geometry project in eq. \ref{eq:i2g:projection}, where the projection variable $w$ is replaced with the camera constant $c_c$.}
-
-\textcolor{blue}{Chris:
-\sout{For 3D to 2D projection, homogeneous coordinates must be divided by their depth components resulting in inhomogeneous coordinates. [remove following equations,as we have them already.]}
-}
+For camera's imaging plane, we introduce the constant $c_c$ that defines the distance between camera's sensor and projection center in $[mm]$, which equals focal length $f$. To separate camera sensor system and image system, we use the term $c_c$ when talking about sensor $[mm]$, and $f$ for digital image coordinates $[px]$. For conversion, $c_c$ must be divided by the sensor's pixel pitch. The normalization of the projected points to homogeneous coordinates is key in the further processing. This is analogous to the image-to-geometry project in eq. \ref{eq:i2g:projection}, where the projection variable $w$ is replaced with the camera constant $c_c$.
 
 \begin{equation}
 \vec{X}_{Cam} =
@@ -503,9 +500,6 @@ For camera's imaging plane, we introduce the constant $c_c$ that defines the dis
 \end{pmatrix}
 \end{equation}
 
-\textcolor{blue}{
-\sout{Thus, two-dimensional coordinates can be described with}
-}
 \begin{equation}
 \begin{pmatrix}
 \tilde{u}\\
@@ -533,10 +527,8 @@ v\\
 \label{eq:final_ps}
 \end{equation}
 
-%\textcolor{blue}{Chris: end of current check-read - looks good so far.}
-
 \subsubsection{Calculation of 3D bounding box of interest and image plane}
-\textcolor{blue}{\sout{Referring to the described use case of situation-based water level determination using a smartphone-camera based gauge (\ref{sec:water_level_gauging_intro})} In the mobile rendering scenario}, we need to define a region of interest regarding 3D point projection \textcolor{blue}{\sout{to render only}to cull the render content of the virtual camera to the} user's field of view (figure \ref{fig:4_3_bounding_box}). The view frustum's bounding box corner points are calculated using the position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (section \ref{sec:technology:sensors}), the bounding box must be expanded to cover more object space than described by sensors as well as the camera's field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
+In the mobile rendering scenario, we need to define a region of interest regarding 3D point projection to cull the render content of the virtual camera to the user's field of view (figure \ref{fig:4_3_bounding_box}). The view frustum's bounding box corner points are calculated using the position and orientation from fused smartphone sensors. Thereby it must be noted, that the heading is used for viewing direction only, tilt and roll are excluded. Because of uncertainties regarding exterior information (section \ref{sec:technology:sensors}), the bounding box must be expanded to cover more object space than described by sensors as well as the camera's field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
 
 \begin{figure}[h]
 \centering
@@ -545,7 +537,7 @@ v\\
 \label{fig:4_3_bounding_box}
 \end{figure}
 
-The box is widened by the horizontal $H$ and vertical $V$ opening angles with a fixed depth $d$. In order to generate reference data for image-to-geometry \sout{intersection}registration to annotate 3D data by mobile imagery, the lateral accuracy given by the mobile positioning system as well as the prevalent camera characteristics solve for the mentioned parameters. For camera based gauging, we set $d = 200 [m]$. \sout{Regarding 3D point projection, each potential point will be checked laying in the box. Therefore, additional tiling of the 3D data set is advisable.}Additional tiling of the 3D base data is advisable for a rapid geometry-in-frustum containment check.
+The box is widened by the horizontal $H$ and vertical $V$ opening angles with a fixed depth $d$. In order to generate reference data for image-to-geometry registration to annotate 3D data by mobile imagery, the lateral accuracy given by the mobile positioning system as well as the prevalent camera characteristics solve for the mentioned parameters. For camera based gauging, we set $d=200[m]$. Additional tiling of the 3D base data is advisable for a rapid geometry-in-frustum containment check.
 Using the defined frustum of a pyramid as region of interest with a local reference system, the image plane for 3D point rendering can be defined by perspective projection of the remote $xz$ plane (\ref{fig:4_3_bounding_box}) with 
 
 \begin{equation}
@@ -568,12 +560,12 @@ d\\
 \notag
 \end{equation} 
 
-lower right corner. Its height equals the height component in world reference frame $z_w$. Because of pyramid frustum, we have to eliminate outer points between the near- and far clipping plane. \textcolor{red}{workflow for outer point removal necessary?}\textcolor{red}{probably not, unless its deviated from common normal-to-point angular evaluations of the bounding planes or an in-box check per point.}
+lower right corner. Its height equals the height component in world reference frame $z_w$. Because of pyramid frustum, we have to eliminate outer points between the near- and far clipping plane. \textcolor{red}{@Chris, it is a simple in-box check per point}
 
 \subsubsection{Pyramid approach for depth filtering}
 Because of a limited range of pixels with defined size inside a image plane it seems to be obvious that in most cases more than one 3D object points corresponds to the same image pixel. Due to inhomogeneous coordinates it is not possible to figure out afterwards which points are in foreground compared to the camera distances and which ones are behind and thus not visible. This problem can easily be solved during point cloud projection described above by a simple camera-to-object distance check. However, one problem still remains in case of e.g. glass fronts with lacking information (in \gls{TLS} due to deflected lidar or \gls{SfM} when having homogeneous surfaces) or small archs (see figure \ref{fig:4_3_dist_images}) Then, points might be visible pointing away from camera projection center. On the one hand, point normals may solve the problem but due to the data acquisition technique and the model's complexity, they are more or less easy to derive \cite{Sattler2011}.
 
-Remedying image pyramids are a nice alternative approach used in this case. Therefore, multiple synthetic images are generated with step-by-step adjustment of $p_s$ (see eq. \ref{eq:final_ps}), commonly by doubling which resulting in halve numbers of image rows and columns per layer. Then, the algorithm verifies if two pixels corresponds in two subsequent layers, preserving edges (figure \ref{fig:4_3_point_filtering},\ref{fig:4_3_dist_images}). \textcolor{blue}{Chris: this sounds a LOT like scale-space image pyramids ... correct ?}
+Remedying scale-space image pyramids are a nice alternative approach used in this case. Therefore, multiple synthetic images are generated with step-by-step adjustment of $p_s$ (see eq. \ref{eq:final_ps}), commonly by doubling which resulting in halve numbers of image rows and columns per layer. Then, the algorithm verifies if two pixels corresponds in two subsequent layers, preserving edges (figure \ref{fig:4_3_point_filtering},\ref{fig:4_3_dist_images}). 
 
 \begin{figure}[h]
 \centering
@@ -669,73 +661,138 @@ Utilising the aforementioned image-to-geometry registration (section \ref{sec:al
 \item references: ...
 \end{itemize}
 
+--- aus blum 2010
+sensors (using A-GPS) exhibit errors with means of 10–30 m, depending on the
+surrounding buildings. 
+
+--- aus fritsch Multi-Sensors and Multiray Reconstruction for Digital Preservation
+
+
+
+GPS: The accuracy of single point positioning by GPS is about 15-25m (95%). Having redundant
+satellite data, the accuracy of single point positioning can be further improved. M
+
+
+---- ----- Zhu∗† APT: Accurate Outdoor Pedestrian Tracking with
+Smartphones
+
+r. We can see that GPS readings at the
+same location can differ up to 15 meters. It is worth noting
+that all three locations have a clear view of the sky. Further
+study shows that it is hard to find any obvious temporal/spatial
+correlation among tuples. Consequently, we believe that in our
+scenario, historical GPS data or neighborhood GPS data do not
+help much in improving GPS accuracy.
+
+--- Meek 2013
+Table 2
+Errors foreachsensortype,GPSisinmetres,compassandtiltindegrees.
+Sensor Mean error Standard deviation Max.
+GPS 6.81 5.09 31.22
+Compass 1.02 0.90 3.28
+Tilt 1.0 50.75 2.41
+
+--- aus blum2012
+Compass error frequently exhibits a mean around 10◦of
+ground truth, which is quite good given the other sources of error in our experiment,
+but in some areas, increases to approximately 30◦. The relatively large
+standard deviations around these means will result in frequently poorer performance
+experienced by users, e.g., with location errors of 60 m within the standard
+deviation when walking near skyscrapers.
+y leveraging the gyro to improve heading estimates,
+is problematic due to difficulty in determining a “good” initial compass
+reading. In addition, we observed significant gyro drift over time, accelerating
+to over 4◦/s in some cases. P
+nutzen von android rotation vector
+--- aus blum2012
+
+
+
+
 \subsubsection{Orientation}
 \label{sec:technology:sensors:orientation}
 
 Nothing to say that low-cost sensor systems for orientation determination, as they are integrated in smartphones, may not have precision and stability compared to professional \glspl{IMU}. Thus, we put forward the hypotheses that noise in smartphone sensor stability as well as their accuracies may not be in range compared to navigation systems suitable for autonomous navigation.
 
 To give some basis, a smartphone orientation unit never depends on only one single sensor. It commonly consists of several components like accelerometers, magnetometers, gravity sensors or gyroscopes that measure in all three axes of the device. Due to single characteristics, sensors may complement each others, e.g. both, gyroscopes and accelerometers, measure the rotation of the smartphones in device-specific coordinate systems where gyroscopes are quite precise but suffer from drift effects. On the contrary, accelerometers are less sensitive for drifts but have poor signal-to-noise ratios. Applying sensor fusion helps to compensate for these negative characteristics in an ideal way. 
-Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why using Kalman-filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
-Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman-filtered ``Rotation Vector'', \textcolor{red}{insert foot note} where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation, version 7. Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. All observations are independently from each other, measured over time periods of more or less 2min 30sec. 
+Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why using Kalman filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
+Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman filtered \textit{Rotation Vector}\footnote{see Android Developers guidance for sensor event values at \url{https://developer.android.com/reference/android/hardware/SensorEvent.html\#values}},where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation, version 7. Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. All observations are independently from each other, measured over time periods of more or less 2min 30sec. 
 
-For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}).
-
+For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}). Only for pitch angle the opposite direction of rotation must be kept in mind.  
 
 \begin{figure}[htbp!]
 \begin{center}
 	\centering
 	\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_construction}
-	\label{fig:technology:sensor:construction}
 	\caption{Measurement setup to observe smartphone sensors accuracies and precisions. Heading (green circle).. rotation around positive/ negative z-axis referring to \gls{IMU}'s/ smartphone's native coordinate systems pointing away from sky. Pitch (red circle).. rotation around positive/ negative x-axis in \gls{IMU}'s/ smartphone's reference frame pointing out of smartphone's display to the left. Roll (blue circle).. rotation around positive x-axes for both \gls{IMU} and smartphone pointing to (true) north when smartphone is lying on a flat desk. Distance between devices on wooden stick is 1.0m.}
+	\label{fig:technology:sensor:construction}
 \end{center}
 \end{figure}
 %[IMAGES sensor construction woodstick]
 
-In the following figures \ref{fig:sensor_sensi:samsung_1st_b}, orientation tracking for Samsung Galaxy S8 in comparison with \gls{INS} (1st run) is documented whereas the others can be find in supplement. 
+In the following figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:s8:1st:runin}, \ref{fig:sensor_obs:s8:1st:motion}, orientation tracking for Samsung Galaxy S8 in comparison with \gls{INS} (1st run) is documented whereas the others can be find in supplement. 
 
 \begin{figure}[htbp!]
 \begin{center}
-	 	\begin{minipage}{\columnwidth}
-	 		\centering
-			\subfigure
-			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_1}\label{fig:sensor_sensi:samsung_1st:1}}
-	 	\end{minipage} 
-	 	\begin{minipage}{\columnwidth}
-	 		\centering
-			\subfigure 
-			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_2}\label{fig:sensor_sensi:samsung_1st:2}}
-	 	\end{minipage}
-		\begin{minipage}{\columnwidth} 
-	 		\centering
-			\subfigure
-			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_3}\label{fig:sensor_sensi:samsung_1st:3}}
-	 	\end{minipage}
-	\label{fig:sensor_sensi:samsung_1st_a}
+	 \begin{minipage}{\columnwidth}
+	 	\centering
+		\subfigure[Construction fixed]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_1}						\label{fig:sensor_obs:s8:1st:fixed:1}}
+	 \end{minipage} 
+	 	
+	 \begin{minipage}{\columnwidth}
+ 		\centering
+ 		\subfigure[Construction fixed + magnetic disturbances]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_2}						\label{fig:sensor_obs:s8:1st:fixed:2}}
+	 \end{minipage}
+	 \caption{insert a caption here!}
+ 	 \label{fig:sensor_obs:s8:1st:fixed}
 \end{center}
 \end{figure}
+% first static measurements
 
 \begin{figure}[htbp!]
 \begin{center}
 		\begin{minipage}{\columnwidth} 
+	 	\centering
+		\subfigure[Construction fixed + run in]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_3}						\label{fig:sensor_obs:s8:1st:runin:3}}
+		 \end{minipage}
+	 
+		\begin{minipage}{\columnwidth} 
 	 		\centering
-			\subfigure
-			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_4}\label{fig:sensor_sensi:samsung_1st:4}}
+			\subfigure[Construction fixed + run in + magnetic disturbances]
+				{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_4}						\label{fig:sensor_obs:s8:1st:runin:4}}
 	 	\end{minipage}
-	 			\begin{minipage}{\columnwidth} 
-	 		\centering
-			\subfigure
-			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_5}\label{fig:sensor_sensi:samsung_1st:5}}
-	 	\end{minipage}
-	 			\begin{minipage}{\columnwidth} 
-	 		\centering
-			\subfigure
-			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_6}\label{fig:sensor_sensi:samsung_1st:6}}
-	 	\end{minipage}
-	\caption{Comparison between Samsung Galaxy S8 and Advanced Navigation Spatial v/ \gls{IMU}. For smartphone angles, three types of virtual sensors are invoked: Android's kalman-filtered rotation vector, Improved Orientation Sensor 1 and 2 developed by \cite{Pacha2015}. From top to ground: fixed construction, fixed construction with magnetic interferences, fixed construction after run in, fixed construction after run in with magnetic interferences, construction in motion without and with magnetic disturbances. Orientation angles [in degrees] are taken with 20 Hz frequency but averaged to get values with precisions to the tenth of seconds.}
-	\label{fig:sensor_sensi:samsung_1st_b}
+		\caption{insert a caption here!} 	
+		\label{fig:sensor_obs:s8:1st:runin}
 \end{center}
 \end{figure}
-%[IMAGES sensor test samsung 1]
+% first run-in measurements
+	 	
+\begin{figure}[htbp!]
+\begin{center}
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Construction in motion]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_5}						\label{fig:sensor_obs:s8:1st:motion:5}}
+	 	\end{minipage}
+	 			
+	 	\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Construction in motion + magnetic disturbances]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_6}						\label{fig:sensor_obs:s8:1st:motion:6}}
+			
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_legend}						\label{fig:sensor_obs:s8:1st:legend}}
+			
+	 	\end{minipage}
+	 	
+	\caption{Comparison between Samsung Galaxy S8 and Advanced Navigation Spatial v/ \gls{IMU}. For smartphone angles, three types of virtual sensors are invoked: Android's \textit{Rotation Vector, Improved Orientation Sensor 1} and \textit{2} 			\cite{Pacha2015}. Orientation angles [$^\circ$] are taken with  $20Hz$ frequency averaged to match UTC times down to a tenth of a second.}
+	\label{fig:sensor_obs:s8:1st:motion}
+\end{center}
+\end{figure}
+% first motion measurements
 
 Results, for the indoor measurements using Samsung Galaxy S8 and Google Nexus 5, show very good agreement as can be seen in the following statistics \ref{fig:sensor_sensi:imu_mean_s8_nex} for both first runs respectively.
 
@@ -752,8 +809,8 @@ Results, for the indoor measurements using Samsung Galaxy S8 and Google Nexus 5,
 			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_nexus5}\label{fig:sensor_sensi:imu_mean_s8_nex5:nex5}}
 	 	\end{minipage}
 		
-		\caption{Mean deviations between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors Android rotation vector, Improved Orientation Sensor 1 and 2. }
-	\label{fig:sensor_sensi:imu_mean_s8_nex5}
+		\caption{Mean deviations between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors Android \textit{Rotation Vector, Improved Orientation Sensor 1} and \textit{2}. }
+		\label{fig:sensor_sensi:imu_mean_s8_nex5}
 \end{center}
 \end{figure}
 
@@ -797,13 +854,27 @@ Results, for the indoor measurements using Samsung Galaxy S8 and Google Nexus 5,
 
 \subsubsection{orientation assessment}
  
-Surprisingly, the results of all three virtual sensors of both smartphones show independently from each other almost the same behaviour as visualised in the figures \ref{fig:sensor_sensi:samsung_1st_a and fig:sensor_sensi:samsung_1st_a}. Especially \textit{Improved Orientation Sensor 1} and \textit{Android Rotation Vector} are very similar whereas \textit{Improved Orientation Sensor 2} seems to be slightly more stable as expected.
-Beside this, it is easy to note that pitch and especially roll angles of both smartphones are close to the orientation of the reference \gls{IMU} even if the correlations in figure \ref{fig:sensor_sensi:imu_correlation_s8_nex5} show not much similarity caused by slight synchronisation errors visible in the graphs of figure \ref{fig:sensor_sensi:samsung_1st_b} which may be caused by averaging sensor values to establish comparability between both smartphones and \gls{IMU} respectively. 
-However, large differences are visible for heading angle with errors up to 120 degrees even if there is no magnetic disturbance (Google Nexus 5, fixed IMU with running in).
+Surprisingly, the results of all three virtual sensors of both smartphones show independently from each other almost the same behaviour as visualised in the figures\ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:s8:1st:runin}, \ref{fig:sensor_obs:s8:1st:motion}. Especially \textit{Improved Orientation Sensor 1} and \textit{Android Rotation Vector} are very similar whereas \textit{Improved Orientation Sensor 2} seems to be slightly more stable as expected.
+Beside this, it is easy to note that pitch and especially roll angles of both smartphones are close to the orientation of the reference \gls{IMU} even if the correlations in figure \ref{fig:sensor_sensi:imu_correlation_s8_nex5} show not much similarity caused by slight synchronisation errors visible e.g. in the graphs of figures \ref{fig:sensor_obs:s8:1st:runin:4} and \ref{fig:sensor_obs:s8:1st:motion:5} which may be caused by averaging sensor values to establish comparability between both smartphones and \gls{IMU} respectively by UTC time. 
 
-Focussing on the rigid measurements fixed and fixed with added magnetic perturbations, sensor stability can be assessed by comparing their standard deviations summarised over full observation period of 2min 30sec (see figure \ref{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}). Except heading angle, both devices show very stable measurements for all virtual sensors with standard deviations less than 0.1 degrees. Surprisingly, angles belonging to sensor \textit{Improved Orientation Sensor 2} show higher discrepancies although they should be less accurate but more stable. As expected, heading is most affected by non-rigidity especially when having magnetic sources close to the measuring devices, not only concerning smartphones. Also our professional \gls{IMU} shows issues due to heading stability mainly caused by drifting (see figure \ref{fig:sensor_sensi:samsung_1st_a}
+Considering \glspl{RMSE} in figure \ref{fig:sensor_sensi:imu_mean_s8_nex5_tab}, good agreement with related studies can be resolved. Blum et al. (2013) \cite{Blum2013} determined orientation errors up to 30◦ for heading with significant drifts accelerating over 4◦/s while walking in the streets with smartphone Iphone 4 for several minutes. Furthermore, Kok et al. (2017) \cite{Kok2017} show how magnetic disturbances affect all three orientation angles referring to errors of more than 30 degrees (especially for heading) which is  recognizable in our studies, too. They also figured out that heading's accuracy is relatively low compared to roll and pitch that should be seen to be accurate. They justify the results with a worse signal to noise ratio of magnetometer compared to that of the accelerometer and the local magnetic field vector, used for the determination of compass direction only pointing to magnetic and not true north. In our case, we use the magnetic field to compute true north by location-dependent declination adding to sensor's heading and thus correct heading pointing to true north as it appears for our reference \gls{IMU}. 
 
- \begin{figure}[htbp!]
+
+
+
+
+
+\subsubsection{Parameter stability}
+\label{sec:technology:sensors:stability}
+
+Focussing on both rigid measurements, visualised in figures \ref{fig:sensor_obs:s8:1st:fixed:1} and \ref{fig:sensor_obs:s8:1st:fixed:2}, sensor stability can be assessed by comparing standard deviations summarised over full observation period of 2min 30sec (see figure \ref{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}). Except heading angle, both devices show very stable measurements for all virtual sensors with standard deviations less than 0.1 degrees. Surprisingly, angles belonging to sensor \textit{Improved Orientation Sensor 2} show higher discrepancies although they should be less accurate but more stable. Nevertheless, for all virtual sensors the results are comparable to others studies like Fritsch et al (2012)\cite{Fritsch2012} who determined standard deviations over 20 samples for heading, pitch and roll of 1.0$^\circ$, 0.2$^\circ$ and 0.1$^\circ$ respectively (using smartphone HTC Hero). Similar results are presented by Meek et al. (2013) \cite{Meek2013} for compass (heading) and tilt (pitch) angles referring to standard deviations of 5.1$^\circ$ and 0.75$^\circ$.
+
+Including gyroscopes, heading is vulnerable for large drifts over time \cite{Kok2017} which is 
+especially noticeable for our reference \gls{IMU}. Also, \gls{IMU} seems to be rather susceptible to magnetic disturbances (see figures \ref{fig:sensor_obs:s8:1st:fixed:1},\ref{fig:sensor_obs:s8:1st:fixed:2} on the right side). As mentioned in the beginning, sensor fusion can produce relief to compensate negative impacts regarding sensor hardware. We have no information for filter algorithms used in Advanced Navigation Spatial v6.1 but for smartphone orientation determination, the applied virtual sensors try to compensate this deficiency. 
+
+
+
+\begin{figure}[htbp!]
 \begin{center}
 	 	\begin{minipage}{\columnwidth}
 	 		\centering
@@ -817,9 +888,19 @@ Focussing on the rigid measurements fixed and fixed with added magnetic perturba
 	 	\end{minipage}
 		
 		\caption{Assessment of sensor stability.}
-	\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}
+		\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}
 \end{center}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -828,7 +909,7 @@ Focussing on the rigid measurements fixed and fixed with added magnetic perturba
 When we talk about the registration of 3D objects and 2D image data, it becomes obvious that similarities between virtual representations and corresponding true captured photographies are a must have. Key drivers for this are matching extrinsics due to the projection provisions. As shown above, positioning and orientation using smart phones may be a serious problem caused by incorrect exterior orientation leading to different image contents. 
 
 We observe the behaviour of image-to-geometry intersection by the example of camera-based water gauging using the application Open Water Levels on Samsung Galaxy S8. Thus, we compare the results of a manually selected image point of the water line that is transferred into object space using a \gls{DSM} of the scene captured at lower water (see figure \ref{fig:sensor_sensi}). For this, we changed the true angles of heading, pitch and roll (marked with red line) independently from each other in increments of five degrees turning clock- and counter-clockwise.
-As shown in figure \ref{fig:sensor_sensi:heading} and \ref{fig:sensor_sensi:pitch}, changing the heading and pitch angle is correlated with the number of matching feature points essential for camera estimation. Surprisingly, the result for the determined water level seems to be almost unaffected if only $10\%$ of inliers, compared to the total amount of features being found inside the measurements series, remain due to changing view direction. Thus, the most critic angle (refer to \ref{•}) can vary in range of $[-40,40]$ degrees. A similar picture emerges when assessing the angles for pitch which can change in range of $[-25;25]$. If these limits are exceeded, the camera only sees the sky or the ground (for pitch) or looks in a completely wrong (compass) direction (regarding heading). Compared to these two angles, the roll angle show a different behaviour. For image matching we chose the rotation-invariant \gls{SIFT} descriptor \cite{Lowe2004} and thus, changing the roll angle does not have major influence on the outcome as shown in \ref{fig:sensor_sensi:roll}.
+As shown in figure \ref{fig:sensor_sensi:heading} and \ref{fig:sensor_sensi:pitch}, changing the heading and pitch angle is correlated with the number of matching feature points essential for camera estimation. Surprisingly, the result for the determined water level seems to be almost unaffected if only $10\%$ of inliers, compared to the total amount of features being found inside the measurements series, remain due to changing view direction. Thus, the most critic angle (refer to \ref{sec:technology:sensors:orientation}) can vary in range of $[-40,40]$ degrees. A similar picture emerges when assessing the angles for pitch which can change in range of $[-25;25]$. If these limits are exceeded, the camera only sees the sky or the ground (for pitch) or looks in a completely wrong (compass) direction (regarding heading). Compared to these two angles, the roll angle show a different behaviour. For image matching we chose the rotation-invariant \gls{SIFT} descriptor \cite{Lowe2004} and thus, changing the roll angle does not have major influence on the outcome as shown in \ref{fig:sensor_sensi:roll}.
 Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientation}, the results give a comfortable feeling using smartphone sensor fusion for the determination of approximate orientation where pitch and roll show maximum errors up to 7.4 and 5.3 degrees. However, for heading there could be massive problems ahead showing errors in section \ref{sec:technology:sensors:orientation} up to 120.6 degrees.
 
 \begin{figure}[htbp!]
@@ -854,6 +935,7 @@ Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientat
 \end{center}
 \end{figure}
 %[IMAGES sensor sensitivity]
+
 
 
 
