@@ -650,9 +650,7 @@ Utilising the aforementioned image-to-geometry registration (section \ref{sec:al
 \subsection{Sensors}
 \label{sec:technology:sensors}
 
-\begin{itemize}
-\item add table with sensor specs for s8 and nexus 5 and advanced navi IMU
-\end{itemize}
+What is the great difference between former mobile and today's smartphones? Smartphones have many inbuilt sensors such as acceleration measurement units, compasses or gyroscopes playing increasing rolls not only to have control over display or camera rotation. In the following we assess orientation accuracies and precisions applying different approaches of sensor fusion, which in their turn influence image to geometry registration. Furthermore, we give a short review over smartphone's positioning quality in relation to 3D annotation.
 
 \subsubsection{Localization}
 \label{sec:technology:sensors:localization}
@@ -716,7 +714,44 @@ Nothing to say that low-cost sensor systems for orientation determination, as th
 
 To give some basis, a smartphone orientation unit never depends on only one single sensor. It commonly consists of several components like accelerometers, magnetometers, gravity sensors or gyroscopes that measure in all three axes of the device. Due to single characteristics, sensors may complement each others, e.g. both, gyroscopes and accelerometers, measure the rotation of the smartphones in device-specific coordinate systems where gyroscopes are quite precise but suffer from drift effects. On the contrary, accelerometers are less sensitive for drifts but have poor signal-to-noise ratios. Applying sensor fusion helps to compensate for these negative characteristics in an ideal way. 
 Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why using Kalman filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
-Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman filtered \textit{Rotation Vector}\footnote{see Android Developers guidance for sensor event values at \url{https://developer.android.com/reference/android/hardware/SensorEvent.html\#values}},where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation, version 7. Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. All observations are independently from each other, measured over time periods of more or less 2min 30sec. 
+Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman filtered \textit{Rotation Vector}\footnote{see Android Developers guidance for sensor event values at \url{https://developer.android.com/reference/android/hardware/SensorEvent.html\#values}},where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation v6.1 (for sensor specifications refer to tables \ref{table:sensor:specs} and \ref{table:sensor:imu}). 
+
+\begin{center}
+\begin{small}
+\begin{longtable}[HT]{| p{3cm} | p{3cm} | p{4cm} |}
+	\caption{orientation sensor specifications for Google Nexus 5 and Samsung Galaxy S8}
+	\label{table:sensor:specs}
+	\endhead
+		\hline
+		 & Google Nexus 5 & Samsung S8 \\ \hline
+		accelerometer/ gyroscope & InvenSense MPU-6515 (6-axes) & {ST Microelectronics} LSM6DSL (6-axes) \\ \hline
+		magnetic compass & Asahi Kasei AK8963 & Asahi Kasei AK09916C \\ \hline
+		pricing & (-) & 6.50 USD                                                                           \\ \hline
+\end{longtable}
+\end{small}
+\end{center}
+
+
+\begin{center}
+\begin{small}
+\begin{longtable}[HT]{| p{8cm} | p{2cm} |}
+	\caption{\gls{IMU} specifications for Advanced Navigation Spatial v6.1}
+	\label{table:sensor:imu}
+	\endhead
+		\hline
+		roll \& pitch accuracy (static) & 0.1 \\ \hline
+		heading accuracy (static) & 0.5 \\ \hline
+		roll \& pitch accuracy (dynamic) & 0.2 \\ \hline
+		heading accuracy (dynamic with \gls{GNSS}) & 0.2 \\ \hline
+		heading accuracy (dynamic, magnetic only) & 0.8 \\ \hline
+		pricing & 3.500 USD                                                                  \\ \hline
+\end{longtable}
+\end{small}
+\end{center}
+
+
+
+Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may have influence to heading angle which mainly depends on magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate theirselves after a short running time in motion. All observations are independently from each other, measured over time periods of more or less 2min 30sec. 
 
 For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}). Only for pitch angle the opposite direction of rotation must be kept in mind.  
 
@@ -788,7 +823,7 @@ In the following figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:
 			
 	 	\end{minipage}
 	 	
-	\caption{Comparison between Samsung Galaxy S8 and Advanced Navigation Spatial v/ \gls{IMU}. For smartphone angles, three types of virtual sensors are invoked: Android's \textit{Rotation Vector, Improved Orientation Sensor 1} and \textit{2} 			\cite{Pacha2015}. Orientation angles [$^\circ$] are taken with  $20Hz$ frequency averaged to match UTC times down to a tenth of a second.}
+	\caption{Comparison between Samsung Galaxy S8 and Advanced Navigation Spatial v6.1 \gls{IMU}. For smartphone angles, three types of virtual sensors are invoked: Android's \textit{Rotation Vector, Improved Orientation Sensor 1} and \textit{2} 			\cite{Pacha2015}. Orientation angles [$^\circ$] are taken with  $20Hz$ frequency averaged to match UTC times down to a tenth of a second.}
 	\label{fig:sensor_obs:s8:1st:motion}
 \end{center}
 \end{figure}
@@ -847,7 +882,7 @@ Results, for the indoor measurements using Samsung Galaxy S8 and Google Nexus 5,
 			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_correlation_nex5_imu}\label{fig:sensor_sensi:imu_correlation_s8_nex5:nex5}}
 	 	\end{minipage}
 		
-		\caption{Correlation between the orientation angles obtained by the smartphones Samsung Galaxy S8, Google Nexus 5 and Advanced Navigation Spatial \gls{IMU} with respect to the mentioned virtual sensors. }
+		\caption{Correlation between the orientation angles obtained by the smartphones Samsung Galaxy S8, Google Nexus 5 and Advanced Navigation Spatial v6.1 \gls{IMU} with respect to the mentioned virtual sensors. }
 	\label{fig:sensor_sensi:imu_correlation_s8_nex5}
 \end{center}
 \end{figure}
@@ -908,7 +943,7 @@ especially noticeable for our reference \gls{IMU}. Also, \gls{IMU} seems to be r
 \label{sec:technology:sensors:sensitivity}
 When we talk about the registration of 3D objects and 2D image data, it becomes obvious that similarities between virtual representations and corresponding true captured photographies are a must have. Key drivers for this are matching extrinsics due to the projection provisions. As shown above, positioning and orientation using smart phones may be a serious problem caused by incorrect exterior orientation leading to different image contents. 
 
-We observe the behaviour of image-to-geometry intersection by the example of camera-based water gauging using the application Open Water Levels on Samsung Galaxy S8. Thus, we compare the results of a manually selected image point of the water line that is transferred into object space using a \gls{DSM} of the scene captured at lower water (see figure \ref{fig:sensor_sensi}). For this, we changed the true angles of heading, pitch and roll (marked with red line) independently from each other in increments of five degrees turning clock- and counter-clockwise.
+We observe the behaviour of image-to-geometry intersection by the example of camera-based water gauging using the application \textit{Open Water Levels} on Samsung Galaxy S8. Thus, we compare the results of a manually selected image point of the water line that is transferred into object space using a \gls{DSM} of the scene captured at lower water (see figure \ref{fig:sensor_sensi}). For this, we changed the true angles of heading, pitch and roll (marked with red line) independently from each other in increments of five degrees turning clock- and counter-clockwise.
 As shown in figure \ref{fig:sensor_sensi:heading} and \ref{fig:sensor_sensi:pitch}, changing the heading and pitch angle is correlated with the number of matching feature points essential for camera estimation. Surprisingly, the result for the determined water level seems to be almost unaffected if only $10\%$ of inliers, compared to the total amount of features being found inside the measurements series, remain due to changing view direction. Thus, the most critic angle (refer to \ref{sec:technology:sensors:orientation}) can vary in range of $[-40,40]$ degrees. A similar picture emerges when assessing the angles for pitch which can change in range of $[-25;25]$. If these limits are exceeded, the camera only sees the sky or the ground (for pitch) or looks in a completely wrong (compass) direction (regarding heading). Compared to these two angles, the roll angle show a different behaviour. For image matching we chose the rotation-invariant \gls{SIFT} descriptor \cite{Lowe2004} and thus, changing the roll angle does not have major influence on the outcome as shown in \ref{fig:sensor_sensi:roll}.
 Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientation}, the results give a comfortable feeling using smartphone sensor fusion for the determination of approximate orientation where pitch and roll show maximum errors up to 7.4 and 5.3 degrees. However, for heading there could be massive problems ahead showing errors in section \ref{sec:technology:sensors:orientation} up to 120.6 degrees.
 
@@ -1058,7 +1093,7 @@ In an initial test, we compare the power consumption relative to the \gls{CPU}- 
 			\subfigure[GRIT]
 			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure2D_Power_CPU}\label{fig:power:CPU_2D_contrast:GRIT}}
 	 	\end{minipage}
-	\caption{Diagram of power measurements with respect to the CPU load, comparing Open Water Levels and GRIT in 2D mode. The less saturated lines show direct correlations between peak CPU load and peak power consumption, while fully saturated lines show missing peak correlations where they are expected.}
+	\caption{Diagram of power measurements with respect to the CPU load, comparing \textit{Open Water Levels} and GRIT in 2D mode. The less saturated lines show direct correlations between peak CPU load and peak power consumption, while fully saturated lines show missing peak correlations where they are expected.}
 	\label{fig:power:CPU_2D_contrast}
 \end{center}
 \end{figure}
@@ -1076,7 +1111,7 @@ In an initial test, we compare the power consumption relative to the \gls{CPU}- 
 			\subfigure[GRIT]
 			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure2D_Power_GPU}\label{fig:power:GPU_2D_contrast:GRIT}}
 	 	\end{minipage}
-	\caption{Diagram of power measurements with respect to the GPU load, comparing Open Water Levels and GRIT in 2D mode. The less saturated lines show good peak correlations between GPU load and power consumption; the tagged, fully saturated line shows a missing peak correlation. Compared to fig. \ref{fig:power:CPU_2D_contrast}, the majority of missing peak correlations from the CPU band are explained by increased GPU utilisation.}
+	\caption{Diagram of power measurements with respect to the GPU load, comparing \textit{Open Water Levels} and GRIT in 2D mode. The less saturated lines show good peak correlations between GPU load and power consumption; the tagged, fully saturated line shows a missing peak correlation. Compared to fig. \ref{fig:power:CPU_2D_contrast}, the majority of missing peak correlations from the CPU band are explained by increased GPU utilisation.}
 	\label{fig:power:GPU_2D_contrast}
 \end{center}
 \end{figure}
@@ -1114,7 +1149,7 @@ In both apps, a clear dependency with \gls{CPU} load and power consumption is ob
 \begin{figure}[htbp!]
 \begin{center}
 	 	{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/OWL_Nexus5/Power_GPU_CPU_run2}}
-	\caption{Integrated diagram of power consumption, CPU- \& GPU load of Open Water Levels in 2D mode.}
+	\caption{Integrated diagram of power consumption, CPU- \& GPU load of \textit{Open Water Levels} in 2D mode.}
 \end{center}
 \label{fig:power:Power_CPU_GPU_OWL:2D}
 \end{figure}
@@ -1149,7 +1184,7 @@ In both apps, a clear dependency with \gls{CPU} load and power consumption is ob
 
 As clearly observable in fig. \ref{fig:power:Power_CPU_GPU:2D} in comparison to fig. \ref{fig:power:Power_CPU_GPU:3D}, the 3D operations result in a drastic energy cost, raising the average power consumption by around 1220.21 mW. In contrast to novice expectation, the \gls{CPU} load also increases in a 3D data processing setting because the main processors deliver the geometric- and texture data to the \gls{GPU}. Additionally, for the Google Nexus 5 smartphone, the \gls{CPU} needs to decompress the texture image files, resulting in a higher processing load.
 
-Figure \ref{fig:power:Power_CPU_GPU_OWL:2D} visualises the relationship of power consumption, \gls{CPU}, as well as \gls{GPU} for 2D data processing in Open Water Levels. For water line detection, a spatio-temporal texture must be calculated using time lapse images. Thus, the CPU load locally exceeds and falls significantly for each single frame processing (here 15 peaks for 15 images). Unlike \gls{CPU} behaviour, \gls{GPU} load is steadily increasing while storing each co-registered image. After image processing, both \gls{CPU} as well as \gls{GPU} load are released whereas app modifications via user interface leads, as expected, once more to higher loads.
+Figure \ref{fig:power:Power_CPU_GPU_OWL:2D} visualises the relationship of power consumption, \gls{CPU}, as well as \gls{GPU} for 2D data processing in \textit{Open Water Levels}. For water line detection, a spatio-temporal texture must be calculated using time lapse images. Thus, the CPU load locally exceeds and falls significantly for each single frame processing (here 15 peaks for 15 images). Unlike \gls{CPU} behaviour, \gls{GPU} load is steadily increasing while storing each co-registered image. After image processing, both \gls{CPU} as well as \gls{GPU} load are released whereas app modifications via user interface leads, as expected, once more to higher loads.
 
 %\begin{itemize}
 %\item as clearly observable in fig. \ref{} in comparison to fig. \ref{}, the 3D operations result in a drastic energy cost, raising the average power consumption by XYZ mW
@@ -1157,7 +1192,7 @@ Figure \ref{fig:power:Power_CPU_GPU_OWL:2D} visualises the relationship of power
 %\item that is because the \gls{CPU} of the mobile processor needs to deliver the geometric- and texture data to the \gls{GPU}; also, the \gls{CPU} needs to decompress the texture image files, resulting in a higher processing load
 %\end{itemize}
 
-The conclusions of this power consumption study for field apps is manifold. We obtained benchmark measurements for specific target apps in hydrology (Open Water Levels) and geology (\gls{GRIT}), and explained how to replicate the study on Android devices with other field apps in the future. For Open Water Levels, the app can be operated on an average of of 1090.41 milliampere per hour (natively measured in milliampere), allowing a theoretical operability of 2.11 hours on the Google Nexus 5. For \gls{GRIT}, we have to distinguish between the mode in which it is operated: when conducting 2D operations, the app consumes 568.50 milliwatt per hour, which results in an operation time of 14.56 hours at an average current of 3.6V. When making full use of the 3D capabilities of \gls{GRIT} all the time, the average power consumption rises to 1788.80 milliwatt per hour, which results in an operation time of only 4.63 hours at an average current of 3.6V. The applied current for the GRIT measurements is of theoretical nature, applied because the measurements were taken in watt exclusively while the battery capacity of mobile devices is commonly given in milliampere hours (mAh). Furthermore, we highlight these measurements as being the \textit{theoretical} operation time because most users have other apps and background services open on their mobile device that simultaneously consume power, further reducing the operation time. Lastly, as stated by Carroll et al. \cite{Carroll2010}, the app-specific consumption (in particular with ''visual apps`` and the sensor applications) also depends on the screen brightness and the sensor usage. Key measures on power consumption, and related metrics of processor temperature and memory usage, are given in table \ref{table:power:GRIT} for \gls{GRIT} and table \ref{table:power:OWL} for Open Water Levels.
+The conclusions of this power consumption study for field apps is manifold. We obtained benchmark measurements for specific target apps in hydrology (\textit{Open Water Levels}) and geology (\gls{GRIT}), and explained how to replicate the study on Android devices with other field apps in the future. For \textit{Open Water Levels}, the app can be operated on an average of of 1090.41 milliampere per hour (natively measured in milliampere), allowing a theoretical operability of 2.11 hours on the Google Nexus 5. For \gls{GRIT}, we have to distinguish between the mode in which it is operated: when conducting 2D operations, the app consumes 568.50 milliwatt per hour, which results in an operation time of 14.56 hours at an average current of 3.6V. When making full use of the 3D capabilities of \gls{GRIT} all the time, the average power consumption rises to 1788.80 milliwatt per hour, which results in an operation time of only 4.63 hours at an average current of 3.6V. The applied current for the GRIT measurements is of theoretical nature, applied because the measurements were taken in watt exclusively while the battery capacity of mobile devices is commonly given in milliampere hours (mAh). Furthermore, we highlight these measurements as being the \textit{theoretical} operation time because most users have other apps and background services open on their mobile device that simultaneously consume power, further reducing the operation time. Lastly, as stated by Carroll et al. \cite{Carroll2010}, the app-specific consumption (in particular with ''visual apps`` and the sensor applications) also depends on the screen brightness and the sensor usage. Key measures on power consumption, and related metrics of processor temperature and memory usage, are given in table \ref{table:power:GRIT} for \gls{GRIT} and table \ref{table:power:OWL} for \textit{Open Water Levels}.
 
 \begin{center}
 \begin{longtable}[HT]{| l | p{2.5cm} | p{2.5cm} |}
@@ -1178,7 +1213,7 @@ The conclusions of this power consumption study for field apps is manifold. We o
 
 \begin{center}
 \begin{longtable}[HT]{| l | p{2.5cm} | p{2.5cm} |}
-	\caption{Average measurements of Open Water Levels}
+	\caption{Average measurements of \textit{Open Water Levels}}
 	\label{table:power:OWL}
 	\endhead
 %\begin{center}
@@ -1212,28 +1247,23 @@ Due to the increasing usability of mobile devices for in the field annotations, 
 
 \subsection{Derivation of hydrological parameters: Water level gauging}
 \label{sec:water_level_gauging_intro}
-The past decade is characterized by a continued increase of globally devastating flash floods after heavy rainfalls. Even smallest creeks turned into hazardous streams causing flooding and landslides. Conventional gauging stations provide precise information about water levels measured over a short time period. State of the art techniques for administrative observation comprise of water pressure sensors, floating gauges and conventional tide gauges. They are characterised by long-term stability and outdoor robustness providing accuracies of several millimetres up to one centimetre \cite{Siedschlag2015}. Averaged over defined time intervals, it is advisable to remain cautious regarding these accuracies possibly being too optimistic \cite{Horner2018} . 
+The past decade is characterized by a continued increase of globally devastating flash floods after heavy rainfalls. Even smallest creeks turned into hazardous streams causing flooding and landslides. Conventional gauging stations provide precise information about water levels measured over a short time period. State of the art techniques for administrative observation comprise of water pressure sensors, floating gauges and conventional tide gauges. They are characterised by long-term stability and outdoor robustness providing accuracies of several millimetres up to one centimetre \cite{Siedschlag2015}. Averaged over defined time intervals, it is advisable to remain cautious regarding these accuracies possibly being too optimistic \cite{Horner2018}. 
  
-Because of high costs in purchase and maintenance, gauging stations with complex sensing devices are sparsely installed. A prime example here is the hydrological network in Saxony, Germany. There, 184 gauging stations are installed for permanent observation on 154 of 259 rivers rising from small, medium and large catchments \cite{Saxon2018, Buettner2015}. Thus, around a third is not monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to enable crowd-sourcing based water level estimation (see \cite{CrowdWaterApp2017a,Kisters2014} for details). All of them have one thing in common: the water level is entered manually by engaged citizen scientists finding and photographing tide gauges close to rivers that presents, on the one hand, a potential danger to themselves (f.e. by sudden landslides), and still limits on the other the approaches to open and visible gauges.
+Because of high costs in purchase and maintenance, gauging stations with complex sensing devices are sparsely installed. A prime example here is the hydrological network in Saxony, Germany. There, 184 gauging stations are installed for permanent observation on 154 of 259 rivers rising from small, medium and large catchments\footnote{see Saxon Flood Centre, Water Levels \& Flow Rates \url{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht}} \cite{Buettner2015}. Thus, around a third is not monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to enable crowd-sourcing based water level estimation (see \cite{CrowdWaterApp2017a,Kisters2014} for details). All of them have one thing in common: the water level is entered manually by engaged citizen scientists finding and photographing tide gauges close to rivers that presents, on the one hand, a potential danger to themselves (f.e. by sudden landslides), and still limits on the other the approaches to open and visible gauges.
 
 Improvements in this sense can be achieved through image-to-geometry intersection and 3D annotation for automatic water level determination without reference gauges for almost every situation regarding running waters. 
-For this, the smartphone application \textit{Open Water Level} is developed, which is based on the freely available open source camera framework \textit{Open Camera} \cite{Harman2017}. Open Water Level allows for free stationing water line detection using short, handheld time-lapse image sequences \cite{Kroehnert2017a}. To interpret these, image measurements must be transformed into object space. Thus, exterior information needs to be provided by smartphone sensors for orientation and positioning.
+For this, the smartphone application \textit{Open Water Levels} is developed, which is based on the freely available open source camera framework \textit{Open Camera}\footnote{\url{https://sourceforge.net/projects/opencamera/}, version 1.3.8}. \textit{Open Water Levels} allows for free stationing water line detection using short, handheld time-lapse image sequences \cite{Kroehnert2017a}. To interpret these, image measurements must be transformed into object space. Thus, exterior information needs to be provided by smartphone sensors for orientation and positioning.
 
 \subsubsection{Requirements applying to the sensors}
 \label{sec:water_level_gauging_requirements_sensors}
-To solve the task of autonomous water level determination on running rivers via image-to-geometry intersection, the citizen scientist's position and orientation must be know. As figured out in \ref{sec:technology}, smartphone sensors accuracies for orientation and location are highly dependent on user's environment. Especially the strong correlation of heading and disturbing magnetic sources may be a issue must be solved specifically related to running rivers where metal railings usually exists. Similar effects can also be noted using high-end IMU systems, for instance autonomous car navigation. In contrast to outdoor measurements, the magnetic influences inside cars are almost stable and can be pre-calibrated (advanced navigation manual). For smartphone orientation, the magnetic strengths attaching the phone may change substantially in short time. A typical scenario would be: a citizen scientist walks along street, taking his phone inside the baggage close to metallic keys. While walking he passes several street lamps, signs, etc. Finally, he arrives at a bridge over a urban river, takes out the phone, looks down to the river and records the time lapse image sequence a few centimetres above a metallic railing. Meanwhile, several cars passing the same bridge. In this simple use case, the magnetic field around the smartphone changes countless times due to several unpredictable disturbances \textcolor{red}{(table_mag_disturb)} \cite{Blum2013}.
+To solve the task of autonomous water level determination on running rivers via image-to-geometry intersection, the citizen scientist's position and orientation must be know. As figured out in \ref{sec:technology}, smartphone sensors accuracies for orientation and location are highly dependent on user's environment. Especially the strong correlation of heading and disturbing magnetic sources may be a issue must be solved specifically related to running rivers where metal railings usually exists. Similar effects can also be noted using high-end IMU systems, for instance autonomous car navigation. In contrast to outdoor measurements, the magnetic influences inside cars are almost stable and can be pre-calibrated (advanced navigation manual). For smartphone orientation, the magnetic strengths attaching the phone may change substantially in short time. A typical scenario would be: a citizen scientist walks along street, taking his phone inside the baggage close to metallic keys. While walking he passes several street lamps, signs, etc. Finally, he arrives at a bridge over a urban river, takes out the phone, looks down to the river and records the time lapse image sequence a few centimetres above a metallic railing. Meanwhile, several cars passing the same bridge. In this simple use case, the magnetic field around the smartphone changes countless times due to several unpredictable disturbances (see section \ref{sec:technology:sensors:orientation}).
 
-The heading angle has the highest influence compared to pitch and roll regarding 2D image and 3D object data registration. For this, a so-called synthetic image is rendered from coloured 3D reference point clouds using the scientist's location and orientation to define a situation-dependent bounding box of points to be projected onto image plane with respect to depth and indentations (see \cite{Boerner2016}). Thereby the heading defines the rotation of the depth direction, as a false angle gives a false viewing direction resulting in a synthetic image that has little--to--no similarity with the time lapse sequence. However, in case of no similarity and thus no possible solution for image-to-geometry intersection, the water level calculation simply fails. In case of slight overlapping, there might be image matches but with insufficient point distribution that impedes a correct positioning \textcolor{red}{(fig_heading_test)} and may lead to even worse results of false water levels.
+The heading angle has the highest influence compared to pitch and roll regarding 2D image and 3D object data registration. For this, a so-called synthetic image is rendered from coloured 3D reference point clouds using the scientist's location and orientation to define a situation-dependent bounding box of points to be projected onto image plane with respect to depth and indentations (see \cite{Boerner2016}). Thereby the heading defines the rotation of the depth direction, as a false angle gives a false viewing direction resulting in a synthetic image that has little--to--no similarity with the time lapse sequence. However, in case of no similarity and thus no possible solution for image-to-geometry intersection, the water level calculation simply fails. In case of slight overlapping, there might be image matches but with insufficient point distribution that impedes a correct positioning (see figure \ref{fig:sensor_sensi}) and may lead to even worse results of false water levels.
 
 The absolute geo-positioning of installed \gls{GNSS} receivers on current smartphones is another obvious error source. In urban scenes with several shadow effects due to high-rise buildings, as well as in situations of heavy cloud coverage, errors of several metres in latitude and up to more than 30 metres in altitude are highly possible \cite{Bauer2013, Blum2013, Zandbergen2011}. It is likely that, in the near future, smartphone's \gls{GNSS} modules will be improved, solving lateral accuracies of 50 centimetres \cite{Moore2017}.
 
 For now, possible relief can be provided by other sources for positioning, like digital elevation models for simple height correction or invoke map services that allows the user for position refinement. For this, some APIs are already provided by Google\footnote{Google Maps Geolocation API - \url{https://developers.google.com/maps/documentation/geolocation/intro}}, but they are rather power consuming when accessed continuously. Another upcoming option is including barometers in sensor fusion, where altitude can be measured within three meters \cite{Liu2014}.
 
-
-\begin{itemize}
-\item(table, observation heading during water line detection outside $\rightarrow$ check magnetic strengthens and there changes over short times)
-\item (figure/table, sensitivity analysis  $\rightarrow$ heading changed in terms of 10 degrees, what does it make for)
-\end{itemize}
 
 
 \subsubsection{Requirements applying to the scenario}
@@ -1244,6 +1274,7 @@ For now, possible relief can be provided by other sources for positioning, like 
 \begin{itemize}
 \item \textit{online processing and position refinement: need online connection}
 \item \textit{image quality for water line detection: influence of image resolution, lightning, ...)}
+\item \textit{availability of free dsm data with matching date and time (season, etc...)}
 \end{itemize}
 
 
@@ -1309,7 +1340,7 @@ Currently available systems that provide digital outcrop interpretation capabili
 \section{Conclusions and Discussion}
 \label{sec:conclusions}
 
-This article assessed the possibility of interactive interpretation and annotation of 3D surfaces (pre-acquired by \gls{TLS}, drones or \gls{SfM}) on mobile devices in multiple geoscientific domains. Due to the research effort in recent years, novel mobile applications such as Open Water Level for surface hydrology and \gls{GRIT} for field geology were introduced to the community to bridge the gap between lab assessment and outdoor field work for data interpretation. This article also showed further application areas that build upon mobile device technology and the interactive annotation of 3D surface data for geoscientific problem solving.
+This article assessed the possibility of interactive interpretation and annotation of 3D surfaces (pre-acquired by \gls{TLS}, drones or \gls{SfM}) on mobile devices in multiple geoscientific domains. Due to the research effort in recent years, novel mobile applications such as \textit{Open Water Levels} for surface hydrology and \gls{GRIT} for field geology were introduced to the community to bridge the gap between lab assessment and outdoor field work for data interpretation. This article also showed further application areas that build upon mobile device technology and the interactive annotation of 3D surface data for geoscientific problem solving.
 
 McCaffery et al. proposed the use of mobile devices for field interpretation in geology in 2005 \cite{McCaffrey2005}. The technological specifics of mobile device app development hampered the progress on this goal for years -- for geology as well as other branches of the geosciences. Only recent advancements in efficient treatment of 3D data \cite{Kroehnert2017b}, algorithmic proposals for image-to-geometry registration (see \citep{Gauglitz2014,Kehl2017_VGC}) and on-device 3D rendering (as presented in \cite{Agus2017} and in this article for point-based surfaces) specifically designed for mobile devices, make the actual use for mobile apps in the field possible. The utilisation of crowdsourced \gls{VGI} and introduction of mobile devices as low-cost measuring devices for real-world problems \cite{Eltner2017} contribute to the acceptance of this mobile device technological development within the geoscientific community. Computer Vision challenges such as image registration under changing illumination conditions and with reduced image resolution can be viewed as ''sufficiently solved`` to make photogrammetric- and vision-based algorithms applicable to real-world outdoor settings, while still leaving space for improvement and quality and performance. Potentially significant improvement will be achieved in the future when an increasing number of advanced algorithms in numerics, graphics and vision (e.g. NEWUOA \cite{Powell2006}, out-of-core rendering \cite{Borgeat2005}, \gls{MI} \cite{Viola1997}) are ported to mobile platforms (e.g. Android). This allows realising the most state-of-the-art techniques on mobile devices that require the additional precision and performance, instead of being limited by the small function collections currently available.
 
