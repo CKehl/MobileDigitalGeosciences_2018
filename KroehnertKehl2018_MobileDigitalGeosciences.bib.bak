@@ -1,4 +1,4 @@
-% This file was created with JabRef 2.10b2.
+li% This file was created with JabRef 2.10b2.
 % Encoding: UTF-8
 
 
@@ -50,12 +50,10 @@
 
   Acmid                    = {2536893},
   Articleno                = {335},
-  Doi                      = {10.1145/2536853.2536893},
   ISBN                     = {978-1-4503-2106-8},
   Keywords                 = {Accuracy, GPS, Global Positioning System, Localization, Location-based System, Positioning, Running Tracking, Smartphone, Sports Tracking},
   Location                 = {Vienna, Austria},
   Numpages                 = {7},
-  Url                      = {http://doi.acm.org/10.1145/2536853.2536893}
 }
 
 @Article{Bentley1975,
@@ -552,6 +550,17 @@
   Url                      = {http://doi.acm.org/10.1145/2578726.2578798}
 }
 
+@InProceedings{Ishihara2017,
+  author    = {T. Ishihara and J. Vongkulbhisal and K. M. Kitani and C. Asakawa},
+  title     = {Beacon-Guided Structure from Motion for Smartphone-Based Navigation},
+  booktitle = {2017 IEEE Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2017},
+  pages     = {769-777},
+  month     = {March},
+  doi       = {10.1109/WACV.2017.91},
+  keywords  = {computer vision;image matching;image sensors;mobile computing;smart phones;3D models;Bluetooth low energy signal;beacon-guided structure;camera localization;computer vision-based localization system;feature-based matching technique;mobile operating system;multimodel sensing approach;rough proximity information;smartphone-based navigation;structure-from-motion;Acceleration;Computational modeling;Merging;Navigation;Solid modeling;Three-dimensional displays;Visualization},
+}
+
 @Article{Jordan2009,
   Title                    = {{SIGMAmobile}: the {BGS} digital field mapping system in action: in the United Arab Emirates},
   Author                   = {Jordan, Colm},
@@ -796,6 +805,17 @@
   Url                      = {http://dx.doi.org/10.1002/hyp.9329}
 }
 
+@Article{Masiero2016,
+  author    = {Andrea Masiero and Francesca Fissore and Francesco Pirotti and Alberto Guarnieri and Antonio Vettore},
+  title     = {Toward the use of smartphones for mobile mapping},
+  journal   = {Geo-spatial Information Science},
+  year      = {2016},
+  volume    = {19},
+  number    = {3},
+  pages     = {210-221},
+  publisher = {Taylor \& Francis},
+}
+
 @Article{McCaffrey2005,
   Title                    = {Unlocking the spatial dimension: digital technologies and the future of geoscience fieldwork},
   Author                   = {McCaffrey, KJW and Jones, RR and Holdsworth, RE and Wilson, RW and Clegg, P and Imber, J and Holliman, N and Trinks, I},
@@ -863,6 +883,13 @@
   Url                      = {https://books.google.dk/books?id=RaO9AAAAQBAJ}
 }
 
+@article{Micheletti2015,
+  title={Structure from motion (SFM) photogrammetry},
+  author={Micheletti, Natan and Chandler, Jim H and Lane, Stuart N},
+  year={2015},
+  publisher={British Society for Geomorphology}
+}
+
 @Article{Moore2017,
   Title                    = {Superaccurate {GPS} Coming to Smartphones in 2018},
   Author                   = {Samuel K. Moore},
@@ -888,6 +915,17 @@
   ISSN                     = {0022-1694},
   Keywords                 = {Rainstorms, High-intensity, Soil erosion, Mann Kendall test, Climate change, Lowlands},
   Url                      = {http://www.sciencedirect.com/science/article/pii/S0022169411006986}
+}
+
+@InProceedings{Muratov2016,
+  author    = {O. Muratov and Y. Slynko and V. Chernov and M. Lyubimtseva and A. Shamsuarov and V. Bucha},
+  title     = {3DCapture: 3D Reconstruction for a Smartphone},
+  booktitle = {2016 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year      = {2016},
+  pages     = {893-900},
+  month     = {June},
+  doi       = {10.1109/CVPRW.2016.116},
+  keywords  = {face recognition;graphics processing units;image reconstruction;image representation;image texture;smart phones;3D reconstruction;3DCapture;OpenCL;adjustment techniques;camera trajectory;human face reconstruction;mobile GPU;monocular camera;polygonal mesh;real-time scanning;smartphone;stage IMU sensors data;video features;Cameras;Estimation;Real-time systems;Three-dimensional displays;Tracking;Tracking loops;Trajectory},
 }
 
 @TechReport{Nebiker2017,
@@ -1074,6 +1112,25 @@
   Url                      = {http://dx.doi.org/10.1145/344779.344940}
 }
 
+@conference{Sardemann2018,
+    affiliation = {Professur für Photogrammetrie},
+    title = {Erfassung von Geometriedaten kleiner Flüsse mit einem unbemannten Wasserfahrzeug als Multisensor-Plattform},
+    journal = {Publikationen der Deutschen Gesellschaft für Photogrammetrie, Fernerkundung und Geoinformation e.V.},
+    keywords = {EXTRUSO, UWV, 360°-Kamera, mobiler Laserscanner, mobile Mapping},
+    pages = {389--396},
+    location = {Hamburg},
+    issn = {0942-2870},
+    year = {2018},
+    peerreview = {Nein},
+    openaccess = {Ja},
+    volume = {27},
+    number = {38. Wissenschaftlich-Technische Jahrestagung der DGPF und PFGK18 Tagung in München},
+    doi = {http://www.dgpf.de/src/tagung/jt2018/proceedings/proceedings/band_27/dgpf_tagungsband_2018.pdf},
+    author = {Sardemann, Hannes and Eltner, Anette and Maas, Hans-Gerd},
+    editor = {Kersten, Thomas P. and Gülch, Eberhard and Schiewe, Jochen and Kolbe, Thomas H. and Stilla, Uwe}
+}
+
+
 @InProceedings{Sattler2011,
   Title                    = {Fast image-based localization using direct 2D-to-3D matching},
   Author                   = {Torsten Sattler and Bastian Leibe and Leif Kobbelt},
@@ -1234,6 +1291,16 @@
   Publisher                = {Elsevier {BV}}
 }
 
+@Article{Westhead2011,
+  author   = {R.K. Westhead and M. Smith and W.A. Shelley and R.C. Pedley and J. Ford and B. Napier},
+  title    = {Mobile spatial mapping and augmented reality applications for environmental geoscience},
+  journal  = {Journal of Internet Technology and Secured Transactions},
+  year     = {2013},
+  volume   = {2},
+  number   = {1-4},
+  pages    = {185--190}
+}
+
 @InProceedings{Wu2013,
   Title                    = {Towards Linear-Time Incremental Structure from Motion},
   Author                   = {C. Wu},
@@ -1262,5 +1329,13 @@
 
   Doi                      = {10.1017/s0373463311000051},
   Publisher                = {Cambridge University Press ({CUP})}
+}
+
+@Article{Zhu2013,
+  author  = {Xiaojun Zhu and Qun Li and Guihai Chen},
+  title   = {APT: Accurate outdoor pedestrian tracking with smartphones},
+  journal = {2013 Proceedings IEEE INFOCOM},
+  year    = {2013},
+  pages   = {2508-2516},
 }
 
