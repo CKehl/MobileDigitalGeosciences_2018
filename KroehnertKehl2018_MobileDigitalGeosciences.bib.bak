@@ -2,6 +2,18 @@
 % Encoding: UTF-8
 
 
+@Article{Aicardi2014,
+  author    = {Aicardi, Irene and Dabove, Paolo and Lingua, A and Piras, Marco},
+  title     = {Sensors integration for smartphone navigation: Performances and future challenges},
+  journal   = {The International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences},
+  year      = {2014},
+  volume    = {40},
+  number    = {3},
+  pages     = {9},
+  publisher = {Copernicus GmbH},
+}
+
+
 @InProceedings{Agus2017,
   Title                    = {{Mobile Graphics}},
   Author                   = {Agus, Marco and Gobbetti, Enrico and Marton, Fabio and Pintore, Giovanni and V\'{a}zquez, Pere-Pau},
@@ -373,6 +385,15 @@
   Timestamp                = {2018.03.14}
 }
 
+@InProceedings{Fritsch2011,
+  author    = {Fritsch, Dieter and Khosravani, Ali Mohammed and Cefalu, Alessandro and Wenzel, Konrad},
+  title     = {Multi-sensors and multiray reconstruction for digital preservation},
+  booktitle = {Photogrammetric Week},
+  year      = {2011},
+  volume    = {11},
+  pages     = {305--323},
+}
+
 @InProceedings{Garcia2015,
   Title                    = {Textured Splat-based Point Clouds for Rendering in Handheld Devices},
   Author                   = {Garc\'{i}a, Sergio and Pag\'{e}s, Rafael and Berj\'{o}n, Daniel and Mor\'{a}n, Francisco},
@@ -660,6 +681,20 @@
   Url                      = {https://www.kisters.de/fileadmin/user_upload/Wasser/Produkte/WISKI/Produktblaetter/MobileWaterTracker_de_mail.pdf}
 }
 
+@Article{Kok2017,
+  author        = {Manon Kok and Jeroen D. Hol and Thomas B. Sch{\"{o}}n},
+  title         = {Using Inertial Sensors for Position and Orientation Estimation},
+  journal       = {CoRR},
+  year          = {2017},
+  volume        = {abs/1704.06053},
+  archiveprefix = {arXiv},
+  bibsource     = {dblp computer science bibliography, http://dblp.org},
+  biburl        = {http://dblp.org/rec/bib/journals/corr/KokHS17},
+  eprint        = {1704.06053},
+  timestamp     = {Wed, 07 Jun 2017 14:40:44 +0200},
+  url           = {http://arxiv.org/abs/1704.06053},
+}
+
 @InProceedings{Kroehnert2017b,
   Title                    = {Image-to-Geometry Registration on Mobile Devices - Concepts, Challenges and Applications},
   Author                   = {Kr\"{o}hnert, Melanie and Kehl, Christian and Litschke, Herbert and Buckley, Simon J.},
@@ -728,6 +763,21 @@
   Doi                      = {10.1145/2638728.2641670}
 }
 
+@Article{Lowe2004,
+  author        = {Lowe, David G.},
+  title         = {Distinctive Image Features from Scale-Invariant Keypoints},
+  journal       = {International Journal of Computer Vision},
+  year          = {2004},
+  volume        = {60},
+  number        = {2},
+  pages         = {91--110},
+  month         = {Nov},
+  issn          = {1573-1405},
+  day           = {01},
+  doi           = {10.1023/B:VISI.0000029664.99615.94},
+  url           = {https://doi.org/10.1023/B:VISI.0000029664.99615.94},
+}
+
 @Article{Marsh2012,
   Title                    = {Implications of mountain shading on calculating energy for snowmelt using unstructured triangular meshes},
   Author                   = {Marsh, Christopher B. and Pomeroy, John W. and Spiteri, Raymond J.},
@@ -760,6 +810,18 @@
   Timestamp                = {2018.03.11}
 }
 
+@Article{Meek2013,
+  author    = {Sam Meek and Gary Priestnall and Mike Sharples and James Goulding},
+  title     = {Mobile capture of remote points of interest using line of sight modelling},
+  journal   = {Computers {\&} Geosciences},
+  year      = {2013},
+  volume    = {52},
+  pages     = {334--344},
+  month     = {mar},
+  doi       = {10.1016/j.cageo.2012.09.028},
+  publisher = {Elsevier {BV}},
+}
+
 @Article{Medjkane2018,
   Title                    = {High-resolution monitoring of complex coastal morphology changes: cross-efficiency of {SfM} and {TLS}-based survey (Vaches-Noires cliffs, Normandy, France)},
   Author                   = {M. Medjkane and O. Maquaire and S. Costa and Th. Roulland and P. Letortu and C. Fauchard and R. Antoine and R. Davidson},
@@ -770,6 +832,23 @@
 
   Doi                      = {10.1007/s10346-017-0942-4},
   Publisher                = {Springer Nature}
+}
+
+@Article{Meek2013,
+  Title                    = {Mobile capture of remote points of interest using line of sight modelling },
+  Author                   = {Sam Meek and Gary Priestnall and Mike Sharples and James Goulding},
+  Journal                  = {Computers \& Geosciences },
+  Year                     = {2013},
+  Pages                    = {334 - 344},
+  Volume                   = {52},
+
+  Abstract                 = {Recording points of interest using \{GPS\} whilst working in the field is an established technique in geographical fieldwork, where the user′s current position is used as the spatial reference to be captured; this is known as geo-tagging. We outline the development and evaluation of a smartphone application called Zapp that enables geo-tagging of any distant point on the visible landscape. The ability of users to log or retrieve information relating to what they can see, rather than where they are standing, allows them to record observations of points in the broader landscape scene, or to access descriptions of landscape features from any viewpoint. The application uses the compass orientation and tilt of the phone to provide data for a line of sight algorithm that intersects with a Digital Surface Model stored on the mobile device. We describe the development process and design decisions for Zapp present the results of a controlled study of the accuracy of the application, and report on the use of Zapp for a student field exercise. The studies indicate the feasibility of the approach, but also how the appropriate use of such techniques will be constrained by current levels of precision in mobile sensor technology. The broader implications for interactive query of the distant landscape and for remote data logging are discussed. },
+  Doi                      = {http://dx.doi.org/10.1016/j.cageo.2012.09.028},
+  ISSN                     = {0098-3004},
+  Keywords                 = {Digital Surface Models},
+  Owner                    = {christian},
+  Timestamp                = {2017.03.06},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S009830041200338X}
 }
 
 @Book{Mehta2013,
@@ -855,6 +934,17 @@
   Owner                    = {christian},
   Timestamp                = {2017.02.22},
   Url                      = {http://www.sciencedirect.com/science/article/pii/S009830041500134X}
+}
+
+@Book{Pacha2015,
+  title     = {Sensor Fusion for Robust Outdoor Augmented Reality Tracking on Mobile Devices},
+  publisher = {GRIN Verlag},
+  year      = {2015},
+  author    = {Pacha, Alexander},
+  address   = {USA},
+  isbn      = {3656964025, 9783656964025},
+  file      = {:Smartphone_Android/SensorFusion_Ansatz_Pacha/masterthesis-pacha.pdf:PDF;:Smartphone_Android/SensorFusion_Ansatz_Pacha/masterthesis-pacha.docx:PDF},
+  groups    = {Smartphone Sensor/ SensorFusion},
 }
 
 @Article{Ponchio2016,
