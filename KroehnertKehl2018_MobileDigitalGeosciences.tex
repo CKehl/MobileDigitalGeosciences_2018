@@ -655,54 +655,35 @@ What is the great difference between former mobile and today's smartphones? Smar
 \subsubsection{Localization}
 \label{sec:technology:sensors:localization}
 
-\begin{itemize}
-\item references: ...
-\end{itemize}
+Compared to the years 2008 and 2009, sales volume for navigation systems declined sharply and constantly by approximately 70 percent compared to 2017 in germany\footnote{see statista.com \textit{Survey: Sales development in Germany for navigation systems since 2005} \url{https://de.statista.com/statistik/daten/studie/3902/umfrage/entwicklung-der-verkaufszahlen-von-navigationsgeraeten-seit-2005/}}. One of the most important factors behind this may lie in the distribution of smartphones with inbuilt positioning systems providing quite interesting alternatives to former navigation systems.
+For this, most of today's smartphones are equipped with \gls{aGPS} receivers that are able to receive data from American GPS, Russian GLONASS and increasingly European GALILEO as well as Chinese BAIDOU. Even in geo sciences, smartphones gain more and more popularity e.g. for mobile mapping \cite{Masiero2016, Westhead2011}, or actually 3D reconstruction \cite{Ishihara2017, Muratov2016, Micheletti2015}.
+Thus, many research groups recently discussed the potential of smartphone localisation strategies whereby we want to focus on outdoor use cases based on \glspl{GNSS}. Blum et al. (2013) \cite{Blum2013} observe the positioning for Android smartphone Samsung Galaxy Nexus and Apple Iphone 4 with different environmental conditions. Walking through the city they get lateral accuracies of about 10-15m close to buildings no taller than three stories. Near skyscrapers, errors of about 30m should be expected with local extremas up to 60m. Similar things are published by Fritsch et al. (2011) \cite{Fritsch2011} who determined a overall accuracy for Android smartphone HTC Hero of 15-25m valid in 95 percent of cases which was also estimated by Zhu et al. (2013) \cite{Zhu2013}. Exemplary for open spaces, Meek et al. (2013) \cite{Meek2013} observe average accuracies of \gls{GPS} 6.8m using a Google Nexus S smartphone. However, height estimation seems to be more critical where \cite{Liu2014} name errors for altitude determination using smartphone's inbuilt \gls{aGPS} seems to be 2.5 times more than the horizontal component and recommend the alternative usage of barometric approaches. Unfortunately, only a few of common smartphones have inbuilt barometers and reference data, necessary for barometric altitudes, is quite difficult to obtain.  
 
---- aus blum 2010
-sensors (using A-GPS) exhibit errors with means of 10–30 m, depending on the
-surrounding buildings. 
+\subsubsection{Location sensitivity}
+\label{sec:technology:sensors:location_sensitivity}
 
---- aus fritsch Multi-Sensors and Multiray Reconstruction for Digital Preservation
+Concerning image to geometry registration, pre-knowledge about image's position before mapping on 3D surfaces is a necessary prerequisite. Thus, we are asking for how do uncertainties in positioning affect feature detection and furthermore the matching results. We observe the behaviour on the example of \textit{Open Water Levels} using manually registered reference data to derive the prevalent water level. Afterwards we change image's real position, defined in UTM33 WGS84 reference frame, in steps of 2.5 m up to a deviation of 25m for northing, easting \textcolor{red}{and height (TODO!)} component and compare the detected water line with ground truth data from an administrative water gauge (see figure \ref{fig:sensor_sensi:easting}, \ref{fig:sensor_sensi:northing}) having an enclosing \gls{DSM}.
 
+Surprisingly, all components are rather equal affacted by erroneous locations which rapidly leads to non-feasible matching when location differs more than 2.5m/5m (northing/easting). Compared to observed accuracies of smartphone inbuilt \gls{GNSS}, this refers to be a non-negligible issue. Thus, in \textit{Open Water Levels}, the user can call Google Maps (if access to the internet is permitted) for manual position refinement.
 
-
-GPS: The accuracy of single point positioning by GPS is about 15-25m (95%). Having redundant
-satellite data, the accuracy of single point positioning can be further improved. M
-
-
----- ----- Zhu∗† APT: Accurate Outdoor Pedestrian Tracking with
-Smartphones
-
-r. We can see that GPS readings at the
-same location can differ up to 15 meters. It is worth noting
-that all three locations have a clear view of the sky. Further
-study shows that it is hard to find any obvious temporal/spatial
-correlation among tuples. Consequently, we believe that in our
-scenario, historical GPS data or neighborhood GPS data do not
-help much in improving GPS accuracy.
-
---- Meek 2013
-Table 2
-Errors foreachsensortype,GPSisinmetres,compassandtiltindegrees.
-Sensor Mean error Standard deviation Max.
-GPS 6.81 5.09 31.22
-Compass 1.02 0.90 3.28
-Tilt 1.0 50.75 2.41
-
---- aus blum2012
-Compass error frequently exhibits a mean around 10◦of
-ground truth, which is quite good given the other sources of error in our experiment,
-but in some areas, increases to approximately 30◦. The relatively large
-standard deviations around these means will result in frequently poorer performance
-experienced by users, e.g., with location errors of 60 m within the standard
-deviation when walking near skyscrapers.
-y leveraging the gyro to improve heading estimates,
-is problematic due to difficulty in determining a “good” initial compass
-reading. In addition, we observed significant gyro drift over time, accelerating
-to over 4◦/s in some cases. P
-nutzen von android rotation vector
---- aus blum2012
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Easting observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Sensitivity/easting}\label{fig:sensor_sensi:easting}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Northing observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Sensitivity/northing}\label{fig:sensor_sensi:northing}}
+	 	\end{minipage}
+	
+	\caption{Behaviour of image-2-geometry intersection depending on location uncertainties. Tuning the easting, northing and height component independently from each other whereas the others remained unchanged. ${\Delta}$wl.. absolute error for water level in meters, total inliers.. number of image features in feature-based matching displayed in percent depending on most occurrence, red/yellow/green area.. range of accuracy.}
+	\label{fig:sensor_sensi_location}
+\end{center}
+\end{figure}
+%[IMAGES sensor sensitivity]
 
 
 
@@ -714,11 +695,11 @@ Nothing to say that low-cost sensor systems for orientation determination, as th
 
 To give some basis, a smartphone orientation unit never depends on only one single sensor. It commonly consists of several components like accelerometers, magnetometers, gravity sensors or gyroscopes that measure in all three axes of the device. Due to single characteristics, sensors may complement each others, e.g. both, gyroscopes and accelerometers, measure the rotation of the smartphones in device-specific coordinate systems where gyroscopes are quite precise but suffer from drift effects. On the contrary, accelerometers are less sensitive for drifts but have poor signal-to-noise ratios. Applying sensor fusion helps to compensate for these negative characteristics in an ideal way. 
 Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why using Kalman filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
-Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman filtered \textit{Rotation Vector}\footnote{see Android Developers guidance for sensor event values at \url{https://developer.android.com/reference/android/hardware/SensorEvent.html\#values}},where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation v6.1 (for sensor specifications refer to tables \ref{table:sensor:specs} and \ref{table:sensor:imu}). 
+Referring to Pacha \cite{Pacha2015}, he presents inter alia two alternative virtual sensors additionally to Android's Kalman filtered \textit{Rotation Vector}\footnote{see Android Developers guidance for sensor event values at \url{https://developer.android.com/reference/android/hardware/SensorEvent.html\#values}},where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we will check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation v6.1 (for sensor specifications refer to tables \ref{table:sensor:specs}\footnote{see \url{https://technology.ihs.com/api/binary/592077} for Samsung Galaxy S8 and \url{https://de.ifixit.com/Teardown/Nexus+5+Teardown/19016} for Google Nexus 5} \& \ref{table:sensor:imu}\footnote{see \url{http://www.advancednavigation.com.au/product/spatial\#specifications}}). 
 
 \begin{center}
 \begin{small}
-\begin{longtable}[HT]{| p{3cm} | p{3cm} | p{4cm} |}
+\begin{longtable}[HT]{| p{2.5cm} | p{3cm} | p{4cm} |}
 	\caption{orientation sensor specifications for Google Nexus 5 and Samsung Galaxy S8}
 	\label{table:sensor:specs}
 	\endhead
@@ -755,6 +736,9 @@ Each measuring epoch comprises six parts. We assume that the sensors will show d
 
 For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}). Only for pitch angle the opposite direction of rotation must be kept in mind.  
 
+\definecolor{heading_green}{rgb}{0.411, 0.639, 0.258}
+\definecolor{pitch_orange}{rgb}{0.882, 0.709, 0.117}
+\definecolor{roll_blue}{rgb}{0.082, 0.447, 0.749}
 \begin{figure}[htbp!]
 \begin{center}
 	\centering
@@ -780,7 +764,7 @@ In the following figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:
  		\subfigure[Construction fixed + magnetic disturbances]
 			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_2}						\label{fig:sensor_obs:s8:1st:fixed:2}}
 	 \end{minipage}
-	 \caption{insert a caption here!}
+	 \caption{Deviation between orientation angles from Android smartphone Samsung Galaxy S8 and Advanced Navigation Spatial v6.1 \gls{IMU} captured with devices at rest. \textcolor{heading_green}{Heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} captured with frequencies of $20Hz$ and matched by UTC time every 0.1sec.}
  	 \label{fig:sensor_obs:s8:1st:fixed}
 \end{center}
 \end{figure}
@@ -799,7 +783,10 @@ In the following figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:
 			\subfigure[Construction fixed + run in + magnetic disturbances]
 				{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_4}						\label{fig:sensor_obs:s8:1st:runin:4}}
 	 	\end{minipage}
-		\caption{insert a caption here!} 	
+			 \caption{Observation of orientation angles when device (Samsung Galaxy S8) is at rest after a short run-in period (rotating the device around all three axes).}
+			 
+			 \caption{Deviation between orientation angles from Android smartphone Samsung Galaxy S8 and Advanced Navigation Spatial v6.1 \gls{IMU} captured with devices at rest after a short run-in period (device rotation around all three axes). \textcolor{heading_green}{Heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} captured with frequencies of $20Hz$ and matched by UTC time every 0.1sec.}
+			 
 		\label{fig:sensor_obs:s8:1st:runin}
 \end{center}
 \end{figure}
@@ -822,8 +809,7 @@ In the following figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:
 			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_legend}						\label{fig:sensor_obs:s8:1st:legend}}
 			
 	 	\end{minipage}
-	 	
-	\caption{Comparison between Samsung Galaxy S8 and Advanced Navigation Spatial v6.1 \gls{IMU}. For smartphone angles, three types of virtual sensors are invoked: Android's \textit{Rotation Vector, Improved Orientation Sensor 1} and \textit{2} 			\cite{Pacha2015}. Orientation angles [$^\circ$] are taken with  $20Hz$ frequency averaged to match UTC times down to a tenth of a second.}
+\caption{Deviation between orientation angles from Android smartphone Samsung Galaxy S8 and Advanced Navigation Spatial v6.1 \gls{IMU} captured in motion. \textcolor{heading_green}{Heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} captured with frequencies of $20Hz$ and matched by UTC time every 0.1sec.}
 	\label{fig:sensor_obs:s8:1st:motion}
 \end{center}
 \end{figure}
@@ -965,7 +951,7 @@ Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientat
 			{\includegraphics[keepaspectratio, width=1\columnwidth]	{graphics/Sensor_Sensitivity/roll}\label{fig:sensor_sensi:roll}}
 	 	\end{minipage}
 	
-	\caption{Behaviour of image-2-geometry intersection depending on orientation changes. Tuning the angles heading, pitch and roll independently from each other where the others remained unchanged. ${\Delta}$wl.. absolute error for water level in meters, total inliers.. number of image features in feature-based matching displayed in percent depending on most occurrence, red/yellow/green area.. range of accuracy.}
+	\caption{Behaviour of image-2-geometry intersection depending on orientation changes. Tuning the angles heading, pitch and roll independently from each other whereas the others remained unchanged. ${\Delta}$wl.. absolute error for water level in meters, total inliers.. number of image features in feature-based matching displayed in percent depending on most occurrence, red/yellow/green area.. range of accuracy.}
 	\label{fig:sensor_sensi}
 \end{center}
 \end{figure}
@@ -1205,7 +1191,7 @@ The conclusions of this power consumption study for field apps is manifold. We o
 		\hline
 		metric & 2D ops. & 3D ops. \\ \hline
 		power consumption [mW/h] & 568.59 & 1788.80 \\ \hline
-		power consumption [mA/h @ 3.6V] & 157.94 & 496.89 \\ \hline
+		power consumption [mA/h \@ 3.6V] & 157.94 & 496.89 \\ \hline
 		memory usage (avg.) [GB] & 1.746 & 1.721 \\ \hline
 		temperature [$^{\circ}$C] & 49.91 & 52.05 \\ \hline
 \end{longtable}
@@ -1221,9 +1207,9 @@ The conclusions of this power consumption study for field apps is manifold. We o
 	%\begin{tabular}{| l | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} |}
 		\hline
 		metric & Google Nexus 5 & Samsung S8 \\ \hline
-		power consumption [mA/h] & 1090.41 & 795.87 (@ 3.6V) \\ \hline
-		memory usage (avg.) [GB] & 1.543 & 1.61 \\ \hline
-		temperature [$^{\circ}$C] & 58.55 & - \\ \hline
+		power consumption [mA/h] & 1090.41 & ? \\ \hline
+		memory usage (avg.) [GB] & 1.543 & ? \\ \hline
+		temperature [$^{\circ}$C] & 58.55 & ? \\ \hline
 \end{longtable}
 \end{center}
 
