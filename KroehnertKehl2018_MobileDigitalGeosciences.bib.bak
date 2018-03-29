@@ -1,17 +1,5 @@
-li% This file was created with JabRef 2.10b2.
+% This file was created with JabRef 2.10b2.
 % Encoding: UTF-8
-
-
-@Article{Aicardi2014,
-  author    = {Aicardi, Irene and Dabove, Paolo and Lingua, A and Piras, Marco},
-  title     = {Sensors integration for smartphone navigation: Performances and future challenges},
-  journal   = {The International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences},
-  year      = {2014},
-  volume    = {40},
-  number    = {3},
-  pages     = {9},
-  publisher = {Copernicus GmbH},
-}
 
 
 @InProceedings{Agus2017,
@@ -26,6 +14,18 @@ li% This file was created with JabRef 2.10b2.
   ISSN                     = {1017-4656},
   Owner                    = {christian},
   Timestamp                = {2017.05.23}
+}
+
+@Article{Aicardi2014,
+  Title                    = {Sensors integration for smartphone navigation: Performances and future challenges},
+  Author                   = {Aicardi, Irene and Dabove, Paolo and Lingua, A and Piras, Marco},
+  Journal                  = {The International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences},
+  Year                     = {2014},
+  Number                   = {3},
+  Pages                    = {9},
+  Volume                   = {40},
+
+  Publisher                = {Copernicus GmbH}
 }
 
 @Article{Buettner2015,
@@ -53,7 +53,7 @@ li% This file was created with JabRef 2.10b2.
   ISBN                     = {978-1-4503-2106-8},
   Keywords                 = {Accuracy, GPS, Global Positioning System, Localization, Location-based System, Positioning, Running Tracking, Smartphone, Sports Tracking},
   Location                 = {Vienna, Austria},
-  Numpages                 = {7},
+  Numpages                 = {7}
 }
 
 @Article{Bentley1975,
@@ -214,7 +214,7 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @InProceedings{Cawood2018,
-  Title                    = {eRocK: an online, open-access repository of virtual outcrops and geological samples in 3D},
+  Title                    = {{eRocK}: an online, open-access repository of virtual outcrops and geological samples in {3D}},
   Author                   = {Cawood, Adam J. and Bond, Clare E.},
   Booktitle                = {EGU Geophysical Research Abstracts},
   Year                     = {2018},
@@ -384,12 +384,12 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @InProceedings{Fritsch2011,
-  author    = {Fritsch, Dieter and Khosravani, Ali Mohammed and Cefalu, Alessandro and Wenzel, Konrad},
-  title     = {Multi-sensors and multiray reconstruction for digital preservation},
-  booktitle = {Photogrammetric Week},
-  year      = {2011},
-  volume    = {11},
-  pages     = {305--323},
+  Title                    = {Multi-sensors and multiray reconstruction for digital preservation},
+  Author                   = {Fritsch, Dieter and Khosravani, Ali Mohammed and Cefalu, Alessandro and Wenzel, Konrad},
+  Booktitle                = {Photogrammetric Week},
+  Year                     = {2011},
+  Pages                    = {305--323},
+  Volume                   = {11}
 }
 
 @InProceedings{Garcia2015,
@@ -551,14 +551,15 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @InProceedings{Ishihara2017,
-  author    = {T. Ishihara and J. Vongkulbhisal and K. M. Kitani and C. Asakawa},
-  title     = {Beacon-Guided Structure from Motion for Smartphone-Based Navigation},
-  booktitle = {2017 IEEE Winter Conference on Applications of Computer Vision (WACV)},
-  year      = {2017},
-  pages     = {769-777},
-  month     = {March},
-  doi       = {10.1109/WACV.2017.91},
-  keywords  = {computer vision;image matching;image sensors;mobile computing;smart phones;3D models;Bluetooth low energy signal;beacon-guided structure;camera localization;computer vision-based localization system;feature-based matching technique;mobile operating system;multimodel sensing approach;rough proximity information;smartphone-based navigation;structure-from-motion;Acceleration;Computational modeling;Merging;Navigation;Solid modeling;Three-dimensional displays;Visualization},
+  Title                    = {Beacon-Guided Structure from Motion for Smartphone-Based Navigation},
+  Author                   = {T. Ishihara and J. Vongkulbhisal and K. M. Kitani and C. Asakawa},
+  Booktitle                = {2017 IEEE Winter Conference on Applications of Computer Vision (WACV)},
+  Year                     = {2017},
+  Month                    = {March},
+  Pages                    = {769-777},
+
+  Doi                      = {10.1109/WACV.2017.91},
+  Keywords                 = {computer vision;image matching;image sensors;mobile computing;smart phones;3D models;Bluetooth low energy signal;beacon-guided structure;camera localization;computer vision-based localization system;feature-based matching technique;mobile operating system;multimodel sensing approach;rough proximity information;smartphone-based navigation;structure-from-motion;Acceleration;Computational modeling;Merging;Navigation;Solid modeling;Three-dimensional displays;Visualization}
 }
 
 @Article{Jordan2009,
@@ -691,17 +692,18 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Article{Kok2017,
-  author        = {Manon Kok and Jeroen D. Hol and Thomas B. Sch{\"{o}}n},
-  title         = {Using Inertial Sensors for Position and Orientation Estimation},
-  journal       = {CoRR},
-  year          = {2017},
-  volume        = {abs/1704.06053},
-  archiveprefix = {arXiv},
-  bibsource     = {dblp computer science bibliography, http://dblp.org},
-  biburl        = {http://dblp.org/rec/bib/journals/corr/KokHS17},
-  eprint        = {1704.06053},
-  timestamp     = {Wed, 07 Jun 2017 14:40:44 +0200},
-  url           = {http://arxiv.org/abs/1704.06053},
+  Title                    = {Using Inertial Sensors for Position and Orientation Estimation},
+  Author                   = {Manon Kok and Jeroen D. Hol and Thomas B. Sch{\"{o}}n},
+  Journal                  = {CoRR},
+  Year                     = {2017},
+  Volume                   = {abs/1704.06053},
+
+  Archiveprefix            = {arXiv},
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.org/rec/bib/journals/corr/KokHS17},
+  Eprint                   = {1704.06053},
+  Timestamp                = {Wed, 07 Jun 2017 14:40:44 +0200},
+  Url                      = {http://arxiv.org/abs/1704.06053}
 }
 
 @InProceedings{Kroehnert2017b,
@@ -773,18 +775,20 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Article{Lowe2004,
-  author        = {Lowe, David G.},
-  title         = {Distinctive Image Features from Scale-Invariant Keypoints},
-  journal       = {International Journal of Computer Vision},
-  year          = {2004},
-  volume        = {60},
-  number        = {2},
-  pages         = {91--110},
-  month         = {Nov},
-  issn          = {1573-1405},
-  day           = {01},
-  doi           = {10.1023/B:VISI.0000029664.99615.94},
-  url           = {https://doi.org/10.1023/B:VISI.0000029664.99615.94},
+  Title                    = {Distinctive Image Features from Scale-Invariant Keypoints},
+  Author                   = {Lowe, David G.},
+  Journal                  = {International Journal of Computer Vision},
+  Year                     = {2004},
+
+  Month                    = {Nov},
+  Number                   = {2},
+  Pages                    = {91--110},
+  Volume                   = {60},
+
+  Day                      = {01},
+  Doi                      = {10.1023/B:VISI.0000029664.99615.94},
+  ISSN                     = {1573-1405},
+  Url                      = {https://doi.org/10.1023/B:VISI.0000029664.99615.94}
 }
 
 @Article{Marsh2012,
@@ -806,14 +810,15 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Article{Masiero2016,
-  author    = {Andrea Masiero and Francesca Fissore and Francesco Pirotti and Alberto Guarnieri and Antonio Vettore},
-  title     = {Toward the use of smartphones for mobile mapping},
-  journal   = {Geo-spatial Information Science},
-  year      = {2016},
-  volume    = {19},
-  number    = {3},
-  pages     = {210-221},
-  publisher = {Taylor \& Francis},
+  Title                    = {Toward the use of smartphones for mobile mapping},
+  Author                   = {Andrea Masiero and Francesca Fissore and Francesco Pirotti and Alberto Guarnieri and Antonio Vettore},
+  Journal                  = {Geo-spatial Information Science},
+  Year                     = {2016},
+  Number                   = {3},
+  Pages                    = {210-221},
+  Volume                   = {19},
+
+  Publisher                = {Taylor \& Francis}
 }
 
 @Article{McCaffrey2005,
@@ -830,18 +835,6 @@ li% This file was created with JabRef 2.10b2.
   Timestamp                = {2018.03.11}
 }
 
-@Article{Meek2013,
-  author    = {Sam Meek and Gary Priestnall and Mike Sharples and James Goulding},
-  title     = {Mobile capture of remote points of interest using line of sight modelling},
-  journal   = {Computers {\&} Geosciences},
-  year      = {2013},
-  volume    = {52},
-  pages     = {334--344},
-  month     = {mar},
-  doi       = {10.1016/j.cageo.2012.09.028},
-  publisher = {Elsevier {BV}},
-}
-
 @Article{Medjkane2018,
   Title                    = {High-resolution monitoring of complex coastal morphology changes: cross-efficiency of {SfM} and {TLS}-based survey (Vaches-Noires cliffs, Normandy, France)},
   Author                   = {M. Medjkane and O. Maquaire and S. Costa and Th. Roulland and P. Letortu and C. Fauchard and R. Antoine and R. Davidson},
@@ -855,20 +848,17 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Article{Meek2013,
-  Title                    = {Mobile capture of remote points of interest using line of sight modelling },
+  Title                    = {Mobile capture of remote points of interest using line of sight modelling},
   Author                   = {Sam Meek and Gary Priestnall and Mike Sharples and James Goulding},
-  Journal                  = {Computers \& Geosciences },
+  Journal                  = {Computers {\&} Geosciences},
   Year                     = {2013},
-  Pages                    = {334 - 344},
+
+  Month                    = {mar},
+  Pages                    = {334--344},
   Volume                   = {52},
 
-  Abstract                 = {Recording points of interest using \{GPS\} whilst working in the field is an established technique in geographical fieldwork, where the user′s current position is used as the spatial reference to be captured; this is known as geo-tagging. We outline the development and evaluation of a smartphone application called Zapp that enables geo-tagging of any distant point on the visible landscape. The ability of users to log or retrieve information relating to what they can see, rather than where they are standing, allows them to record observations of points in the broader landscape scene, or to access descriptions of landscape features from any viewpoint. The application uses the compass orientation and tilt of the phone to provide data for a line of sight algorithm that intersects with a Digital Surface Model stored on the mobile device. We describe the development process and design decisions for Zapp present the results of a controlled study of the accuracy of the application, and report on the use of Zapp for a student field exercise. The studies indicate the feasibility of the approach, but also how the appropriate use of such techniques will be constrained by current levels of precision in mobile sensor technology. The broader implications for interactive query of the distant landscape and for remote data logging are discussed. },
-  Doi                      = {http://dx.doi.org/10.1016/j.cageo.2012.09.028},
-  ISSN                     = {0098-3004},
-  Keywords                 = {Digital Surface Models},
-  Owner                    = {christian},
-  Timestamp                = {2017.03.06},
-  Url                      = {http://www.sciencedirect.com/science/article/pii/S009830041200338X}
+  Doi                      = {10.1016/j.cageo.2012.09.028},
+  Publisher                = {Elsevier {BV}}
 }
 
 @Book{Mehta2013,
@@ -883,11 +873,12 @@ li% This file was created with JabRef 2.10b2.
   Url                      = {https://books.google.dk/books?id=RaO9AAAAQBAJ}
 }
 
-@article{Micheletti2015,
-  title={Structure from motion (SFM) photogrammetry},
-  author={Micheletti, Natan and Chandler, Jim H and Lane, Stuart N},
-  year={2015},
-  publisher={British Society for Geomorphology}
+@Article{Micheletti2015,
+  Title                    = {Structure from motion (SFM) photogrammetry},
+  Author                   = {Micheletti, Natan and Chandler, Jim H and Lane, Stuart N},
+  Year                     = {2015},
+
+  Publisher                = {British Society for Geomorphology}
 }
 
 @Article{Moore2017,
@@ -918,14 +909,15 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @InProceedings{Muratov2016,
-  author    = {O. Muratov and Y. Slynko and V. Chernov and M. Lyubimtseva and A. Shamsuarov and V. Bucha},
-  title     = {3DCapture: 3D Reconstruction for a Smartphone},
-  booktitle = {2016 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  year      = {2016},
-  pages     = {893-900},
-  month     = {June},
-  doi       = {10.1109/CVPRW.2016.116},
-  keywords  = {face recognition;graphics processing units;image reconstruction;image representation;image texture;smart phones;3D reconstruction;3DCapture;OpenCL;adjustment techniques;camera trajectory;human face reconstruction;mobile GPU;monocular camera;polygonal mesh;real-time scanning;smartphone;stage IMU sensors data;video features;Cameras;Estimation;Real-time systems;Three-dimensional displays;Tracking;Tracking loops;Trajectory},
+  Title                    = {3DCapture: 3D Reconstruction for a Smartphone},
+  Author                   = {O. Muratov and Y. Slynko and V. Chernov and M. Lyubimtseva and A. Shamsuarov and V. Bucha},
+  Booktitle                = {2016 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  Year                     = {2016},
+  Month                    = {June},
+  Pages                    = {893-900},
+
+  Doi                      = {10.1109/CVPRW.2016.116},
+  Keywords                 = {face recognition;graphics processing units;image reconstruction;image representation;image texture;smart phones;3D reconstruction;3DCapture;OpenCL;adjustment techniques;camera trajectory;human face reconstruction;mobile GPU;monocular camera;polygonal mesh;real-time scanning;smartphone;stage IMU sensors data;video features;Cameras;Estimation;Real-time systems;Three-dimensional displays;Tracking;Tracking loops;Trajectory}
 }
 
 @TechReport{Nebiker2017,
@@ -975,14 +967,16 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Book{Pacha2015,
-  title     = {Sensor Fusion for Robust Outdoor Augmented Reality Tracking on Mobile Devices},
-  publisher = {GRIN Verlag},
-  year      = {2015},
-  author    = {Pacha, Alexander},
-  address   = {USA},
-  isbn      = {3656964025, 9783656964025},
-  file      = {:Smartphone_Android/SensorFusion_Ansatz_Pacha/masterthesis-pacha.pdf:PDF;:Smartphone_Android/SensorFusion_Ansatz_Pacha/masterthesis-pacha.docx:PDF},
-  groups    = {Smartphone Sensor/ SensorFusion},
+  Title                    = {Sensor Fusion for Robust Outdoor Augmented Reality Tracking on Mobile Devices},
+  Author                   = {Pacha, Alexander},
+  Publisher                = {GRIN Verlag},
+  Year                     = {2015},
+
+  Address                  = {USA},
+
+  File                     = {:Smartphone_Android/SensorFusion_Ansatz_Pacha/masterthesis-pacha.pdf:PDF;:Smartphone_Android/SensorFusion_Ansatz_Pacha/masterthesis-pacha.docx:PDF},
+  Groups                   = {Smartphone Sensor/ SensorFusion},
+  ISBN                     = {3656964025, 9783656964025}
 }
 
 @Article{Ponchio2016,
@@ -1112,24 +1106,24 @@ li% This file was created with JabRef 2.10b2.
   Url                      = {http://dx.doi.org/10.1145/344779.344940}
 }
 
-@conference{Sardemann2018,
-    affiliation = {Professur für Photogrammetrie},
-    title = {Erfassung von Geometriedaten kleiner Flüsse mit einem unbemannten Wasserfahrzeug als Multisensor-Plattform},
-    journal = {Publikationen der Deutschen Gesellschaft für Photogrammetrie, Fernerkundung und Geoinformation e.V.},
-    keywords = {EXTRUSO, UWV, 360°-Kamera, mobiler Laserscanner, mobile Mapping},
-    pages = {389--396},
-    location = {Hamburg},
-    issn = {0942-2870},
-    year = {2018},
-    peerreview = {Nein},
-    openaccess = {Ja},
-    volume = {27},
-    number = {38. Wissenschaftlich-Technische Jahrestagung der DGPF und PFGK18 Tagung in München},
-    doi = {http://www.dgpf.de/src/tagung/jt2018/proceedings/proceedings/band_27/dgpf_tagungsband_2018.pdf},
-    author = {Sardemann, Hannes and Eltner, Anette and Maas, Hans-Gerd},
-    editor = {Kersten, Thomas P. and Gülch, Eberhard and Schiewe, Jochen and Kolbe, Thomas H. and Stilla, Uwe}
-}
+@InProceedings{Sardemann2018,
+  Title                    = {Erfassung von Geometriedaten kleiner Fl\"{u}sse mit einem unbemannten Wasserfahrzeug als Multisensor-Plattform},
+  Author                   = {Sardemann, Hannes and Eltner, Anette and Maas, Hans-Gerd},
+  Year                     = {2018},
+  Editor                   = {Kersten, Thomas P. and G\"{u}lch, Eberhard and Schiewe, Jochen and Kolbe, Thomas H. and Stilla, Uwe},
+  Number                   = {38. Wissenschaftlich-Technische Jahrestagung der DGPF und PFGK18 Tagung in M\"{u}nchen},
+  Pages                    = {389--396},
+  Volume                   = {27},
 
+  Affiliation              = {Professur für Photogrammetrie},
+  Doi                      = {http://www.dgpf.de/src/tagung/jt2018/proceedings/proceedings/band_27/dgpf_tagungsband_2018.pdf},
+  ISSN                     = {0942-2870},
+  Journal                  = {Publikationen der Deutschen Gesellschaft für Photogrammetrie, Fernerkundung und Geoinformation e.V.},
+  Keywords                 = {EXTRUSO, UWV, 360°-Kamera, mobiler Laserscanner, mobile Mapping},
+  Location                 = {Hamburg},
+  Openaccess               = {Ja},
+  Peerreview               = {Nein}
+}
 
 @InProceedings{Sattler2011,
   Title                    = {Fast image-based localization using direct 2D-to-3D matching},
@@ -1292,13 +1286,13 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Article{Westhead2011,
-  author   = {R.K. Westhead and M. Smith and W.A. Shelley and R.C. Pedley and J. Ford and B. Napier},
-  title    = {Mobile spatial mapping and augmented reality applications for environmental geoscience},
-  journal  = {Journal of Internet Technology and Secured Transactions},
-  year     = {2013},
-  volume   = {2},
-  number   = {1-4},
-  pages    = {185--190}
+  Title                    = {Mobile spatial mapping and augmented reality applications for environmental geoscience},
+  Author                   = {R.K. Westhead and M. Smith and W.A. Shelley and R.C. Pedley and J. Ford and B. Napier},
+  Journal                  = {Journal of Internet Technology and Secured Transactions},
+  Year                     = {2013},
+  Number                   = {1-4},
+  Pages                    = {185--190},
+  Volume                   = {2}
 }
 
 @InProceedings{Wu2013,
@@ -1332,10 +1326,10 @@ li% This file was created with JabRef 2.10b2.
 }
 
 @Article{Zhu2013,
-  author  = {Xiaojun Zhu and Qun Li and Guihai Chen},
-  title   = {APT: Accurate outdoor pedestrian tracking with smartphones},
-  journal = {2013 Proceedings IEEE INFOCOM},
-  year    = {2013},
-  pages   = {2508-2516},
+  Title                    = {APT: Accurate outdoor pedestrian tracking with smartphones},
+  Author                   = {Xiaojun Zhu and Qun Li and Guihai Chen},
+  Journal                  = {2013 Proceedings IEEE INFOCOM},
+  Year                     = {2013},
+  Pages                    = {2508-2516}
 }
 
