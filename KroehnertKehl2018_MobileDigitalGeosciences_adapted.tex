@@ -1,0 +1,1210 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno}
+\modulolinenumbers[5]
+
+\usepackage[UKenglish]{babel}
+\usepackage[reqno,fleqn]{amsmath}	% erweiteter Formelsatz und zus�tzliche Mathe-Symbole
+\usepackage{breqn}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[mathcal]{euscript} % For caligraphy fonts
+\usepackage{dsfont}
+\usepackage{makeidx}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage{graphicx}
+%\usepackage[pdftex]{graphicx}
+% declare the path(s) where your graphic files are
+%\graphicspath{{.},{./publishImages/}}
+\graphicspath{{.},{./images/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.tif,.jpg}
+\usepackage[center,tight,footnotesize]{subfigure}
+
+
+%\usepackage{lipsum}
+%\usepackage{xcolor,colortbl,moreverb}
+%\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+%\usepackage{shortvrb}
+%\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+%\usepackage[hidelinks,bookmarks=true]{hyperref}
+%\usepackage{bookmark}
+\usepackage[normalem]{ulem}
+
+%\usepackage[pdftex,
+%			backref,         % List citing occurences in the References
+%			colorlinks,      % Colored links
+%			citecolor=black,  % Color of cite links
+%			linkcolor=black,  % Color of links
+%			urlcolor=blue   % Color of urls
+%			]{hyperref}
+
+%\usepackage{ctable}
+%\usepackage{gensymb}
+%\usepackage{textcomp}
+\usepackage{pdfpages}
+%\usepackage{cite}
+\usepackage{footnote}
+
+\usepackage{lscape} % or {pdflscape}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{color, colortbl}
+
+%\definecolor{LinkColor}{rgb}{0,0,0.5}
+%\definecolor{orange}{rgb}{1.0,0.5,0}
+%\definecolor{ORANGE}{RGB}{255,165,0}
+%\definecolor{green}{rgb}{0,0.61,0.33}
+%\definecolor{blue}{rgb}{0,0.3,0.65}
+%\definecolor{red}{RGB}{255,99,71}
+
+\usepackage{xargs}
+%\newcommandx{\chris}[1]{{\color{blue} \textit{(C)} #1}}
+%\newcommandx{\sophie}[1]{{\color{purple} \textit{(J)} #1}}
+\newcommandx{\change}[1]{{\color{orange} #1}}
+\newcommandx{\changes}[1]{{\color{orange} #1}}
+%\newcommandx{\strike}[1]{\change{\sout{#1}}}
+
+%\newcommandx{\chris}[1]{#1}
+%\newcommandx{\sophie}[1]{#1}
+%\newcommandx{\change}[1]{#1}
+%\newcommandx{\strike}[1]{}
+
+%\hyphenpenalty=0
+%\usepackage[acronyms,shortcuts,automake]{glossaries}
+\usepackage{glossaries}
+\renewcommand*{\acronymfont}[1]{\mbox{#1}}
+\hyphenpenalty=1
+\tolerance=1000
+%\let\oldnewacronym\newacronym
+%\renewcommand\newacronym[3]{\hyphenation{#2}\oldnewacronym{#1}{#2}{#3}}
+
+\hyphenation{Li-dar Map-ping and In-ter-pre-ta-tion En-vi-ron-ment}
+\hyphenation{Dis-crete}
+\hyphenation{In-ter-po-la-tion}
+\hyphenation{di-gi-tal}
+\hyphenation{ele-va-tion}
+\hyphenation{mo-del}
+\input{acronyms}
+
+\journal{Computers \& Geosciences}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+%\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}\setlength\emergencystretch{1.5em}
+
+\begin{frontmatter}
+
+\title{Interactive interpretation of 3D surfaces in field-based geosciences using mobile devices - concepts, challenges and applications}
+%\title{Digital Geosciences on Mobile Devices - Concepts, Challenges and Applications}
+%\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+
+%% Group authors per affiliation:
+%\author{Elsevier\fnref{myfootnote}}
+%\address{Radarweg 29, Amsterdam}
+%\fntext[myfootnote]{Since 1880.}
+%\ead[url]{www.elsevier.com}
+
+%% or include affiliations in footnotes:
+%\author[anonymous]{Anonymous\corref{correspondence}}
+%\cortext[correspondence]{Corresponding author}
+%\ead{anonymous}
+
+\author[tudresden]{Melanie Kr\"{o}hnert\corref{correspondence}}
+\cortext[correspondence]{Corresponding author}
+\ead{melanie.kroehnert@tu-dresden.de}
+
+\author[anonymous]{Christian Kehl}
+%\ead{chke@dtu.dk}
+\ead{anonymous@anonymous}
+
+
+\author[cerege]{Sophie Viseur}
+\ead{viseur@cerege.fr}
+
+\author[uniresearch,uib]{Simon J. Buckley}
+\ead{Simon.Buckley@uni.no}
+
+
+\address[tudresden]{Institute for Photogrammetry \& Remote Sensing, TU Dresden, Helmholtzstr. 10, 01069 Dresden, Germany}
+\address[anonymous]{anonymous}
+%\address[dtu]{Danmarks Tekniske Universitet, DTU Compute, Richard Petersens Plads, Building 321/208, 2800 Kongens Lyngby, Denmark}
+\address[cerege]{Aix-Marseille Universit\'{e}, CNRS, IRD, \gls{CEREGE} UM 34, Dept. Sedimentary and Reservoir Systems, 13001 Marseille, France}
+\address[uniresearch]{Uni Research AS -- CIPR, Nyg{\aa}rdsgaten 112, 5008 Bergen, Norway}
+\address[uib]{Department of Earth Science, University of Bergen, All\'{e}gaten 41, 5007 Bergen, Norway}
+
+
+\begin{abstract}
+\textbf{STILL MISSING}
+\end{abstract}
+
+
+
+\begin{keyword}
+discrete geometry\sep surface reconstruction\sep volume reconstruction\sep surface parameterization\sep digital outcrops
+\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+\section{Introduction}
+\label{sec:introduction}
+
+\change{Mobile devices are ubiquitously available in modern society. Apps for a diverse range of purposes emerged over the past decade. Such mobile devices are also increasingly applied for professional use and scientific purposes to solve computational tasks in outdoor- and field study environments. Geosciences such as hydrology, geology or glaciology rely on the documentation of field observations. In order to improve field study, these domains now attempt employing mobile devices are digital field instrument. This is illustrated in fig. \ref{fig:intro:interpretation}, sketching the envisaged use of tablets and smartphones for geological and hydrological purposes.}
+
+%old - unused%
+%A considerable number of domains within the geosciences rely on digitised natural observations and their interpretation to steer and constrain numerical models. Published (semi-)automatic interpretation methods \cite{Nyberg2015,Ruiu2015} emerged within the past decade that support the digital documentation of observations and interpretations. These advanced interpretation techniques require increasingly complex computing that is restricted to office-based work environments, which poses a problem for field-based studies. Domains such as hydrology, geology or glaciology (as illustrated in fig. \ref{fig:intro:interpretation}) hence established multi-stage procedures where observations are taken manually in the field and later digitised in the office. This is disadvantageous, so there is an increasing desire within the referred domains to facilitate digital interpretations in the field at the study location. Mobile computing equipment (e.g. smartphones and tablets) are one technological option to facilitate such digital field-based workflows, as shown in fig. \ref{fig:intro:mobileInterpretationInField}. These devices are nowadays ubiquitous and can easily be equipped in field-based research. Also, as seen in technical magazines and the general media, the range of available devices continuously increases, which allows to find a ''fit-for-purpose`` device to each specific situation. New application cases, which are demonstrated and discussed in this article, and commitment within geoscience- and computer technology industry lead to an increasing interest in this cross-disciplinary domain between mobile computing and geoscientific documentation.
+
+%\textcolor{red}{[BIG IMAGE OF EXAMPLE INTERPRETATION AND ANNOTATION - possibly even two pictures, one from Chris, one from Melanie} \textcolor{purple}{\\Mel: do you like sketches like this one sketched by myself? maybe those pictures can act as eye catchers in our introduction?}]
+
+
+\begin{figure}[htb!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth, height=6.5cm]{graphics/GRIT_interpretationTools_new}\label{fig:intro:geologicalInterpretationPanel}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth, height=6.5cm]{graphics/sketch_water_level_detection}\label{fig:intro:hydrologicalAnnotationPanel}}
+	 	\end{minipage}
+	\caption{Illustrative examples for geological interpretation (a) and hydrological annotation (b).}
+	\label{fig:intro:interpretation}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+	\includegraphics[width=0.95\linewidth]{graphics/GRIT_overhands}
+	\caption{Target application of field-based interpretation and annotation on mobile devices.}
+	\label{fig:intro:mobileInterpretationInField}
+\end{center}
+\end{figure}
+
+%\begin{itemize}
+%\item Many geosciences domains rely on natural observations and digitised interpretations thereof to steer and constrain numerical models
+%\item many semi-automatic interpretation methods have emerged over the years that support digital documentation of observations and interpretations
+%\item drawback of existing methods: reliance on computing equipment; the more powerful it is, the more stationary it is
+%\item observations within hydrology, geology or glaciology are done outdoor experiments, which prohibit the use of bulky equipment
+%\item the advent of mobile computing equipment, such as smartphones and tablets, enable digital interpretations being carried out in the field
+%\item smart mobile devices are ubiquitous and easy to equip in field-based research
+%\item as seen in technical magazines and the media, the range of available devices increases, which allows to find a device fit-for-purpose to each situation
+%\end{itemize}
+
+\change{Geoscience apps for assessing two-dimensional data have been available for several years now (see ~\cite{} for examples). The availability three-dimensional base data and their increasingly-easy acquisition (e.g. via drones, \gls{SfM} \cite{Wu2013} and multi-view geometry \cite{Goesele2007}, satellite \glspl{DEM}) makes it possible to assess 3D data in various scenarios. The application domains benefit from the development in acquisition technology as well as fundamental 3D data processing by being able to analyse the data on small-scale devices right in the field.} Furthermore, crowdsourced data and \gls{VGI} contribute to the geoscience data inventory, being acquired by citizen scientists. %amateur scientists and domain enthusiasts.
+
+%\begin{itemize}
+%\item availability of small form factor devices is only on part contribution to making digital geosciences more ''mobile``
+%\item appropriate 3D data needs to be available on these mobile devices to perform interpretations
+%\item availability of 3D surface models increases, due to easy-to-use software and instrumentation (e.g. drones, \gls{SfM}, satellite \glspl{DEM})
+%\item crowdsourced data and \gls{VGI} constitute to the geoscience data arsenal, being acquired from amateur scientists and novices interested in a particular domain
+%\end{itemize}
+
+\change{Domain-specific mobile software is required to realise the various domain expert requirements on the target devices, as off-the-shelf software insufficiently addresses the envisaged usage scenario or the domain-specific data types. This is not novel as domain-specific software is often needed to address specific needs and usage scenarios also on common workstations. What makes mobile software distinct is the modality of the device: the only commonplace interaction is via touch screen, data memory is a scarce resource when compared to workstations, and a prime concern of mobile usage is energy consumption while performing certain tasks. The advantage, on the other hand, is the mobility permitted by tablets and smartphones, the array of sensors (with varying degrees of accuracy) available in the field and the high computational qualities compared to the device size. Developing geoscience, domain-specific mobile software requires to address these challenges (interaction, data handling, energy efficiency) while highlighting how the device advantages are used to support fieldwork tasks in original ways.}
+
+%old - not used anymore
+%Domain-specific mobile software is required in order allow for data interaction on the available mobile devices. Specific challenges such as power consumption, multi-manufacturer support, smart sensor utilisation and device intercommunication distinguish mobile software from common desktop software. This leads to a very different electronics design of tablets and smartphones compared to desktop PCs and laptops. In return, this means that existing approaches for digital data processing and interpretation are not transferable as--is to this new computing domain. Even when considering the fast technological development, there are some challenges within mobile device software development that are rooted in the technology itself: user interfaces need to be designed specifically for touch screen interfaces, natural language interfaces and gesture interaction (e.g. ''swipe`` and ''optical lens`` motions). \Gls{GNSS}-based localisation accuracy, as delivered by the integrated-circuit sensor of mobile devices, is inferior to common user expectations and requirements in geoscientific studies. The modalities of sensor data delivery (be it hardware sensor or software emulation), photo capturing and processing, and the computational capabilities of mobile devices differ significantly between each vendors. Short-comings, such as inappropriate data structuring, visual object correlation and registration, increasing data volumes and the unavailability of off-the-shelf program codes further complicate the technological development. Addressing the demonstrated challenges distinguishes the mobile application development from common desktop software development for geoscience purposes.
+
+%\begin{itemize}
+%\item In order to connect data and devices in the field, domain-specific mobile software is required
+%\item specific demands and challenges, such as energy efficiency, multi-manufacturer support, smart sensor utilisation and device communication, distinguish mobile software from common desktop software
+%\item existing approaches for data interpretation are not transferable as--is to mobile devices
+%\item new application cases, which are demonstrated and discussed in this article, and an increasing interest from geoscience- and computer technology industry lead to an increasing interest in this cross-disciplinary domain between mobile computing and geoscientific interpretation
+%\item Even considering the fast technological development, some challenges around mobile device development exists that are rooted in the technology itself
+%\item user interfaces need to be specifically designed for mobile devices, utilising touch interfaces, natural language interfaces and gestures (e.g. ''swipe´´ motions)
+%\item short-comings in geo-localization accuracy, object matching- and registration accuracy, geometric- and photometric data processing, data volumes and the availability of off-the-shelf program codes further complicate mobile device development
+%\item technical details such as device variability, power consumption and computing efficiency (i.e. fast calculations with drastically limited computing capabilities) also need to be address during software development
+%\item addressing the demonstrated challenges distinguish the complications domain-specific mobile application development pose in comparison to common desktop software
+%\end{itemize}
+
+This article \change{addresses the challenges of mobile sensor variability, their usage in image-to-geometry registration of pointcloud base data, and the related energy consumption in comparison to a \gls{DSM} base data mobile application. The technical research is approached via} two use cases within the domains of surface hydrology and (petroleum) geology. The content covered in the article is a \change{significant} extension of earlier published research \cite{Kroehnert2017b}, focussing on extensive measurements to verify the reasoning and statements of previous studies.
+
+%\begin{itemize}
+%\item this article demonstrates how the above-listed challenges can be address on two use cases within the domains of hydrology and geology, adding the desired value to digital field-based observation and interpretation
+%\item the content covered in the article is an detail-driven extension of earlier published research \cite{Kroehnert2017b}, focussing on extensive measurements to verify previous studies on a more general level
+%\end{itemize}
+
+The sections within this article adhere to the following structure: \change{First, different 3D surface data representations are briefly discussed which are employed in hydrology and geology. Second, algorithmic baseline concepts that are key for 3D base data interaction on mobile devices are introduced, summarising project-internal development by the authors as well as referencing key literature on the subject. Third, the challenge of mobile sensor positioning and orientation is addressed with an in-depth study measuring mobile sensors and comparing their accuracy and variability to professional IMU reference data. Fourth, power consumption of such 3D surface data mobile applications is addressed via measurements and analysis of energy efficient control parameters. Subsequently, a section discussed} how available mobile systems are used in surface hydrology (i.e. water level gauging) and petroleum geology (i.e. field interpretation) to improve data analysis and integrate outdoor measurements in digital workflows. Then, the article is finalized with some concluding remarks and discussions for future developments in this research trajectory.
+
+%\begin{itemize}
+%\item For the following sections, the article adheres to following structure:
+%\item First, use cases are presented as opening statements to introduce task that are exclusively addressed by mobile devices in the digital geosciences
+%\item Secondly, the different forms of 3D surface data representations are introduced that are in use within the digital processing presented in this article
+%\item Thirdly, algorithmic baseline concepts that are key for interpreting 3D data on mobile devices are introduced, summarising project-internal development by the authors as well as referencing key literature on the subject
+%\item Fourth, the algorithms are mapped to the specific mobile technologies and components. The technologies and major parameters that impact the target use case application are highlighted.
+%\item Finally, we showcase and discuss how available mobile systems are used in application scenarios from hydrology and petroleum geology to improve data analysis and integrate outdoor measurements in digital workflows
+%\item Then, the article is finalized with some concluding remarks and a discussion for future developments in this research trajectory
+%\end{itemize}
+
+%\section{Target case studies}
+%\label{sec:case_studies}
+
+%The focus in this study is to assess the applicability of mobile devices for field-based studies of surface fluid flow and sedimentary deposition. Other processes to which this scenario extends are erosional processes (e.g. coastal monitoring \cite{Letortu2017, Medjkane2018}), glacial processes (e.g. glacial motion and monitoring \cite{Schwalbe2017b}) and landslides.
+
+%These domain applications feature common challenges and tasks: Given a 3D surface model being observed from given viewpoints (combining external position and orientation) within a pre-defined geo-referencing context, features in the topography are to be delineated. The delineation can be approximately horizontal to the average surface (e.g. water level gauging) or arbitrarily oriented within the topography (e.g. sedimentary boundaries). The delineations document observations or interpretations relative to the topography.
+
+% === CAN BE OMITTED FOR BREVITY ===
+%%In a traditional perspective, a key metric for the documentation quality is the metric accuracy of the digitised line delineation relative to the actual real-world position of the observation, e.g. the average distance in real-world metrics. The required metric accuracy can vary between the different application purposes. It also illustrates the difference between observation and interpretation: observations target the documentation of an actually visible feature, and thus usually requires higher accuracy than interpretation documentation, as the interpretation itself is a synthesis of direct observation and its interpolation with to domain-specific knowledge.
+
+% === CAN BE OMITTED FOR BREVITY ===
+%%In relation to mobile technology and mobile-assisted mapping, this traditional metric is difficult to assess. In such application setting, the achievable accuracy depends largely on the precision, the georeferencing and the sample resolution of the underlying 3D model that has been formerly acquired. In modern scenarios, there is an increasing demand of making use of existing, freely available topographic models for comparability and cost reduction, which therefore the mobile application has no influence on. An even larger degree of influence is exerted on the other end of the observation -- specifically: the view point. Using mobile devices, the accuracy of the view point directly depends on the accuracy of the delivered sensor information (e.g. magnetic orientation, \gls{GNSS} localisation). Furthermore, as shown below and previously assessed in the literature \cite{Meek2013,Blum2013,Kehl2015c,Novakova2017},  the accuracy range of these sensor information is broad. It depends on the environment circumstances and even on the assembly of a specific mobile device. Furthermore, the raw signal is processed by dedicated hardware drivers in the operation system by non-transparent and possibly statistical methods and stochastic sampling. Based on these information, it is questionable and problematic to give a fixed measure on the accuracy of such measurements.
+
+% === CAN BE OMITTED FOR BREVITY ===
+%%Mobile devices, their casual use and their ability to capture new measurements, pictures and digital interpretations and annotations provides a user-driven solution in this case. Letting the domain expert verify the quality of a specific mapping as being ''good enough`` or discard the mapping and redo the measurement- and interpretation process is a viable strategy to achieve the desired quality. The strategy is an option that is prohibited for previous, highly professional mapping products due to their considerable time expense in the creation process.
+
+%The hydrological application of this study attempts to document horizontal water level gauge observations for free surface flow hydrology in river catchments with a high degree of mapping accuracy. In order to meet the demanded accuracy, the presented \textit{Open Water Levels} software makes use of temporally-correlated time lapse image series. On the other hand, the geological application in this article maps user-defined free form interpretations on the rock face of an outcrop to delineate geological element boundaries, facies, and supplementary depositional information.
+
+%Delineating the areas of interest directly outdoors and by replacing manual positioning with mobile sensor outdoor positioning requires viewpoint estimates and image registration procedures. The accuracy requirements on the sensor data stand in contrast to traditional means of measuring the object of interest directly (e.g. via \gls{dGPS}): direct object measurements require (for most application cases) centimetre accuracy from the measurement device itself, while delineations on mobile devices only require valid estimates for position and orientation because the final coordinate mapping of the object boundaries is based on a registered image obtained by computer vision algorithms. While this allows a minor degree of variability on the sensor measurement, it also introduces another error source to the object boundary mapping coming from the computer vision image registration. This is true in the case of water level gauging as well as geological element mapping.
+
+
+
+\section{\change{3D base data representations}}
+\label{sec:representations}
+
+Various representation forms for 3D terrain data are available. While early digital systems used gridded \glspl{DEM} for their simplicity and compact storage \cite{Trinks2005,McCaffrey2005}, \glspl{DSM} and \glspl{TIN} are dominating most terrain-based systems for application-specific analysis \cite{Buckley2008a,Caumon2013} \change{at the moment}. A useful example can be seen in \cite{Schwalbe2017b} for glaciology, where the authors use a  triangulated digital surface model to represent a Patagonian glacier front.
+%Examples can be seen computing the impact of solar shade on glacial mass loss \cite{Marsh2012}, where the authors use high-quality Delaunay-\glspl{TIN} \cite{Shewchuk1996} as terrain representation. 
+For triangular surfaces, it is important to distinguish geometrically valid \glspl{TIN}\change{, organised as \glspl{PLC},} from polygon soup surfaces (fig. \ref{fig:representations:meshDistinction}). While the latter is often employed in early stages of mesh-based software systems due to its simplicity and ease of implementation, valid \glspl{TIN} are employed in mature \change{project stages as automated analysis methods} (e.g. auto-interpretation, volume derivation) require clean surfaces with coherently outward-oriented surface normals.
+
+\begin{figure}[htbp]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[piecewise-linear complex (PLC)]
+			{\includegraphics[keepaspectratio, width=0.44\columnwidth]{graphics/MamTor_PLC_MeshLab}\label{fig:representations:PLC}}
+			\subfigure[polygonal soup]
+			{\includegraphics[keepaspectratio, width=0.44\columnwidth]{graphics/MamTor_TexSurf_composed}\label{fig:representations:polygonSoup}}
+	 	\end{minipage}
+	\caption{Illustrative distinction between valid \glspl{TIN} (consisting of one exclusive, smooth, closed surface) and polygonal soups. Non-textured model parts are coloured with respect to their actual segment number. Images taken from \cite{Kehl2017_PhDThesis}.}
+	\label{fig:representations:meshDistinction}
+\end{center}
+\end{figure}
+
+In geoscience domains such as petroleum geology, texture- and color information are vital for interpretation- and analysis tasks. In these cases, as demonstrated by Buckley et. al \cite{Buckley2008a} and Caumon et. al \cite{Caumon2013}, the surface is supplemented with photographic information via texture projection. The models are referred to as \glspl{DOM} (see fig. \ref{fig:representations:DOM} as reference depiction).% As it is also possible to project textures from outside the visible spectrum as supplementary information on the surface \cite{Kurz2011}, we generalize for the remainder of the article that the model in question consists of its geometric and radiometric information.
+
+
+%[ASK SIMON FOR USAGE OF IMAGES FROM VOG - use own reconstruction of Whitby cliffs for nice TINs]
+\begin{figure}[htbp]
+\begin{center}
+	\includegraphics[width=0.95\linewidth]{graphics/DOM00}
+	\caption{Example of a \gls{DOM} as textured triangular surface.}
+	\label{fig:representations:DOM}
+\end{center}
+\end{figure}
+
+In contrast, other geoscience domains, such as hydrology and free surface flow management, used georeferenced laser scanner point clouds and coloured point data streams provided by terrestrial photogrammetry for small- or \gls{UAV} for large-scale study cases. \change{The colour component of the base data is either provided by auxilliary photographs or embedded as part of the point cloud reconstruction (e.g. gls{SfM}).} The \glspl{PSS} support tasks like coastal monitoring \cite{Letortu2017, Medjkane2018}, soil erosion and rain-induced landslide observation, and even monitoring river topography \cite{Watanabe2016} and flood protection management \cite{Leskens2015}. Nevertheless, new approaches for low-cost and on-the-fly river monitoring \cite{Kroehnert2017a} arise due to globally increasing flash flood events after heavy rainfalls \cite{Mueller2011} that are further addressed in section \ref{sec:water_level_gauging_intro}.
+ 
+Since \gls{SfM} became state of the art in geosciences, the acquisition of (true-) coloured ''point cloud`` models is not that difficult and commonly employed because of its rapid processing, compared to conventional approaches like \gls{TLS}. Regarding 3D annotation, nearest neighbour analysis provides an opportunity whereby surface triangulation can be avoided.
+
+%%\sout{... colored point data streams are used as models, which are provided by \gls{UAV} and \gls{SfM} Presentation techniques (i.e. rendering) are in these cases adapted versions of \gls{PBR} \cite{Rusinkiewicz2000}. Examples of point-based surface analysis in hydrology can be found in Leskens et. al \cite{Leskens2015}, whereas \gls{VRGS} is an example software for petroleum geology that employs similar techniques (see Rarity et. al \cite{Rarity2014}).} \textbf{HERE MELANIE'S PASSAGE}
+
+\change{The above representation forms are also valid} for mobile device software. Because of the limited processing speed of mobile chipsets, the usage of point clouds appears most common within the graphics literature (e.g. Garcia et. al \cite{Garcia2015}). The sparse vertex distribution in point clouds \change{can cause} problems in the data analysis, which is why \glspl{DEM} have seen a revival in the mobile computing domain. \Glspl{DEM} provide dense, closed geometric models that can be rendered and processed efficiently. Furthermore, \change{because of the smaller device memory}, the possible compression options for point clouds and \glspl{DEM} are advantageous. %Base mapping applications such as Google Maps use \glspl{DEM}, derived from \gls{LiDAR} or satellite data \cite{Farr2007}, as their main topographic representation. Other 3D processing systems on mobile devices within the geosciences, such as \textit{Outcrop} and the \textit{\gls{GRIT}}, employ genuine textured triangulated \glspl{DSM}.% from \gls{LiDAR}, drone or \gls{SfM} sources.
+
+%The chosen form of model representation significantly impacts the algorithms and analytical capabilities employed on the mobile device. Although all algorithms presented in this article work on either form of representation, some of the algorithms favour the treatment of triangulated surfaces (e.g. image-to-geometry registration, guided interpretation), while others clearly favour point-based representations (e.g. rendering).
+
+\section{Algorithms}
+\label{sec:algorithms}
+
+This section demonstrates novel- as well as existing algorithms and methods on mobile devices \change{that are needed for case-specific field-based analysis within the geosciences}. The effectiveness of each algorithm depends on the applied model representation and the target usage.
+
+\subsection{Mesh-based rendering}
+\label{sec:algorithms:mesh_rendering}
+
+Rendering a surface model in this context refers to the image generation of the 3D \change{base} data by projective rasterization to the 2D image plane of a virtual camera. This process is performed on mobile devices for the purpose of model presentation as well as for the generation of a synthetic reference image for image-to-geometry registration.
+
+Algorithms for rendering textured triangulated surfaces are well-known amongst \change{practitioners}. In the common rendering pipeline, the textured mesh is transferred as a set of (attributed) vertices and primitive sets (e.g. triangles, polygons) to the \gls{GPU}. The virtual camera is set up using the pre-defined view projection matrix while the graphics primitives are repositioned using the model-related transformation matrix. The rasterizer projects the available 3D information into the camera plane and performs hidden-surface removal. The result is a discrete-space pixel representation. Available textures are mapped as images on the surface using the texture coordinate vertex attributes. The mesh-based rendering algorithms employed on desktop computers are analogous to mobile devices, whereas the technological details are posing the actual challenges.
+
+%\begin{itemize}
+%\item well-known concept
+%\item mesh is transferred as vertex set and primitive set (i.e. triangles or polygons, depending on employing \gls{TIN} or polygonal soup geometry) to graphics processor
+%\item virtual camera is set up as projective view matrix
+%\item primitives are positions in 3D scene via model transformation matrix
+%\item rasterizer projects information to camera plane and transforms continuous data into discrete pixel-based representation
+%\item in-time decompression can be optionally employed (see \cite{Ponchio2016})
+%\item texturing is employed to map image information on the surface; correlation between surface patches and texture images established explicitly beforehand or implicitly defined by geographic coordinate systems (e.g. WGS84 or UTM) for georeferenced surface
+%\end{itemize}
+
+\subsection{A novel approach to mobile point-based rendering}
+\label{sec:algorithms:pbr}
+In comparison to mesh-based rendering, simple point projection seems to be a nice alternative, saving computational resources and efforts for post-processing regarding outlier removal. Thus, we simply project object points onto an image plane using perspective projection, assuming a distortion-free ideal camera with centred principle point. Thus, the camera matrix $\bf K$ equals identity matrix $\bf I$ and can be neglected.
+
+First, applying a six-parameter transformation transfers three-dimensional object points from world reference frame $\vec{X}_W$ into a 3D camera system $\vec{X}_c $ using
+\begin{equation}
+\vec{X}_c = {\bf R} \left( \vec{X}_W - \vec{X}_0 \right) 
+\label{eq:projection_simple}
+\end{equation} 
+
+where $\bf R$ is a $3x3$ orthonormal rotation matrix and $\vec{X}_0 $ the translation vector to camera's projection center. For simplicity, the usage of the planar Cartesian UTM system with $x$ pointing to the east and $y$ pointing to the north with respect to the prevalent zone number. For $z$ component, the height over the Earth Gravitational Model 1996 (EGM96) is advisable to use. 
+
+Counting for homogeneous coordinates, we can describe the relation between camera $\vec{X}_c$ and image coordinates $\tilde{x}$ involving their depth components. 
+\begin{equation}
+\begin{pmatrix}
+\tilde{u} \\
+\tilde{v} \\
+c_c
+\end{pmatrix} =
+\begin{pmatrix}
+x_c \\
+y_c \\
+z_c
+\end{pmatrix}
+\end{equation}
+
+For camera's imaging plane, we introduce the constant $c_c$ that defines the distance between camera's sensor and its projection center in $[mm]$, which equals focal length $f$. To separate camera sensor system and image system, we use the term $c_c$ when referring to the sensor $[mm]$, and $f$ for digital image coordinates $[px]$. For conversion, $c_c$ must be divided by the sensor's pixel pitch. The normalization of the projected points to homogeneous coordinates is key in the further processing. This is analogous to the image-to-geometry projection in eq. \ref{eq:i2g:projection}, where the projection variable $w$ is replaced with the camera constant $c_c$.
+
+\begin{equation}
+\vec{X}_{Cam} =
+\begin{pmatrix}
+\frac{\tilde{u}}{c_c} \\
+\frac{\tilde{v}}{c_c} \\
+1
+\end{pmatrix} = \begin{pmatrix}
+\frac{x_c}{z_c} \\
+\frac{y_c}{z_c} \\
+1
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+\tilde{u}\\
+\tilde{v}\\
+\end{pmatrix}
+= \begin{pmatrix}
+\frac{x_c}{z_c} \cdot c_c \\
+\frac{y_c}{z_c}\cdot c_c
+\end{pmatrix}
+\label{eq:ut_vt}
+\end{equation}
+
+For a final transformation of 2D sensor coordinates into image pixels, we need to shift the image coordinate system to the origin to left upper corner and scale the coordinates from global units in meters per pixel using $p_s$. Thus, we derive image coordinates $(u,v)$ for an ideal camera using
+
+\begin{equation}
+\begin{pmatrix}
+u\\
+v\\
+\end{pmatrix}
+= \frac{1}{p_s}
+\begin{pmatrix}
+\frac{x_c}{z_c} \cdot c_c  - {u}_0 \\
+\frac{y_c}{z_c}\cdot c_c  - {v}_0 
+\end{pmatrix}
+\label{eq:final_ps}
+\end{equation}
+
+\subsubsection{Calculation of 3D bounding box of interest and image plane}
+In the mobile rendering scenario, we need to define a region of interest regarding 3D point projection in order to cull the render content of the virtual camera to the user's field of view (figure \ref{fig:4_3_bounding_box}). The view frustum's bounding box corner points are calculated using the position and orientation from fused smartphone sensors. Thereby it must be noted that only the heading is used for estimating viewing direction; tilt and roll are excluded. Because of uncertainties regarding exterior information (section \ref{sec:technology:sensors}), the bounding box must be expanded to cover more object space than described by the sensors as well as the camera's field of view. Because of possible noise due to positioning, constants $r$ and $dh$ describe the domain of projection center's uncertainties parallel to image plane. For errors in depth, we define the correction $c = \frac{r}{tan(H)}$ for shifting the projection center along camera axis. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{graphics/4_3_Bounding_Box}
+\caption{Bounding box definition.}
+\label{fig:4_3_bounding_box}
+\end{figure}
+
+The box is widened by the horizontal $H$ and vertical $V$ opening angles with a fixed depth $d$. In order to generate reference data for image-to-geometry registration to annotate 3D data by mobile imagery, the lateral accuracy given by the mobile positioning system as well as the prevalent camera characteristics solve for the mentioned parameters. For camera based gauging, we set $d=200[m]$. Additional tiling of the 3D base data is advisable for a rapid geometry-in-frustum containment checks.
+
+Using the defined frustum of a pyramid as region of interest with a local reference system, the image plane for 3D point rendering can be defined by perspective projection of the remote $xz$ plane (\ref{fig:4_3_bounding_box}) with 
+
+\begin{equation}
+\vec{X}_b = \begin{pmatrix}
+-r - d \tan H \\
+d \\
+dh + d \tan V
+\end{pmatrix}
+\notag
+\end{equation} 
+
+for the bounding box' background plane upper left and 
+
+\begin{equation}
+\vec{X}_b =\begin{pmatrix}
+r + d \tan H\\
+d\\
+-dh - d \tan V
+\end{pmatrix}
+\notag
+\end{equation} 
+
+for the lower right corner. Its height equals the height component in the world reference frame $z_w$. Because of pyramid frustum, we subsequently eliminate points outside the near- and far clipping plane.
+
+\subsubsection{Pyramid approach for depth filtering}
+Because of a limited range of pixels with defined size inside a image plane it seems to be obvious that, in most cases, more than one 3D object points corresponds to the same image pixel. Due to inhomogeneous coordinates it is not possible to figure out afterwards which points are in foreground compared to the camera distances and which ones are behind and thus not visible. This problem can easily be solved during point cloud projection described above by a simple camera-to-object distance check. However, one problem still remains in case of e.g. glass fronts with lacking information (in \gls{TLS} due to deflected lidar or \gls{SfM} when having homogeneous surfaces) or small archs (see figure \ref{fig:4_3_dist_images}). Then, points might be visible pointing away from camera projection center. On the one hand, point normals may solve the problem but due to the data acquisition technique and the model's complexity, they are more or less easy to derive \cite{Sattler2011}.
+
+Scale-space image pyramids are a nice alternative approach to overcome the issue. Our scale space is constructed from multiple synthetic images via step-by-step adjustment of $k \cot p_s$ (see eq. \ref{eq:final_ps}) with $k=2$, resulting in halve the number of image rows and columns per layer. Then, the algorithm verifies if two pixels corresponds in two subsequent layers, preserving edges (figure \ref{fig:4_3_point_filtering},\ref{fig:4_3_dist_images}). 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{graphics/4_3_point_filtering}
+\caption{Visualisation of hierarchical depth filtering to handle point occlusions.}
+\label{fig:4_3_point_filtering}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm]{graphics/4_3_dist_image_orig}%
+\includegraphics[width=5cm]{graphics/4_3_dist_image_filt}%
+\caption{Left, actually obscured visible 3D points close to archs and windows. Right, edge preserving result after filtering.}
+\label{fig:4_3_dist_images}
+\end{figure}
+
+
+\subsubsection{Filling gaps due to missing points}
+Because of pixel size and image plane definition with a specific resolution (i.e. depending on smartphone full-scale camera's resolution for image registration purposes) there will still be gaps between projected points (see figure \ref{fig:4_3_dist_images}, right). In order to fill these gaps, we recommend to use a simple nearest neighbour approach using binary search \cite{Bentley1975} in the 3D domain to fill these gaps, applying weights to average 3D points color attributes depending on their euclidean distances. For this, thresholds for maximum distances between 3D points must be applied to avoid unreasonable gap-filling. Exemplary for use case in section \ref{sec:water_level_gauging_intro}, a before--after comparison of the gap filling is shown in figure \ref{fig:4_3_fill_images_before_after}. % Comment Chris: you show a before-after comparison - that's hardly 'visualisation'. I'd rather opt for 'show' in this case.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{graphics/4_3_fill_images_before_after}
+\caption{Fill image gaps using nearest neighbour binary search in 3D domain.}
+\label{fig:4_3_fill_images_before_after}
+\end{figure}
+
+%\subsection{Structure-from-Motion (SfM) and  Visual Simultaneous Localization and Mapping (Visual SLAM)}
+%
+%\begin{itemize}
+%\item \sout{short description what it does}
+%\item \sout{how is it generally employed}
+%\item \sout{relation to mobile devices}
+%\item \sout{approaches and implementation known on mobile devices}
+%\item integration to the above-mentioned use cases
+%\end{itemize}
+
+%\gls{SfM} and visual \gls{SLAM} aim at automatically reconstructing a 3D environment from a stream of images \cite{Snavely2006}. The output of these 3D reconstruction methods are colored point sets (i.e. point clouds). The technique is employed in the geosciences to acquire and measure 3D surfaces and terrain either via a manually collected photo set, or by using drones \cite{Dewez}. The large potential for these algorithms on mobile devices being used directly in the field is that no other equipment was needed the generation of the digital 3D data used for analysis. A powerful mobile devices, such as the Project Tango\footnote{•} or NVIDIA Shield\footnote{•}, is capable of 3D terrain data collection in realtime directly in the field.
+
+%Because of the large potential to all branches in the geosciences to deliver on-spot data acquisition, several research groups have conducted research into that topic. \textbf{FILL IN PARTS FROM THE THESIS HERE!}
+
+%A problem with the listed approaches is their lack of maintenance. There is no readily-available software to this date in the mobile app stores that allows real-time SLAM or SfM. Reasons for the disappearance on previous prototypes can vary, but a major problem is the speed of development for mobile devices. As new operation system versions are published on a half-year to yearly basis, it means that software gets deprecated very rapidly. If no industrial partner cares to maintain and market a given research prototype, then that is vanishing from the mobile software market quickly.
+
+\subsection{Image-to-geometry registration}
+\label{sec:algorithms:I2G}
+
+%\begin{itemize}
+%\item \sout{short description what it does}
+%\item \sout{how is it generally employed}
+%\item \sout{relation to mobile devices}
+%\item \sout{approaches and implementation known on mobile devices}
+%\item integration to the above-mentioned use cases
+%\end{itemize}
+
+Image-to-geometry algorithms aim at registering 2D images to a given 3D surface, providing a transformation from the 2D image coordinate system to 3D model coordinate system as follows:
+
+\begin{eqnarray}
+\label{eq:i2g:projection}
+P' &\in \mathds{R}^3 &= \begin{pmatrix}
+u \\ v \\ w
+\end{pmatrix} = [ R_{3,3} | T_{1,3} ] \cdot P \\
+P &\in \mathds{R}^3 &= \begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix}  \\
+P' &\in \mathds{R}^2 &= \frac{P' \in \mathds{R}^3}{w} 
+\end{eqnarray}
+
+\begin{center}
+$R_{3,3}$ -- rotation matrix; $T_{1,3}$ -- translation vector \\$P$ -- point of the object; $P'$ -- (projected) point in image plane \\$(u,v,w)$ -- image plane coordinates; $(x,y,z)$ -- world coordinates
+\end{center}
+
+
+Using this coordinate system transformation in combination with a known interior camera orientation, it is possible to project each image on the surface. Specific objects outlined within the image can also be mapped on the surface.% In the geosciences, these algorithms are employed to create a direct correlation between the 3D model and the screen- or image space on which annotations and interpretations are based on \cite{Kehl2016_ISPRS}.
+
+% POSSIBILITY TO CUT HERE IF NEEDED
+Amongst the published literature, feature-based registration algorithms are most common. Here, salient points (e.g. SIFT, SURF, Harris corners, see Mikolajczyk and Schmid \cite{MikolajczykXYZ} for details) or edges within the photograph and rendered image of the target 3D model are used to establish an image-to-image correlation. 
+
+In order to establish a 2D--3D correlation, there are two prevalent approaches available: for triangle mesh models, the 2D feature locations within the rendered image are raycasted using the virtual camera's vanishing point, the imaging plane, and the 3D surface model (see fig. 2 in \cite{Kehl2016_ISPRS}). The intersection between the ray and a triangle within the mesh results in the correlated 3D coordinate of the 2D feature. An alternative approach is needed for point-based models because raycasting does not apply to point representations (i.e. points cannot be intersected directly due to their zero-extent). The alternative approach often applied (see \cite{Sibbing2013,Sattler2011,Rodriguez2012,Garcia2015}) employs smart rendering techniques that virtually expand points into an area features (e.g. blobs, disks or spheres), being subsequently rendered into a depth map. Afterwards, the 3D coordinate of a 2D feature can be inferred directly from the depth map. The novel algorithm introduced in section \ref{sec:algorithms:pbr} also relates to this category of 2D--3D correspondence. Though cleverly utilising graphics technology, this approach is limited by an accuracy-to-speed trade-off: low-resolution and low-quantisation depth maps introduce artificial accuracy errors in the registration process, whereas high-resolution depth maps cost considerable performance in the image generation.
+
+When 2D--3D point pairs are established, the coordinates are normalized and put into a least-squares optimization system, where the target is to determine the exterior camera parameters ($t_x,t_y,t_z,\psi,\varphi,\theta$) from the 2D--3D point-based equation system. Non-linear optimisation systems (e.g. Levenberg-Marquardt) are applied to estimate the desired parameter set \cite{Torr2000}. The whole process can be executed on mobile devices \cite{Kehl2016_ISPRS}. One of the prevalent practical challenges when employing feature-based image-to-geometry registration is to achieve a reliable feature correlation, which is achieved by introducing application-specific constraints (e.g. horizon alignment, straight-edge enforcement or object outlines).
+% END OF CUTTING POSSIBILITY
+
+
+%\begin{itemize}
+%\item feature-based registration: detect prominent points or edges in the input 2D images and a rendered representation of the 3D model
+%\item different concept for registration: 
+%\begin{itemize}
+%\item for mesh models, 2D feature locations are raycasted using camera projection and the 3D model in background; 3D feature location determined upon ray-plane intersection
+%\item for point-based models, raycasting doesn't directly work as point cannot be intersected; prominent solution is employing a smart rendering technique that expands the point into an area, and generate a depth map; after depth map generation, the 3D coordinate of a 2D feature map can be read directly from the depth map; drawback of the method / offset for speed: accuracy limitation of depth maps; high-resolution depthmaps (above $512^2$) cost a lot of performance
+%\end{itemize}
+%\item registration then has source- and target 2D-3D point pairs (in a normalized manner) that are put into a least-squares optimization system (give math here)
+%\item optimization system usually non-linear, usually employing Levenberg-Marquardt optimization schemes \cite{Kehl2015c}
+%\item largest challenges for feature-based registration: (a) reliable feature correlation and (b) optimization stability; useful constraints can employed in both cases -- such as horizon information, building edges, object outlines -- to increase the registration reliability and accuracy
+%\item employing constraints is highly application-dependent
+%\end{itemize}
+
+Feature-based registration is the most common approach for establishing image-to-geometry correlation on mobile devices due to its implementation simplicity, its rapid execution speed, its option for application-specific constraints and the wealth of available code that can be used. Application examples are ample within the literature, ranging from augmented reality \cite{Gauglitz2014,Sweeney2015} over field geology \cite{Kehl2016_ISPRS,Kehl2017_VGC} to surface hydrology \cite{Kroehnert2017a,Boerner2016}. These mobile apps utilize the open-source library \textit{OpenCV4Android}\footnote{OpenCV4Android 2.4.10 - \url{https://opencv.org/platforms/android/}}, which is also employed in this work\footnote{OpenCV4Android extensions at \url{https://github.com/CKehl/opencv4Android_extension}}. Problems in real-world cases are caused by imaging variances, resulting in reduced reliability (i.e. failing to determine any camera parameters) and stability (i.e. determining different parameters for the same sets of images) \cite{Kehl2017_PHOR}. A completely alternative technique to feature-based methods is \gls{MI} \cite{Viola1997,Corsini2013}. \Gls{MI} performs a pixel-wise comparison between the photo $I_{2D}$ and the 2D rendering of the 3D scene $I_{3D}'$ and aims at minimizing the image discrepancies (i.e. $argmin \Delta(I_{2D}, I_{3D}')$). The technique uses information theory quantities such as self-information and entropy in order to compare the similarity of both image. In contrast to feature-based techniques, \gls{MI} faces challenges in the optimization process: the optimization of a 7 degree-of-freedom equation system ($t_x,t_y,t_z,\psi,\varphi,\theta,f$, for $f$ being the focal length) is unstable and prone to rest in local function minima. Only few optimisation solvers are known that can solve such equation systems reliably and provide stable results - most notably NEWUOA (i.e. Powell's method\cite{Powell2006}) used by Corsini et al. \cite{Corsini2013}. None of the advanced solvers is available in modern- and mobile-device programming languages, thus the use of \gls{MI} on mobile platforms is currently prohibited.
+
+%\begin{itemize}
+%\item feature-based registration techniques most prevalent on mobile devices due to execution speed, implementation ease and so forth
+%\item examples of mobile implementation: \cite{Gauglitz2014,Sweeney2015,Kehl2017_PHOR,KroehnertXYZ}; utilize open source library \textit{OpenCV4Android}\footnote{OpenCV4Android - \url{https://opencv.org/platforms/android/}}, also employed in this work\footnote{OpenCV4Android extensions at \url{https://github.com/CKehl/opencv4Android_extension} and \url{}}
+%\item drawback of feature-based methods: reliability and instability to imaging variances (discussed later in this article)
+%\item a contrasting technique commonly achieving more accurate results: mutual information
+%\item idea: pixel-wise comparison between 2D input image and 2D rendering of 3D scene; if both images match (meaning: $argmin \delta(I_{2D}, I_{3D}')$), then registration is completed
+%\item mutual information \cite{Viola1997} use notion of self-information and entropy to measure $\delta(I_{2D}, I_{3D}')$
+%\item challenge: optimization of 7 degree-of-freedom system over such overdetermined system (i.e. each image pixel results in 2 equations for the optimization scheme) unstable and prone to local minima
+%\item only optimization known to provide stable results is NEWUOA (i.e. Powell's method) \cite{Corsini2013}; 
+%\item has recently been employed in an earth science case for \gls{LiDAR} registration \cite{Guislain2016}
+%\item not available for mobile devices until now
+%\end{itemize}
+
+%While the task of image-to-geometry registration can be offloaded to remote computers in the network, it is advantageous to perform the registration on the mobile device itself. This is because, in the overall target of model annotation, the interaction and actual annotation (as explained in section \ref{sec:algorithms:interpretation}) is more intuitive for the user when being performed on photos and images. If the registration of the images is done on the mobile device, it allows for direct feedback and ad-hoc visual quality checks of the interpretations on the underlying 3D surface model (see fig. 7 in \cite{Kehl2017_VGC}). Furthermore, as shown by measurements in section \ref{sec:technology:power}, it can be argued that 2D interpretation are more energy efficient than direct 3D interpretations. Lastly, in settings where network access and offline processing is prohibited, an on-device registration procedure is without alternatives.
+
+%\begin{itemize}
+%\item in terms of usability on mobile devices (why should we want to have that on mobile devices), projection of image-based information is vital on mobile devices
+%\item because of interaction difficulty, image-based interpretations on 3D surface data is preferable
+%\item it is potentially advantageous, in terms of power consumption, to implement data interaction in 2D rather than 3D; a hypothesis proven by experiment in this article
+%\item as it directly relates to the interactive component of the geoscience app, it has to be executed in real-time on the device instead of an offline process
+%\end{itemize}
+
+%\subsection{Data presentation and rendering}
+
+%\begin{itemize}
+%\item \sout{short description what it does}
+%\item \sout{how is it generally employed}
+%\item \sout{relation to mobile devices}
+%\item \sout{approaches and implementation known on mobile devices}
+%\item integration to the above-mentioned use cases
+%\end{itemize}
+
+%\begin{itemize}
+%\item rendering the 3D model in this context refers to generation of image generation of 3D model by projective rasterization of model data to 2D imaging plane of a virtual camera
+%\item rendering is performed to view the 3D model on the mobile device
+%\item also employed to generate a reference image used in the image-to-geometry registration and the annotation and interpretation of the data
+%\item major concepts: mesh-based rendering and \gls{PBR}
+%\item technical details on how this is done covered in the technology section \ref{}
+%\end{itemize}
+
+%Rendering a surface model in this context refers to the image generation of the 3D data by projective rasterization to the 2D image plane of a virtual camera. This process is performed on mobile devices for the purpose of model presentation as well as for the generation of a synthetic reference image for image-to-geometry registration. Furthermore, it can be used to synthesize an image from available 3D data for interpretation and annotation in 2D. A common distinction relative to the geometry representation is done between mesh-based rendering and \gls{PBR}. The presented algorithms are also closely linked to the details of the technological implementation of 3D graphics on mobile devices via the \gls{GLES}, referred in more detail in section \ref{}.
+
+
+
+
+%\subsection{Interpretation and annotation}
+%\label{sec:algorithms:interpretation}
+%
+%Interpretation and annotation techniques aim to map geometries (e.g. lines, polygons) of domain-specific information to the 3D base surface. The mapped geometries are used to delineate interest boundaries or to segment the surface into semantically meaningful units.
+%
+%In hydrological cases, line interpretations are commonly used to mark current water levels as well as high-tide or high-surge water levels. Health monitoring of dykes and levees can use line interpretations to mark cracks within surge defense structures. In geological cases, a mixture of line- and polygon geometries are used. Line interpretations are more commonly related to structural rock features (e.g. cracks, fractures, fault zone boundaries, stratigraphic boundaries), while polygonal area segmentation is more common in sedimentology (e.g. depositional elements, sedimentary objects, sediment facies). That being said, application of the geometries within geology is flexible, as observed in the case of fault facies which use area marks for for structural features.
+%
+%The delineation and mapping can be performed in various ways, depending on the geometric representation of the 3D base surface geometry. Point clouds and 3D \glspl{TIN} can be annotated directly in 3D. In these cases, area markings can be directly embedded as vertex attributes while closest-vertex searches (for point clouds) or view-surface intersections (for \glspl{TIN}) provide the lines' corner points. The largest problems with such direct-3D approach on mobile devices are the data size of the underlying surface and the computational complexity of neighbourhood searches. Nearest neighbour search has a computational complexity of $O(nd)$, where $d=3$ for 3D surfaces and $n$ being the number of vertices in the dataset. This results in non-interactive execution times for 3D vertex marking on mobile devices with real-world datasets (with $n \geq 10^7$). Performing interpretations in 3D on mobile devices also require supportive interaction schemes, including intuitive and easy-access switches between 3D space orientation and actual point selection for the user. Other issues for general direct-3D surface interpretation include the a sparse vertex distribution and open, non-convex geometry (being a particular problem for \glspl{TIN}), surface occlusion and intricate problems related to curved surfaces, where the euclidean vertex distance and geodesic distance along the surface can differ significantly. 
+%
+%Utilising the aforementioned image-to-geometry registration (section \ref{sec:algorithms:I2G}), the given issues of direct-3D interpretation and 3D interaction can be circumvented. The raster image interpretation is computationally more efficient due to the gridded data arrangement and easier to use for novice practitioners on mobile devices. The interpretation geometries are generated as 2D vector graphics elements, which are projected on the 3D surface after the image registration using the estimated external camera orientation or pose. 
+
+\section{Sensors}
+\label{sec:technology:sensors}
+
+What is the great difference between former mobiles and today's smartphones? Smartphones have many inbuilt sensors such as acceleration measurement units, compasses or gyroscopes, playing increasing rolls not only to have control over display or camera rotation. In the following we assess orientation accuracy and precision by applying different sensor fusion methods, which in their turn influence image-to-geometry registration. Furthermore, we give a short review over smartphones' positioning quality in relation to 3D annotation.
+
+\subsection{Localization}
+\label{sec:technology:sensors:localization}
+
+Compared to the years 2008 and 2009, sales volume for navigation systems declined sharply and constantly by approximately 70 percent compared to 2017 in Germany\footnote{see statista.com \textit{Survey: Sales development in Germany for navigation systems since 2005} \url{https://de.statista.com/statistik/daten/studie/3902/umfrage/entwicklung-der-verkaufszahlen-von-navigationsgeraeten-seit-2005/}}. One of the most important factors behind this may lie in the distribution of smartphones with inbuilt positioning systems, providing quite interesting alternatives to former navigation systems.
+For this, most of today's smartphones are equipped with \gls{aGPS} receivers that are able to receive data from American GPS, Russian GLONASS and increasingly European GALILEO as well as Chinese BAIDOU. Even within the geosciences, smartphones gain more and more popularity e.g. for mobile mapping \cite{Westhead2011,Masiero2016}, or actually 3D reconstruction \cite{Micheletti2015,Muratov2016,Ishihara2017}. 
+
+Based on these facts, many research groups recently discussed the potential of smartphone localisation strategies whereby we want to focus on outdoor use cases based on \glspl{GNSS}. Blum et al. (2013) \cite{Blum2013} observe the positioning for Android smartphone Samsung Galaxy Nexus and Apple Iphone 4 with different environmental conditions. Walking through the city they get lateral accuracies of about 10-15m close to buildings no taller than three stories. Near skyscrapers, errors of about 30m should be expected with local extremas up to 60m. Similar things are published by Fritsch et al. (2011) \cite{Fritsch2011} who determined a overall accuracy for Android smartphone HTC Hero of 15-25m valid in 95 percent of cases which was also estimated by Zhu et al. (2013) \cite{Zhu2013} and Zandbergen et al. (2011) \cite{Zandbergen2011}. Exemplary for open spaces, Meek et al. (2013) \cite{Meek2013} observe an average \gls{GPS} accuracy of 6.8m using a Google Nexus S smartphone. However, height estimation seems to be more critical where \cite{Liu2014} name error margins for altitude determination using smartphone's inbuilt \gls{aGPS} which seem to be 2.5 times more than the horizontal component and recommend the alternative usage of barometric approaches, providing height accuracies up to 3m. Unfortunately, only a few of common smartphones have inbuilt barometers and reference data, necessary for barometric altitudes, is quite difficult to obtain.  
+
+
+\subsection{Location sensitivity}
+\label{sec:technology:sensors:location_sensitivity}
+
+Pre-knowledge about an image's position is a necessary prerequisite for image-to-geometry registration. Thus, we are asking for how do uncertainties in positioning affect feature detection and furthermore the matching results. We observe the behaviour on the example of \textit{Open Water Levels} using manually registered reference data to derive the prevalent water level. Afterwards, we change the image's real position, defined in UTM33 WGS84 reference frame, in steps of 2.5 m up to a deviation of 25m for northing, easting and height component and compare the detected water line with ground truth data from an administrative water gauge (see figure \ref{fig:sensor_sensi:easting}, \ref{fig:sensor_sensi:northing}) having an enclosing \gls{DEM}.
+
+Surprisingly, all components are rather equal affected by erroneous locations which rapidly leads to infeasible matchings when location differs more than 2.5m/5m (northing/easting). For height component, the results are quite unstable regarding inlier occurrences and results for water levels. 
+
+Compared to observed accuracies of smartphone inbuilt \gls{GNSS}, the results refer to be non-negligible issues. Thus, in \textit{Open Water Levels}, the user can call Google Maps (if access to the internet is permitted) for manual position refinement, whereas \gls{GRIT} enables repositioning based on locally stored \gls{DEM} data for user-guided repositioning. To correct the even more erroneous height measurements, one option is the use of external \glspl{DEM} included in \gls{GRIT} or invoking third party models e.g. via Google Elevation API\footnote{Developer Guide - Google Elevation Api, \url{https://developers.google.com/maps/documentation/elevation/intro?hl=de}}, as it is implemented in \textit{Open Water Levels}.
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Easting observation]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/Sensor_Sensitivity/easting}\label{fig:sensor_sensi:easting}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Northing observation]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/Sensor_Sensitivity/northing}\label{fig:sensor_sensi:northing}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Height observation]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/Sensor_Sensitivity/height}\label{fig:sensor_sensi:altitude}}
+	 	\end{minipage}
+	
+	\caption{Behaviour of image-to-geometry intersection depending on location uncertainties. Tuning the easting, northing and height component independently from each other whereas the others remained unchanged. ${\Delta}$wl.. absolute error for water level in meters, total inliers.. number of image features in feature-based matching displayed in percent depending on most occurrence, red/yellow/green area.. range of accuracy.}
+	\label{fig:sensor_sensi_location}
+\end{center}
+\end{figure}
+
+
+\subsection{Orientation}
+\label{sec:technology:sensors:orientation}
+
+Nothing to say that low-cost sensor systems for orientation determination, as they are integrated in smartphones, may not have precision and stability compared to professional \glspl{IMU}. Thus, we put forward the hypotheses that noise in smartphone sensor stability as well as their accuracies may not be in ranges comparable to navigation systems in autonomous navigation applications.
+
+To give some basis, a smartphone orientation unit never depends on only one single sensor. It commonly consists of several components like accelerometers, magnetometers, gravity sensors or gyroscopes that measure in all three axes of the device. Due to single characteristics, sensors may complement each others, e.g. both, gyroscopes and accelerometers, measure the rotation of the smartphones in device-specific coordinate systems where gyroscopes are quite precise but suffer from drift effects. On the contrary, accelerometers are less sensitive for drifts but have poor signal-to-noise ratios. Applying sensor fusion helps to compensate for these negative characteristics in an ideal way. 
+
+Thus, Android divides sensors in two categories where, on the one hand, hardware sensors are true inbuilt components and on the other, virtual or soft sensors stand for fused hardware to generate a new synthetic sensor. That's why, when using Kalman filter approaches with different weights, more stability or accuracy can be given to smartphone's orientation. 
+
+Referring to Pacha \cite{Pacha2015}, he presents two alternative virtual sensors additionally to Android's Kalman filtered \textit{Rotation Vector}\footnote{see Android Developers guidance for sensor event values at \url{https://developer.android.com/reference/android/hardware/SensorEvent.html\#values}}, where the \textit{Improved Orientation Sensor 1} should be more precise than Android's Rotation Vector but less stable whereas \textit{Improved Orientation Sensor 2} seems to be less accurate but more robust. In the following, we check the three sensor types \textit{Android Rotation Vector, Improved Orientation Sensor 1} and \textit{Improved Orientation Sensor 2} for their stability and accuracy compared to a \gls{INS} that is commonly used for car and \gls{UAV} navigation. For this, we compare measurements taken at three different times for the devices Google Nexus 5, Samsung Galaxy S8 and the \gls{IMU} Spatial from the Australian company Advanced Navigation v6.1 (for sensor specifications refer to tables \ref{table:sensor:specs}\footnote{see \url{https://technology.ihs.com/api/binary/592077} for Samsung Galaxy S8 and \url{https://de.ifixit.com/Teardown/Nexus+5+Teardown/19016} for Google Nexus 5} \& \ref{table:sensor:imu}\footnote{see \url{http://www.advancednavigation.com.au/product/spatial\#specifications}}). 
+
+\begin{center}
+\begin{small}
+\begin{longtable}[HT]{| p{2.5cm} | p{3cm} | p{4cm} |}
+	\caption{orientation sensor specifications for Google Nexus 5 and Samsung Galaxy S8}
+	\label{table:sensor:specs}
+	\endhead
+		\hline
+		 & Google Nexus 5 & Samsung S8 \\ \hline
+		accelerometer/ gyroscope & InvenSense MPU-6515 (6-axes) & {ST Microelectronics} LSM6DSL (6-axes) \\ \hline
+		magnetic compass & Asahi Kasei AK8963 & Asahi Kasei AK09916C \\ \hline
+		pricing & (-) & 6.50 USD                                                                           \\ \hline
+\end{longtable}
+\end{small}
+\end{center}
+
+
+\begin{center}
+\begin{small}
+\begin{longtable}[HT]{| p{8cm} | p{2cm} |}
+	\caption{\gls{IMU} specifications for Advanced Navigation Spatial v6.1}
+	\label{table:sensor:imu}
+	\endhead
+		\hline
+		roll \& pitch accuracy (static) & 0.1 \\ \hline
+		heading accuracy (static) & 0.5 \\ \hline
+		roll \& pitch accuracy (dynamic) & 0.2 \\ \hline
+		heading accuracy (dynamic with \gls{GNSS}) & 0.2 \\ \hline
+		heading accuracy (dynamic, magnetic only) & 0.8 \\ \hline
+		pricing & 3.500 USD                                                                  \\ \hline
+\end{longtable}
+\end{small}
+\end{center}
+
+
+
+Each measuring epoch comprises six parts. We assume that the sensors will show different behaviour when they are rigid or in motion. Furthermore, magnetic disturbances may influence the heading angle which mainly depends on the magnetic compass sensor. Additionally, we assume that results of sensors in rest may be slightly better when they are able to calibrate themselves after a short running time in motion. All observations are independent from each other, measured over time periods of more or less 2min 30sec. 
+
+%\textcolor{blue}{Chris: correction-read until here. The orientation part really reads quite 'bang-on' technical and I really suggest putting this - together with the battery part - into an actual PHOR paper and give a FAIRLY CONDENSED version of that in CAGEO. I fear (as I do with the 'graphics' technology section too) that we may loose the geoscience audience, because they may ask themselves 'how does this affect me' -- and it's also not that traditional of a writing for a CS audience.}
+
+For comparison, smartphone and \gls{IMU} are mounted on an inflexible non-metallic wooden stick at a distance of 1.0m (to avoid mutual magnetic interferences) with aligned (native) coordinate systems (see figure \ref{fig:technology:sensor:construction}). Only for pitch angle the opposite direction of rotation must be kept in mind.  
+
+\definecolor{heading_green}{rgb}{0.411, 0.639, 0.258}
+\definecolor{pitch_orange}{rgb}{0.882, 0.709, 0.117}
+\definecolor{roll_blue}{rgb}{0.082, 0.447, 0.749}
+\begin{figure}[htbp!]
+\begin{center}
+	\centering
+	\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_construction}
+	\caption{Measurement setup to observe smartphone sensors accuracies and precisions. Heading (green circle).. rotation around positive/ negative z-axis referring to \gls{IMU}'s/ smartphone's native coordinate systems pointing away from sky. Pitch (red circle).. rotation around positive/ negative x-axis in \gls{IMU}'s/ smartphone's reference frame pointing out of smartphone's display to the left. Roll (blue circle).. rotation around positive x-axes for both \gls{IMU} and smartphone pointing to (true) north when smartphone is lying on a flat desk. Distance between devices on wooden stick is 1.0m.}
+	\label{fig:technology:sensor:construction}
+\end{center}
+\end{figure}
+%[IMAGES sensor construction woodstick]
+
+In the following figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:s8:1st:runin}, \ref{fig:sensor_obs:s8:1st:motion}, orientation tracking for Samsung Galaxy S8 in comparison with \gls{INS} (1st run) is documented whereas the others can be found in the supplementary material. The related figures collectively use the same legend, which is given in fig. \ref{fig:sensor_obs:s8:1st:legend}.
+
+\begin{figure}[htbp!]
+\begin{center}
+	\centering
+	\includegraphics[keepaspectratio, width=0.9\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_legend_trim}
+	\caption{Legend applicable for figure \ref{fig:sensor_obs:s8:1st:fixed} to \ref{fig:sensor_obs:s8:1st:motion}, contrasting \textcolor{heading_green}{heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} for different sensor fusion methods.}
+	\label{fig:sensor_obs:s8:1st:legend}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp!]
+\begin{center}
+	 \begin{minipage}{\columnwidth}
+	 	\centering
+		\subfigure[Construction fixed]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_1}						\label{fig:sensor_obs:s8:1st:fixed:1}}
+	 \end{minipage} 
+	 	
+	 \begin{minipage}{\columnwidth}
+ 		\centering
+ 		\subfigure[Construction fixed + magnetic disturbances]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_2}						\label{fig:sensor_obs:s8:1st:fixed:2}}
+	 \end{minipage}
+	 \caption{Deviation between orientation angles [deg] from Samsung Galaxy S8 (dotted line) and Advanced Navigation Spatial v6.1 \gls{IMU} (straight line) captured with devices at rest. \textcolor{heading_green}{Heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} captured with frequencies of $20Hz$ and matched by UTC time every 0.1sec.}
+ 	 \label{fig:sensor_obs:s8:1st:fixed}
+\end{center}
+\end{figure}
+% first static measurements
+
+\begin{figure}[htbp!]
+\begin{center}
+		\begin{minipage}{\columnwidth} 
+	 	\centering
+		\subfigure[Construction fixed + run in]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_3}						\label{fig:sensor_obs:s8:1st:runin:3}}
+		 \end{minipage}
+	 
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Construction fixed + run in + magnetic disturbances]
+				{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_4}						\label{fig:sensor_obs:s8:1st:runin:4}}
+	 	\end{minipage}
+		%\caption{Observation of orientation angles when device (Samsung Galaxy S8) is at rest after a short run-in period (rotating the device around all three axes).}
+			 
+		\caption{Deviation between orientation angles [deg] from Samsung Galaxy S8 (dashed line) and Advanced Navigation Spatial v6.1 \gls{IMU} (straight line) captured with devices at rest after a short run-in period (device rotation around all three axes). \textcolor{heading_green}{Heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} captured with frequencies of $20Hz$ and matched by UTC time every 0.1sec.}
+			 
+		\label{fig:sensor_obs:s8:1st:runin}
+\end{center}
+\end{figure}
+% first run-in measurements
+	 	
+\begin{figure}[htbp!]
+\begin{center}
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Construction in motion]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_5}						\label{fig:sensor_obs:s8:1st:motion:5}}
+	 	\end{minipage}
+	 			
+	 	\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Construction in motion + magnetic disturbances]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_6}						\label{fig:sensor_obs:s8:1st:motion:6}}
+			
+			%\subfigure
+			%{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Galaxy_run1/sensor_diagramms_galaxys8_legend}						\label{fig:sensor_obs:s8:1st:legend}}
+			
+	 	\end{minipage}
+\caption{Deviation between orientation angles [deg] in-motion from Samsung Galaxy S8 and Advanced Navigation Spatial v6.1 \gls{IMU}. \textcolor{heading_green}{Heading}, \textcolor{pitch_orange}{pitch} and \textcolor{roll_blue}{roll} captured with frequencies of $20Hz$ and matched by UTC time every 0.1sec.}
+	\label{fig:sensor_obs:s8:1st:motion}
+\end{center}
+\end{figure}
+% first motion measurements
+
+Results for the indoor measurements of the smartphones (i.e. Samsung Galaxy S8 and Google Nexus 5) show very good agreement as can be seen in the following statistics (fig. \ref{fig:sensor_sensi:imu_mean_s8_nex5}) for both first runs respectively.
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_s8}\label{fig:sensor_sensi:imu_mean_s8_nex5:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_nexus5}\label{fig:sensor_sensi:imu_mean_s8_nex5:nex5}}
+	 	\end{minipage}
+		
+		\caption{Mean deviations between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors Android \textit{Rotation Vector, Improved Orientation Sensor 1} and \textit{2}. }
+		\label{fig:sensor_sensi:imu_mean_s8_nex5}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_s8_tab}\label{fig:sensor_sensi:imu_mean_s8_nex5_tab:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_mean_imu_nex5_tab}\label{fig:sensor_sensi:imu_mean_s8_nex5_tab:nex5}}
+	 	\end{minipage}
+		
+		\caption{Tabular mean deviations between the smartphones Samsung Galaxy S8 and Google Nexus 5 for each orientation angle respectively captured by the three virtual sensors Android rotation vector, Improved Orientation Sensor 1 and 2. }
+	\label{fig:sensor_sensi:imu_mean_s8_nex5_tab}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_correlation_s8_imu}\label{fig:sensor_sensi:imu_correlation_s8_nex5:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure 
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_correlation_nex5_imu}\label{fig:sensor_sensi:imu_correlation_s8_nex5:nex5}}
+	 	\end{minipage}
+		
+		\caption{Correlation between the orientation angles obtained by the smartphones Samsung Galaxy S8, Google Nexus 5 and Advanced Navigation Spatial v6.1 \gls{IMU} with respect to the mentioned virtual sensors. }
+	\label{fig:sensor_sensi:imu_correlation_s8_nex5}
+\end{center}
+\end{figure}
+ 
+Surprisingly, the results of all three virtual sensors of both smartphones show independently from each other almost the same behaviour as visualised in the figures \ref{fig:sensor_obs:s8:1st:fixed}, \ref{fig:sensor_obs:s8:1st:runin}, \ref{fig:sensor_obs:s8:1st:motion}. Especially \textit{Improved Orientation Sensor 1} and \textit{Android Rotation Vector} are very similar whereas \textit{Improved Orientation Sensor 2} seems to be slightly more stable as expected.
+Beside this, note that pitch and especially roll angles of both smartphones are close to the orientation of the reference \gls{IMU} even if the correlations in figure \ref{fig:sensor_sensi:imu_correlation_s8_nex5} shows little similarity. This correlation issue is caused by slight synchronisation errors visible e.g. in the graphs of figures \ref{fig:sensor_obs:s8:1st:runin:4} and \ref{fig:sensor_obs:s8:1st:motion:5} which may be caused by averaging sensor values to establish comparability between both smartphones and \gls{IMU} respectively by UTC time. 
+
+Considering \glspl{RMSE} in figure \ref{fig:sensor_sensi:imu_mean_s8_nex5_tab}, good agreement with related studies can be resolved. Blum et al. (2013) \cite{Blum2013} determined orientation errors up to 30$^\circ$ for heading with significant drifts accelerating over 4$^\circ$/s while walking in the streets with an iPhone 4 for several minutes. Furthermore, Kok et al. (2017) \cite{Kok2017} show how magnetic disturbances affect all three orientation angles referring to errors of more than 30 degrees (especially for heading) which is  recognizable in our studies too. They also figured out that the heading's accuracy is relatively low compared to roll and pitch, which are considered accurate. They justify the results with a worse signal-to-noise ratio of the magnetometer compared to that of the accelerometer and the local magnetic field vector, being commonly used for the compass direction that points to magnetic- instead of true north. In our case, we use the magnetic field to compute true north by location-dependent declination adding to sensor's heading and thus correct heading pointing to true north as it appears for our reference \gls{IMU}. 
+
+\subsection{Parameter stability}
+\label{sec:technology:sensors:stability}
+
+Focussing on both rigid measurements, visualised in figures \ref{fig:sensor_obs:s8:1st:fixed:1} and \ref{fig:sensor_obs:s8:1st:fixed:2}, sensor stability can be assessed by comparing standard deviations summarised over full observation period of 2min 30sec (see figure \ref{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}). Except heading angle, both devices show very stable measurements for all virtual sensors with standard deviations less than 0.1 degrees. Surprisingly, angles belonging to sensor \textit{Improved Orientation Sensor 2} show higher discrepancies although they should be less accurate but more stable. Nevertheless, for all virtual sensors the results are comparable to others studies like Fritsch et al (2011) \cite{Fritsch2011}, who measured standard deviations over 20 samples for heading, pitch and roll of 1.0$^\circ$, 0.2$^\circ$ and 0.1$^\circ$ respectively (using smartphone HTC Hero). Similar results are presented by Meek et al. (2013) \cite{Meek2013} for compass (heading) and tilt (pitch) angles referring to standard deviations of 5.1$^\circ$ and 0.75$^\circ$.
+
+Including gyroscopes, heading is vulnerable for large drifts over time \cite{Kok2017} which is 
+especially noticeable for our reference \gls{IMU}. Also, the \gls{IMU} seems to be rather susceptible to magnetic disturbances (see figures \ref{fig:sensor_obs:s8:1st:fixed:1} \& \ref{fig:sensor_obs:s8:1st:fixed:2} on the right hand side). As mentioned in the beginning, sensor fusion can compensate negative impacts regarding sensor hardware. We have no information for filter algorithms used in Advanced Navigation Spatial v6.1, but for smartphone orientation determination the applied virtual sensors try to compensate this deficiency. 
+
+
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Standard derivation for Samsung Galaxy S8, 1st run with fixed device (left) and fixed device with magnetic disturbances (right)]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_stability_s8}\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5:s8}}
+	 	\end{minipage} 
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Standard derivation for Google Nexus 5, 1st run with fixed device (left) and fixed device with magnetic disturbances (right)]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/sensor_stability_nex5}\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5:nex5}}
+	 	\end{minipage}
+		
+		\caption{Assessment of sensor stability.}
+		\label{fig:sensor_sensi:imu_sensor_stabi_s8_nex5}
+\end{center}
+\end{figure}
+
+\subsection{Parameter sensitivity}
+\label{sec:technology:sensors:sensitivity}
+When we talk about the registration of 3D objects and 2D image data, it becomes obvious that similarities between virtual representations and the corresponding captured photos are of pivot importance. Key drivers for this are matching extrinsics due to the projection provisions. As shown above, positioning and orientation using smartphones may be a serious problem caused by incorrect exterior orientation leading to different image contents. 
+
+We observe the behaviour of image-to-geometry intersection by the example of camera-based water gauging using the application \textit{Open Water Levels} on Samsung Galaxy S8. Thus, we compare the results of a manually selected image point of the water line that is transferred into object space using a \gls{DEM} of the scene captured at lower water (see figure \ref{fig:sensor_sensi}). For this, we changed the true angles of heading, pitch and roll (marked with red line) independently from each other in increments of five degrees turning clock- and counter-clockwise.
+As shown in figure \ref{fig:sensor_sensi:heading} and \ref{fig:sensor_sensi:pitch}, changing the heading and pitch angle is correlated with the number of matching feature points essential for camera estimation. Surprisingly, the result for the determined water level seems to be almost unaffected if only $10\%$ of inliers, compared to the total amount of features being found inside the measurements series, remain due to changing view direction. Thus, the most critic angle (refer to fig. \ref{sec:technology:sensors:orientation}) can vary in range of $[-40,40]$ degrees. A similar picture emerges when assessing the angles for pitch, which can change in range of $[-25;25]$. If these limits are exceeded, the camera only sees the sky or the ground (for pitch) or looks in a completely wrong (compass) direction (regarding heading). Compared to these two angles, the roll angle show a different behaviour. For image matching we chose the rotation-invariant \gls{SIFT} descriptor \cite{Lowe2004} and thus, changing the roll angle does not have major influence on the outcome as shown in \ref{fig:sensor_sensi:roll}.
+% ==== ==== ==== ==== ==== ==== %
+%\textcolor{blue}{Chris: for this all-in-one article: okay. If we go for a split paper, this passage needs to be supplemented and compared to computer vision literature - there are at least 4 studies in THE MAJOR CV LITERATURE that discuss the topic.}
+% ==== ==== ==== ==== ==== ==== %
+
+Compared to sensor accuracy measurements in \ref{sec:technology:sensors:orientation}, the results give a comfortable feeling using smartphone sensor fusion for the determination of approximate orientation where pitch and roll show maximum errors up to 7.4 and 5.3 degrees. However, for heading there could be massive problems ahead showing errors in section \ref{sec:technology:sensors:orientation} up to 120.6 degrees.
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Heading observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Sensitivity/heading}\label{fig:sensor_sensi:heading}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[Pitch observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]{graphics/Sensor_Sensitivity/pitch}\label{fig:sensor_sensi:pitch}}
+	 	\end{minipage}
+		\begin{minipage}{\columnwidth} 
+	 		\centering
+			\subfigure[Roll observation]
+			{\includegraphics[keepaspectratio, width=1\columnwidth]	{graphics/Sensor_Sensitivity/roll}\label{fig:sensor_sensi:roll}}
+	 	\end{minipage}
+	\caption{Behaviour of image-to-geometry intersection depending on orientation changes. Tuning the angles heading, pitch and roll independently from each other whereas the others remained unchanged. ${\Delta}$wl.. absolute error for water level in meters, total inliers.. number of image features in feature-based matching displayed in percent depending on most occurrence, red/yellow/green area.. range of accuracy.}
+	\label{fig:sensor_sensi}
+\end{center}
+\end{figure}
+%[IMAGES sensor sensitivity]
+
+
+
+
+
+
+%\subsection{Graphics}
+%\label{sec:technology:graphics}
+%
+%As shown in section \ref{sec:algorithms}, 3D rendering constitutes key algorithms for surface-based interpretation and annotation. Mobile devices can implement the rendering in two distinct ways: directly on the device using the integrated \gls{GPU}, or via remote rendering over the network and the transmission of images.
+%
+%In cases where the app's target environment are urban settings and locations of well-developed infrastructure, the mobile device can utilise the wireless network connectivity and apply \textit{remote rendering} for the image generation. This allows externalising the rendering tasks for 3D models and supplementary data (as in Ponchio et al. \cite{Ponchio2016}), where the mobile device only submits render requests (supplemented with current view parameters) and receives the generated image. This makes the usage of larger and higher-resolution models more tangible as they are not affected by mobile device limitations. In contrast, the limitations on remote rendering are set by the requested target image size- and resolution, the target refresh rate, and the limited bandwidth of the mobile network \cite{Ponchio2016,Evans2014}. Moreover, the process is agnostic to the individual mobile device specifications when sending the request, making the rendering process work across all major mobile device system manufacturers (e.g. Google, Apple, Microsoft/Nokia). A positive side affect as a result of remote rendering is the reduced energy consumptions (see section \ref{sec:technology:power} for details), which allows for the application of advanced algorithms for sensor tracking in localisation and orientation (see section \ref{sec:technology:sensors:orientation}).
+%
+%The internet access may be restricted or expensive to establish (e.g. up to 70 euro per month\footnote{see \url{www.skydsl.eu}, skyDSL2+ flatrate with 30 MBit/s download}) for other outdoor applications in remote areas. Thus, outdoor applications operating in remote areas are prohibited from web-based rendering and need to perform rendering on the device. In this case, the 3D data reside in the device memory and the rendering process is affected by the performance-restricted mobile device hardware.
+%
+%The emergence of mobile graphics libraries such as Khronos \gls{GLES}, Vulcan and Open Scene Graph on Android\footnote{osgAndroid - original at \url{https://github.com/miragetech/osgAndroid}, extended by the second author at \url{https://github.com/CKehl/osgAndroid}}, as well as the continuously improving mobile graphics chipsets (e.g. Qualcomm Adreno, ARM Mali, NVIDIA Tegra), makes on-device rendering a feasible option for apps targeting field-based geosciences. Pinhead example software for field-based studies using mobile device graphics in some way are \textit{Open Water Levels} \cite{Kroehnert2017a}, \textit{\gls{GRIT}} \cite{Kehl2016_VGCabstract} and \textit{Outcrop} \cite{Viseur2014_VGCabstract}. Mobile graphics itself is still a hot topic within the principle science discipline of computer graphics, visualisation and virtual reality \cite{Rodriguez2012,Rodriguez2014,Garcia2015,Agus2017}. Scaling up the principle graphics lab results (in terms of data size, image resolution and texture utilisation), often demonstrated on small-extent individual objects in cultural heritage, to actual requirements within the geosciences is a prime challenge. Although mobile manufacturers provide more powerful devices to allow for more data and higher resolutions, these devices need to sacrifice capabilities such as hardware sensor availability as well as physical size and weight in order to provide larger memory space and higher-performance processors. Examples for this trade-off manufacturing can be seen in special-purpose and high-performance tablets such as NVIDIA Shield\footnote{NVIDIA Shield - \url{https://developer.nvidia.com/develop4shield}}, Project Tango (respectively: ARCore)\footnote{Google Augmented Reality - \url{https://developers.google.com/ar/}} and Google Pixel C\footnote{Google Pixel C- \url{https://www.android.com/tablets/pixel-c/}}. Another problem rarely considered in scientific literature on mobile graphics is power consumption, which is of pivot importance for field practitioners (see section \ref{sec:technology:power}). A specific problem that impacts geoscientists and domain experts with respect to on-device rendering settings is the trade-off between app responsiveness, image quality, hardware utilization and cross-device operability, illustrated in fig. \ref{fig:technology:graphics:imagingTrinity}.
+%
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=0.75\columnwidth]{graphics/ImagingTrinity}
+%\caption{Conflicting trinity of image (i.e. rendering) quality, rendering speed (a collective term is this context for special hardware utilisation and responsiveness) and interoperability (between devices of the same vendor as well as between vendors).}
+%\label{fig:technology:graphics:imagingTrinity}
+%\end{figure}
+%
+%In interviews conducted amongst field geologists at the dept. of earth science at the university of Bergen, a major demand by the target user base (i.e. domain experts and practitioners) of such mobile app is the interoperability between Android, Microsoft and Apple devices. This demand possibly originates from the platform-agnostic functioning of common geoscience software (e.g. \glspl{GIS}, geomodelling software) on desktop computers for Apple and Windows. On the other hand, app responsiveness and high image quality are amongst the next common priorities behind interoperability. Moreover, the interviewed geoscientists expect to receive visibly improved image quality- or functionality when advanced equipment (e.g. special-purpose tablets, novel- and high-performance tablets) is available. These demands are conflicting because making use of specialised hardware (e.g. \gls{GPU} Computing such as CUDA\footnote{CUDA - \url{https://developer.nvidia.com/cuda-zone}} for image processing \cite{Heymann2007,Hudelist2014}, texture compression \cite{Chait2015}) in turn means reducing the range of devices being able to operate the software. Still, these specialised technologies are key to achieve the required responsiveness and image quality.
+
+
+\section{Power consumption}
+\label{sec:technology:power}
+
+Power consumption is an important metric for mobile field applications, which is at the same time also distinct to the mobile device platform. This metric governs the operation time of an app in an outdoor field setting. In application domains such as field geology, the target operation time is in the range of \change{four to eight hours} without device recharging. The original operation time can be extended with external battery packs, although there is a limit of how many battery packs can be taken into the field before their total weight renders the mobile device impractical as a field tool.
+
+We measured the energy consumption of \textit{Open Water Levels} and \textit{\gls{GRIT}} in realistic settings for case studies in waterline detection and field interpretation. Measuring the power consumption on an app-specific level is not supported by default on mobile devices. Formerly, the power consumption has only been assessed on a hardware component level \cite{Carroll2010}. This study utilised the Trepn Profiler \footnote{Trepn Profiler - \url{https://developer.qualcomm.com/software/trepn-power-profiler}}, which is currently the only known app on Android devices that facilitate app-specific measurements. Trepn Profiler also allows for the simultaneous logging of technical indicators (e.g. \gls{GPU}- and \gls{CPU} load, memory consumption, \gls{CPU} temperature), which is used in this study to draw higher-level conclusions on the utilisation of the apps. The presented measurements were obtained on a Google Nexus 5 smartphone. Additional measurements have been obtained with a Samsung S8, which can be located in the supplementary data of this article.
+
+%In an initial test, we compare the power consumption relative to the \gls{CPU}- and \gls{GPU} load. Our initial hypothesis was that a higher \gls{GPU} load results in an increased power consumption compared to \gls{CPU}-dominated operations, because mobile \glspl{GPU} draw more power than \glspl{CPU} to realise the increased graphics performance. The results are shown for \gls{GRIT} and for Open Water Levels, split in \gls{CPU} (fig. \ref{fig:power:CPU_2D_contrast}) and \gls{GPU} (fig. \ref{fig:power:GPU_2D_contrast}) contributions.
+%
+%\begin{figure}[htbp!]
+%\begin{center}
+%	 	\begin{minipage}{\columnwidth}
+%	 		\centering
+%			\subfigure[Open Water Levels]
+%			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/OWL_Nexus5/Power_CPU_run2}\label{fig:power:CPU_2D_contrast:OWL}}
+%	 	\end{minipage}
+%	 	\begin{minipage}{\columnwidth}
+%	 		\centering
+%			\subfigure[GRIT]
+%			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure2D_Power_CPU}\label{fig:power:CPU_2D_contrast:GRIT}}
+%	 	\end{minipage}
+%	\caption{Diagram of power measurements with respect to the CPU load, comparing \textit{Open Water Levels} and GRIT in 2D mode. The less saturated lines show direct correlations between peak CPU load and peak power consumption, while fully saturated lines show missing peak correlations where they are expected.}
+%	\label{fig:power:CPU_2D_contrast}
+%\end{center}
+%\end{figure}
+%
+%\begin{figure}[htbp!]
+%\begin{center}
+%	 	\begin{minipage}{\columnwidth}
+%	 		\centering
+%			\subfigure[Open Water Levels]
+%			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/OWL_Nexus5/Power_GPU_run2}\label{fig:power:GPU_2D_contrast:OWL}}
+%	 	\end{minipage}
+%	 	\begin{minipage}{\columnwidth}
+%	 		\centering
+%			\subfigure[GRIT]
+%			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure2D_Power_GPU}\label{fig:power:GPU_2D_contrast:GRIT}}
+%	 	\end{minipage}
+%	\caption{Diagram of power measurements with respect to the GPU load, comparing \textit{Open Water Levels} and GRIT in 2D mode. The less saturated lines show good peak correlations between GPU load and power consumption; the tagged, fully saturated line shows a missing peak correlation. Compared to fig. \ref{fig:power:CPU_2D_contrast}, the majority of missing peak correlations from the CPU band are explained by increased GPU utilisation.}
+%	\label{fig:power:GPU_2D_contrast}
+%\end{center}
+%\end{figure}
+
+\change{Our tests involve the quantification of energy consumption contribution from application-specific tasks that relate to \gls{CPU} and \gls{GPU} usage. \gls{GPU} usage is mostly related to image-space operations in 2D, such as the the image presentation and image-related operations (e.g. waterline delineation, geological boundary delineation). In 3D, the \gls{GPU} is responsible for 3D base data rendering and on-device image-to geometry registration (see section \ref{sec:algorithms}). The \gls{CPU} is responsible for the all non-graphical tasks as well as data loading, photo capturing and mobile sensor management. The dependency of power consumption, \gls{CPU} load and \gls{GPU} load is shown in figures \ref{fig:power:Power_CPU_GPU_OWL:2D} and \ref{fig:power:Power_CPU_GPU}.}
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/OWL_Nexus5/Power_GPU_CPU_run2}
+\caption{Integrated diagram of power consumption, CPU- \& GPU load of \textit{Open Water Levels} in 2D mode.}
+\label{fig:power:Power_CPU_GPU_OWL:2D}
+\end{figure}
+
+\begin{figure}[htbp!]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[2D mode]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure2D_Power_CPU_GPU}\label{fig:power:Power_CPU_GPU:2D}}
+	 	\end{minipage}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[3D mode]
+			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure3D_Power_CPU_GPU}\label{fig:power:Power_CPU_GPU:3D}}
+	 	\end{minipage}
+	\caption{Integrated diagram of power consumption, CPU- \& GPU load of GRIT in 2D- \& 3D mode. Particular operations, such as image rendering and interpretation editing, are interpreted within the bands as they result in a distinct \gls{CPU}--\gls{GPU} behaviour.}
+	\label{fig:power:Power_CPU_GPU}
+\end{center}
+\end{figure}
+
+In both apps, a clear dependency with \gls{CPU} load and power consumption is observable. In Open Water Levels, one can observe the reoccurring ''double-hump`` series within CPU process and power consumption, whereas \gls{GRIT} displays a more irregular peak distribution with direct correlations. We can therefore conclude that the mobile processors adapt their clock frequency when less operations are performed, which leads to a reduced power consumption. When comparing \gls{CPU}-related and \gls{GPU}-related states, we conclude that while the \gls{CPU} drives the average power consumption, the GPU (being used for rendering images and annotations within them) drives the peak power consumption.
+
+%\Gls{GRIT} has two distinct sets of operations, each dominated by either 2D- or 3D tasks, which makes a difference in the ratio of \gls{CPU} load to \gls{GPU} load. The 2D operation mode includes tasks such as photo acquisition and the image-based photo interpretation, whereas the 3D operations include the image-to-geometry registration \cite{Kehl2017_VGC} and the 3D outcrop viewing. Previous figures \ref{fig:power:CPU_2D_contrast:GRIT} and \ref{fig:power:GPU_2D_contrast:GRIT} depict the 2D-dominated cases, whereas fig. \ref{fig:power:CPU_GPU_3D} shows the power consumption relationships in 3D-dominated cases.
+%
+%\begin{figure}[htbp!]
+%\begin{center}
+%	 	\begin{minipage}{\columnwidth}
+%	 		\centering
+%			\subfigure[Power to CPU]
+%			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure3D_Power_CPU}\label{fig:power:CPU_GPU_3D:OWL}}
+%	 	\end{minipage}
+%	 	\begin{minipage}{\columnwidth}
+%	 		\centering
+%			\subfigure[Power to GPU]
+%			{\includegraphics[keepaspectratio, width=0.95\columnwidth]{graphics/GRIT/Measure3D_Power_GPU}\label{fig:power:CPU_GPU_3D:GRIT}}
+%	 	\end{minipage}
+%	\caption{Diagram of power measurements with respect to the CPU- \& GPU load of GRIT in 3D mode.}
+%	\label{fig:power:CPU_GPU_3D}
+%\end{center}
+%\end{figure}
+
+Figure \ref{fig:power:Power_CPU_GPU_OWL:2D} visualises the relationship of power consumption, \gls{CPU}, as well as \gls{GPU} for 2D data processing in \textit{Open Water Levels}. For water line detection, a spatio-temporal texture must be calculated using time lapse images. Thus, the CPU load locally exceeds and falls significantly for each single frame processing (here 15 peaks for 15 images). Unlike \gls{CPU} behaviour, \gls{GPU} load is steadily increasing while storing each co-registered image. After image processing, both \gls{CPU} as well as \gls{GPU} load are released whereas app modifications via the user interface leads, as expected, once more to higher loads.
+
+\change{When comparing fig. \ref{fig:power:Power_CPU_GPU:2D} and fig. \ref{fig:power:Power_CPU_GPU:3D}}, the 3D operations result in a drastic energy cost, raising the average power consumption by around 1220.21 mW. In contrast to novice expectation, the \gls{CPU} load also increases in a 3D data processing setting because the main processors delivers the geometric- and texture data to the \gls{GPU}. Additionally, the \gls{CPU} needs to decompress the \change{image textures}, resulting in a higher processing load.
+
+The conclusions of this power consumption study for field apps is manifold. We obtained benchmark measurements for specific target apps in hydrology (\textit{Open Water Levels}) and geology (\gls{GRIT}), and explained how to replicate the study on Android devices with other field apps in the future. For \textit{Open Water Levels}, the app can be operated on an average of of 1090.41 milliampere per hour (natively measured in milliampere), allowing a theoretical operability of 2.11 hours on the Google Nexus 5. For \gls{GRIT}, we have to distinguish between the mode in which it is operated: when conducting 2D operations, the app consumes 568.50 milliwatt per hour, which results in an operation time of 14.56 hours at an average current of 3.6V. When making full use of the 3D capabilities of \gls{GRIT} all the time, the average power consumption rises to 1788.80 milliwatt per hour, which results in an operation time of only 4.63 hours at an average current of 3.6V. The applied current for the GRIT measurements is of theoretical nature, applied because the measurements were taken in watt exclusively while the battery capacity of mobile devices is commonly given in milliampere hours (mAh). Furthermore, we highlight these measurements as being the \textit{theoretical} operation time because most users have other apps and background services open on their mobile device that simultaneously consume power, further reducing the operation time. Lastly, as stated by Carroll et al. \cite{Carroll2010}, the app-specific consumption (in particular with ''visual apps`` and the sensor applications) also depends on the screen brightness and the sensor usage. Key measures on power consumption, and related metrics of processor temperature and memory usage, are given in table \ref{table:power:GRIT} for \gls{GRIT} and table \ref{table:power:OWL} for \textit{Open Water Levels}.
+
+\begin{center}
+\begin{longtable}[HT]{| l | p{2.5cm} | p{2.5cm} |}
+	\caption{Average measurements of GRIT}
+	\label{table:power:GRIT}
+	\endhead
+%\begin{center}
+	%\centering
+	%\begin{tabular}{| l | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} |}
+		\hline
+		metric & 2D ops. & 3D ops. \\ \hline
+		power consumption [mW/h] & 568.59 & 1788.80 \\ \hline
+		power consumption [mA/h \@ 3.6V] & 157.94 & 496.89 \\ \hline
+		memory usage (avg.) [GB] & 1.746 & 1.721 \\ \hline
+		temperature [$^{\circ}$C] & 49.91 & 52.05 \\ \hline
+\end{longtable}
+\end{center}
+
+\begin{center}
+\begin{longtable}[HT]{| l | p{2.5cm} | p{2.5cm} |}
+	\caption{Average measurements of \textit{Open Water Levels}}
+	\label{table:power:OWL}
+	\endhead
+%\begin{center}
+	%\centering
+	%\begin{tabular}{| l | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} |}
+		\hline
+		metric & Google Nexus 5 & Samsung S8 \\ \hline
+		power consumption [mA/h] & 1090.41 & ? \\ \hline
+		memory usage (avg.) [GB] & 1.543 & ? \\ \hline
+		temperature [$^{\circ}$C] & 58.55 & ? \\ \hline
+\end{longtable}
+\end{center}
+
+In more general terms, the study shows that \change{application domain practitioners} need to be aware of what data they are dealing with in order to get the maximum operation time and most efficient workload done during the field study. This will have implications for fieldwork planning for expert users and practitioners, as they can modify their study plan to first collect \change{photos and observations} from several viewpoints of their study objective and then use 3D operation features ''in burst`` for visual checks and data interrogation before moving on to \change{the next} study locations. Insufficient planning and an overuse of 3D field app features can reduce the effective ''digital fieldwork`` time using \gls{GRIT} to 9.26 hours at best when carrying one external battery pack. Also, with this measure we want to highlight that the operation time error in the measurements is significant because we need to assume an average current of 3.6V, which may be far off when comparing the measurements to \textit{Open Water Level}.
+
+[SHORTENED AND REARRANGED UNTIL HERE]
+
+\section{Applications and Requirements}
+\label{sec:applications}
+Due to the increasing usability of mobile devices for field study annotations, several use cases concerning geosciences has become apparent. In the following, two \textcolor{blue}{Chris: or three} key applications are subsequently presented: water level gauging through field observations for small and medium-sized catchments, geological interpretation of sedimentary features in field geology, and the use of mobile devices in virtual field trips.
+
+\subsection{Derivation of hydrological parameters: Water level gauging}
+\label{sec:water_level_gauging_intro}
+The past decade is characterized by a continued increase of globally devastating flash floods after heavy rainfalls. Even smallest creeks turned into hazardous streams resulting in floodings and landslides. Conventional gauging stations provide precise information about water levels measured over short time periods. State of the art techniques for administrative water gauging comprise water pressure sensors, floating gauges and conventional tide gauges. They are characterised by long-term stability and outdoor robustness providing accuracies of several millimetres up to one centimetre \cite{Siedschlag2015}. Averaged over defined time intervals, it is advisable to remain cautious regarding these accuracies possibly being too optimistic \cite{Horner2018}. Because of high costs in purchase and maintenance, gauging stations with their complex sensing devices must be sparsely installed. A prime example here is the hydrological network in Saxony, Germany where 184 gauging stations are installed for permanent observation on 154 of 259 rivers rising from small, medium and large catchments\footnote{see Saxon Flood Centre, Water Levels \& Flow Rates \url{https://www.umwelt.sachsen.de/umwelt/infosysteme/hwims/portal/web/wasserstand-uebersicht}} \cite{Buettner2015}. Thus, around a third is not monitored neither during flood events when the most protection is required. Recently, commercial smartphone applications arose to provide tools for crowd sourcing-based water level estimation (see \cite{CrowdWaterApp2017a,Kisters2014} for details). All of them have one thing in common: the water level is entered manually by engaged citizens who photograph tide gauges close to rivers that presents potential danger to themselves. Beside this, the technique is still limited to open and visible gauges.
+
+Improvements can be achieved by the registration of situation-dependent images to 3D point surfaces  for automatic water level determination on running waters without requiring reference gauges. 
+For this, the Android application \textit{Open Water Levels} is developed, which uses the freely available open source camera framework \textit{Open Camera}\footnote{see Open Camera, \url{https://sourceforge.net/projects/opencamera/}, used version 1.3.8}. \textit{Open Water Levels} allows for free stationing water level detection using short, handheld time-lapse image sequences \cite{Kroehnert2017a}. 
+
+As figured out in section \ref{sec:technology:sensors}, a good approximation of extrinsic parameters is a basic prerequisite for successful 3D annotation whereby precision and stability is strongly correlated with measuring environment. Especially magnetic perturbations affecting user's orientation (see section \ref{sec:technology:sensors:sensitivity}) can represent a special problem (e.g. due to metallic railings close to rivers). The issue can be circumvented for stationary perturbation sources by re-calibration of magnetic sensors just before the measurement, as it is often been done for advanced car navigation. Unfortunately, the magnetic strengths attaching the phone may change substantially in short time especially in natural or urban environments. A typical scenario might look like this: a citizen scientist walks along street, carrying his phone in a baggage close to a bunch of keys. He passes several street lamps, signs, etc. Finally, he arrives at a bridge over a urban river, takes out the phone, looks down to the river and records the time lapse image sequence a few centimetres above a metallic railing. Meanwhile, several cars passing the same bridge. In this simple use case, the magnetic field around the smartphone changes countless times due to several unpredictable disturbances. Described in section \ref{sec:technology:sensors:sensitivity}, image to geometry registration is very error-prone for inaccurate exterior parameters except roll angle. The reason for this lies in rendering a synthetic image from coloured 3D reference point clouds using a person's location and orientation (see \ref{sec:algorithms:I2G}). Thereby, heading and pitch mainly define the depth direction, incorrect angles provide a false viewing direction resulting in a synthetic image that has little-to-no similarity with the time lapse sequence. Consequently, the water level detection will fail or give false results caused by adverse inlier distribution in image matching that impedes a correct positioning (e.g. when images have too little overlap). Described in section \ref{sec:technology:sensors:location_sensitivity}, inbuilt \gls{GNSS} receivers should be considered as another major source of error for 3D annotation. In urban scenes with several shadow effects due to high-rise buildings, as well as in situations of heavy cloud coverage, errors of several metres in latitude and up to more than 30 metres in altitude are highly possible. However, assistance is provided by external data sources and it is very likely that, in the near future, smartphone \gls{GNSS} modules are rolled out, solving lateral accuracies of 50 centimetres \cite{Moore2017}. Thus, having internet connection is indispensable but not a problem in urban environments. It is worth mentioning that UMTS/LTE are furthermore needed to enable online water line processing after transmitting a compressed package containing the master image, the derived water line in 2D space and some meta data to describe the prevalent object scene.
+
+%\textcolor{blue}{Chris: here again - DEM or DSM ? Do you refer to maps for deriving the altitude, or to your 3D base data for the annotation ? If the latter - can you change it to something more like "3D base data" ? In a geometric sense, as given in section 3, a point cloud is hardly considered a DSM. This MAY be different in the German photogrammetric community with the "digitales Oberflächenmodel" - but I also don't know who introduced that term there. Geometrically and mathematically, the usage of DSM for point sets is wrong and so, if we can replace the DSM term here -- also because I never know if you refer to an altitude map reference or your 3D base data -- by something more specific, that would be really awesome.}
+For now, an issue is the free-access availability of 3D representations captured close to rivers with focus on shore environment. However, first attempts from Google Street View to cover near shore environments by river cruises are published\footnote{USA Today - Google Maps launches 'river view' of Grand Canyon, \url{https://www.usatoday.com/story/tech/personal/2014/03/13/google-maps-grand-canyon-colorado-river/6339489/}}. In the future, this option is expected to expand to other rivers on a global scale. Furthermore, some research projects deal with autonomous river crossing to acquire hydrological parameters as well as shore land information in short timespans \cite{Sardemann2018}. Thus, 3D point sets can be acquired very fast (e.g. using \gls{LiDAR} or \gls{SfM}) covering the same place at different times to deal with multiple representations caused by season-dependent vegetation, snow coverage or changed illumination due to the ambient conditions at specific times of the day. Referring to this, issues in image-to-geometry registration still remain when the visual appearances of both, the photo and the synthetic image, vary widely (e.g. strong back lighting or shadows that let appear everything totally black). 
+
+
+
+
+
+
+
+\subsection{Field Geology}
+\label{sec:applications:field_geology}
+
+The goal of geological fieldtrips is to gather insight in the rock record and the structural- and sedimentary rock architecture of a given location. Rock architecture can be studied within subsurface seismic records, but this approach suffers from inferior imaging resolutions and physical limitations of the surveying technique. Therefore, surface outcrops are used for the study. Outcrops can be scanned with modern equipment (e.g. \gls{LiDAR} \cite{Buckley2008a,Buckley2010}, drones \cite{Dewez2015} and \gls{SfM} \cite{Chandler2016}) to generate digital surface representations. The most common representations of digital outcrops are coloured point clouds and textured \glspl{TIN}.
+
+The geological aspect is introduced by interpreting the outcrop models. In this case, interpretations refer to (i) line marks for separating stratigraphic layers, (ii) surface-projected polygons to highlight structural- and sedimentary facies or specific architectural elements and (iii) minor ticks (e.g. lines, points, patterns) to indicate supplementary attributes such as deposition orientation or grain geometry. The interpretations was, until recently, performed in a two-step process: sketches are drawn by hand in a dedicated fieldbook to document the geologist's observation of the architecture. After the fieldtrip, the observations are digitised in the office by transferring the sketched architecture on the available digital outcrop. From there on, further study goals (e.g. geomodelling) are pursued. As recently published, this workflow is currently being transformed into an integrated digital workflow in the field using mobile devices (see \cite{Kehl2018_AGU} for further details).
+
+Geological interpretations can be documented on various scales, but from observations of the author most interpretations are conducted on medium-range. This results in an average observation distance for architectural interpretations of between $100m$ to $500m$ to document individual depositional elements, and further distances of around $400m$ to $1400m$ to document the overall stratigraphic framework of an outcrop. These distances can vary to some degree depending on the physical accessibility of an outcrop. Therefore, as a result of perspective observations, the required lateral localisation accuracy is in the range of $\leq 2.5m$ for the individual element setting and $\leq 8m$ for the wide-angle stratigraphic setting. While achieving the former resolution can still be challenging with mobile sensors (see section \ref{sec:technology:sensors:localization}), the latter resolution is almost guaranteed for \gls{GPS} localisation. The more important problem is in the vertical resolution: the vertical position has, especially in close-distance observations, a drastic impact on the view perspective. Even more important, a vertical localisation error of  $\geq 1.5m$ may result in positioning the mobile device ''under ground'', making any image-based registration impossible. It is this vertical accuracy that is crucial for mobile device interpretation systems to work. Several improvements, such as \glspl{DEM} and barometric altitude \cite{Kehl2017_VGC}, have been proposed to reduce the vertical positioning error (see section \ref{sec:technology:sensors:localization}). There is still room for novel research proposals to provide more accurate vertical positioning or ground-based constraints on the altitude estimation.
+
+One of the dominant challenges for digital field geology is the free availability of 3D surface models. Currently, research groups in the domain (e.g. from the University of Manchester \cite{Hodgetts2013}, Durham University \cite{McCaffrey2005}, University of Aberdeen \cite{Howell2014}, University of Bergen and UniResearch CIPR \cite{Dreyer1993}) are building their own digital outcrop databases. Due to the strong industry involvement, these and other databases (see SAFARI \cite{Dreyer1993} and FAKTS \cite{Colombera2012a}) are excluded from public access. Recent developments aim at providing digital outcrops in an open-access manner \cite{Cawood2018} to resolve the issue. Furthermore, due to the vertical positioning problem above, easy access to high- and medium resolution \glspl{DEM} is important. As demonstrated by recent measurements, the usage of \glspl{DEM} has a significant influence on the projection accuracy of image-based interpretation on mobile device towards 3D surface models \cite{Kehl2017_VGC}.
+
+One particular challenge in digital field geology is the treatment of environmental changes. Digital outcrops are infrequently collected and the textured models are used for field study all across the year. Therefore, in image registration terms, there is a drastic difference in local illumination, moisture content as well as fog and snow between acquired 3D surface models and the outcrop images collected during field trips. The issue has been previously discussed in terms of illumination differences \cite{Kehl2017_PHOR}, but drastic changes in terms of fog and moisture are still problematic to treat in an automatic, computational manner. Therefore, it is advisable to collect digital outcrop models for prominent locations in different seasonal conditions to allow for variety in model selection when planning field trips.
+
+Currently available systems that provide digital outcrop interpretation capabilities on mobile devices in 3D include \gls{GRIT} \cite{Kehl2016_VGCabstract} and Outcrop \cite{Viseur2014_VGCabstract}, though earlier prototypes have been demonstrated \cite{Hama2013}. Outcrop, developed by \gls{CEREGE} at Aix-Marseille Universit\'{e}, is a mobile device app for Android devices that is able to load and process various forms of numerical outcrops. Its major focus is the documentation of structural features (e.g. fault areas, fractures and rock deformations) on outcrops using line interpretations. Furthmore, it is possible to pin extended note annotations to the model. \gls{GRIT}, developed as a collaboration between UniResearch AS CIPR, University of Bergen, University of Aberdeen and \gls{CEREGE}, is a mobile app for Android devices that can handle large-area digital outcrops of tens of kilometres in surface length in 3D. Its major focus is the documentation of the sedimentary- and stratigraphic architecture (e.g. strata boundaries, depositional object envelopes, facies areas) on outcrops via lines, polygons and brushes. The interpretations are mapped in a 2D--3D interplay between outcrop surface and field photograph.
+
+\begin{figure}[htbp]
+\begin{center}
+	 	\begin{minipage}{\columnwidth}
+	 		\centering
+			\subfigure[\gls{GRIT}]
+			{\includegraphics[keepaspectratio, width=0.44\columnwidth]{graphics/Calvisson00}\label{fig:field_geology:GRIT}}
+			\subfigure[Outcrop]
+			{\includegraphics[keepaspectratio, width=0.44\columnwidth]{graphics/outcrop}\label{fig:field_geology:Outcrop}}
+	 	\end{minipage}
+	\caption{Visual comparison between two 3D mobile apps for \gls{DOM} interpretation, namely \gls{GRIT} (a) and Outcrop (b), with a model of the Calvisson quarry (Calvisson, d\'{e}partement Gard, r\'{e}gion Occitanie, France). Images taken from \cite{Kehl2017_PhDThesis}.}
+	\label{fig:field_geology}
+\end{center}
+\end{figure}
+
+\subsection{Virtual Field Trips}
+\label{sec:applications:virtual_field_trip}
+
+\begin{itemize}
+\item recap: task to be solved
+\item main requirements for (location- and orientation) sensor accuracy and geometric accuracy
+\item specific requirements to this use case: data availability; illumination; network inavailability
+\item available approach to address the task
+\end{itemize}
+
+%\subsection{The digital fieldbook}
+%
+%\begin{itemize}
+%\item recap: task to be solved
+%\item main requirements for (location- and orientation) sensor accuracy and geometric accuracy
+%\item specific requirements to this use case: device range to cover; data integration; no network
+%\item available approach to address the task
+%\end{itemize}
+
+
+\section{Conclusions and Discussion}
+\label{sec:conclusions}
+
+This article assessed the possibility of interactive interpretation and annotation of 3D surfaces (pre-acquired by \gls{TLS}, drones or \gls{SfM}) on mobile devices in multiple geoscientific domains. Due to the research effort in recent years, novel mobile applications such as \textit{Open Water Levels} for surface hydrology and \textit{\gls{GRIT}} for field geology were introduced to the community to bridge the gap between lab assessment and outdoor field work for data annotation and interpretation. This article also showed further application areas that build upon mobile device technology and the interactive annotation of 3D surface data for geoscientific problem solving.
+
+McCaffery et al. proposed the use of mobile devices for field interpretation in geology in 2005 \cite{McCaffrey2005}. The technological specifics of mobile device app development hampered the progress on this goal for years -- for geology as well as other branches of the geosciences. Only recent advancements in efficient treatment of 3D data \cite{Kroehnert2017b}, algorithmic proposals for image-to-geometry registration (see \citep{Gauglitz2014,Kehl2017_VGC}) and on-device 3D rendering (as presented in \cite{Agus2017} and in this article for point-based surfaces) specifically designed for mobile devices, make the actual use for mobile apps in the field possible. The utilisation of crowdsourced \gls{VGI} and the introduction of mobile devices as low-cost measuring devices for real-world problems \cite{Eltner2017} contribute to the acceptance of this mobile device technological development within the geoscientific community. Computer Vision challenges such as image registration under changing illumination conditions and with reduced image resolution can be viewed as ''sufficiently solved`` to make photogrammetric- and vision-based algorithms applicable to real-world outdoor settings, while still leaving space for improvement and quality and performance. Potentially significant improvement will be achieved in the future when an increasing number of advanced algorithms in numerics, graphics and vision (e.g. NEWUOA \cite{Powell2006}, out-of-core rendering \cite{Borgeat2005}, \gls{MI} \cite{Viola1997}) are ported to mobile platforms (e.g. Android). This allows realising the most state-of-the-art techniques on mobile devices that require the additional precision and performance, instead of being limited by the small function collections currently available.
+
+The measurements presented in this article as well as its related studies suggest that localisation and orientation of mobile device sensors with respect to the application-specific accuracy requirements is a persisting challenge. The sensors employed by low-cost devices have accuracy limitations. Sensor filtering- and fusion techniques are required to even moderately consider the use of such sensor data. Environmental effects such as device-internal heating processes and the system-internal handling of sensor initialisation further complicate the calibration of such sensors without user involvement.
+
+Furthermore, this study gives a representative overview about the energy consumption of mobile apps employing 3D surfaces, computer vision and computer graphics procedures. It was shown that the distinction between 2D- and 3D data used by mobile apps significantly drives the power consumption, and therefore the operation time of the mobile field apps during a study. Means of reducing the power consumption in the future have, next to extended periods of app use by domain experts, beneficial secondary effects: power-reduced main functions of the mobile app allow energy-expensive \gls{SLAM} techniques to be used for sensor data augmentation. %While bringing the visual data acquired by \gls{SfM}, drones, \gls{LiDAR} and satellites to the field allows direct data interpretation and eliminates the need for subsequent, tedious digitalisation, it requires a degree of planning from the expert user to avoid unnecessary power drainage. For crowdsourced hydrological waterlines, 
+
+This article also compared two specific apps, namely \textit{Open Water Levels} and \textit{\gls{GRIT}}. Both software applications are working on different data structures but, in the end, utilise the same process -- namely image-to-geometry registration and user-selected corner point surface intersection -- to generate surface-based annotations and interpretations. A persisting challenge with respect to the relation between power consumption and sensor accuracy is the user feedback: it is currently rarely possible to guarantee the user a correct pose estimation for his base photo, be it individual image or time lapse, upon which annotations and interpretations are done. On mobile devices,  it is important to provide the software user early (visual) feedback about the prospective success and quality, so that potential image capture repetitions can be decided early. This is also in the interest of power conservation on mobile devices by only expending computing power where necessary. Early steps in this direction have been taken \cite{Kehl2017_VGC}, but there is considerable room for improvement.
+
+Lastly, the treatment of vegetation within scanned- and photographed data during mobile field studies remains a challenge in the context of interactive interpretation. 3D reference data are obtained less frequent than they are used in a given outdoor setting. Vegetation itself is visually dynamic content that complicates image registration to existing 3D data, which complicates interpretations in common outdoor settings. While current procedures of data processing try to segment and remove vegetation data from scans, it leaves the mobile device app with less information to work with when registering photos. Therefore, proposing means of 3D topographic data processing that homogenizes vegetation in 3D scans and photos without removing the related data will have an impact on accurate outdoor photo registration on 3D base data.
+
+%which problems are sufficiently solved ? 
+%which challenges remain that have already been discussed
+
+%\section{Discussion}
+%\label{sec:discussion}
+
+%\begin{itemize}
+%\item porting existing desktop algorithms on mobile devices [quick and fast]
+%\end{itemize}
+
+\section*{Acknowledgements}
+First, we would like to thank M.Sc. Richard Boerner from TU Munich, Germany for his assistance with the development of an alternative approach for synthetic image generation using perspective 3D--to--2D image projection with respect to object space definition and to solve for point occlusions (see section \ref{sec:algorithms:pbr}). Furthermore, we want graduate the European Social Fund and the Free State of Saxony for their financial support (funding no. 100235479).
+
+\section*{References}
+
+\bibliography{KroehnertKehl2018_MobileDigitalGeosciences}
+
+\newpage
+\textbf{Highlights} \\
+\begin{itemize}
+\item A conclusive overview of mobile device applications in surface hydrology and field geology using 3D data directly for interpretation and annotation
+\item A detailed study of power consumption of 3D mobile geoscience apps and an assessment of functionality that impact power consumption and field operation time
+\item A novel, application-specific point-based rendering scheme for topographic data for surface hydrology measurements using image-to-geometry intersection
+\item A comprehensive overview of current and future applications of 3D mobile device technology in outdoor field settings, including water level gauging, field geology interpretation and virtual field trips
+\item A clean explanation of how computational algorithms, hardware capability and the available mobile device technology impact outdoor field applications in the geosciences
+\end{itemize}
+
+\end{document}
